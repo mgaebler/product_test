@@ -36,6 +36,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # 3rd party
+    'django_thumbor',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -81,3 +84,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+## THUMBOR SETTINGS
+# The host serving the thumbor resized images
+THUMBOR_SERVER = 'http://localhost:8888'
+
+# The prefix for the host serving the original images
+# This must be a resolvable address to allow thumbor to reach the images
+THUMBOR_MEDIA_URL = 'http://localhost:8000/media'
+
+# The same security key used in the thumbor service to
+# match the URL construction
+THUMBOR_SECURITY_KEY = 'MY_SECURE_KEY'
+
+# Default arguments passed to the `generate_url` helper or
+# the `thumbor_url` templatetag
+THUMBOR_ARGUMENTS = {}
