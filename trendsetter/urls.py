@@ -4,7 +4,8 @@ from django.views.generic import TemplateView
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^$', TemplateView.as_view(template_name='index.jade'), name='home'),
+    url(r'^$', TemplateView.as_view(template_name='index.jinja'), name='home'),
+    url(r'^foo/$', TemplateView.as_view(template_name='index.html'), name='foo'),
     # url(r'^blog/', include('blog.urls')),
     url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
     url(r'^admin/', include(admin.site.urls)),
