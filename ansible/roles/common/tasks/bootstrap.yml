@@ -1,0 +1,20 @@
+---
+- name: update apt cache
+  raw: apt-get update
+  sudo: true
+  tags: bootstrap
+
+- name: install ansible prerequisites
+  raw: apt-get install python-apt python-keyczar python-pycurl -y
+  sudo: true
+  tags: bootstrap
+
+- name: mark bootstrapped
+  raw: touch /tmp/bootstrapped
+  sudo: true
+  tags: bootstrap
+
+- name: install bashrc skel
+  copy: src=skel_bashrc dest=/etc/skel/.bashrc
+  sudo: true
+  tags: bootstrap

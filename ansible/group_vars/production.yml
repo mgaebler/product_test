@@ -1,0 +1,6 @@
+---
+- deploy:
+  user: deploy
+  basedir: "/var/www"
+
+newrelic_license_key: 2dc38681e41eb933eeb515782b63e86f6fe4d587

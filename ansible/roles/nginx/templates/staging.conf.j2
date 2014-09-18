@@ -1,0 +1,72 @@
+upstream {{ staging_app.id }} {
+  server unix:///var/www/{{ staging_app.name }}/shared/tmp/sockets/puma.sock;
+  keepalive 4;
+}
+
+server {
+  listen 80;
+  server_name {{ staging_app.domain }};
+
+  keepalive_timeout 5;
+
+  client_max_body_size 10M;
+  client_body_buffer_size 5M;
+
+  # path for static files
+  root /var/www/{{ staging_app.name }}/shared/public;
+  access_log /var/www/{{ staging_app.name }}/shared/log/production.access.log timed;
+  error_log /var/www/{{ staging_app.name }}/shared/log/production.error.log info;
+  
+  error_page 404 /404.html;
+  error_page 500 502 503 504 /500.html;
+
+  # this rewrites all the requests to the maintenance.html
+  # page if it exists in the doc root. Use with:
+  #   cap production maintenance:enable
+  if (-f /var/www/{{ staging_app.name }}/shared/public/system/maintenance.html) {
+    rewrite  ^(.*)$  /system/maintenance.html last;
+    return 503;
+    break;
+  }
+
+  location @{{ staging_app.id }} {
+    proxy_intercept_errors on;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_pass http://{{ staging_app.id }};
+  }
+  
+  location / {
+    satisfy any;
+
+    allow 217.111.7.30;
+    allow 217.111.7.29;
+    allow 78.46.196.238;
+    deny all;
+
+    auth_basic "staging";
+    auth_basic_user_file "/etc/nginx/{{ staging_app.name }}.htpasswd";
+
+    proxy_intercept_errors on;
+    try_files $uri $uri/index.html $uri.html @{{ staging_app.id }};
+  }
+  
+  location ~ ^/assets/$ {
+     expires max;
+     break;
+  }
+  
+  location = /500.html {
+    root /var/www/{{ staging_app.name }}/shared/public;
+  }
+}
+
+{% if staging_app.additional_domains %}
+server {
+  listen 80;
+  server_name {{ staging_app.additional_domains }};
+
+  return 301 http://{{ staging_app.domain }}$request_uri;
+}
+{% endif %}

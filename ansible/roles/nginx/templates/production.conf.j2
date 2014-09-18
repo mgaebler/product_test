@@ -1,0 +1,76 @@
+upstream {{ app.id }} {
+  server unix:///var/www/{{ app.name }}/shared/tmp/sockets/puma.sock;
+  keepalive 4;
+}
+
+server {
+  listen 80 default_server;
+  server_name {{ app.domain }};
+
+  keepalive_timeout 5;
+
+  client_max_body_size 10M;
+  client_body_buffer_size 5M;
+
+  # path for static files
+  root /var/www/{{ app.name }}/shared/public;
+  access_log /var/www/{{ app.name }}/shared/log/production.access.log timed;
+  error_log /var/www/{{ app.name }}/shared/log/production.error.log info;
+
+  error_page 404 /404.html;
+  error_page 500 502 503 504 /500.html;
+
+  # this rewrites all the requests to the maintenance.html
+  # page if it exists in the doc root. Use with:
+  #   cap production maintenance:enable
+  if (-f /var/www/{{ app.name }}/shared/public/system/maintenance.html) {
+    rewrite  ^(.*)$  /system/maintenance.html last;
+    return 503;
+    break;
+  }
+
+  location @{{ app.id }} {
+    proxy_intercept_errors on;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_pass http://{{ app.id }};
+  }
+
+  location / {
+{% if app.restricted_access is defined and app.restricted_access %}
+    # until public release
+
+    satisfy any;
+
+    allow 217.111.7.30;
+    allow 217.111.7.29;
+    allow 78.46.196.238;
+    deny all;
+
+    auth_basic "restricted";
+    auth_basic_user_file "/etc/nginx/{{ app.name }}.htpasswd";
+{% endif %}
+
+    try_files $uri $uri/index.html $uri.html @{{ app.id }};
+  }
+
+  location ~ ^/assets/$ {
+     expires max;
+     break;
+  }
+
+  location = /500.html {
+    root /var/www/{{ app.name }}/shared/public;
+  }
+
+}
+
+{% if app.additional_domains %}
+server {
+  listen 80;
+  server_name {{ app.additional_domains }};
+
+  return 301 http://{{ app.domain }}$request_uri;
+}
+{% endif %}

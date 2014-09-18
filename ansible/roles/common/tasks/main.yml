@@ -1,0 +1,89 @@
+- stat: path=/tmp/bootstrapped
+  register: bootstrapped
+  tags: bootstrap
+
+- include: bootstrap.yml
+  when: bootstrapped.stat.exists == false or bootstrapped.stat.isreg == false
+
+- name: add backports repo
+  apt_repository: repo='deb http://ftp.de.debian.org/debian wheezy-backports main' state=present
+  sudo: true
+
+- name: enable UTF-8 locale
+  lineinfile: dest="/etc/locale.gen" line="en_US.UTF-8 UTF-8" state=present create=yes
+  sudo: true
+
+- name: generate locales
+  shell: locale-gen
+  sudo: true
+
+- name: update default locale
+  shell: update-locale LC_ALL=en_US.utf-8 LC_CTYPE=en_US.utf-8 LANG=en_US.utf-8 LANGUAGE=en_US.utf-8
+  sudo: true
+
+- name: ensure default locale is loaded
+  lineinfile: dest="/etc/profile" line="source /etc/default/locale" state=present create=yes
+  sudo: true
+
+- name: update apt cache
+  apt: update_cache=yes cache_valid_time=600
+  sudo: true
+
+- name: install required packages
+  apt: pkg={{ item }} state=latest
+  sudo: true
+  with_items:
+    # utilities
+    - htop
+    - vim
+    - git
+    - wget
+    - curl
+    - ruby1.9.3
+    - rubygems1.9.1
+    # rubinius dependencies
+    - git
+    - gcc
+    - g++
+    - automake
+    - flex
+    - bison
+    - ruby1.9.1-dev
+    - llvm-dev
+    - zlib1g-dev
+    - libyaml-dev
+    - libssl-dev
+    - libgdbm-dev
+    - libreadline-dev
+    - libncurses5-dev
+    - libmagickwand-dev
+    # app/build dependencies
+    - gettext
+    - nodejs  # for execjs
+    - libmysqlclient-dev  # for mysql2 gem
+    # db
+    - libsqlite3-dev
+    - ffmpeg
+    - ffmpegthumbnailer
+
+- name: add newrelic repo
+  apt_repository: repo="deb http://apt.newrelic.com/debian/ newrelic non-free" state=present
+  sudo: true
+
+- name: trust new relic repo key
+  shell: wget -O /tmp/newrelic.gpg https://download.newrelic.com/548C16BF.gpg; apt-key add /tmp/newrelic.gpg
+  sudo: true
+
+- name: install newrelic-sysmond
+  apt: pkg=newrelic-sysmond state=latest update_cache=yes cache_valid_time=600 force=yes
+  sudo: true
+
+- name: configure newrelic
+  shell: nrsysmond-config --set license_key={{ newrelic_license_key }}
+  sudo: true
+  when: newrelic_license_key is defined
+
+- name: start newrelic-sysmond
+  service: name=newrelic-sysmond state=started
+  sudo: true
+  when: newrelic_license_key is defined
