@@ -22,11 +22,23 @@ SECRET_KEY = 'hvsz57&*mt(_p1$=#!%8eeo4jzl(v%k3wjsdl5dynt(b1*#&a2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
+# Template Settings
 TEMPLATE_DEBUG = True
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.request",
 )
+
+# jinja 2 settings
+# http://niwibe.github.io/django-jinja/#_introduction
+TEMPLATE_LOADERS = (
+    'django_jinja.loaders.AppLoader',
+    'django_jinja.loaders.FileSystemLoader',
+)
+
+DEFAULT_JINJA2_TEMPLATE_EXTENSION = '.jinja'
+
 
 ALLOWED_HOSTS = []
 
@@ -44,6 +56,7 @@ INSTALLED_APPS = (
 
     # 3rd party
     'django_thumbor',
+    'django_jinja',
 )
 
 MIDDLEWARE_CLASSES = (
