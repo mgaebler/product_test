@@ -37,16 +37,9 @@
   notify:
     - reload nginx
 
-- name: deploy app configuration for production
-  action: template src=production.conf.j2 dest=/etc/nginx/conf.d/{{ app.name }}.conf
+- name: deploy app configuration
+  action: template src=conf.j2 dest=/etc/nginx/conf.d/{{ app.name }}.conf
   sudo: true
-  tags: [nginx, production]
-  notify:
-    - reload nginx
-
-- name: deploy app configuration for staging
-  action: template src=staging.conf.j2 dest=/etc/nginx/conf.d/{{ app.name }}-staging.conf
-  sudo: true
-  tags: [nginx, staging]
+  tags: nginx
   notify:
     - reload nginx

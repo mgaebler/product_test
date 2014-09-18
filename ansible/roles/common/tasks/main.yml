@@ -57,14 +57,9 @@
     - libreadline-dev
     - libncurses5-dev
     - libmagickwand-dev
-    # app/build dependencies
-    - gettext
-    - nodejs  # for execjs
-    - libmysqlclient-dev  # for mysql2 gem
-    # db
-    - libsqlite3-dev
-    - ffmpeg
-    - ffmpegthumbnailer
+    # python dependencies
+    - python-pip
+    - python-dev
 
 - name: add newrelic repo
   apt_repository: repo="deb http://apt.newrelic.com/debian/ newrelic non-free" state=present
