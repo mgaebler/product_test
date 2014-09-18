@@ -1,3 +1,4 @@
+# coding: utf8
 """
 Django settings for trendsetter project.
 
@@ -10,7 +11,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+BASE_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), '..')
 
 
 # Quick-start development settings - unsuitable for production
@@ -27,14 +28,21 @@ DEBUG = True
 TEMPLATE_DEBUG = True
 
 TEMPLATE_CONTEXT_PROCESSORS = (
-    "django.core.context_processors.request",
+    'django.core.context_processors.request',
+    'django.contrib.auth.context_processors.auth',
 )
 
 # jinja 2 settings
-# http://niwibe.github.io/django-jinja/#_introduction
+## http://niwibe.github.io/django-jinja/#_introduction
 TEMPLATE_LOADERS = (
-    'django_jinja.loaders.AppLoader',
-    'django_jinja.loaders.FileSystemLoader',
+    ('pyjade.ext.django.Loader', (
+        'django_jinja.loaders.AppLoader',
+        'django_jinja.loaders.FileSystemLoader',
+    )),
+)
+
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'templates'),
 )
 
 DEFAULT_JINJA2_TEMPLATE_EXTENSION = '.jinja'
@@ -109,6 +117,7 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'django.contrib.staticfiles.finders.FileSystemFinder',
 )
+
 
 ## THUMBOR SETTINGS
 # The host serving the thumbor resized images
