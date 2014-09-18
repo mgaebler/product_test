@@ -1,7 +1,8 @@
-# production
+# common
 Django
 django-grappelli
 python-memcached
+fabric
 
 ## Imaging
 django-thumbor
