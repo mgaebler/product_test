@@ -1,0 +1,15 @@
+# production
+Django
+django-grappelli
+python-memcached
+
+## Imaging
+django-thumbor
+
+## Templating
+Markdown
+django-jinja
+pyjade
+
+# development
+django-debug-toolbar
