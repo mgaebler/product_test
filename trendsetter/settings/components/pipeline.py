@@ -20,10 +20,10 @@ PIPELINE_CSS = {
 PIPELINE_JS = {
     'base': {
         'source_filenames': (
-          'js/jquery.js',
-          'js/d3.js',
-          'js/collections/*.js',
-          'js/application.js',
+            'js/jquery.js',
+            'js/d3.js',
+            'js/collections/*.js',
+            'js/application.js',
         ),
         'output_filename': 'js/stats.js',
     }
