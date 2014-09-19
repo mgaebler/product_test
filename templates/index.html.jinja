@@ -1,10 +1,131 @@
-<html>
+<!DOCTYPE html>
+<html class='nodebug' itemscope itemtype='http://schema.org/Product' lang='de'>
 <head>
-{% compressed_css 'common' %}
-</head>
-<body>
+    <meta charset='utf-8'>
+    <meta content='IE=edge' http-equiv='X-UA-Compatible'>
 
-<h1>to much foo</h1>
+    <meta content='width=1024' name='viewport'>
+
+    <title>Trendsetter</title>
+
+    <link href="//fonts.googleapis.com/css?family=Oxygen:400,700,300" media="screen" rel="stylesheet"/>
+
+    <link href="/assets/favicons/favicon-ead83f52ec6d37adee27dcdc8b831b9a.ico" rel="shortcut icon" type="image/vnd.microsoft.icon"/>
+    <link href="/assets/favicons/apple-touch-icon-57x57-440a3e1df0791c7ac591c649bbcf8649.png" rel="apple-touch-icon" sizes="57x57" type="image/png"/>
+    <link href="/assets/favicons/apple-touch-icon-114x114-6aa6e94c3d31e4cde25704aa8f3dc0e0.png" rel="apple-touch-icon"
+          sizes="114x114" type="image/png"/>
+    <link href="/assets/favicons/apple-touch-icon-72x72-7698e5ad61bfe97edb5f9cfb372a47f3.png" rel="apple-touch-icon"
+          sizes="72x72" type="image/png"/>
+    <link href="/assets/favicons/apple-touch-icon-144x144-4649c5f8288d0f1b63962969670b6eb3.png" rel="apple-touch-icon"
+          sizes="144x144" type="image/png"/>
+    <link href="/assets/favicons/apple-touch-icon-60x60-9d52af39eca42cfe7325ad0bb8b2a127.png" rel="apple-touch-icon"
+          sizes="60x60" type="image/png"/>
+    <link href="/assets/favicons/apple-touch-icon-120x120-88565fee6f1a4937a5a98ea9963d8077.png" rel="apple-touch-icon"
+          sizes="120x120" type="image/png"/>
+    <link href="/assets/favicons/apple-touch-icon-76x76-9fa8e4589ece733696783f5eb5bea6b4.png" rel="apple-touch-icon"
+          sizes="76x76" type="image/png"/>
+    <link href="/assets/favicons/apple-touch-icon-152x152-dcb3a0b4ed1c118098b2ef4336a96609.png" rel="apple-touch-icon"
+          sizes="152x152" type="image/png"/>
+    <link href="/assets/favicons/favicon-196x196-97b5f1fc90727dbe468c1a4c7c2fb7bb.png" rel="shortcut icon"
+          sizes="196x196" type="image/png"/>
+    <link href="/assets/favicons/favicon-160x160-e05340b88bc6ecc3097e1331a408bc66.png" rel="shortcut icon"
+          sizes="160x160" type="image/png"/>
+    <link href="/assets/favicons/favicon-96x96-487bbddf10397714a43dd576b9bde7bc.png" rel="shortcut icon" sizes="96x96"
+          type="image/png"/>
+    <link href="/assets/favicons/favicon-16x16-14b9320b9acde8cd56ca1be1e375359a.png" rel="shortcut icon" sizes="16x16"
+          type="image/png"/>
+    <link href="/assets/favicons/favicon-32x32-5a387a5702d4c750d2146023a5ce334e.png" rel="shortcut icon" sizes="32x32"
+          type="image/png"/>
+    <meta content='#000000' name='msapplication-TileColor'>
+    <meta content='/assets/favicons/mstile-144x144-af8e64361b863e9b69f697866eeb87d3.png' name='msapplication-TileImage'>
+    <meta content='/assets/favicons/browserconfig-a19818d190c248ea768e1d9b9e7a82b1.xml' name='msapplication-config'>
+
+    <link href='https://plus.google.com/104263993094810252271' rel='publisher'>
+
+    <meta content='Trendsetter' itemprop='name'>
+    <meta content='Trendsetter, die neue Online Produkttest-Plattform ist da! Kostenlose Produkttests und Gewinnspiele! Sei dabei: www.trendsetter.eu' itemprop='description'>
+    <meta content='https://www.trendsetter.eu/assets/trendsetter_sm_share-829f2d6bfd4fb457984bb5c5e7f10bdf.png' itemprop='image'>
+
+    {# Facebook #}
+    <meta content='Trendsetter' property='og:title'>
+    <meta content='website' property='og:type'>
+    <meta content='de_DE' property='og:locale'>
+    <meta content='Trendsetter' property='og:site_name'>
+    <meta content='https://www.trendsetter.eu/assets/trendsetter_sm_share-829f2d6bfd4fb457984bb5c5e7f10bdf.png' property='og:image'>
+    <meta content='Trendsetter, die neue Online Produkttest-Plattform ist da! Kostenlose Produkttests und Gewinnspiele! Sei dabei: www.trendsetter.eu' property='og:description'>
+    <meta content='100007765833987,100000081178215' property='fb:admins'>
+    <meta content='449686848467025' property='fb:app_id'>
+
+    {% compressed_css 'common' %}
+    {% compressed_css 'app' %}
+
+    <script>
+{#        (function (i, s, o, g, r, a, m) {#}
+{#            i['GoogleAnalyticsObject'] = r;#}
+{#            i[r] = i[r] || function () {#}
+{#                (i[r].q = i[r].q || []).push(arguments)#}
+{#            }, i[r].l = 1 * new Date();#}
+{#            a = s.createElement(o),#}
+{#                    m = s.getElementsByTagName(o)[0];#}
+{#            a.async = 1;#}
+{#            a.src = g;#}
+{#            m.parentNode.insertBefore(a, m)#}
+{#        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');#}
+{##}
+{#        ga('create', 'UA-50922453-1', 'trendsetter.eu', {'siteSpeedSampleRate': 100});#}
+{#        ga('set', 'anonymizeIp', true);#}
+    </script>
+
+</head>
+<body class='s--static p--home'>
+
+{% include 'header.jinja' %}
+
+<section role='content'>
+    <div class='inner container'>
+        <script type='text/javascript'>
+            $(document).ready(function () {
+                $('.flash').click(function (e) {
+                    $(this).hide('slow');
+                });
+            });
+        </script>
+        <div id='flashes'>
+            <div class='inner'>
+            </div>
+        </div>
+
+    </div>
+
+    <div class='inner container'>
+        <div class='row'>
+            <div class='hero col-md-18'
+                 style='background: url(/media/purina/startseite_teaser_purina.jpg) no-repeat 5px 0'>
+                <h3>Es ist Zeit, die Ernährung Deiner Katze zu ÜberDenken!</h3>
+
+                <p>2000 Trendsetter dürfen ihre Katze die einzigartige Rezeptur von <b>PRO PLAN® DELICATE</b> testen
+                    lassen.</p>
+                <a href="/produkttests/purina-proplan-delicate/info" id="hero-cta">Hier bewerben</a>
+            </div>
+            <div class='sidebar col-md-6'>
+                <div class='box highlight inverse register-box'>
+                    <p class='bigger'>Produkte testen und Trends setzen.</p>
+
+                    <p class='bigger'>
+                        <strong>Du bist dabei!</strong>
+                    </p>
+
+                    <p>Jetzt kannst Du <a href="/user/freunde-einladen">hier Deine Freunde einladen</a> und dafür
+                        Trendpoints verdienen, die Du dann gegen interessante Prämien eintauschen kannst.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+{% include 'footer.jinja' %}
 
 {% compressed_js 'common' %}
 </body>
