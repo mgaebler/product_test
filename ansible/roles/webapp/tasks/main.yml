@@ -35,7 +35,10 @@
     - python-pip
     - python-dev
 
+# install ruby packages
+- gem: name=compass state=latest
 
+# install npm packages
 - npm: name=bower global=yes
   sudo: true
   tags: nodejs
