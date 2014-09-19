@@ -1,0 +1,45 @@
+---
+- name: add node.js ppa
+  sudo: true
+  apt_repository: repo='ppa:chris-lea/node.js' state=present update_cache=yes
+  tags: nodejs
+
+- name: update apt cache
+  apt: update_cache=yes cache_valid_time=600
+  sudo: true
+
+- name: Install required apt packages for the web app
+  apt: pkg={{ item }} state=latest
+  sudo: true
+  with_items:
+    - nodejs
+    - ruby1.9.3
+    - rubygems1.9.1
+    # rubinius dependencies
+    - git
+    - gcc
+    - g++
+    - automake
+    - flex
+    - bison
+    - ruby1.9.1-dev
+    - llvm-dev
+    - zlib1g-dev
+    - libyaml-dev
+    - libssl-dev
+    - libgdbm-dev
+    - libreadline-dev
+    - libncurses5-dev
+    - libmagickwand-dev
+    # python dependencies
+    - python-pip
+    - python-dev
+
+
+- npm: name=bower global=yes
+  sudo: true
+  tags: nodejs
+
+- npm: name=yuglify global=yes state=present
+  sudo: true
+  tags: nodejs
