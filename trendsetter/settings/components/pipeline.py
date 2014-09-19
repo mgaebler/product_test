@@ -6,14 +6,17 @@ PIPELINE_ENABLED = False
 PIPELINE_CSS = {
     'common': {
         'source_filenames': (
-            'sass-bootstrap/dist/css/bootstrap.css',
+            'sass-bootstrap/lib/bootstrap.scss',
             'sass-bootstrap/dist/css/bootstrap-theme.css',
         ),
         'output_filename': 'css/common.css',
-        'extra_context': {
-            'media': 'screen,projection',
-        },
+        'extra_context': {'media': 'screen,projection'},
     },
+    'app': {
+        'source_filenames': ('app/sass/*.sass',),
+        'output_filename': 'css/app.css',
+        'extra_context': {'media': 'screen,projection'},
+    }
 }
 
 PIPELINE_JS = {
