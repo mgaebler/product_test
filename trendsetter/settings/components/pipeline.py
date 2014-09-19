@@ -29,9 +29,16 @@ PIPELINE_JS = {
     }
 }
 
+
+PIPELINE_COMPASS_BINARY = '/usr/bin/env compass'   # default: '/usr/bin/env compass'
+# PIPELINE_COMPASS_ARGUMENTS = '-c path/to/config.rb'  # default: ''
 PIPELINE_COMPILERS = (
-    'pipeline.compilers.sass.SASSCompiler',
+    'pipeline_compass.compass.CompassCompiler',
 )
+
+# PIPELINE_COMPILERS = (
+#     'pipeline.compilers.sass.SASSCompiler',
+# )
 
 PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'
 PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'
