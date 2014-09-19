@@ -14,6 +14,10 @@ import os
 BASE_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), '..')
 
 
+# Component import
+from .components.pipeline import *
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
@@ -47,6 +51,10 @@ TEMPLATE_DIRS = (
 
 DEFAULT_JINJA2_TEMPLATE_EXTENSION = '.jinja'
 
+JINJA2_EXTENSIONS = (
+    'pipeline.jinja2.ext.PipelineExtension',
+)
+
 
 ALLOWED_HOSTS = []
 
@@ -65,6 +73,7 @@ INSTALLED_APPS = (
     # 3rd party
     'django_thumbor',
     'django_jinja',
+    'pipeline',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -75,6 +84,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'pipeline.middleware.MinifyHTMLMiddleware',
 )
 
 ROOT_URLCONF = 'trendsetter.urls'
@@ -118,6 +128,7 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
 )
 
+STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
 
 ## THUMBOR SETTINGS
 # The host serving the thumbor resized images

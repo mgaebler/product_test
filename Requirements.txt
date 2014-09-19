@@ -4,6 +4,9 @@ django-grappelli
 python-memcached
 fabric
 
+# assets
+django-pipeline
+
 ## Imaging
 django-thumbor
 
