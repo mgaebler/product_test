@@ -4,13 +4,12 @@
 PIPELINE_ENABLED = False
 
 PIPELINE_CSS = {
-    'base': {
+    'common': {
         'source_filenames': (
-          'css/core.css',
-          'css/colors/*.css',
-          'css/layers.css'
+            'sass-bootstrap/dist/css/bootstrap.css',
+            'sass-bootstrap/dist/css/bootstrap-theme.css',
         ),
-        'output_filename': 'css/colors.css',
+        'output_filename': 'css/common.css',
         'extra_context': {
             'media': 'screen,projection',
         },
@@ -18,17 +17,18 @@ PIPELINE_CSS = {
 }
 
 PIPELINE_JS = {
-    'base': {
+    'common': {
         'source_filenames': (
-            'js/jquery.js',
-            'js/d3.js',
-            'js/collections/*.js',
-            'js/application.js',
+            'jquery/dist/jquery.js',
+            'sass-bootstrap/dist/js/bootstrap.js',
         ),
-        'output_filename': 'js/stats.js',
+        'output_filename': 'js/common.js',
     }
 }
 
 PIPELINE_COMPILERS = (
     'pipeline.compilers.sass.SASSCompiler',
 )
+
+PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'
+PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'
