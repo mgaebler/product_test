@@ -15,3 +15,6 @@
 
 
 # How do I use bower in this project <a name='use-bower' />
+Change to your project directory in your vagrant box(this is really important) and use:
+``bower install name-of-your-js-app``
+
