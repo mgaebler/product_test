@@ -1,0 +1,889 @@
+// @import "compass"
+// @import "normalize"
+
+$body-bg: #fff
+$primary: #fd7263
+$brand-primary: $primary
+$text-color: #3c3c3c
+$subdued-text-color: #858585
+$footer-text-color: #4c4c4c
+$inverse-text-color: #fff
+$link-color: $primary
+$inverse-link-color: #fff
+$inverse-background-color: #000
+
+$font-family-sans-serif: 'Oxygen', sans-serif
+$font-family-sans-serif-secondary: 'Helvetica', 'Arial', sans-serif
+$font-size-base: 13px
+
+$container-large-desktop: 960px
+$container-medium-desktop: 960px
+
+$border-radius-base: 0px
+$border-radius-large: 0px
+$border-radius-small: 0px
+
+$feedback-border-color: #dddddd
+$success-color: #264409
+$success-bg-color: #e6efc2
+$success-border-color: #c6d880
+$notice-color: #514721
+$notice-bg-color: #fff6bf
+$notice-border-color: #ffd324
+$info-color: #205791
+$info-bg-color: #d5edf8
+$info-border-color: #92cae4
+$error-color: #8a1f11
+$error-bg-color: #fbe3e4
+$error-border-color: #fbc2c4
+
+$grid-columns: 24
+$grid-column-width: 30px
+$grid-gutter-width: 10px
+
+// Core variables and mixins
+// @import "bootstrap/variables"
+// @import "bootstrap/mixins"
+
+// @import "bootstrap/normalize"
+
+// @import "bootstrap/grid"
+// @import "bootstrap/forms"
+// @import "bootstrap/buttons"
+
+//@import "bootstrap-custom"
+
+$icons: sprite-map("icons/*.png")
+$icons2x: sprite-map("icons2x/*.png")
+
+=retina-sprite($map, $map2x, $name)
+  background-image: sprite-url($map)
+  background-position: sprite-position($map, $name)
+  background-repeat: no-repeat
+  @media (-webkit-min-device-pixel-ratio: 1.5), (-moz-min-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-device-pixel-ratio: 1.5)
+    &
+      $pos: sprite-position($map2x, $name)
+      background-image: sprite-url($map2x)
+      background-position: nth($pos, 1) nth($pos, 2) / 2
+      @include background-size(ceil(image-width(sprite-path($map2x)) / 2) auto)
+
+=retina-sprite-replace-text-with-dimensions($map, $map2x, $name)
+  +retina-sprite($map, $map2x, $name)
+  +hide-text
+  +sprite-dimensions($map, $name)
+
+=striped-bg($bg-color: #ccc, $darken-amount: 5%, $stripe-color: darken($bg-color, $darken-amount))
+  @include background-image(linear-gradient(-45deg, $stripe-color 25%, transparent 25%, transparent 50%, $stripe-color 50%, $stripe-color 75%, transparent 75%, transparent))
+  background-color: $bg-color
+  background-size: 40px 40px
+
+=inverse-text-fix()
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+=all-link-colors($color)
+  +link-colors($color, $color, $color, $color, $color)
+
+=inverse-links()
+  a
+    +all-link-colors($inverse-link-color)
+
+%inner-block
+  margin: 0 auto
+  width: 960px
+
+*
+  box-sizing: border-box
+
+html
+  overflow-y: scroll
+
+html, body
+  margin: 0
+  padding: 0
+
+body
+  font-family: $font-family-sans-serif
+  font-size: 14px
+  line-height: 22px
+  background: $body-bg image-url("shared/background.jpg") no-repeat 50% 0
+  color: $text-color
+
+.env-warning
+  z-index: 100
+  text-align: center
+  font-size: 12px
+  line-height: 18px
+  white-space: nowrap
+  overflow: hidden
+  background: grey
+  color: black
+  border-bottom: 1px solid darken(#777, 15%)
+  &.development
+    +striped-bg($bg-color: #0d0, $darken-amount: 5%)
+    text-shadow: -1px -1px 0px #0d0, -1px 1px 0 #0d0, 1px 1px 0 #0d0, 1px -1px 0 #0d0
+    border-top: 1px solid darken(#0d0, 15%)
+    position: fixed
+    bottom: 0
+    width: 100%
+  &.staging
+    +striped-bg($bg-color: yellow, $stripe-color: black)
+    text-shadow: -1px -1px 0px yellow, -1px 1px 0 yellow, 1px 1px 0 yellow, 1px -1px 0 yellow
+    border-bottom: 1px solid darken(yellow, 15%)
+
+#flashes
+  position: absolute
+  z-index: 101
+  width: 100%
+  top: 32px
+  left: 0
+  .flash
+    width: 700px
+    padding: 8px
+    margin: 16px auto
+    text-align: center
+    font-size: 100%
+    +box-shadow(rgba(#000, 0.3) 0px 5px 10px)
+  .flash-notice
+    background: $success-bg-color
+    border: 1px solid $success-border-color
+    color: $success-color
+  .flash-alert
+    background: $notice-bg-color
+    border: 1px solid $notice-border-color
+    color: $notice-color
+  .flash-error
+    background: $error-bg-color
+    border: 1px solid $error-border-color
+    color: $error-color
+
+a
+  text-decoration: none
+  +link-colors($primary, $primary, $primary, $primary, $primary)
+
+h2
+  font-size: 30px
+  margin-top: 18px
+  margin-bottom: 18px
+
+.user-avatar
+  width: 256px
+  height: 256px
+
+.user-avatar-medium
+  width: 32px
+  height: 32px
+
+.user-avatar-small
+  width: 16px
+  height: 16px
+
+header
+  width: 100%
+  height: 200px
+  border-bottom: 5px solid $primary
+  margin-bottom: 25px
+  .current-user
+    position: relative
+    @extend %inner-block
+    .inner
+      @extend %inner-block
+      position: absolute
+      padding-top: 12px
+      padding-right: 4px
+      text-align: right
+      font-family: $font-family-sans-serif-secondary
+      font-size: 12px
+      line-height: 18px
+      z-index: 10
+      a
+        font-weight: normal
+      .user-avatar
+        float: right
+        margin: 0px 0px 0px 8px
+  #logo
+    @extend %inner-block
+    background: image-url("shared/logo.png") no-repeat 50% 0px
+    padding-top: 36px
+    h1
+      +hide-text
+      margin: 0
+      a
+        display: block
+        margin: 0 auto
+        line-height: 120px
+        height: 120px
+        width: 500px
+  nav.main-nav
+    text-align: center
+    margin: 0 auto
+    li
+      +inline-block
+      font-size: 16px
+      margin: 0 32px
+      height: 52px
+      position: relative
+    .active
+      ::before
+        position: absolute
+        display: block
+        content: ''
+        left: 50%
+        top: 100%
+        margin-left: -8px
+        margin-top: -8px
+        width: 16px
+        height: 8px
+        border-left: 8px solid transparent
+        border-right: 8px solid transparent
+        border-top: 8px solid $primary
+      a
+        font-weight: bold
+
+  body.reduced-header.user-dashboard &
+    height: 174px
+    border-bottom: 40px solid $primary
+  /* XXX this needs refactoring, holy shmoly */
+  nav.dash-nav .inner
+    position: relative
+  nav.dash-nav
+    position: absolute
+    top: 142px
+    display: block
+    color: $inverse-text-color
+    +inverse-links
+    +inverse-text-fix
+    li
+      +inline-block
+      font-size: 14px
+      margin: 0 16px
+      height: 40px
+      position: relative
+      &.active
+        font-weight: bold
+        ::before
+          position: absolute
+          display: block
+          content: ''
+          left: 50%
+          top: 100%
+          margin-left: -8px
+          margin-top: -8px
+          width: 16px
+          height: 8px
+          border-left: 8px solid transparent
+          border-right: 8px solid transparent
+          border-top: 8px solid $primary
+
+body.reduced-header
+  background: $body-bg
+  header
+    background: $body-bg image-url("shared/background.jpg") no-repeat 50% 0
+    // background-image: image-url("produkttest_dashboard_background.png")
+    height: 135px
+    margin-bottom: 0px
+    #logo
+      height: 130px
+      padding-top: 0
+      background: image-url("dashboard_logo_header.png") no-repeat -64px 8px
+      position: absolute
+      h1
+        float: left
+        a
+          position: absolute
+          width: 355px
+          z-index: 13
+    &.brand-fuersie #logo
+      background: image-url("produkttest_logo_fuersie.png") no-repeat -60px 16px
+      h1 a
+        width: image-width("produkttest_logo_fuersie.png") - 2*60px
+    &.brand-prinz #logo
+      background: image-url("produkttest_logo_prinz.png") no-repeat -60px 16px
+      h1 a
+        width: image-width("produkttest_logo_prinz.png") - 2*60px
+    &.brand-petra #logo
+      background: image-url("produkttest_logo_petra.png") no-repeat -28px 16px
+      h1 a
+        width: image-width("produkttest_logo_petra.png") - 2*28px
+    .inner
+      @extend %inner-block
+      position: relative
+    .current-user .inner
+      position: absolute
+    nav.main-nav
+      position: absolute
+      right: 0
+      top: 100px
+      z-index: 10
+      li
+        font-size: 14px
+        margin: 0 24px
+        height: 42px
+      li:last-child
+        margin-right: 15px
+
+.subdued
+  color: $subdued-text-color
+
+footer
+  @extend %inner-block
+  font-family: $font-family-sans-serif-secondary
+  font-size: 11px
+  color: $footer-text-color
+  margin-top: 32px
+  margin-bottom: 32px
+  .coops
+    text-align: center
+    span
+      line-height: 42px
+      +inline-block
+    .fuersie, .prinz, .petra
+      margin-left: 16px
+      line-height: 20px
+      a
+        display: block
+        height: 100%
+    @each $pubname in fuersie prinz petra
+      .#{$pubname}
+        +retina-sprite-replace-text-with-dimensions($icons, $icons2x, "logo_#{$pubname}")
+        &:hover
+          +retina-sprite-replace-text-with-dimensions($icons, $icons2x, "logo_#{$pubname}_active")
+  .reference
+    text-align: center
+    span
+      line-height: 42px
+      +inline-block
+    .philips, .proplan, .kitchenaid
+      margin-left: 16px
+      line-height: 20px
+      a
+        display: block
+        height: 100%
+    @each $pubname in philips proplan kitchenaid
+      .#{$pubname}
+        +retina-sprite-replace-text-with-dimensions($icons, $icons2x, "logo_#{$pubname}")
+
+  .legalese
+    margin-top: 16px
+    text-align: center
+  .social
+    margin-top: 16px
+    text-align: center
+    span
+      line-height: 15px
+      +inline-block
+    strong
+      margin-right: 30px
+    .facebook, .twitter, .gplus
+      a
+        margin-left: 12px
+        padding-left: 22px
+        line-height: 15px
+        display: block
+    //@each $sn in facebook twitter gplus
+    //  .#{$sn} a
+    //    +retina-sprite($icons, $icons2x, "icon_#{$sn}")
+
+ul.shares
+  list-style: none
+  padding: 0
+  margin: 0
+  margin: 16px 0
+  display: inline-block
+  li
+    display: inline-block
+    vertical-align: top
+    margin-right: 12px
+
+.social-media
+  margin-left: 40px
+
+input, .form-control
+  border: none
+  background-color: #eaeaea
+  color: #5f5f5f
+  +box-shadow(none)
+
+a.btn.btn-primary
+  +inverse-text-fix
+  +link-colors($inverse-link-color)
+
+.btn-block
+  height: 30px
+  &.btn-block-big
+    height: 35px
+
+//=inverse
+//  input, .form-control
+// background-color: #fff
+.bigger
+  font-size: 18px
+
+.big
+  font-size: 14px
+
+.box
+  padding: 20px 16px
+  +border-radius(4px)
+  &.highlight
+    +inverse
+    +inverse-text-fix
+    background: $primary
+    color: $inverse-text-color
+    a
+      +link-colors($inverse-link-color)
+      text-decoration: underline
+
+.box.register-box, .box.login-box
+  padding: 12px 16px
+
+.box.register-box
+  +border-bottom-radius(0)
+
+.p--home .register-raffle-teaser
+  +border-bottom-radius(4px)
+  background: #000
+  a
+    display: block
+    +replace-text-with-dimensions("gewinnspiel/gewinnspiel_philips_startseite_teaser.jpg")
+    +border-bottom-radius(4px)
+
+.p--register .register-raffle-teaser
+  +border-radius(4px)
+  background: #000
+  margin-bottom: 24px
+  a
+    display: block
+    +replace-text-with-dimensions("gewinnspiel/gewinnspiel_philips_registrierung_teaser.jpg")
+    +border-radius(4px)
+
+.btn-inverted
+  background: $inverse-background-color
+  color: $inverse-text-color
+  &:hover, &:focus
+    background: lighten($inverse-background-color, 15%)
+    color: $inverse-text-color
+
+.inverse
+  .form-control
+    background-color: #fff
+
+.hero
+  +hide-text()
+  height: 475px
+
+#hero-cta
+  position: absolute
+  left: 0
+  top: 0
+  width: 720px
+  height: 475px
+
+=placeholder
+  &:-moz-placeholder
+    @content
+  &::-moz-placeholder
+    @content
+  &:-ms-input-placeholder
+    @content
+  &::-webkit-input-placeholder
+    @content
+
+input[placeholder]
+  +placeholder()
+    line-height: normal
+
+.s--static.p--how section[role=content]
+  .step-1, .step-2, .step-3
+    +inverse-text-fix
+    +border-radius(4px)
+    width: 310px
+    height: 434px
+    padding: 16px 4px 16px 64px
+    background: $primary
+    color: $inverse-text-color
+    font-size: 14px
+    line-height: 18px
+    &::before
+      position: absolute
+      margin-left: -48px
+      display: block
+      border-radius: 100%
+      background-color: black
+      color: white
+      width: 36px
+      height: 36px
+      line-height: 32px
+      text-align: center
+      font-size: 20px
+      font-weight: bold
+  .step-1
+    background: $primary image-url('wiefunktionierts_bild1.jpg') no-repeat 0% 100%
+    &::before
+      content: '1'
+  .step-2
+    background: $primary image-url('wiefunktionierts_bild2.jpg') no-repeat 0% 100%
+    &::before
+      content: '2'
+  .step-3
+    background: $primary image-url('wiefunktionierts_bild3.jpg') no-repeat 0% 100%
+    &::before
+      content: '3'
+  .cta
+    margin-top: 22px
+    p
+      text-align: center
+    a
+      margin-left: 16px
+      font-size: 18px
+
+.s--tests
+  #ptw
+    margin-top: 16px
+  .page-nav
+    +clearfix
+    h2, li
+      line-height: 96px
+    h2, ul
+      margin: 0
+    h2
+      float: left
+    ul
+      float: right
+    li
+      +inline-block
+      margin: 0 16px
+      a, span
+        font-size: 22px
+      span
+        color: $subdued-text-color
+
+.test-tile
+  +border-radius(6px)
+  +inverse
+  +inverse-text-fix
+  overflow: hidden
+  color: $inverse-text-color
+  background: $primary none no-repeat 50% 100%
+  width: 310px
+  height: 358px
+  a
+    +link-colors($inverse-link-color)
+  .test-title
+    margin: 0px
+    font-size: 16px
+    line-height: 20px
+    height: 93px
+    a
+      padding: 48px 16px 16px 16px
+      display: block
+      height: 100%
+      overflow: hidden
+  &.brand-prinz .test-title
+    background: $primary image-url('produkttests_logo_prinz.png') no-repeat 15px 15px
+  &.brand-fuersie .test-title
+    background: $primary image-url('produkttests_logo_fuersie.png') no-repeat 15px 15px
+  &.brand-petra .test-title
+    background: $primary image-url('produkttests_logo_petra.png') no-repeat 15px 15px
+  .test-link
+    padding: 8px 16px
+    height: 58px
+    a
+      font-size: 16px
+  .test-teaser
+    +hide-text
+    display: block
+    height: 210px
+
+body.s--static.p--brands
+  .brand-prinz, .brand-fuersie, .brand-petra
+    a
+      +hide-text
+      display: block
+      height: 110px
+      background: no-repeat 0 24px
+  .brand-prinz a
+    background-image: image-url('marken_prinz.png')
+  .brand-fuersie a
+    background-image: image-url('marken_fuersie.png')
+  .brand-petra a
+    background-image: image-url('marken_petra.png')
+  //.sep
+  //  background: image-url('marken_sep.png') repeat-y 50% 0
+
+body.s--users.p--trendpoints
+  .trendpoints
+    display: block
+    color: #000
+    height: 140px
+    margin: 0 auto
+    margin-top: 16px
+    text-align: center
+    font-size: 68px
+    font-weight: bold
+    border-bottom: 5px solid black
+    line-height: 100px
+    span
+      background: image-url('trendpunkte_points_large.png') no-repeat 0 60%
+      padding-left: image-width("trendpunkte_points_large.png") + 16px
+  .goodies-list
+    display: table
+    width: 100%
+    .goodie
+      display: table-row
+      height: 72px
+      .goodie-img, .goodie-name, .goodie-cost, .goodie-action
+        display: table-cell
+        vertical-align: middle
+        border-bottom: 1px solid black
+      .goodie-img
+        width: 70px
+        height: 70px
+        position: relative
+        a
+          display: block
+        img::after
+          position: absolute
+          display: block
+          z-index: 15
+          +replace-text("trendpunkte_loupe.png")
+          width: 70px
+          height: 70px
+          outline: 4px solid red
+      .goodie-name
+        padding: 0 16px
+      .goodie-cost
+        width: 75px
+        padding: 0 16px
+        text-align: right
+        font-weight: bold
+        font-size: 16px
+        span
+          background: image-url('trendpunkte_points_small.png') no-repeat 0 70%
+          padding-left: image-width("trendpunkte_points_small.png") + 4px
+      .goodie-action
+        width: 120px
+        a
+          width: 100%
+  .how-to-earn
+    display: block
+    text-align: left
+    border-bottom: 5px solid black
+    margin-top: 32px
+    h4
+      font-weight: bold
+      font-size: 13px
+      line-height: 42px
+      margin: 0
+  .reward-list
+    display: table
+    width: 100%
+    .reward
+      display: table-row
+      .reward-title, .reward-points
+        display: table-cell
+        vertical-align: middle
+        border-bottom: 1px solid black
+        padding: 16px 4px
+        font-size: 13px
+        line-height: 16px
+        small
+          font-size: 10px
+      .reward-points
+        width: 75px
+        padding: 16px
+        text-align: right
+        font-weight: bold
+        font-size: 16px
+        span
+          background: image-url('trendpunkte_points_small.png') no-repeat 0 70%
+          padding-left: image-width("trendpunkte_points_small.png") + 4px
+
+img.content-photo
+  border: 2px solid black
+
+form
+  small
+    line-height: 130%
+    input[type="checkbox"]
+      margin: 2px 0 0
+  body.s--static.p--home &
+    .form-group
+      margin-bottom: 8px
+
+.btn-primary:hover
+  background-color: #ee4d3c
+
+.user-account-data, .user-profile-data
+  margin-bottom: 32px
+
+.form-group.required .control-label:after
+  content: "*"
+  color: red
+
+.form-horizontal .control-label
+  padding-left: 10px
+  text-align: left
+
+.flat-bottom
+  +border-bottom-radius(0)
+
+#overlay, #overlay-shade
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  z-index: 10000
+
+#overlay
+  display: none
+
+#overlay-shade
+  background-color: rgba(#000, 0.6)
+
+#overlay-content
+  position: absolute
+  top: 220px
+  left: 50%
+  margin-left: -300px
+  width: 600px
+  z-index: 10001
+  #{headings()}
+    margin-top: 0
+  .overlay-close
+    display: block
+    position: absolute
+    right: 10px
+    top: 10px
+    width: 24px
+    height: 24px
+    +replace-text-with-dimensions("overlay_close.png")
+  .overlay-wrapper
+    +border-radius(6px)
+    background: white
+  .overlay-padding
+    padding: 32px
+  .overlay-hide
+    display: none
+
+.register-raffle-content
+  h3
+    margin-bottom: 24px
+  p
+    padding-left: 12px
+  #overlay-content &.overlay-padding
+    padding-bottom: 16px
+
+.register-raffle-footer
+  background: $primary
+  +inverse
+  +inverse-text-fix
+  color: $inverse-text-color
+  font-weight: bold
+  text-align: center
+  font-size: 18px
+  .overlay-wrapper &
+    +border-bottom-radius(6px)
+
+.js-overlay, .js-overlay-close
+  cursor: pointer
+
+tr.odd
+  background: #eee
+
+.team-trendsetter
+  .avatar
+    margin-right: 4px
+    &::before
+      content: 'T'
+      position: absolute
+      margin-top: 24px
+      margin-left: 24px
+      width: 12px
+      height: 12px
+      font-size: 9px
+      font-weight: normal
+      color: #f0f0f0
+      background: #000
+      line-height: 12px
+      text-align: center
+      padding: 0 1px
+
+  .xnickname
+    margin-right: 24px
+    &::after
+      content: 'T'
+      position: absolute
+      font-size: 8px
+      color: #fff
+      background: #000
+      line-height: 10px
+      padding: 1px
+      margin: 0 2px
+      width: 24px
+      font-weight: bold
+
+.forum-entry-user
+  .nickname
+    font-weight: bold
+    line-height: 32px
+  &.team-trendsetter .nickname
+    line-height: 1.428571429
+  .title
+    font-size: 11px
+    color: #808080
+    line-height: 15px
+  .actions
+    margin-top: 8px
+    font-size: 12px
+
+.forum-entry-timestamp
+  text-align: right
+
+.forum-entry-title
+  font-weight: bold
+
+.forum-entry-body
+  margin-top: 18px
+
+.faq-entry
+  margin-bottom: 32px
+  .faq-entry-meta
+    font-size: 10px
+
+a.link-camo, #ptw a.link-camo, #ptw a:link.link-camo, #ptw a:visited.link-camo, #ptw a:active.link-camo
+  color: $text-color
+  text-decoration: none
+  border-bottom: lighten($text-color, 50%) dotted 1px
+
+.btn-delete-inline, #ptw .btn-delete-inline
+  +inline-block
+  +border-radius(100%)
+  +all-link-colors(white)
+  color: white
+  background-color: red
+  width: 20px
+  height: 20px
+  font-size: 11px
+  line-height: 20px
+  text-align: center
+
+nav.pagination
+  .page, .next, .last
+    &.current, a
+      padding: 4px
+    a
+      border: 1px solid #eee
+      +border-radius(4px)
+
+ul.gallery-entries
+  list-style-type: none
+  padding: 0
+  li
+    margin-bottom: 12px
+    a
+      img
+        margin-bottom: 6px
+        width: 150px
+        height: 150px
