@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import markdown
+
 APP_DIR = os.path.dirname(os.path.dirname(__file__))
 BASE_DIR = os.path.join(APP_DIR, '..')
 
@@ -56,6 +58,9 @@ JINJA2_EXTENSIONS = (
     'pipeline.jinja2.ext.PipelineExtension',
 )
 
+MARKUP_FIELD_TYPES = (
+    ('markdown', markdown.markdown),
+)
 
 ALLOWED_HOSTS = []
 
@@ -75,6 +80,9 @@ INSTALLED_APPS = (
     'django_thumbor',
     'django_jinja',
     'pipeline',
+
+    # our apps
+    'trendsetter.faq',
 )
 
 MIDDLEWARE_CLASSES = (
