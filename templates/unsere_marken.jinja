@@ -1,8 +1,55 @@
 {% extends 'base.jinja' %}
 
 {% block content %}
-    <div class='inner container'>
-
+    <div class="inner container">
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.flash').click(function (e) {
+                    $(this).hide('slow');
+                });
+            });
+        </script>
+        <div id="flashes">
+            <div class="inner">
+            </div>
+        </div>
 
     </div>
+
+    <div class="inner container">
+        <h2>Unsere Marken</h2>
+
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-6 brand-fuersie">
+                <a href="http://www.fuersie.de/">FÜR SIE</a>
+                <strong>Für Sie</strong> ist eine der führenden Frauenzeitschriften-Marken Deutschlands. Sie bietet alle
+                14 Tage Themen für Frauen ab Mitte 30, ganz nah dran an ihren Wünschen und Bedürfnissen. Authentisch,
+                glaubwürdig, bereichernd.
+                Das Spektrum reicht von Mode und Beauty über Gesundheit und Food bis zu Job, Reise und Kultur.
+                Warmherzig und nahbar. Positiv und persönlich.
+            </div>
+            <div class="col-md-1 sep">&nbsp;</div>
+            <div class="col-md-6 brand-petra">
+                <a href="http://www.petra.de/">petra</a>
+                <strong>petra</strong> inspiriert, berührt und unterhält.
+                <strong>petra</strong> wird von ihren Leserinnen für ihre lässige Haltung, mutigen Themen und
+                hochwertige Fotografie geliebt.
+                <strong>petra</strong> begeistert mit opulenten Mode- und Beauty­strecken, spannenden neuen Interior-
+                und Living Trends sowie mit Reportagen und Geschichten, die das Lebensgefühl der Generation 30plus
+                widerspiegeln.
+            </div>
+            <div class="col-md-1 sep">&nbsp;</div>
+            <div class="col-md-6 brand-prinz">
+                <a href="http://www.prinz.de/">PRINZ</a>
+                <strong>PRINZ</strong> ist einer der bekanntesten Freizeit- und Veranstaltungsplaner für Deutschlands
+                Metropolen, das moderne Portal für das Leben in der Großstadt. Wir wissen, welche Marken, Styles,
+                Produkte im Trend liegen, welche Ausstellungen, Filme und Konzerte man sehen muss und kennen die
+                wichtigsten Szene-Restaurants sowie die coolsten Clubs der Stadt.
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+
+    </div>
+
 {% endblock content %}
