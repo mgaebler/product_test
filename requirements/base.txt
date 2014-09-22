@@ -7,8 +7,8 @@ fabric
 # assets
 django-pipeline
 ## https://github.com/mila-labs/django-pipeline-compass-rubygem
-#django-pipeline-compass-rubygem
-django-pipeline-compass
+django-pipeline-compass-rubygem
+
 
 ## Imaging
 django-thumbor
