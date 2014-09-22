@@ -135,6 +135,18 @@ STATICFILES_FINDERS = (
 
 STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/tmp/trendsetter/django_cache',
+    },
+    'staticfiles': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/tmp/trendsetter/django_cache_staticfiles',
+    },
+
+}
+
 ## THUMBOR SETTINGS
 # The host serving the thumbor resized images
 THUMBOR_SERVER = 'http://localhost:8888'
