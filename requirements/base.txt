@@ -1,5 +1,6 @@
 # common
-Django
+django
+
 django-grappelli
 python-memcached
 fabric
@@ -22,6 +23,4 @@ pyjade
 #django-markupfield
 # Since djanog markupfield has problems with django 1.7 migrations we have to use this fix branch
 -e git+https://github.com/Matt3o12/django-markupfield@56ced9bb29216ae13d1b80c9a7e708241169d300#egg=django-markupfield
-
-Markdown
-
+markdown

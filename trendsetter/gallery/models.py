@@ -15,10 +15,13 @@ class Gallery(models.Model):
     name = models.CharField(_(u'name'), max_length=255)
     slug = models.SlugField(_(u'slug'), max_length=255)
 
-    description = models.TextField(verbose_name=_('description'), help_text=_('gallery_gallery_description_help_text'),
-                                   blank=True, null=True)
+    description = models.TextField(
+        verbose_name=_('description'),
+        help_text=_('gallery_gallery_description_help_text'),
+        blank=True,
+        null=True
+    )
     teaser_image = models.ImageField(_(u'teaser image'), upload_to='galleries/teaser/%Y-%m-%d/', max_length=255)
-
     is_deleted = models.BooleanField(verbose_name=_('is_deleted'), default=False)
 
     active = models.BooleanField(verbose_name=_('published'), default=True)
@@ -65,18 +68,6 @@ class GalleryImage(models.Model):
 
     is_deleted = models.BooleanField(verbose_name=_('is_deleted'), default=False)
     is_checked = models.BooleanField(verbose_name=_('is_checked'), default=False)
-
-    class Meta():
-        verbose_name = _('gallery_image')
-        verbose_name_plural = _('gallery_images')
-        position_filter = 'gallery'
-        ordering = ('position_in_gallery',)
-        unique_together = (
-            ('portal', 'legacy_id'),
-        )
-        index_together = (
-            ('gallery', 'position_in_gallery'),
-        )
 
 
 class GalleryVideo(models.Model):
