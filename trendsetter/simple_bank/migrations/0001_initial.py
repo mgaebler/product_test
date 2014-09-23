@@ -38,8 +38,8 @@ class Migration(migrations.Migration):
                 ('executed', models.BooleanField(default=False)),
                 ('updated', models.DateTimeField(auto_now=True)),
                 ('created', models.DateTimeField(auto_now_add=True)),
-                ('receiver', models.ForeignKey(related_name=b'receiver', to='scoring_system.Account')),
-                ('sender', models.ForeignKey(related_name=b'sender', to='scoring_system.Account')),
+                ('receiver', models.ForeignKey(related_name=b'receiver', to='simple_bank.Account')),
+                ('sender', models.ForeignKey(related_name=b'sender', to='simple_bank.Account')),
             ],
             options={
             },

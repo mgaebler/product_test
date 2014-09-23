@@ -6,7 +6,7 @@ DEBUG = True
 
 # Template Settings
 TEMPLATE_DEBUG = True
-
+DEBUG_TOOLBAR = True
 
 INTERNAL_IPS = (
     '*',

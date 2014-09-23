@@ -11,11 +11,12 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import sys
 import markdown
 
 APP_DIR = os.path.dirname(os.path.dirname(__file__))
 BASE_DIR = os.path.join(APP_DIR, '..')
-
+sys.path.insert(0, APP_DIR)
 
 # Component import
 from .components.pipeline import *
@@ -24,12 +25,15 @@ from .components.pipeline import *
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
+ADMINS = (
+    ('Marian Gaebler', 'marian.gaebler@intosite.de'),
+)
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'hvsz57&*mt(_p1$=#!%8eeo4jzl(v%k3wjsdl5dynt(b1*#&a2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 
 # Template Settings
 TEMPLATE_DEBUG = True
@@ -82,11 +86,12 @@ INSTALLED_APPS = (
     'pipeline',
 
     # our apps
-    'trendsetter.faq',
-    'trendsetter.forum',
-    # 'trendsetter.gallery',
-    'trendsetter.product_test',
-    'trendsetter.scoring_system',
+    'profiles', # the user profiles
+    'faq',
+    'forum',
+    #'gallery',
+    'product_test',
+    'simple_bank',
 )
 
 MIDDLEWARE_CLASSES = (
