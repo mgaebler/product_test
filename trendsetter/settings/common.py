@@ -83,6 +83,9 @@ INSTALLED_APPS = (
 
     # our apps
     'trendsetter.faq',
+    'trendsetter.forum',
+    # 'trendsetter.gallery',
+    'trendsetter.product_test',
 )
 
 MIDDLEWARE_CLASSES = (
