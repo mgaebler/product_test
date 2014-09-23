@@ -6,8 +6,8 @@ from django.utils.translation import ugettext_lazy as _
 class Forum(models.Model):
     title = models.CharField(max_length=60)
     description = models.TextField(blank=True, default='')
-    updated = models.DateTimeField(auto_now=True)
-    created = models.DateTimeField(auto_now=True)
+    updated = models.DateTimeField(auto_now=True, editable=False)
+    created = models.DateTimeField(auto_now_add=True, editable=False)
     creator = models.ForeignKey(User, blank=True, null=True)
 
     def __unicode__(self):
@@ -33,9 +33,9 @@ class Topic(models.Model):
     title = models.CharField(max_length=60)
     description = models.TextField(max_length=10000, blank=True, null=True)
     forum = models.ForeignKey(Forum)
-    created = models.DateTimeField(auto_now=True)
     creator = models.ForeignKey(User, blank=True, null=True)
-    updated = models.DateTimeField(auto_now=True)
+    created = models.DateField(auto_now_add=True, editable=False)
+    updated = models.DateTimeField(auto_now=True, editable=False)
     closed = models.BooleanField(blank=True, default=False)
 
     def num_posts(self):
@@ -54,9 +54,9 @@ class Topic(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=60)
-    created = models.DateTimeField(auto_now_add=True)
     creator = models.ForeignKey(User, blank=True, null=True)
-    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True, editable=False)
+    updated = models.DateTimeField(auto_now=True, editable=False)
     topic = models.ForeignKey(Topic)
     body = models.TextField(max_length=10000)
     user_ip = models.GenericIPAddressField(blank=True, null=True)
