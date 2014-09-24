@@ -29,10 +29,10 @@
     </div>
     <div class='inner'>
         <nav class='main-nav'>
-            <li><a href="{% url('how_it_works') %}">Wie funktioniert’s?</a></li>
-            <li><a href="{% url('product_tests') %}">Produkttests</a></li>
-            <li><a href="{% url('our_brands') %}">Unsere Marken</a></li>
-            <li><a href="{% url('about_us') %}">Über uns</a></li>
+            <li><a href="{{ url('how_it_works') }}">Wie funktioniert’s?</a></li>
+            <li><a href="{{ url('product_test_index') }}">Produkttests</a></li>
+            <li><a href="{{ url('our_brands') }}">Unsere Marken</a></li>
+            <li><a href="{{ url('about_us') }}">Über uns</a></li>
         </nav>
     </div>
 
