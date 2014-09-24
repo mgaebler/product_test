@@ -4,7 +4,14 @@ from django.utils import timezone
 
 
 class Brands(models.Model):
-    pass
+    name = models.CharField(max_length=254)
+    slug = models.SlugField(max_length=254, db_index=True)
+    logo = models.ImageField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return self.name
 
 
 class Participations(models.Model):
@@ -16,9 +23,9 @@ class Invites(models.Model):
 
 
 class ProductTest(models.Model):
-    slug = models.SlugField()
-    title = models.CharField(max_length=255)
-    brand = models.ForeignKey(Brands)
+    slug = models.SlugField(max_length=254, db_index=True)
+    title = models.CharField(max_length=254)
+    brand = models.ForeignKey(Brands, null=True, blank=True)
     # Images
     hero_image = models.ImageField(null=True, blank=True)
     hero_image_url = models.URLField(null=True, blank=True)
@@ -27,8 +34,8 @@ class ProductTest(models.Model):
     logo = models.ImageField(null=True, blank=True)
     logo_url = models.URLField(null=True, blank=True)
     # Customization
-    custom_html = models.TextField()
-    custom_css = models.TextField()
+    custom_html = models.TextField(null=True, blank=True)
+    custom_css = models.TextField(null=True, blank=True)
     # Dates
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
