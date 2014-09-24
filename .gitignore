@@ -3,5 +3,7 @@
 .idea/
 .DS_Store
 .static
+.media
 db/
 .sass-cache*
+reset.py
