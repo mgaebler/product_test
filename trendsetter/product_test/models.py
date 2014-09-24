@@ -19,12 +19,12 @@ class ProductTest(models.Model):
     title = models.CharField(max_length=255)
     brand = models.ForeignKey(Brands)
     # Images
-    hero_image = models.FileField()
-    hero_image_url = models.URLField()
-    list_image = models.FileField()
-    list_image_url = models.URLField()
-    logo = models.FileField()
-    logo_url = models.URLField()
+    hero_image = models.ImageField(null=True, blank=True)
+    hero_image_url = models.URLField(null=True, blank=True)
+    list_image = models.ImageField(null=True, blank=True)
+    list_image_url = models.URLField(null=True, blank=True)
+    logo = models.ImageField(null=True, blank=True)
+    logo_url = models.URLField(null=True, blank=True)
     # Customization
     custom_html = models.TextField()
     custom_css = models.TextField()
