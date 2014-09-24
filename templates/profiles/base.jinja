@@ -1,0 +1,19 @@
+{% extends 'base.jinja' %}
+
+{% block content %}
+
+    <nav>
+        <div class="dash-nav-wrapper">
+            <div class="inner">
+                <nav class="dash-nav">
+                    <li><a href="{{ url('profile_tests') }}">Meine Produkttests</a></li>
+                    <li><a href="{{ url('profile_trendpoints') }}">Meine Trendpoints</a></li>
+                    <li><a href="{{ url('profile_invite_friends') }}">Freunde einladen</a></li>
+                </nav>
+            </div>
+        </div>
+    </nav>
+
+    {% block profile_content %}{% endblock profile_content %}
+
+{% endblock content %}
