@@ -3,7 +3,7 @@ from django.db import models
 from django.utils import timezone
 
 
-class Brands(models.Model):
+class Brand(models.Model):
     name = models.CharField(max_length=254)
     slug = models.SlugField(max_length=254, db_index=True)
     logo = models.ImageField()
@@ -14,18 +14,18 @@ class Brands(models.Model):
         return self.name
 
 
-class Participations(models.Model):
+class Participation(models.Model):
     pass
 
 
-class Invites(models.Model):
+class Invite(models.Model):
     pass
 
 
 class ProductTest(models.Model):
     slug = models.SlugField(max_length=254, db_index=True)
     title = models.CharField(max_length=254)
-    brand = models.ForeignKey(Brands, null=True, blank=True)
+    brand = models.ForeignKey(Brand, null=True, blank=True)
     # Images
     hero_image = models.ImageField(null=True, blank=True)
     hero_image_url = models.URLField(null=True, blank=True)

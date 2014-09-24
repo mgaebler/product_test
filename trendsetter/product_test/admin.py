@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ProductTest, Brands
+from .models import ProductTest, Brand
 
 
 @admin.register(ProductTest)
@@ -31,4 +31,4 @@ class ProductTestAdmin(admin.ModelAdmin):
     )
 
 
-admin.site.register(Brands)
+admin.site.register(Brand)
