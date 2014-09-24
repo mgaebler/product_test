@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ProductTest
+from .models import ProductTest, Brands
 
 
 @admin.register(ProductTest)
@@ -8,7 +8,7 @@ class ProductTestAdmin(admin.ModelAdmin):
     readonly_fields = ('created_at', 'updated_at',)
     fieldsets = (
         (None, {
-            'fields': ('title', 'slug',)
+            'fields': ('title', 'slug', 'brand')
         },),
         ('Images', {
             'fields': (
@@ -31,3 +31,4 @@ class ProductTestAdmin(admin.ModelAdmin):
     )
 
 
+admin.site.register(Brands)
