@@ -83,6 +83,7 @@ INSTALLED_APPS = (
     # 3rd party
     'django_thumbor',
     'django_jinja',
+    'django_jinja.contrib._humanize',
     'pipeline',
 
     # our apps
