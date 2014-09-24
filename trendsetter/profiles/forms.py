@@ -11,5 +11,16 @@ class LoginForm(forms.Form):
 
 
 class PasswordChangeForm(forms.Form):
-    pass
+    old_password = forms.CharField(
+        widget=forms.PasswordInput(render_value=False),
+        max_length=100
+    )
+    new_password = forms.CharField(
+        widget=forms.PasswordInput(render_value=False),
+        max_length=100
+    )
+    confirm_password = forms.CharField(
+        widget=forms.PasswordInput(render_value=False),
+        max_length=100
+    )
 
