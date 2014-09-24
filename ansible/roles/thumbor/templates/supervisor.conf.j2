@@ -1,0 +1,27 @@
+[program:thumbor]
+command=/home/{{ ansible_ssh_user }}/.virtualenvs/thumbor/bin/python /home/{{ ansible_ssh_user }}/.virtualenvs/thumbor/bin/thumbor --port=900%(process_num)s --conf=/etc/thumbor.conf
+process_name=thumbor900%(process_num)s
+numprocs={{ thumbor.process }}
+user={{ thumbor.user }}
+
+autostart=true
+autorestart=true
+
+stdout_logfile=/var/log/supervisor/thumbor900%(process_num)s.stdout.log
+stdout_logfile_backups=3
+stderr_logfile=/var/log/supervisor/thumbor900%(process_num)s.stderr.log
+stderr_logfile_backups=3
+
+[program:remotecv]
+command=/home/{{ ansible_ssh_user }}/.virtualenvs/thumbor/bin/python /home/{{ ansible_ssh_user }}/.virtualenvs/thumbor/bin/remotecv --host={{ thumbor.redis.host }} --port={{ thumbor.redis.port }} --database={{ thumbor.redis.db }}
+process_name=remotecv
+numprocs=1
+user={{ thumbor.user }}
+
+autostart=true
+autorestart=true
+
+stdout_logfile=/var/log/supervisor/remotecv.stdout.log
+stdout_logfile_backups=3
+stderr_logfile=/var/log/supervisor/remotecv.stderr.log
+stderr_logfile_backups=3

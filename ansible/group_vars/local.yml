@@ -1,0 +1,17 @@
+---
+deploy: {
+  user: vagrant,
+  basedir: "/home/vagrant"
+}
+
+thumbor: {
+  redis: {
+    host: localhost,
+    port: 6379,
+    db: 3
+  },
+  process: 4,
+  env: development,
+  user: vagrant,
+  allow_unsafe: False
+}

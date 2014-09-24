@@ -1,5 +1,0 @@
----
-deploy: {
-  user: vagrant,
-  basedir: "/home/vagrant"
-}
