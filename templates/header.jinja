@@ -10,10 +10,12 @@
                     src="/assets/default_avatar-9a4e2d9c79835dc15fc451a60c458436.jpg"
                 />
             </a>
-            Hallo, marian.gaebler!
+            Hallo, {{ request.user }}!
             <br>
+            {% if request.user.is_staff %}
             <a href="/admin/">Admin</a>
             |
+            {% endif %}
             <a href="{{ url('profile_index') }}">Meine Seite</a>
             |
             <a href="{{ url('profile_settings') }}">Einstellungen</a>
