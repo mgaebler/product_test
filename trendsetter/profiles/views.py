@@ -1,4 +1,5 @@
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
+from .forms import PasswordChangeForm
 
 
 def login_view(request):
@@ -19,3 +20,13 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
+
+
+def password_change(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(user=request.user, data=request.POST)
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request, form.user)
+    else:
+        pass
