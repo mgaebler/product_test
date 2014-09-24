@@ -1,0 +1,7 @@
+---
+# Imaging services like thumbor make your life better.
+# https://github.com/thumbor/thumbor
+- hosts: imgservers
+  roles:
+    - redis
+    - thumbor

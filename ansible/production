@@ -3,3 +3,6 @@ trendsetter ansible_ssh_user=deploy
 
 [dbservers]
 foobar
+
+[imgservers]
+foobar

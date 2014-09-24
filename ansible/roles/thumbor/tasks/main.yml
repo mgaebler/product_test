@@ -1,0 +1,9 @@
+---
+- name: add thumbor
+  sudo: true
+  apt_repository: repo='ppa:thumbor/ppa' state=present update_cache=yes
+  tags: thumbor
+
+# install thumbor
+- apt: name=thumbor state=present
+  sudo: true
