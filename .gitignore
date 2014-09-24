@@ -6,4 +6,4 @@
 .media
 db/
 .sass-cache*
-reset.py
+reset.sh
