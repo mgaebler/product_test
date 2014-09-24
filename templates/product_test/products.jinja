@@ -4,27 +4,30 @@
 
     <h2>Unsere Produkttests auf einen Blick</h2>
 
-    <div class="row">
-        <div class="col-md-8">
-            <div class="brand-fuersie test-tile">
-                <h3 class="test-title">
-                    <a href="{{ url('product_test_info') }}">
-                        PRO PLAN DELICATE: Das hochwertige Trockenfutter für Deine Katze
-                    </a>
-                </h3>
+    {% for test in product_test_list %}
+        <div class="row">
+            <div class="col-md-8">
+                <div class="brand-fuersie test-tile">
+                    <h3 class="test-title">
+                        <a href="{{ url('product_test_info', slug=test.slug) }}">
+                            {{ test.title }}
+                        </a>
+                    </h3>
 
-                <div class="test-link">
-                    <a class="btn btn-inverted" href="{{ url('product_test_info') }}">
-                        Jetzt mitmachen
+                    <div class="test-link">
+                        <a class="btn btn-inverted" href="">
+                            Jetzt mitmachen
+                        </a>
+                    </div>
+
+                    <a class="test-teaser" href="" style="background: url(/media/purina/produkttests_teaser_purina.png) no-repeat 50% 100%">
+                       {{ test.title }}
                     </a>
                 </div>
-
-                <a class="test-teaser" href="{{ url('product_test_info') }}" style="background: url(/media/purina/produkttests_teaser_purina.png) no-repeat 50% 100%">
-                    PRO PLAN DELICATE: Das hochwertige Trockenfutter für Deine Katze
-                </a>
             </div>
         </div>
-    </div>
+    {% endfor %}
+
 
     <h2>Abgeschlossene Projekte</h2>
 

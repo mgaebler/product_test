@@ -6,6 +6,7 @@ from django.utils import timezone
 class Brand(models.Model):
     name = models.CharField(max_length=254)
     slug = models.SlugField(max_length=254, db_index=True)
+    url = models.URLField()
     logo = models.ImageField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

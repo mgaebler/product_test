@@ -12,20 +12,21 @@
     </h2>
     <ul>
         <li class="active page-nav-info">
-            <a href="{{ url('product_test_info') }}">Info</a>
+            <a href="{{ url('product_test_info', slug=product_test.slug) }}">Info</a>
         </li>
+
         <li class="page-nav-forum">
-            <a href="{{ url('product_test_forum') }}">Forum</a>
+            <a href="{{ url('product_test_forum', slug=product_test.slug) }}">Forum</a>
         </li>
         <li class="page-nav-gallery">
-            <a href="{{ url('product_test_gallery') }}">Galerie</a>
+            <a href="{{ url('product_test_gallery', slug=product_test.slug) }}">Galerie</a>
         </li>
         <li class="page-nav-faq">
-            <a href="{{ url('product_test_faq') }}">FAQ</a>
+            <a href="{{ url('product_test_faq', slug=product_test.slug) }}">FAQ</a>
         </li>
     </ul>
 </div>
 
 {% block product_test_content %}{% endblock %}
 
-{% block endcontent %}
+{% endblock content %}
