@@ -15,6 +15,7 @@ django-thumbor
 pillow
 
 # Templating
+## http://niwibe.github.io/django-jinja/
 django-jinja
 pyjade
 
