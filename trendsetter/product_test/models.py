@@ -1,5 +1,6 @@
 # coding: utf8
 from django.db import models
+from django.utils import timezone
 
 
 class Brands(models.Model):
@@ -31,12 +32,11 @@ class ProductTest(models.Model):
     # Dates
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    published_at = models.DateTimeField()
-    ends_at = models.DateTimeField()
-    activated_at = models.DateTimeField()
+    published_at = models.DateTimeField(default=timezone.now, null=True)
+    ends_at = models.DateTimeField(default=timezone.now, null=True)
+    activated_at = models.DateTimeField(default=timezone.now, null=True)
 
     state = models.BooleanField(default=False)
 
     def __unicode__(self):
         return self.title
-
