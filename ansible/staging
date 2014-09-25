@@ -1,5 +1,5 @@
 [webservers]
-trendsetter ansible_ssh_user=deploy
+foobar
 
 [dbservers]
 foobar
@@ -8,7 +8,7 @@ foobar
 foobar
 
 
-[production:children]
+[staging:children]
 webservers
 dbservers
 imgservers

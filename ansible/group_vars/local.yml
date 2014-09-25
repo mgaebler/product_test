@@ -5,6 +5,7 @@ deploy: {
 }
 
 thumbor: {
+  enabled: 1,
   redis: {
     host: localhost,
     port: 6379,
