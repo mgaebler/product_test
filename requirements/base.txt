@@ -11,7 +11,10 @@ django-pipeline
 django-pipeline-compass-rubygem
 
 # Imaging
-django-thumbor
+easy-thumbnails
+## try jinja support
+#-e git+https://github.com/mgaebler/django-thumbor@develop#egg=django-thumbor
+#django-thumbor
 pillow
 
 # Templating

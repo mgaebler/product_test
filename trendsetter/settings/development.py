@@ -3,7 +3,7 @@ from .common import *
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+THUMBNAIL_DEBUG = True
 # Template Settings
 TEMPLATE_DEBUG = True
 DEBUG_TOOLBAR = True
