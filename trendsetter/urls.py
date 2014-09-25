@@ -17,7 +17,7 @@ urlpatterns = patterns('',
     url(r'^partner-info/$', TemplateView.as_view(template_name='partner_info.jinja'), name='partner_info'),
 
     url(r'me/', include('profiles.urls')),
-    url(r'tests/', include('product_test.urls')),
+    url(r'produkttests/', include('product_test.urls')),
 
     # url(r'^blog/', include('blog.urls')),
     url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
