@@ -1,34 +1,42 @@
 {% extends 'base.jinja' %}
 
 {% block content %}
-
-    <h2>Unsere Produkttests auf einen Blick</h2>
-
-    {% for test in product_test_list %}
+    <div class="container">
         <div class="row">
-            <div class="col-md-8">
-                <div class="brand-fuersie test-tile">
-                    <h3 class="test-title">
-                        <a href="{{ url('product_test_info', slug=test.slug) }}">
-                            {{ test.title }}
-                        </a>
-                    </h3>
+            <div class="col-md-12">
+                <h2>Unsere Produkttests auf einen Blick</h2>
 
-                    <div class="test-link">
-                        <a class="btn btn-inverted" href="{{ url('product_test_info', slug=test.slug) }}">
-                            Jetzt mitmachen
-                        </a>
+                {% for test in product_test_list %}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="brand-fuersie test-tile">
+                                <h3 class="test-title">
+                                    <a href="{{ url('product_test_info', slug=test.slug) }}">
+                                        {{ test.title }}
+                                    </a>
+                                </h3>
+
+                                <div class="test-link">
+                                    <a class="btn btn-inverted" href="{{ url('product_test_info', slug=test.slug) }}">
+                                        Jetzt mitmachen
+                                    </a>
+                                </div>
+
+                                <a class="test-teaser" href="{{ url('product_test_info', slug=test.slug) }}"
+                                   style="background: url({{ thumbnail(test.logo, size=(400, 400)) }}) no-repeat 50% 100%">
+                                    {{ test.title }}
+                                </a>
+                            </div>
+                        </div>
                     </div>
-
-                    <a class="test-teaser" href="{{ url('product_test_info', slug=test.slug) }}" style="background: url({{ thumbnail(test.logo, size=(400, 400)) }}) no-repeat 50% 100%">
-                       {{ test.title }}
-                    </a>
-                </div>
+                {% endfor %}
             </div>
         </div>
-    {% endfor %}
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Abgeschlossene Projekte</h2>
+            </div>
 
-
-    <h2>Abgeschlossene Projekte</h2>
-
+        </div>
+    </div>
 {% endblock %}
