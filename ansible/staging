@@ -1,11 +1,11 @@
 [webservers]
-foobar
+trendsetterdjangostage.exor
 
 [dbservers]
-foobar
+trendsetterdjangostage.exor
 
 [imgservers]
-foobar
+trendsetterdjangostage.exor
 
 
 [staging:children]
