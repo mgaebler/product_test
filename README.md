@@ -20,11 +20,15 @@ Change to your project directory in your vagrant box(this is really important) a
 ``bower install name-of-your-js-app``
 
 
-# Provision the webapp
+# Provisioning
+## Local
 In this case for vagrant.
-``ansible-playbook ansible/imgservers.yml -i ansible/vagrant``
+``ansible-playbook ansible/vagrant.yml -i ansible/local``
 
+## Staging
+- ungetestet!!! -
+``ansible-playbook ansible/site.yml -i ansible/staging``
 
-# Provision the image service
-In this case for vagrant.
-``ansible-playbook ansible/imgservers.yml -i ansible/vagrant``
+## Production
+- ungetestet!!! -
+``ansible-playbook ansible/site.yml -i ansible/production``
