@@ -1,32 +1,37 @@
 {% extends 'base.jinja' %}
 
 {% block content %}
+<div class="container">
+    <div class="info" id="ptw">
+        <img alt="Produkttest purina header" src="{{ thumbnail(product_test.hero_image, size=(950, 250)) }}">
 
-<div class="page-nav">
-    <h2>
-        <a href="http://www.proplan-katze.de/?utm_source=trendsetter&amp;utm_medium=test&amp;utm_content=campaign_logo&amp;utm_campaign=purina-proplan-katze">
-            <img
-                alt="PRO PLAN DELICATE: Das hochwertige Trockenfutter für Deine Katze"
-                src="/media/purina/produkttest_purina_navlogo.png">
-        </a>
-    </h2>
-    <ul>
-        <li class="active page-nav-info">
-            <a href="{{ url('product_test_info', slug=product_test.slug) }}">Info</a>
-        </li>
+        <div class="page-nav">
+            <h2>
+                <a href="http://www.proplan-katze.de/?utm_source=trendsetter&amp;utm_medium=test&amp;utm_content=campaign_logo&amp;utm_campaign=purina-proplan-katze">
+                    <img
+                            alt="{{ product_test.title }}"
+                            src="{{ thumbnail(product_test.logo, size=(250, 250)) }}">
+                </a>
+            </h2>
+            <ul>
+                <li class="active page-nav-info">
+                    <a href="{{ url('product_test_info', slug=product_test.slug) }}">Info</a>
+                </li>
 
-        <li class="page-nav-forum">
-            <a href="{{ url('product_test_forum', slug=product_test.slug) }}">Forum</a>
-        </li>
-        <li class="page-nav-gallery">
-            <a href="{{ url('product_test_gallery', slug=product_test.slug) }}">Galerie</a>
-        </li>
-        <li class="page-nav-faq">
-            <a href="{{ url('product_test_faq', slug=product_test.slug) }}">FAQ</a>
-        </li>
-    </ul>
+                <li class="page-nav-forum">
+                    <a href="{{ url('product_test_forum', slug=product_test.slug) }}">Forum</a>
+                </li>
+                <li class="page-nav-gallery">
+                    <a href="{{ url('product_test_gallery', slug=product_test.slug) }}">Galerie</a>
+                </li>
+                <li class="page-nav-faq">
+                    <a href="{{ url('product_test_faq', slug=product_test.slug) }}">FAQ</a>
+                </li>
+            </ul>
+        </div>
+
+        {% block product_test_content %}{% endblock %}
+
+    </div>
 </div>
-
-{% block product_test_content %}{% endblock %}
-
 {% endblock content %}
