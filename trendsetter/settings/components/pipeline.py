@@ -14,7 +14,8 @@ PIPELINE_CSS = {
     },
     'app': {
         'source_filenames': ('app/sass/*.sass',),
-        'output_filename': 'css/app.css',
+        'output_filename': 'app.css',
+        'variant': 'datauri',
         'extra_context': {'media': 'screen,projection'},
     }
 }
@@ -29,16 +30,10 @@ PIPELINE_JS = {
     }
 }
 
-
-PIPELINE_COMPASS_BINARY = '/usr/bin/env compass'   # default: '/usr/bin/env compass'
-# PIPELINE_COMPASS_ARGUMENTS = '-c path/to/config.rb'  # default: ''
+PIPELINE_SASS_ARGUMENTS = '--compass --no-cache'
 PIPELINE_COMPILERS = (
-    'pipeline_compass.compass.CompassCompiler',
+    'pipeline.compilers.sass.SASSCompiler',
 )
-
-# PIPELINE_COMPILERS = (
-#     'pipeline.compilers.sass.SASSCompiler',
-# )
 
 PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'
 PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'

@@ -152,9 +152,14 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'django.contrib.staticfiles.finders.FileSystemFinder',
+    'pipeline.finders.PipelineFinder',
+    'pipeline.finders.CachedFileFinder',
+    'pipeline.finders.FileSystemFinder',
 )
 
-STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
+STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
+# @todo: why does the cached storage not work
+# STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '.media')
@@ -168,8 +173,8 @@ CACHES = {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
         'LOCATION': '/tmp/trendsetter/django_cache_staticfiles',
     },
-
 }
+
 
 ## THUMBOR SETTINGS
 # The host serving the thumbor resized images
