@@ -2,21 +2,21 @@
 
 {% block content %}
 
-    <div class="container">
-        <nav>
-            <div class="dash-nav-wrapper">
-                <div class="inner">
-                    <nav class="dash-nav">
-                        <li><a href="{{ url('profile_tests') }}">Meine Produkttests</a></li>
-                        <li><a href="{{ url('profile_trendpoints') }}">Meine Trendpoints</a></li>
-                        <li><a href="{{ url('profile_invite_friends') }}">Freunde einladen</a></li>
-                    </nav>
-                </div>
-            </div>
-        </nav>
+  <div class="container">
+    <nav>
+      <div class="dash-nav-wrapper">
+        <div class="inner">
+          <nav class="dash-nav">
+            <li><a href="{{ url('profile_tests') }}">Meine Produkttests</a></li>
+            <li><a href="{{ url('profile_trendpoints') }}">Meine Trendpoints</a></li>
+            <li><a href="{{ url('profile_invite_friends') }}">Freunde einladen</a></li>
+          </nav>
+        </div>
+      </div>
+    </nav>
 
-        {% block profile_content %}{% endblock profile_content %}
+    {% block profile_content %}{% endblock profile_content %}
 
-    </div>
+  </div>
 
 {% endblock content %}

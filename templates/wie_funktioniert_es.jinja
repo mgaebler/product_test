@@ -1,49 +1,35 @@
 {% extends 'base.jinja' %}
 
 {% block content %}
-    <div class="inner container">
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('.flash').click(function (e) {
-                    $(this).hide('slow');
-                });
-            });
-        </script>
-        <div id="flashes">
-            <div class="inner">
-            </div>
-        </div>
 
+  <div class="inner container">
+    <h2>Wie funktioniert Trendsetter?</h2>
+
+    <div class="row">
+      <div class="col-md-8">
+        <div class="step-1">
+          <p>Einfach registrieren, einloggen und für spannende Produkttests bewerben.</p>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="step-2">
+          <p>Zusage per Mail erhalten und Artikel per Post zugesendet bekommen.</p>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="step-3">
+          <p>Artikel ausgiebig testen, bewerten und Meinung mit Freunden teilen.</p>
+        </div>
+      </div>
+    </div>
+    <div class="bigger cta">
+      <p>
+        Produkte testen, bewerten und verbreiten.
+        <strong>Werde Trendsetter!</strong>
+        <a class="btn btn-primary" href="/user/register">Jetzt registrieren</a>
+      </p>
     </div>
 
-    <div class="inner container">
-        <h2>Wie funktioniert Trendsetter?</h2>
 
-        <div class="row">
-            <div class="col-md-8">
-                <div class="step-1">
-                    <p>Einfach registrieren, einloggen und für spannende Produkttests bewerben.</p>
-                </div>
-            </div>
-            <div class="col-md-8">
-                <div class="step-2">
-                    <p>Zusage per Mail erhalten und Artikel per Post zugesendet bekommen.</p>
-                </div>
-            </div>
-            <div class="col-md-8">
-                <div class="step-3">
-                    <p>Artikel ausgiebig testen, bewerten und Meinung mit Freunden teilen.</p>
-                </div>
-            </div>
-        </div>
-        <div class="bigger cta">
-            <p>
-                Produkte testen, bewerten und verbreiten.
-                <strong>Werde Trendsetter!</strong>
-                <a class="btn btn-primary" href="/user/register">Jetzt registrieren</a>
-            </p>
-        </div>
-
-
-    </div>
+  </div>
 {% endblock content %}

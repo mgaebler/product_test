@@ -2,43 +2,28 @@
 
 {% block content %}
 
-    <div class="inner container">
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('.flash').click(function (e) {
-                    $(this).hide('slow');
-                });
-            });
-        </script>
-        <div id="flashes">
-            <div class="inner">
-            </div>
-        </div>
+  <div class="inner container">
+    <div class="row">
+      <div class="col-md-20 col-md-offset-2">
+        <h2>Über uns</h2>
 
+        <p>
+          <img
+                  alt="Trendsetter team"
+                  class="content-photo"
+                  src="{{ static('app/images/trendsetter_team.jpg') }}">
+        </p>
+
+        <p>Unser Trendsetter-Team in Hamburg besteht aus <b>Katharina</b>, <b>Claudia</b> und <b>Buket</b>
+          (v.l.n.r.).
+        </p>
+
+        <p>Bei allen Fragen, Anregungen, Lob und Vorschlägen stehen wir Euch gerne zur Seite und freuen uns
+          <a href="mailto:info@trendsetter.eu">auf Eure Emails</a>!
+        </p>
+      </div>
     </div>
 
-    <div class="inner container">
-        <div class="row">
-            <div class="col-md-20 col-md-offset-2">
-                <h2>Über uns</h2>
-
-                <p>
-                    <img
-                            alt="Trendsetter team"
-                            class="content-photo"
-                            src="{{ static('images/trendsetter_team.jpg') }}">
-                </p>
-
-                <p>Unser Trendsetter-Team in Hamburg besteht aus <b>Katharina</b>, <b>Claudia</b> und <b>Buket</b>
-                    (v.l.n.r.).
-                </p>
-
-                <p>Bei allen Fragen, Anregungen, Lob und Vorschlägen stehen wir Euch gerne zur Seite und freuen uns
-                    <a href="mailto:info@trendsetter.eu">auf Eure Emails</a>!
-                </p>
-            </div>
-        </div>
-
-    </div>
+  </div>
 
 {% endblock content %}

@@ -2,32 +2,108 @@
 
 {% block content %}
 
-    <div class='inner container'>
-        <div class='row'>
-            <div class='hero col-md-18'
-                 style='background: url(/images/purina/startseite_teaser_purina.jpg) no-repeat 5px 0'>
-                <h3>Es ist Zeit, die Ernährung Deiner Katze zu ÜberDenken!</h3>
+  <div class='inner container'>
+    <div class='row'>
+      <div class='hero col-md-9'
+           style='background: url(/images/purina/startseite_teaser_purina.jpg) no-repeat 5px 0'>
+        <h3>Es ist Zeit, die Ernährung Deiner Katze zu ÜberDenken!</h3>
 
-                <p>2000 Trendsetter dürfen ihre Katze die einzigartige Rezeptur von <b>PRO PLAN® DELICATE</b> testen
-                    lassen.
-                </p>
+        <p>2000 Trendsetter dürfen ihre Katze die einzigartige Rezeptur von <b>PRO PLAN® DELICATE</b> testen
+          lassen.
+        </p>
 
-            </div>
-            <div class='sidebar col-md-6'>
-                <div class='box highlight inverse register-box'>
-                    <p class='bigger'>Produkte testen und Trends setzen.</p>
+      </div>
+      <div class='sidebar col-md-3'>
+        <div class='box highlight inverse register-box'>
+          {% if user.is_authenticated %}
+            <p class='bigger'>Produkte testen und Trends setzen.</p>
 
-                    <p class='bigger'>
-                        <strong>Du bist dabei!</strong>
-                    </p>
+            <p class='bigger'>
+              <strong>Du bist dabei!</strong>
+            </p>
 
-                    <p>
-                        Jetzt kannst Du <a href="{{ url('profile_invite_friends') }}">hier Deine Freunde einladen</a>
-                        und dafür Trendpoints verdienen, die Du dann gegen interessante Prämien eintauschen kannst.
-                    </p>
+            <p>
+              Jetzt kannst Du <a href="{{ url('profile_invite_friends') }}">hier Deine Freunde
+              einladen</a>
+              und dafür Trendpoints verdienen, die Du dann gegen interessante Prämien eintauschen kannst.
+            </p>
+          {% else %}
+            <p class="bigger">Produkte testen und Trends setzen.</p>
+
+            <p class="bigger">
+              <strong>Mach jetzt mit!</strong>
+            </p>
+
+            <form accept-charset="UTF-8" action="{{ url('user_register') }}" class="new_user" id="new_user"
+                  method="post">
+              <div style="display:none">
+                <input name="utf8" type="hidden" value="✓">
+                <input name="authenticity_token" type="hidden"
+                       value="5tgyiCC0xQYQX036i/jXMwBLDLZ3NUTWZIKTzt+AxvI=">
+              </div>
+              <div class="form-group">
+                <label class="sr-only control-label" for="user_email">
+                  E-Mail-Adresse
+                </label>
+                <input class="form-control"
+                       id="user_email"
+                       name="user[email]"
+                       placeholder="E-Mail-Adresse"
+                       type="text">
+              </div>
+              <small>
+                <div class="checkbox">
+                  <label for="user_terms">
+                    <input name="user[terms]" type="hidden" value="0">
+                    <input id="user_terms" name="user[terms]" type="checkbox" value="1">
+                    Ich akzeptiere die <a href="/agb" target="_blank">Nutzungs-</a> und&nbsp;
+                    <a href="/teilnahmebedingungen" target="_blank">
+                      Teilnahmebedingungen
+                    </a>
+                  </label>
                 </div>
-            </div>
+              </small>
+              <input class="btn-inverted btn-block btn-block-big" name="commit" type="submit"
+                     value="Jetzt registrieren">
+            </form>
+          {% endif %}
         </div>
+        <p class="register-raffle-teaser">
+        </p>
+        {% if not user.is_authenticated %}
+          <div class="box login-box">
+            <p class="big">
+              Schon Mitglied?
+              <strong>Log Dich ein!</strong>
+            </p>
 
+            <form accept-charset="UTF-8" action="{{ url('login') }}" class="new_user" id="new_user"
+                  method="post">
+              {% csrf_token %}
+              <div class="form-group">
+                <label class="sr-only control-label" for="user_email">Email</label>
+                <input class="form-control"
+                       id="user_email"
+                       name="user[email]"
+                       placeholder="E-Mail-Adresse"
+                       type="text">
+              </div>
+              <div class="form-group">
+                <label class="sr-only control-label" for="password">Password</label>
+                <input class="form-control"
+                       id="user_password" name="user[password]" placeholder="Passwort"
+                       type="password">
+              </div>
+              <input class="btn-primary btn-block" name="commit" type="submit" value="Log Dich ein">
+            </form>
+
+            <p style="margin-top: 8px">
+              <small><a href="/user/prereg">Schon vorregistriert?</a></small>
+            </p>
+          </div>
+        {% endif %}
+      </div>
     </div>
+  </div>
+
 {% endblock content %}
