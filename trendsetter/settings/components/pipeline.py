@@ -6,7 +6,7 @@ PIPELINE_ENABLED = False
 PIPELINE_CSS = {
     'common': {
         'source_filenames': (
-            'sass-bootstrap/lib/bootstrap.scss',
+            # 'sass-bootstrap/lib/bootstrap.scss',
             'sass-bootstrap/dist/css/bootstrap-theme.css',
         ),
         'output_filename': 'css/common.css',
