@@ -11,4 +11,3 @@ vagrant ansible_ssh_host=192.168.105.11 ansible_ssh_user=vagrant ansible_ssh_pri
 [local:children]
 webservers
 dbservers
-imgservers
