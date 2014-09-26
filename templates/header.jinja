@@ -2,18 +2,23 @@
 
   <div class='current-user logged-in'>
     <div class='inner'>
-      <a href="{{ url('profile_tests') }}">
-        <img
-            align="right"
-            alt="Default avatar"
-            class="user-avatar user-avatar-medium"
-            src="{{ static('app/images/default_avatar.jpg') }}"
-            />
-      </a>
-      Hallo, {{ user }}!
-      <br>
 
-      {% if user.is_authenticated() %}
+      {% if not user.is_authenticated() %}
+        Schon Mitglied?
+        <a href="{{ url('login_form') }}">Einloggen</a>
+      {% else %}
+        <a href="{{ url('profile_tests') }}">
+          <img
+              align="right"
+              alt="Default avatar"
+              class="user-avatar user-avatar-medium"
+              src="{{ static('app/images/default_avatar.jpg') }}"
+              />
+        </a>
+        Hallo, {{ user }}!
+        <br>
+
+
         {% if user.is_staff %}
           <a href="/admin/">Admin</a>
           |

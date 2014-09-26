@@ -11,7 +11,7 @@ urlpatterns = patterns(
 
     url(r'^register/$', login_view, name='user_register'),
     url(r'^preregister/$', login_view, name='user_preregister'),
-    url(r'^login-form/$', login_view, name='login_form'),
+    url(r'^login-form/$', TemplateView.as_view(template_name='profiles/login_form.jinja'), name='login_form'),
     url(r'^login/$', login_view, name='login'),
     url(r'^logout/$', logout_view, name='logout'),
     url(r'^change-password/$', TemplateView.as_view(template_name='index.jinja'), name='change_password'),
