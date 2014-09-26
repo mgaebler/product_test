@@ -13,8 +13,8 @@ PIPELINE_CSS = {
         'extra_context': {'media': 'screen,projection'},
     },
     'app': {
-        'source_filenames': ('app/sass/*.sass',),
-        'output_filename': 'app.css',
+        'source_filenames': ('app/app.sass',),
+        'output_filename': 'app/app_out.css',
         'variant': 'datauri',
         'extra_context': {'media': 'screen,projection'},
     }
@@ -30,7 +30,7 @@ PIPELINE_JS = {
     }
 }
 
-PIPELINE_SASS_ARGUMENTS = '--compass --no-cache'
+PIPELINE_SASS_ARGUMENTS = '--compass --trace'
 PIPELINE_COMPILERS = (
     'pipeline.compilers.sass.SASSCompiler',
 )
