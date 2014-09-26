@@ -2,7 +2,7 @@
 
     <div class='current-user logged-in'>
         <div class='inner'>
-            <a href="/user/tests">
+            <a href="{{ url('profile_tests') }}">
                 <img
                     align="right"
                     alt="Default avatar"
@@ -20,13 +20,13 @@
             |
             <a href="{{ url('profile_settings') }}">Einstellungen</a>
             |
-            <a href="/user/logout">Ausloggen</a>
+            <a href="{{ url('logout') }}">Ausloggen</a>
         </div>
     </div>
 
     <div class='inner'>
         <div id='logo'>
-            <h1><a href="/">Trendsetter</a></h1>
+            <h1><a href="{{ url('home') }}">Trendsetter</a></h1>
         </div>
     </div>
     <div class='inner'>

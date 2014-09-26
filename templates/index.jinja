@@ -1,30 +1,17 @@
 {% extends 'base.jinja' %}
 
 {% block content %}
-    <div class='inner container'>
-        <script type='text/javascript'>
-            $(document).ready(function () {
-                $('.flash').click(function (e) {
-                    $(this).hide('slow');
-                });
-            });
-        </script>
-        <div id='flashes'>
-            <div class='inner'>
-            </div>
-        </div>
-
-    </div>
 
     <div class='inner container'>
         <div class='row'>
             <div class='hero col-md-18'
-                 style='background: url(/media/purina/startseite_teaser_purina.jpg) no-repeat 5px 0'>
+                 style='background: url(/images/purina/startseite_teaser_purina.jpg) no-repeat 5px 0'>
                 <h3>Es ist Zeit, die Ernährung Deiner Katze zu ÜberDenken!</h3>
 
                 <p>2000 Trendsetter dürfen ihre Katze die einzigartige Rezeptur von <b>PRO PLAN® DELICATE</b> testen
-                    lassen.</p>
-                <a href="/produkttests/purina-proplan-delicate/info" id="hero-cta">Hier bewerben</a>
+                    lassen.
+                </p>
+
             </div>
             <div class='sidebar col-md-6'>
                 <div class='box highlight inverse register-box'>
@@ -34,8 +21,10 @@
                         <strong>Du bist dabei!</strong>
                     </p>
 
-                    <p>Jetzt kannst Du <a href="/user/freunde-einladen">hier Deine Freunde einladen</a> und dafür
-                        Trendpoints verdienen, die Du dann gegen interessante Prämien eintauschen kannst.</p>
+                    <p>
+                        Jetzt kannst Du <a href="{{ url('profile_invite_friends') }}">hier Deine Freunde einladen</a>
+                        und dafür Trendpoints verdienen, die Du dann gegen interessante Prämien eintauschen kannst.
+                    </p>
                 </div>
             </div>
         </div>
