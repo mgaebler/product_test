@@ -16,18 +16,20 @@ urlpatterns = patterns('',
     url(r'^impressum/$', TemplateView.as_view(template_name='impressum.jinja'), name='impressum'),
     url(r'^partner-info/$', TemplateView.as_view(template_name='partner_info.jinja'), name='partner_info'),
 
+    url(r'^login/$', TemplateView.as_view(template_name='index.jinja'), name='login'),
+    url(r'^logout/$', TemplateView.as_view(template_name='index.jinja'), name='logout'),
+
     url(r'me/', include('profiles.urls')),
     url(r'produkttests/', include('product_test.urls')),
 
-    # url(r'^blog/', include('blog.urls')),
-    url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
+    url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
 
 if settings.DEBUG:
-    import debug_toolbar
-    urlpatterns += patterns(
-        '',
-        url(r'^__debug__/', include(debug_toolbar.urls)),
-    )
+    # import debug_toolbar
+    # urlpatterns += patterns(
+    #     '',
+    #     url(r'^__debug__/', include(debug_toolbar.urls)),
+    # )
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
