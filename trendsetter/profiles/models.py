@@ -12,6 +12,7 @@ class Profile(models.Model):
     )
     # profile
     user = models.OneToOneField(User)
+    invited_by = models.ForeignKey(User, related_name='invited_by')
     gender = models.CharField(choices=GENDER_CHOICES, max_length=1)
     nickname = models.CharField(max_length=254)
     avatar = models.FileField()
