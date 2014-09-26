@@ -46,10 +46,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 # jinja 2 settings
 ## http://niwibe.github.io/django-jinja/#_introduction
 TEMPLATE_LOADERS = (
-    ('pyjade.ext.django.Loader', (
-        'django_jinja.loaders.AppLoader',
-        'django_jinja.loaders.FileSystemLoader',
-    )),
+    'django_jinja.loaders.AppLoader',
+    'django_jinja.loaders.FileSystemLoader',
 )
 
 TEMPLATE_DIRS = (
@@ -81,11 +79,11 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     # 3rd party
-    'django_thumbor',
+    # 'django_thumbor',
     'django_jinja',
     'django_jinja.contrib._humanize',
     'pipeline',
-    'django_jinja.contrib._pipeline',
+    # 'django_jinja.contrib._pipeline',
     'easy_thumbnails',
     'django_jinja.contrib._easy_thumbnails',
     # our apps
@@ -157,24 +155,51 @@ STATICFILES_FINDERS = (
     'pipeline.finders.FileSystemFinder',
 )
 
-STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
-# @todo: why does the cached storage not work
-# STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
+STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '.media')
 
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+#         'LOCATION': '/tmp/trendsetter/django_cache',
+#     },
+#     'staticfiles': {
+#         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+#         'LOCATION': '/tmp/trendsetter/django_cache_staticfiles',
+#     },
+# }
+
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': '/tmp/trendsetter/django_cache',
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'local-memory'
     },
     'staticfiles': {
-        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': '/tmp/trendsetter/django_cache_staticfiles',
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'local-memory',
     },
 }
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'log', 'debug.log'),
+        },
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
 
 ## THUMBOR SETTINGS
 # The host serving the thumbor resized images
