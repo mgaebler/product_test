@@ -15,7 +15,7 @@
       </div>
       <div class='sidebar col-md-3'>
         <div class='box highlight inverse register-box'>
-          {% if user.is_authenticated %}
+          {% if user.is_authenticated() %}
             <p class='bigger'>Produkte testen und Trends setzen.</p>
 
             <p class='bigger'>
@@ -70,7 +70,7 @@
         </div>
         <p class="register-raffle-teaser">
         </p>
-        {% if not user.is_authenticated %}
+        {% if not user.is_authenticated() %}
           <div class="box login-box">
             <p class="big">
               Schon Mitglied?
@@ -98,7 +98,7 @@
             </form>
 
             <p style="margin-top: 8px">
-              <small><a href="/user/prereg">Schon vorregistriert?</a></small>
+              <small><a href="{{ url('user_preregister') }}">Schon vorregistriert?</a></small>
             </p>
           </div>
         {% endif %}

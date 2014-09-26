@@ -4,23 +4,26 @@
     <div class='inner'>
       <a href="{{ url('profile_tests') }}">
         <img
-                align="right"
-                alt="Default avatar"
-                class="user-avatar user-avatar-medium"
-                src="{{ static('app/images/default_avatar.jpg') }}"
-                />
+            align="right"
+            alt="Default avatar"
+            class="user-avatar user-avatar-medium"
+            src="{{ static('app/images/default_avatar.jpg') }}"
+            />
       </a>
-      Hallo, {{ request.user }}!
+      Hallo, {{ user }}!
       <br>
-      {% if request.user.is_staff %}
-        <a href="/admin/">Admin</a>
+
+      {% if user.is_authenticated() %}
+        {% if user.is_staff %}
+          <a href="/admin/">Admin</a>
+          |
+        {% endif %}
+        <a href="{{ url('profile_index') }}">Meine Seite</a>
         |
+        <a href="{{ url('profile_settings') }}">Einstellungen</a>
+        |
+        <a href="{{ url('logout') }}">Ausloggen</a>
       {% endif %}
-      <a href="{{ url('profile_index') }}">Meine Seite</a>
-      |
-      <a href="{{ url('profile_settings') }}">Einstellungen</a>
-      |
-      <a href="{{ url('logout') }}">Ausloggen</a>
     </div>
   </div>
 
