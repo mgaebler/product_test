@@ -7,3 +7,4 @@
 db/
 .sass-cache*
 reset.sh
+log/*
