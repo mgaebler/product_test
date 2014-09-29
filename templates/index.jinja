@@ -34,13 +34,11 @@
               <strong>Mach jetzt mit!</strong>
             </p>
 
-            <form accept-charset="UTF-8" action="{{ url('user_register') }}" class="new_user" id="new_user"
+            <form accept-charset="UTF-8"
+                  action="{{ url('user_register') }}" class="new_user" id="new_user"
                   method="post">
-              <div style="display:none">
-                <input name="utf8" type="hidden" value="✓">
-                <input name="authenticity_token" type="hidden"
-                       value="5tgyiCC0xQYQX036i/jXMwBLDLZ3NUTWZIKTzt+AxvI=">
-              </div>
+              {% csrf_token %}
+
               <div class="form-group">
                 <label class="sr-only control-label" for="user_email">
                   E-Mail-Adresse
