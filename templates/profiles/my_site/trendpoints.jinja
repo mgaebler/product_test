@@ -8,18 +8,25 @@
     <div class="row">
       <div class="col-md-14 col-md-offset-5">
         <div class="trendpoints">
-          <span>{{ user }}</span>
+          <span>{{ user.bank_account.balance }}</span>
         </div>
+      </div>
+    </div>
 
+    <div class="row">
+      <div class="col-md-14 col-md-offset-5">
         <div class="goodies-list">
           <div class="goodie">
             <div class="goodie-img">
-              <a class="js-open-in-overlay"
-                 href="{{ static('') }}"><img
+              <a class="js-open-in-overlay" href="{{ static('') }}">
+                <img
                   alt="Trendpunkte praemie schal"
-                  src="{{ static('/app/images/trendpunkte_praemie_schal.jpg') }}"></a>
+                  src="{{ static('/app/images/trendpunkte_praemie_schal.jpg') }}">
+              </a>
             </div>
-            <div class="goodie-name">Loop-Schal „Sterne“</div>
+            <div class="goodie-name">
+              Loop-Schal „Sterne“
+            </div>
             <div class="goodie-cost">
               <span>75</span>
             </div>
@@ -27,6 +34,11 @@
               <a class="btn btn-primary" href="">Jetzt anfordern</a>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-14 col-md-offset-5">
 
         <div class="how-to-earn">
           <h4>Wie verdiene ich Trendpoints?</h4>
@@ -63,7 +75,6 @@
         </div>
       </div>
     </div>
-
 
   </div>
 

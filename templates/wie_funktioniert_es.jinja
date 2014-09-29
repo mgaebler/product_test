@@ -1,5 +1,7 @@
 {% extends 'base.jinja' %}
 
+{% block body_class %}s--static p--how{% endblock %}
+
 {% block content %}
 
   <div class="inner container">
@@ -22,13 +24,15 @@
         </div>
       </div>
     </div>
-    <div class="bigger cta">
-      <p>
-        Produkte testen, bewerten und verbreiten.
-        <strong>Werde Trendsetter!</strong>
-        <a class="btn btn-primary" href="/user/register">Jetzt registrieren</a>
-      </p>
-    </div>
+    {% if not user.is_authenticated() %}
+      <div class="bigger cta">
+        <p>
+          Produkte testen, bewerten und verbreiten.
+          <strong>Werde Trendsetter!</strong>
+          <a class="btn btn-primary" href="{{ url('user_register') }}">Jetzt registrieren</a>
+        </p>
+      </div>
+    {% endif %}
 
 
   </div>
