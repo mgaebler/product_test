@@ -14,7 +14,7 @@ class Account(models.Model):
     name = models.CharField(max_length=255, blank=True, null=True)
     type = models.CharField(max_length=2, choices=TYPE_CHOICES, default='ca')
     description = models.TextField(blank=True, null=True)
-    customer = models.ForeignKey(User)
+    customer = models.ForeignKey(User, related_name='bank_account')
     balance = models.IntegerField(default=0)
     currency = models.CharField(max_length=6, choices=CURRENCY_CHOICES, default='tp')
     updated = models.DateTimeField(auto_now=True)
@@ -69,7 +69,6 @@ def execute_transfer(sender, **kwargs):
 
         instance.executed = True
         instance.save()
-
 
 
 post_save.connect(execute_transfer, sender=Transfer, dispatch_uid="execute_account_transfer")
