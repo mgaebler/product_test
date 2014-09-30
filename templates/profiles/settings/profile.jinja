@@ -5,7 +5,7 @@
   <h1>Mein Profil</h1>
   <div class="user-profile">
     <form accept-charset="UTF-8"
-          action="{{ url('profile_settings') }}" class="form-horizontal" enctype="multipart/form-data"
+          action="{{ url('user:settings') }}" class="form-horizontal" enctype="multipart/form-data"
           method="post"
       >
       {% csrf_token %}
