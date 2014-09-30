@@ -9,7 +9,7 @@ urlpatterns = patterns(
     url(r'^trendpoints$', TemplateView.as_view(template_name='profiles/my_site/trendpoints.jinja'), name='profile_trendpoints'),
     url(r'^freunde-einladen$', TemplateView.as_view(template_name='profiles/my_site/invite_friends.jinja'), name='profile_invite_friends'),
 
-    url(r'^register/$', login_view, name='user_register'),
+    url(r'^register/$', TemplateView.as_view(template_name='profiles/register_form.jinja'), name='user_register'),
     url(r'^preregister/$', login_view, name='user_preregister'),
     url(r'^login-form/$', TemplateView.as_view(template_name='profiles/login_form.jinja'), name='login_form'),
     url(r'^login/$', login_view, name='login'),
