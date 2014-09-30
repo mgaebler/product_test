@@ -18,8 +18,8 @@ class Migration(migrations.Migration):
                 ('question', markupfield.fields.MarkupField()),
                 ('question_markup_type', models.CharField(default=None, max_length=30, choices=[(b'', b'--'), (b'markdown', b'markdown')])),
                 ('creation_date', models.DateTimeField(auto_now_add=True)),
-                ('last_modified_date', models.DateTimeField(auto_now=True)),
                 ('_question_rendered', models.TextField(editable=False)),
+                ('last_modified_date', models.DateTimeField(auto_now=True)),
             ],
             options={
             },
@@ -35,7 +35,6 @@ class Migration(migrations.Migration):
                 ('last_modified_date', models.DateTimeField(auto_now=True)),
             ],
             options={
-                'verbose_name': 'FAQ name',
             },
             bases=(models.Model,),
         ),

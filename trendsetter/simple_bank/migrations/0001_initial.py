@@ -2,13 +2,11 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
-from django.conf import settings
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
-        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
@@ -23,7 +21,6 @@ class Migration(migrations.Migration):
                 ('currency', models.CharField(default=b'tp', max_length=6, choices=[(b'tp', b'Trend Points')])),
                 ('updated', models.DateTimeField(auto_now=True)),
                 ('created', models.DateTimeField(auto_now_add=True)),
-                ('customer', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
             options={
             },

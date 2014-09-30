@@ -2,7 +2,7 @@
 import datetime
 import logging
 
-from django.contrib.auth.models import User
+from user_accounts.models import UserAccount as User
 from django.db import models
 from django.utils.timezone import utc
 from django.utils.translation import ugettext_lazy as _

@@ -87,7 +87,7 @@ INSTALLED_APPS = (
     'easy_thumbnails',
     'django_jinja.contrib._easy_thumbnails',
     # our apps
-    'profiles', # the user profiles
+    'user_accounts', # the user profiles
     'faq',
     'forum',
     #'gallery',
@@ -111,6 +111,7 @@ ROOT_URLCONF = 'trendsetter.urls'
 
 WSGI_APPLICATION = 'trendsetter.wsgi.application'
 
+AUTH_USER_MODEL = 'user_accounts.UserAccount'
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases

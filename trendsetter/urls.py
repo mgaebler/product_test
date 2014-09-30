@@ -18,7 +18,7 @@ urlpatterns = patterns('',
 
 
 
-    url(r'me/', include('profiles.urls')),
+    url(r'me/', include('user_accounts.urls')),
     url(r'produkttests/', include('product_test.urls')),
 
     url(r'^grappelli/', include('grappelli.urls')),
