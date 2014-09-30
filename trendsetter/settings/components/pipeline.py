@@ -1,7 +1,7 @@
 # django pipeline default configuration
 ## http://django-pipeline.readthedocs.org/en/latest/configuration.html
 
-PIPELINE_ENABLED = False
+# PIPELINE_ENABLED = False
 
 PIPELINE_CSS = {
     'common': {
@@ -37,3 +37,7 @@ PIPELINE_COMPILERS = (
 
 PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'
 PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'
+
+MANIFESTO_EXCLUDED_MANIFESTS = (
+        # 'randomapp.manifest.WrongManifest',
+)
