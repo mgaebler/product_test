@@ -8,38 +8,22 @@
     <div class="box register col-md-12 col-md-offset-6">
       <h2>Registrierung bei Trendsetter</h2>
 
-      <div class="register-raffle-teaser">
-      </div>
       <div class="form-group">
-        <form accept-charset="UTF-8" action="/user/register" class="new_user" id="new_user" method="post">
-          <div style="display:none"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token"
-                                                                                      type="hidden"
-                                                                                      value="t1O0/TnGhvfqQ1XvP2II69XDPxWzUbdH76KN9JBzNMM=">
-          </div>
-          <div class="form-group"><label class="control-label" for="user_email">E-Mail-Adresse</label><input
-            class="form-control" id="user_email" name="user[email]" placeholder="Deine E-Mail-Adresse" type="text">
-          </div>
-          <div class="form-group">
-            <small>
-              <div class="checkbox"><label for="user_terms"><input name="user[terms]" type="hidden" value="0"><input
-                id="user_terms" name="user[terms]" type="checkbox" value="1"> Ich akzeptiere die <a href="/agb"
-                                                                                                    target="_blank">Nutzungs-</a>
-                und&nbsp;<a href="/teilnahmebedingungen" target="_blank">Teilnahmebedingungen</a>
-              </label></div>
-            </small>
-          </div>
+        <form accept-charset="UTF-8" action="{{ url('user_register') }}" class="new_user" id="new_user" method="post">
+          {{ registration_form.as_ul() }}
           <input class="btn-primary btn-block btn-block-big" name="commit" type="submit" value="Jetzt registrieren">
         </form>
 
       </div>
+
       <p style="margin-top: 16px">
         Vorregistriert?
-        <a href="/user/prereg">Profil vervollständigen</a>
+        <a href="{{ url('profile_settings') }}">Profil vervollständigen</a>
       </p>
 
       <p style="margin-top: 16px">
         Schon registriert?
-        <a href="/user/login">Einloggen</a>
+        <a href="{{ url('login') }}">Einloggen</a>
       </p>
     </div>
 

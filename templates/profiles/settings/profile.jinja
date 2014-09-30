@@ -9,6 +9,9 @@
         action="/user/profile" class="form-horizontal" enctype="multipart/form-data"
         method="post">
       {% csrf_token %}
+
+      {{ profile_form.as_ul }}
+
       <div class="user-account-data">
         <div class="xcol-sm-offset-6">
           <h3>Benutzerdaten</h3>

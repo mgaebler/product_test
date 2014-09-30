@@ -1,5 +1,6 @@
 # coding: utf8
 from django import forms
+from .models import UserAccount
 
 
 class LoginForm(forms.Form):
@@ -24,3 +25,11 @@ class PasswordChangeForm(forms.Form):
         max_length=100
     )
 
+
+class RegisterForm(forms.Form):
+    email = forms.EmailField(max_length=254)
+
+
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserAccount

@@ -1,8 +1,9 @@
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib import messages
 from django.shortcuts import redirect
+from django.views.generic import TemplateView
 
-from .forms import PasswordChangeForm
+from .forms import PasswordChangeForm, UserProfileForm, RegisterForm
 
 
 def login_view(request):
@@ -35,3 +36,17 @@ def password_change(request):
             update_session_auth_hash(request, form.user)
     else:
         pass
+
+
+class UserProfileFormView(TemplateView):
+    def get_context_data(self, **kwargs):
+        context = super(UserProfileFormView, self).get_context_data(**kwargs)
+        context['profile_form'] = UserProfileForm()
+        return context
+
+
+class RegistrationFormView(TemplateView):
+    def get_context_data(self, **kwargs):
+        context = super(RegistrationFormView, self).get_context_data(**kwargs)
+        context['registration_form'] = RegisterForm()
+        return context

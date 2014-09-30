@@ -4,6 +4,7 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
 
+
 urlpatterns = patterns('',
     # static content
     url(r'^$', TemplateView.as_view(template_name='index.jinja'), name='home'),
