@@ -4,6 +4,7 @@ django-grappelli
 python-memcached
 fabric
 pytz
+django-crispy-forms
 
 # assets
 django-pipeline

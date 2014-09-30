@@ -64,6 +64,8 @@ MARKUP_FIELD_TYPES = (
     ('markdown', markdown.markdown),
 )
 
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
 ALLOWED_HOSTS = []
 
 
@@ -86,6 +88,7 @@ INSTALLED_APPS = (
     # 'django_jinja.contrib._pipeline',
     'easy_thumbnails',
     'django_jinja.contrib._easy_thumbnails',
+    'crispy_forms',
     # our apps
     'user_accounts', # the user profiles
     'faq',
