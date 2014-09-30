@@ -2,13 +2,21 @@
 
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.utils.translation import ugettext_lazy as _
 
 
 class UserAccount(AbstractUser):
     GENDER_CHOICES = (
-        ('m', 'male'),
-        ('f', 'female'),
-        ('-', 'something else'),
+        ('m', _('male')),
+        ('f', _('female')),
+        ('-', _('something else')),
+    )
+    FAMILY_STATUS_CHOICES = (
+        ('si', _('single')),
+        ('pa', _('partnership')),
+        ('ma', _('married')),
+        ('di', _('divorced')),
+        ('an', _('another')),
     )
     # profile
     # user = models.OneToOneField()
@@ -26,7 +34,7 @@ class UserAccount(AbstractUser):
     address2 = models.CharField(max_length=254)
     address3 = models.CharField(max_length=254)
     postcode = models.IntegerField(blank=True, null=True)
-
+    family_status = models.CharField(choices=FAMILY_STATUS_CHOICES, max_length=2)
     # invited_by = models.ForeignKey()
 
     confirmation_token = models.CharField(max_length=254)
