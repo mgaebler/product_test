@@ -5,9 +5,13 @@ python-memcached
 fabric
 pytz
 django-crispy-forms
+coverage
+factory_boy
+uwsgi
 
 # assets
 django-pipeline
+manifesto
 
 # Imaging
 easy-thumbnails
@@ -24,7 +28,7 @@ pyjade
 # Markup
 # https://github.com/jamesturk/django-markupfield
 #django-markupfield
-# Since djanog markupfield has problems with django 1.7 migrations we have to use this fix branch
+# Since django markupfield has problems with django 1.7 migrations we have to use this fix branch
 -e git+https://github.com/Matt3o12/django-markupfield@56ced9bb29216ae13d1b80c9a7e708241169d300#egg=django-markupfield
 markdown
 

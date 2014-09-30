@@ -66,7 +66,7 @@ MARKUP_FIELD_TYPES = (
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -85,6 +85,7 @@ INSTALLED_APPS = (
     'django_jinja',
     'django_jinja.contrib._humanize',
     'pipeline',
+    'manifesto',
     # 'django_jinja.contrib._pipeline',
     'easy_thumbnails',
     'django_jinja.contrib._easy_thumbnails',
