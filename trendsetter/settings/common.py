@@ -93,6 +93,7 @@ INSTALLED_APPS = (
     #'gallery',
     'product_test',
     'simple_bank',
+    'simple_shop',
 )
 
 MIDDLEWARE_CLASSES = (
