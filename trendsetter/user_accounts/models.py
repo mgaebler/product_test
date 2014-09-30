@@ -1,23 +1,23 @@
 # coding: utf8
 
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 
 
-class Profile(models.Model):
+class UserAccount(AbstractUser):
     GENDER_CHOICES = (
         ('m', 'male'),
         ('f', 'female'),
         ('-', 'something else'),
     )
     # profile
-    user = models.OneToOneField(User)
-    invited_by = models.ForeignKey(User, related_name='invited_by')
+    # user = models.OneToOneField()
+    invited_by = models.ForeignKey("self", blank=True, null=True)
     gender = models.CharField(choices=GENDER_CHOICES, max_length=1)
     nickname = models.CharField(max_length=254)
-    avatar = models.FileField()
-    avatar_url = models.URLField()
-    birth_date = models.DateField()
+    avatar = models.ImageField()
+    avatar_url = models.URLField(max_length=254)
+    birth_date = models.DateField(blank=True, null=True)
     #address
     city = models.CharField(max_length=254)
     country = models.CharField(max_length=254)
@@ -25,12 +25,12 @@ class Profile(models.Model):
     address1 = models.CharField(max_length=254)
     address2 = models.CharField(max_length=254)
     address3 = models.CharField(max_length=254)
-    postcode = models.IntegerField()
+    postcode = models.IntegerField(blank=True, null=True)
 
     # invited_by = models.ForeignKey()
 
     confirmation_token = models.CharField(max_length=254)
-    confirmation_at = models.DateTimeField()
+    confirmation_at = models.DateTimeField(blank=True, null=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

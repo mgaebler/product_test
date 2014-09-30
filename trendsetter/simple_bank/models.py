@@ -43,11 +43,13 @@ class Transfer(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
 
-def create_user_account(sender, **kwargs):
-    # use the user instance to create a new account
-    Account.objects.create(customer=kwargs.get('instance', None))
+def create_customer_account(sender, **kwargs):
+    # use the user instance to create a new account if it not already exists
+    user_account = kwargs.get('instance', None)
+    if not user_account.bank_account.all():
+        Account.objects.create(customer=user_account)
 
-post_save.connect(create_user_account, sender=User, dispatch_uid="create_user_profile")
+post_save.connect(create_customer_account, sender=User, dispatch_uid="create_user_profile")
 
 
 def execute_transfer(sender, **kwargs):
