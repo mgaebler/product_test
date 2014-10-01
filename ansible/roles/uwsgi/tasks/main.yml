@@ -1,12 +1,19 @@
 ---
-- apt: name=python-pip
+- apt_repository: repo='ppa:chris-lea/uwsgi' update_cache=yes validate_certs=no
   sudo: true
 
-- pip: name=uwsgi
+- apt: name=uwsgi
   sudo: true
 
-- file: path=/var/www state=directory
+# this fixes a super weired bug, the service does not start without the plugin directory
+- file: path=/usr/lib/uwsgi/plugins state=directory owner=root group=root
   sudo: true
 
-- template: src=site_uwsgi.ini.j2 dest=/var/www/site_uwsgi.ini owner=root group=root mode=0644
+- template: src=site_uwsgi.ini.j2 dest=/etc/uwsgi/apps-enabled/{{ app.id }}.ini owner=www-data group=www-data mode=0644
   sudo: true
+
+- template: src=default.j2 dest=/etc/default/uwsgi owner=root group=root mode=0644
+  sudo: true
+
+#- service: name=uwsgi state=restarted
+#  sudo: true

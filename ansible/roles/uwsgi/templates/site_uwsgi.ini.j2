@@ -9,3 +9,13 @@ threads     = {{ uwsgi.threads }}
 socket      = {{ uwsgi.socket }}
 stats       = {{ uwsgi.stats }}
 vacuum      = {{ uwsgi.vacuum }}
+
+
+# place timestamps into log
+log-date = true
+
+# user identifier of uWSGI processes
+uid = www-data
+
+# group identifier of uWSGI processes
+gid = www-data
