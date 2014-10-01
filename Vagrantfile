@@ -12,12 +12,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provider "virtualbox" do |v, override|
     v.customize ["modifyvm", :id, "--cpus", "2"]
     v.customize ["modifyvm", :id, "--cpuexecutioncap", "80"]
-    v.customize ["modifyvm", :id, "--memory", "2048"]
+    v.customize ["modifyvm", :id, "--memory", "1024"]
   end
 
   config.vm.provider "vmware_fusion" do |v, override|
     v.vmx["numvcpus"] = "1"
-    v.vmx["memsize"] = "2048"
+    v.vmx["memsize"] = "1024"
     #v.gui = true
   end
 
