@@ -34,6 +34,11 @@
     # python dependencies
     - python-pip
     - python-dev
+    # tools
+    - multitail
+
+# install app specific python packages
+- pip: requirements='/vagrant/requirements/development.txt' virtualenv='/home/vagrant/venv/'
 
 # install ruby packages
 - gem: name=compass state=latest
