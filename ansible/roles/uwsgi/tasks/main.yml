@@ -1,0 +1,12 @@
+---
+- apt: name=python-pip
+  sudo: true
+
+- pip: name=uwsgi
+  sudo: true
+
+- file: path=/var/www state=directory
+  sudo: true
+
+- template: src=site_uwsgi.ini.j2 dest=/var/www/site_uwsgi.ini owner=root group=root mode=0644
+  sudo: true

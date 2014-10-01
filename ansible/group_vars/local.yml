@@ -16,3 +16,30 @@ thumbor: {
   user: vagrant,
   allow_unsafe: False
 }
+
+nginx: {
+  listen: 80,
+  server_name: trendsetter.local,
+  access_log: /vagrant/log/nginx_access.log,
+  media_path: /vagrant/.media,
+  static_path: /vagrant/.static,
+  location: {
+    root: /vagrant,
+    uwsgi_pass: '0.0.0.0:3031',
+    include: /vagrant/uwsgi_params
+  }
+}
+
+uwsgi: {
+  chdir: /vagrant,
+  module: trendsetter/wsgi.py,
+  # /path/to/virtualenv
+  home: /path/to/virtualenv,
+  master: true,
+  processes: 4,
+  threads: 2,
+  socket: '0.0.0.0:3031',
+  stats: '0.0.0.0:9191',
+  # clear environment on exit?
+  vacuum: true
+}
