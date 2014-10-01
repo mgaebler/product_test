@@ -7,7 +7,6 @@ pytz
 django-crispy-forms
 coverage
 factory_boy
-uwsgi
 
 # assets
 django-pipeline
