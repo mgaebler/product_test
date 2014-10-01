@@ -31,15 +31,20 @@ nginx: {
 }
 
 uwsgi: {
+  defaults: {
+    run_at_startup: yes,
+    verbose: yes,
+    inherited_config: '/etc/uwsgi/apps_enabled/{{ app.id }}.ini'
+  },
   chdir: /vagrant,
-  module: trendsetter/wsgi.py,
+  module: trendsetter.wsgi,
   # /path/to/virtualenv
-  home: /path/to/virtualenv,
-  master: true,
+  home: /home/vagrant/venv,
+  master: 'true',
   processes: 4,
   threads: 2,
   socket: '0.0.0.0:3031',
   stats: '0.0.0.0:9191',
   # clear environment on exit?
-  vacuum: true
+  vacuum: 'false'
 }
