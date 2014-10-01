@@ -35,7 +35,7 @@
             </p>
 
             <form accept-charset="UTF-8"
-                  action="{{ url('user_register') }}" class="new_user" id="new_user"
+                  action="{{ url('user:register') }}" class="new_user" id="new_user"
                   method="post">
               {% csrf_token %}
 
@@ -54,7 +54,7 @@
                   <label for="user_terms">
                     <input name="user[terms]" type="hidden" value="0">
                     <input id="user_terms" name="user[terms]" type="checkbox" value="1">
-                    Ich akzeptiere die <a href="/agb" target="_blank">Nutzungs-</a> und&nbsp;
+                    Ich akzeptiere die <a href="{{ url('agb') }}" target="_blank">Nutzungs-</a> und&nbsp;
                     <a href="/teilnahmebedingungen" target="_blank">
                       Teilnahmebedingungen
                     </a>
@@ -75,7 +75,7 @@
               <strong>Log Dich ein!</strong>
             </p>
 
-            <form accept-charset="UTF-8" action="{{ url('login') }}" class="new_user" id="new_user"
+            <form accept-charset="UTF-8" action="{{ url('user:login') }}" class="new_user" id="new_user"
                   method="post">
               {% csrf_token %}
               <div class="form-group">
@@ -96,7 +96,7 @@
             </form>
 
             <p style="margin-top: 8px">
-              <small><a href="{{ url('user_preregister') }}">Schon vorregistriert?</a></small>
+              <small><a href="{{ url('user:preregister') }}">Schon vorregistriert?</a></small>
             </p>
           </div>
         {% endif %}
