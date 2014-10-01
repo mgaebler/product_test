@@ -1,0 +1,17 @@
+---
+- name: delete default vhost
+  file: name=/etc/nginx/sites-available/default state=absent
+  sudo: true
+  tags: bootstrap
+
+- name: ensure nginx is up
+  sudo: true
+  service: name=nginx state=started enabled=yes
+
+- template: src=virtual_host.j2 dest=/etc/nginx/sites-enabled/site owner=root group=root mode=0644
+  sudo: true
+
+- name: reload nginx
+  service: name=nginx state=reloaded
+  sudo: true
+  tags: bootstrap

@@ -1,0 +1,25 @@
+
+upstream django {
+    server {{ nginx.location.uwsgi_pass }};
+}
+
+server {
+  listen {{ nginx.listen }};
+  server_name {{ nginx.server_name }};
+  access_log {{ nginx.access_log }};
+
+  # Django media
+  location /media  {
+    alias {{ nginx.media_path }};
+  }
+
+  location /static {
+    alias {{ nginx.static_path }};
+  }
+
+  location / {
+    uwsgi_pass django;
+    root {{ nginx.location.root }};
+    include {{ nginx.location.include }};
+  }
+}
