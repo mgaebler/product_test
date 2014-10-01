@@ -204,7 +204,14 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': True,
         },
+        'django_jinja.builtins.global_context': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+
     },
+
 }
 
 ## THUMBOR SETTINGS
