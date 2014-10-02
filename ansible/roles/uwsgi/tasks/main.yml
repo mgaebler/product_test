@@ -2,18 +2,26 @@
 - apt_repository: repo='ppa:chris-lea/uwsgi' update_cache=yes validate_certs=no
   sudo: true
 
-- apt: name=uwsgi
+- apt: name={{ item }} state=latest
+  sudo: true
+  with_items:
+    - uwsgi
+    - uwsgi-plugin-python
+
+# creates an upstart conf which makes use of the uwsgi emporer mode
+- template: src=upstart.uwsgi.conf
+            dest=/etc/init/uwsgi.conf
   sudo: true
 
-# this fixes a super weired bug, the service does not start without the plugin directory
-- file: path=/usr/lib/uwsgi/plugins state=directory owner=root group=root
+- template: src=site_uwsgi.ini.j2
+            dest=/etc/uwsgi/apps-enabled/{{ app.id }}.ini
+            owner=www-data
+            group=www-data
+            mode=0644
   sudo: true
 
-- template: src=site_uwsgi.ini.j2 dest=/etc/uwsgi/apps-enabled/{{ app.id }}.ini owner=www-data group=www-data mode=0644
-  sudo: true
-
-- template: src=default.j2 dest=/etc/default/uwsgi owner=root group=root mode=0644
-  sudo: true
-
-#- service: name=uwsgi state=restarted
+#- template: src=default.j2 dest=/etc/default/uwsgi owner=root group=root mode=0644
 #  sudo: true
+
+- service: name=uwsgi state=restarted
+  sudo: true
