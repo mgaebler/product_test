@@ -41,8 +41,9 @@
 # install app specific python packages
 - pip: requirements='/vagrant/requirements/development.txt' virtualenv='/home/vagrant/venv/'
 
+
 # install ruby packages
-#- gem: name={{ item }} executable=yes
+#- gem: name={{ item }} executable=yes # does not work and fails with memory error *confused
 - shell: gem install {{ item }}
   sudo: true
   with_items:
@@ -50,11 +51,12 @@
     - sass
 
 
-# install npm packages
-- npm: name=bower global=yes
+# install npm packages global
+- npm: name={{ item }} global=yes
   sudo: true
   tags: nodejs
+  with_items:
+    - bower
+    - yuglify
 
-- npm: name=yuglify global=yes state=present
-  sudo: true
-  tags: nodejs
+
