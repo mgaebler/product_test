@@ -2,6 +2,6 @@
 - hosts: webservers
   roles:
     - common
-    - uwsgi
-    - nginx
     - webapp
+    - nginx
+    - uwsgi
