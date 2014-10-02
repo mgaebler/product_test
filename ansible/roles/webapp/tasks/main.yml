@@ -34,6 +34,7 @@
     # python dependencies
     - python-pip
     - python-dev
+    - python-virtualenv
     # tools
     - multitail
 
@@ -41,7 +42,13 @@
 - pip: requirements='/vagrant/requirements/development.txt' virtualenv='/home/vagrant/venv/'
 
 # install ruby packages
-- gem: name=compass state=latest
+#- gem: name={{ item }} executable=yes
+- shell: gem install {{ item }}
+  sudo: true
+  with_items:
+    - compass
+    - sass
+
 
 # install npm packages
 - npm: name=bower global=yes
