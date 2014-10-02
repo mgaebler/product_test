@@ -17,13 +17,10 @@
 ```
 
 
-# How do I use bower in this project <a name='use-bower' />
-Change to your project directory in your vagrant box(this is really important) and use:
-``bower install name-of-your-js-app``
-
 
 # Provisioning
-
+Du benötigst Ansible für die Provisionierung.
+``brew install ansible``
 ## Local
 
 ### Vagrant - erste Ausführung
@@ -34,7 +31,7 @@ In diesem Fall wird die Provisionierung automatisch durchgeführt.
 ``vagrant provision``
 
 ### Provisionierung eines bestimmten Playbooks
-``ansible-playbook ansible/vagrant.yml -i ansible/local``
+``ansible-playbook ansible/webservers.yml -i ansible/local``
 
 
 ## Staging
@@ -44,3 +41,9 @@ In diesem Fall wird die Provisionierung automatisch durchgeführt.
 ## Production
 - ungetestet!!! -
 ``ansible-playbook ansible/site.yml -i ansible/production``
+
+
+# How do I use bower in this project
+<a name='use-bower' />
+Change to your project directory in your vagrant box(this is really important) and use:
+``bower install name-of-your-js-app``
