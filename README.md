@@ -1,6 +1,7 @@
 # WEBAPP
 ## Directory structure
-`
+
+```text
 |
 |-ansible/    - Files for provisioning
 |-assets/     - aka. static_files 
@@ -13,7 +14,8 @@
 |-trendsetter/- Django app folder. Settings and packages are placed here. 
 |-requirements/ - Python requirements
 |-Vagrantfile - the default settings file for vagrant
-`
+```
+
 
 # How do I use bower in this project <a name='use-bower' />
 Change to your project directory in your vagrant box(this is really important) and use:
@@ -21,9 +23,19 @@ Change to your project directory in your vagrant box(this is really important) a
 
 
 # Provisioning
+
 ## Local
-In this case for vagrant.
+
+### Vagrant - erste Ausführung
+``vagrant up``
+In diesem Fall wird die Provisionierung automatisch durchgeführt.
+
+### Vagrant - Provisionierung manuell ausführen
+``vagrant provision``
+
+### Provisionierung eines bestimmten Playbooks
 ``ansible-playbook ansible/vagrant.yml -i ansible/local``
+
 
 ## Staging
 - ungetestet!!! -
