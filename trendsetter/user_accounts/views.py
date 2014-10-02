@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib import messages
 from django.shortcuts import redirect
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, FormView
 
 from .forms import PasswordChangeForm, UserProfileForm, RegisterForm
 
@@ -18,7 +18,7 @@ def login_view(request):
             messages.add_message(request, messages.ERROR, u'Dieser Account ist nicht aktiviert.')
     else:
         messages.add_message(request, messages.ERROR, u'Falscher Username oder Password')
-        pass
+    messages.add_message(request, messages.ERROR, u'Test')
     return redirect('home')
 
 
@@ -40,10 +40,12 @@ def password_change(request):
 
 class UserProfileFormView(TemplateView):
     form_class = UserProfileForm
+    template_name = 'profiles/settings/profile.jinja'
 
     def get_context_data(self, **kwargs):
         context = super(UserProfileFormView, self).get_context_data(**kwargs)
-        context['profile_form'] = self.form_class(instance=self.request.user)
+        context['form'] = self.form_class(instance=self.request.user)
+        messages.error(self.request, u'Test')
         return context
 
     def post(self, request, *args, **kwargs):
@@ -54,12 +56,14 @@ class UserProfileFormView(TemplateView):
         else:
             messages.add_message(request, messages.INFO, u'Profil konnte nicht gespeichert werden.')
         context = self.get_context_data()
-        context['profile_form'] = form
+        context['form'] = form
         return self.render_to_response(context)
 
 
-class RegistrationFormView(TemplateView):
-    def get_context_data(self, **kwargs):
-        context = super(RegistrationFormView, self).get_context_data(**kwargs)
-        context['registration_form'] = RegisterForm()
-        return context
+class RegistrationFormView(FormView):
+    template_name = 'profiles/register_form.jinja'
+    form_class = RegisterForm
+
+    def form_valid(self, form):
+        pass
+
