@@ -25,11 +25,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     machine.vm.network :private_network, ip: "192.168.105.11"
   end
 
-  config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "ansible/vagrant.yml"
-    ansible.inventory_path = "ansible/local"
+  config.vm.provision 'ansible' do |ansible|
+    ansible.playbook = 'ansible/vagrant.yml'
+    ansible.inventory_path = 'ansible/local'
     ansible.limit = 'vagrant'
-    # ansible.verbose = 'vvvv'
+    #ansible.verbose = 'v'
   end
 
   config.ssh.forward_agent = true
