@@ -1,9 +1,13 @@
-from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
+from django.core.urlresolvers import reverse
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.shortcuts import redirect
 from django.views.generic import TemplateView, FormView
+from django.contrib.auth.forms import PasswordChangeForm, PasswordResetForm
+from django.contrib.auth.views import password_reset, password_reset_confirm
 
-from .forms import PasswordChangeForm, UserProfileForm, RegisterForm
+
+from .forms import UserProfileForm, RegisterForm
 
 
 def login_view(request):
@@ -16,9 +20,11 @@ def login_view(request):
             messages.add_message(request, messages.INFO, u'Login erfolgreich')
         else:
             messages.add_message(request, messages.ERROR, u'Dieser Account ist nicht aktiviert.')
+            return redirect('user:login_form')
     else:
-        messages.add_message(request, messages.ERROR, u'Falscher Username oder Password')
-    messages.add_message(request, messages.ERROR, u'Test')
+        messages.add_message(request, messages.ERROR, u'Falscher Benutzername oder Password')
+        return redirect('user:login_form')
+
     return redirect('home')
 
 
@@ -28,14 +34,46 @@ def logout_view(request):
     return redirect('home')
 
 
-def password_change(request):
-    if request.method == 'POST':
-        form = PasswordChangeForm(user=request.user, data=request.POST)
-        if form.is_valid():
-            form.save()
-            update_session_auth_hash(request, form.user)
-    else:
-        pass
+def reset_confirm(request, uidb64=None, token=None):
+    return password_reset_confirm(
+        request,
+        uidb64=uidb64,
+        token=token,
+        template_name='registration/password_reset_confirm.jinja',
+        # token_generator=default_token_generator,
+        # set_password_form=SetPasswordForm,
+        # post_reset_redirect=None,
+        current_app=None, extra_context=None
+    )
+
+
+def reset(request):
+    return password_reset(
+        request,
+        is_admin_site=False,
+        template_name='registration/password_reset_form.jinja',
+        email_template_name='registration/password_reset_email.jinja',
+        subject_template_name='registration/password_reset_subject.txt',
+        password_reset_form=PasswordResetForm,
+        post_reset_redirect=reverse('user:password_reset_success'),
+        from_email=None,
+        current_app=None,
+        extra_context=None,
+        html_email_template_name=None
+    )
+
+
+class PasswordChangeView(FormView):
+    form_class = PasswordChangeForm
+    template_name = 'profiles/password_change.jinja'
+
+
+class PasswordResetView(FormView):
+    form_class = PasswordResetForm
+    template_name = 'profiles/password_reset.jinja'
+
+    def get_success_url(self):
+        return reverse('user:password_reset_success')
 
 
 class UserProfileFormView(TemplateView):
