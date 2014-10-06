@@ -42,7 +42,7 @@ def reset_confirm(request, uidb64=None, token=None):
         template_name='registration/password_reset_confirm.jinja',
         # token_generator=default_token_generator,
         # set_password_form=SetPasswordForm,
-        # post_reset_redirect=None,
+        post_reset_redirect=reverse('user:password_reset_complete'),
         current_app=None, extra_context=None
     )
 
