@@ -9,7 +9,8 @@
       <h2>Registrierung bei Trendsetter</h2>
 
       <div class="form-group">
-        <form accept-charset="UTF-8" action="{{ url('user_register') }}" class="new_user" id="new_user" method="post">
+        <form accept-charset="UTF-8" action="{{ url('user:register') }}" class="new_user" id="new_user" method="post">
+          {% csrf_token %}
           {{ form.as_ul() }}
           <input class="btn-primary btn-block btn-block-big" name="commit" type="submit" value="Jetzt registrieren">
         </form>
@@ -23,7 +24,7 @@
 
       <p style="margin-top: 16px">
         Schon registriert?
-        <a href="{{ url('user:login') }}">Einloggen</a>
+        <a href="{{ url('user:login') }}">{{ _('Log in') }}</a>
       </p>
     </div>
 

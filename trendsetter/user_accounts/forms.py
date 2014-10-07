@@ -12,10 +12,6 @@ class LoginForm(forms.Form):
     )
 
 
-class RegisterForm(forms.Form):
-    email = forms.EmailField(max_length=254)
-
-
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserAccount

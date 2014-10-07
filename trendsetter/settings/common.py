@@ -85,6 +85,7 @@ INSTALLED_APPS = (
     # 'django_thumbor',
     'django_jinja',
     'django_jinja.contrib._humanize',
+    'django_extensions',
     'pipeline',
     'manifesto',
     # 'django_jinja.contrib._pipeline',

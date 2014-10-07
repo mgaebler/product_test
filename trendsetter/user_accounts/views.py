@@ -2,13 +2,13 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.shortcuts import redirect
-from django.views.generic import TemplateView, FormView
+from django.views.generic import TemplateView, FormView, CreateView
 from django.contrib.auth.forms import PasswordChangeForm, PasswordResetForm
 from django.contrib.auth.views import password_reset, password_reset_confirm
 
 
-from .forms import UserProfileForm, RegisterForm
-
+from .forms import UserProfileForm
+from .models import UserAccount
 
 def login_view(request):
     username = request.POST.get('user[email]', None)
@@ -98,10 +98,7 @@ class UserProfileFormView(TemplateView):
         return self.render_to_response(context)
 
 
-class RegistrationFormView(FormView):
+class AccountCreateView(CreateView):
+    model = UserAccount
     template_name = 'profiles/register_form.jinja'
-    form_class = RegisterForm
-
-    def form_valid(self, form):
-        pass
-
+    fields = ('email','username',)
