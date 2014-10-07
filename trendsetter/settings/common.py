@@ -83,6 +83,7 @@ INSTALLED_APPS = (
 
     # 3rd party
     # 'django_thumbor',
+    'authtools',
     'django_jinja',
     'django_jinja.contrib._humanize',
     'django_extensions',

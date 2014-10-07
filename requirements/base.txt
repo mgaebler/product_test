@@ -1,8 +1,9 @@
 # common
 django
-django-grappelli
+django-authtools
 django-braces
 django-extensions
+django-grappelli
 python-memcached
 fabric
 pytz
