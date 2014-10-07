@@ -45,8 +45,8 @@
 
   <meta content='Trendsetter' itemprop='name'>
   <meta
-    content='Trendsetter, die neue Online Produkttest-Plattform ist da! Kostenlose Produkttests und Gewinnspiele! Sei dabei: www.trendsetter.eu'
-    itemprop='description'>
+      content='Trendsetter, die neue Online Produkttest-Plattform ist da! Kostenlose Produkttests und Gewinnspiele! Sei dabei: www.trendsetter.eu'
+      itemprop='description'>
   <meta content='https://www.trendsetter.eu/assets/trendsetter_sm_share-829f2d6bfd4fb457984bb5c5e7f10bdf.png'
         itemprop='image'>
 
@@ -57,8 +57,8 @@
   <meta content='Trendsetter' property='og:site_name'>
   {#    <meta content='https://www.trendsetter.eu/{{ static('app/images/favicons/trendsetter_sm_share.png') }}' property='og:image'>#}
   <meta
-    content='Trendsetter, die neue Online Produkttest-Plattform ist da! Kostenlose Produkttests und Gewinnspiele! Sei dabei: www.trendsetter.eu'
-    property='og:description'>
+      content='Trendsetter, die neue Online Produkttest-Plattform ist da! Kostenlose Produkttests und Gewinnspiele! Sei dabei: www.trendsetter.eu'
+      property='og:description'>
   <meta content='100007765833987,100000081178215' property='fb:admins'>
   <meta content='449686848467025' property='fb:app_id'>
 
@@ -107,12 +107,13 @@
         <a href="{{ url('user:login_form') }}">{{ _('Log in') }}</a>
       {% else %}
         <a href="{{ url('user:tests') }}">
-          <img
-            align="right"
-            alt="Default avatar"
-            class="user-avatar user-avatar-medium"
-            src="{{ static('app/images/default_avatar.jpg') }}"
-            />
+          {% if user.avatar %}
+            <img align="right" alt="Default avatar" class="user-avatar user-avatar-medium"
+                 src="{{ thumbnail(user.avatar, size=(32, 32)) }}"/>
+          {% else %}
+            <img align="right" alt="avatar" class="user-avatar user-avatar-medium"
+                 src="{{ static('app/images/default_avatar.jpg') }}"/>
+          {% endif %}
         </a>
         Hallo, {{ user }}!
         <br>
