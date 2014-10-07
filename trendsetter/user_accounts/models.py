@@ -1,14 +1,16 @@
 # coding: utf8
 
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractBaseUser
 from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse
+
+from authtools.models import AbstractEmailUser
 
 from easy_thumbnails.fields import ThumbnailerImageField
 
 
-class UserAccount(AbstractUser):
+class UserAccount(AbstractEmailUser):
     GENDER_CHOICES = (
         ('m', _('male')),
         ('f', _('female')),
@@ -22,9 +24,11 @@ class UserAccount(AbstractUser):
         ('an', _('another')),
     )
 
-    # REQUIRED_FIELDS = ('password', 'username',)
+    # REQUIRED_FIELDS = ('email',)
     # profile
-    # user = models.OneToOneField()
+    full_name = models.CharField('full name', max_length=255, blank=True)
+    preferred_name = models.CharField('preferred name', max_length=255, blank=True)
+    #email = models.EmailField(unique=True)
     invited_by = models.ForeignKey("self", blank=True, null=True)
     gender = models.CharField(choices=GENDER_CHOICES, max_length=1)
     avatar = ThumbnailerImageField(blank=True, null=True)
@@ -49,5 +53,11 @@ class UserAccount(AbstractUser):
     def get_absolute_url(self):
         return reverse('user:index')
 
+    def get_full_name(self):
+        return self.full_name
+
+    def get_short_name(self):
+        return self.preferred_name
+
     def __unicode__(self):
-        return "{} ({})".format(self.username, self.email)
+        return "{} ({})".format(self.full_name, self.email)
