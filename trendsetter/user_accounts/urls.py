@@ -1,3 +1,4 @@
+# coding: utf8
 from django.conf.urls import patterns, url
 from django.views.generic import TemplateView
 
@@ -5,8 +6,8 @@ from . import views
 
 urlpatterns = patterns(
     '',
-    url(r'^$', TemplateView.as_view(template_name='profiles/my_site/product_tests.jinja'), name='index'),
-    url(r'^profil$', views.UserProfileFormView.as_view(), name='settings'),
+    url(r'^site$', TemplateView.as_view(template_name='profiles/my_site/product_tests.jinja'), name='index'),
+    url(r'^profil$', views.UserProfileChangeView.as_view(), name='settings'),
     url(r'^tests$', TemplateView.as_view(template_name='profiles/my_site/product_tests.jinja'), name='tests'),
     url(r'^trendpoints$', TemplateView.as_view(template_name='profiles/my_site/trendpoints.jinja'), name='trendpoints'),
     url(r'^freunde-einladen$', TemplateView.as_view(template_name='profiles/my_site/invite_friends.jinja'), name='invite_friends'),

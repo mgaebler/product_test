@@ -1,14 +1,18 @@
+#coding: utf8
+
 from django.core.urlresolvers import reverse
-from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from django.shortcuts import redirect
-from django.views.generic import TemplateView, FormView, CreateView
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import PasswordChangeForm, PasswordResetForm
 from django.contrib.auth.views import password_reset, password_reset_confirm
+from django.shortcuts import redirect
+from django.views.generic import TemplateView, FormView, CreateView, UpdateView
+from django.utils.translation import gettext_lazy as _
 
+from braces.views import LoginRequiredMixin
 
-from .forms import UserProfileForm
 from .models import UserAccount
+
 
 def login_view(request):
     username = request.POST.get('user[email]', None)
@@ -63,7 +67,7 @@ def reset(request):
     )
 
 
-class PasswordChangeView(FormView):
+class PasswordChangeView(LoginRequiredMixin, FormView):
     form_class = PasswordChangeForm
     template_name = 'profiles/password_change.jinja'
 
@@ -76,29 +80,45 @@ class PasswordResetView(FormView):
         return reverse('user:password_reset_success')
 
 
-class UserProfileFormView(TemplateView):
-    form_class = UserProfileForm
+class UserProfileChangeView(LoginRequiredMixin, UpdateView):
     template_name = 'profiles/settings/profile.jinja'
+    model = UserAccount
+    fields = (
+        # 'username',
+        'avatar',
+        # 'email',
+        # 'password',
+        # 'first_name',
+        # 'last_name',
+        'address1',
+        'address2',
+        'address3',
+        'postcode',
+        'city',
+        'country',
+        # personal data
+        'birth_date',
+        'gender',
+        'family_status',
+    )
+    labels = {
+        'address2': '',
+        'address3': '',
+    },
+    help_texts = {
+        'avatar': _(u'Max. 10MB. Wird öffentlich angezeigt.'),
+        'password': _(u'Nur, wenn Du Dein Passwort ändern willst.'),
+    }
 
-    def get_context_data(self, **kwargs):
-        context = super(UserProfileFormView, self).get_context_data(**kwargs)
-        context['form'] = self.form_class(instance=self.request.user)
-        messages.error(self.request, u'Test')
-        return context
+    def get_object(self, queryset=None):
+        return self.request.user
 
-    def post(self, request, *args, **kwargs):
-
-        form = self.form_class(request.POST)
-        if form.is_valid():
-            messages.add_message(request, messages.INFO, u'Profil erfolgreich gespeichert.')
-        else:
-            messages.add_message(request, messages.INFO, u'Profil konnte nicht gespeichert werden.')
-        context = self.get_context_data()
-        context['form'] = form
-        return self.render_to_response(context)
+    def form_valid(self, form):
+        messages.add_message(self.request, messages.INFO, u'Profil erfolgreich gespeichert.')
+        return redirect('user:settings')
 
 
 class AccountCreateView(CreateView):
     model = UserAccount
     template_name = 'profiles/register_form.jinja'
-    fields = ('email','username',)
+    fields = ('email',)
