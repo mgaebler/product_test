@@ -42,6 +42,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
     'django.contrib.auth.context_processors.auth',
     'django.contrib.messages.context_processors.messages',
+    'social.apps.django_app.context_processors.backends',
+    'social.apps.django_app.context_processors.login_redirect',
 )
 
 # jinja 2 settings
@@ -84,6 +86,7 @@ INSTALLED_APPS = (
     # 3rd party
     # 'django_thumbor',
     'authtools',
+    'social.apps.django_app.default',
     'django_jinja',
     'django_jinja.contrib._humanize',
     'django_extensions',
@@ -216,6 +219,11 @@ LOGGING = {
     },
 
 }
+
+AUTHENTICATION_BACKENDS = (
+    'social.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 ## THUMBOR SETTINGS
 # The host serving the thumbor resized images
