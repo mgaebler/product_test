@@ -1,6 +1,7 @@
 # coding: utf8
 from django.db import models
 from django.utils import timezone
+from django.core.urlresolvers import reverse
 
 
 class Brand(models.Model):
@@ -13,6 +14,9 @@ class Brand(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('brand_detail', kwargs={'slug': self.slug})
 
 
 class Participation(models.Model):
@@ -48,3 +52,6 @@ class ProductTest(models.Model):
 
     def __unicode__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('product_test_index', kwargs={'slug' : self.slug})
