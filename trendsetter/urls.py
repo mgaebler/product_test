@@ -20,6 +20,8 @@ urlpatterns = patterns('',
     url(r'my/', include('user_accounts.urls', namespace='user')),
     url(r'produkttests/', include('product_test.urls')),
 
+    url(r'forum/', include('django_simple_forum.urls')),
+
     url('', include('social.apps.django_app.urls', namespace='social')),
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
