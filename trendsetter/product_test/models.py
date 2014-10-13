@@ -2,6 +2,7 @@
 from django.db import models
 from django.utils import timezone
 from django.core.urlresolvers import reverse
+from django.conf import settings
 
 
 class Brand(models.Model):
@@ -17,14 +18,6 @@ class Brand(models.Model):
 
     def get_absolute_url(self):
         return reverse('brand_detail', kwargs={'slug': self.slug})
-
-
-class Participation(models.Model):
-    pass
-
-
-class Invite(models.Model):
-    pass
 
 
 class ProductTest(models.Model):
@@ -50,8 +43,16 @@ class ProductTest(models.Model):
 
     state = models.BooleanField(default=False)
 
+    participants = models.ManyToManyField(settings.AUTH_USER_MODEL, through="Participation")
+
     def __unicode__(self):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('product_test_index', kwargs={'slug' : self.slug})
+        return reverse('product_test_index', kwargs={'slug': self.slug})
+
+
+class Participation(models.Model):
+    users = models.ForeignKey(settings.AUTH_USER_MODEL)
+    product_test = models.ForeignKey(ProductTest)
+    created_at = models.DateTimeField(auto_now_add=True)

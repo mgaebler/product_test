@@ -3,11 +3,13 @@ from __future__ import unicode_literals
 
 from django.db import models, migrations
 import django.utils.timezone
+from django.conf import settings
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
+        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
@@ -27,18 +29,10 @@ class Migration(migrations.Migration):
             bases=(models.Model,),
         ),
         migrations.CreateModel(
-            name='Invite',
-            fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-            ],
-            options={
-            },
-            bases=(models.Model,),
-        ),
-        migrations.CreateModel(
             name='Participation',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('created_at', models.DateTimeField(auto_now_add=True)),
             ],
             options={
             },
@@ -65,9 +59,22 @@ class Migration(migrations.Migration):
                 ('activated_at', models.DateTimeField(default=django.utils.timezone.now, null=True)),
                 ('state', models.BooleanField(default=False)),
                 ('brand', models.ForeignKey(blank=True, to='product_test.Brand', null=True)),
+                ('participants', models.ManyToManyField(to=settings.AUTH_USER_MODEL, through='product_test.Participation')),
             ],
             options={
             },
             bases=(models.Model,),
+        ),
+        migrations.AddField(
+            model_name='participation',
+            name='product_test',
+            field=models.ForeignKey(to='product_test.ProductTest'),
+            preserve_default=True,
+        ),
+        migrations.AddField(
+            model_name='participation',
+            name='users',
+            field=models.ForeignKey(to=settings.AUTH_USER_MODEL),
+            preserve_default=True,
         ),
     ]

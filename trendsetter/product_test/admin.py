@@ -1,11 +1,17 @@
 from django.contrib import admin
-from .models import ProductTest, Brand
+from .models import ProductTest, Brand, Participation
+
+
+class ParticipationInline(admin.TabularInline):
+    model = Participation
+    extra = 1
 
 
 @admin.register(ProductTest)
 class ProductTestAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
     readonly_fields = ('created_at', 'updated_at',)
+    inlines = (ParticipationInline,)
     fieldsets = (
         (None, {
             'fields': ('title', 'slug', 'brand')
