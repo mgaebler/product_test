@@ -5,6 +5,8 @@
   <h1>Meine Produkttests</h1>
   <h2>Aktuell laufende Produkttests</h2>
 
-  Produkttestdinge ...
+  {% for participation in user.participation_set.all() %}
+    <img src="{{ participation.product_test.logo.url }}" alt="{{ participation.product_test.name }}"/>
+  {% endfor %}
 
 {% endblock profile_content %}
