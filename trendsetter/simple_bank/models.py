@@ -53,6 +53,7 @@ post_save.connect(create_customer_account, sender=settings.AUTH_USER_MODEL, disp
 
 
 def execute_transfer(sender, **kwargs):
+    # uses a signal to execute the transfer right after saving
     instance = kwargs.get('instance', False)
 
     if not instance:

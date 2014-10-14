@@ -8,7 +8,7 @@
     <div class="row">
       <div class="col-md-14 col-md-offset-5">
         <div class="trendpoints">
-          <span>{{ user.bank_account.balance }}</span>
+          <span>{{ user.bank_account.balance or 0 }}</span>
         </div>
       </div>
     </div>
