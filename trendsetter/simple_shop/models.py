@@ -2,12 +2,13 @@ from django.db import models
 from easy_thumbnails.fields import ThumbnailerImageField
 
 
-class Products(models.Model):
+class Product(models.Model):
     name = models.CharField(max_length=254)
     slug = models.SlugField()
     description = models.TextField()
-    photo = ThumbnailerImageField()
+    image = ThumbnailerImageField(upload_to='shop')
     value = models.IntegerField()
+    active = models.BooleanField(default=True)
 
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
