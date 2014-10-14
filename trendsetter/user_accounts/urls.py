@@ -2,6 +2,7 @@
 from django.conf.urls import patterns, url
 from django.views.generic import TemplateView
 
+from simple_shop.views import ShopItemsListView
 from . import views
 
 urlpatterns = patterns(
@@ -9,7 +10,7 @@ urlpatterns = patterns(
     url(r'^site$', TemplateView.as_view(template_name='profiles/my_site/product_tests.jinja'), name='index'),
     url(r'^profil$', views.UserProfileChangeView.as_view(), name='settings'),
     url(r'^tests$', TemplateView.as_view(template_name='profiles/my_site/product_tests.jinja'), name='tests'),
-    url(r'^trendpoints$', TemplateView.as_view(template_name='profiles/my_site/trendpoints.jinja'), name='trendpoints'),
+    url(r'^trendpoints$', ShopItemsListView.as_view(template_name='profiles/my_site/trendpoints.jinja'), name='trendpoints'),
     url(r'^freunde-einladen$', TemplateView.as_view(template_name='profiles/my_site/invite_friends.jinja'), name='invite_friends'),
 
     url(r'^register$', views.AccountCreateView.as_view(), name='register'),
