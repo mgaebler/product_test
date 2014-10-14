@@ -15,25 +15,26 @@
 
     <div class="row">
       <div class="col-md-14 col-md-offset-5">
+
         <div class="goodies-list">
+          {% for product in object_list %}
           <div class="goodie">
             <div class="goodie-img">
               <a class="js-open-in-overlay" href="{{ static('') }}">
-                <img
-                  alt="Trendpunkte praemie schal"
-                  src="{{ static('/app/images/trendpunkte_praemie_schal.jpg') }}">
+                <img alt="Trendpunkte praemie {{ product.name }}" src="{{ thumbnail(product.image, size=(64, 64)) }}">
               </a>
             </div>
             <div class="goodie-name">
-              Loop-Schal „Sterne“
+              {{ product.name }}
             </div>
             <div class="goodie-cost">
-              <span>75</span>
+              <span>{{ product.value }}</span>
             </div>
             <div class="goodie-action">
               <a class="btn btn-primary" href="">Jetzt anfordern</a>
             </div>
           </div>
+          {% endfor %}
         </div>
       </div>
     </div>
