@@ -1,7 +1,7 @@
 # coding: utf8
 
 from django.db import models
-from user_accounts.models import UserAccount as User
+from django.conf import settings
 from django.db.models.signals import post_save
 
 
@@ -14,7 +14,7 @@ class Account(models.Model):
     name = models.CharField(max_length=255, blank=True, null=True)
     type = models.CharField(max_length=2, choices=TYPE_CHOICES, default='ca')
     description = models.TextField(blank=True, null=True)
-    customer = models.ForeignKey(User, related_name='bank_account')
+    customer = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='bank_account')
     balance = models.IntegerField(default=0)
     currency = models.CharField(max_length=6, choices=CURRENCY_CHOICES, default='tp')
     updated = models.DateTimeField(auto_now=True)
@@ -30,7 +30,7 @@ class Account(models.Model):
         pass
 
     def __unicode__(self):
-        return "{customer} / {name}".format(customer=self.customer, name=self.name)
+        return u"{customer} / {name}".format(customer=self.customer, name=self.name)
 
 
 class Transfer(models.Model):
@@ -49,7 +49,7 @@ def create_customer_account(sender, **kwargs):
     if not user_account.bank_account.all():
         Account.objects.create(customer=user_account)
 
-post_save.connect(create_customer_account, sender=User, dispatch_uid="create_user_profile")
+post_save.connect(create_customer_account, sender=settings.AUTH_USER_MODEL, dispatch_uid="create_user_profile")
 
 
 def execute_transfer(sender, **kwargs):
