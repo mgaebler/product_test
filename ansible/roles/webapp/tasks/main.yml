@@ -35,7 +35,7 @@
 
 
 # clone the webapp
-- git: repo=git@bitbucket.org:intosite/feinschmecker-image-upload.git dest="{{ user.home }}/{{ app.id }}" version="{{ app.version }}" accept_hostkey=yes
+- git: repo={{ app.repo }} dest="{{ user.home }}/{{ app.id }}" version="{{ app.version }}" accept_hostkey=yes
   sudo: yes
   sudo_user: "{{ user.name }}"
   when: app.environment != "development"

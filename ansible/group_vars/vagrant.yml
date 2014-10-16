@@ -9,6 +9,7 @@ project: &PROJECT
 
 app:
   <<: *PROJECT
+  repo: git@bitbucket.org:intosite/trendsetter-django.git
   version: develop                  # represents the repository version, this can be a branch a version hash or tag
   domain: "trendsetter.local"       # domain name for the webserver configuration
   basedir: "/vagrant"               # the base path of your project

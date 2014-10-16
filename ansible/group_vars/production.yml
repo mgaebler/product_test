@@ -3,11 +3,13 @@ user:
   name: deploy
   home: /home/deploy
 
-project:
+project: &PROJECT
   name: "Trendsetter"
   id: "trendsetter_production"
 
 app:
+  <<: *PROJECT
+  repo: git@bitbucket.org:intosite/trendsetter-django.git
   version: master
   domain: "upload.der-feinschmecker-shop.de"
   basedir: "{{ user.home }}/{{ project.id }}"
