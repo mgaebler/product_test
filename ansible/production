@@ -1,5 +1,5 @@
 [webservers]
-fsupload.exor ansible_ssh_user=root
+.exor ansible_ssh_user=root
 
 [production:children]
 webservers
