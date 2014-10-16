@@ -117,7 +117,7 @@ MIDDLEWARE_CLASSES = (
     'pipeline.middleware.MinifyHTMLMiddleware',
 )
 
-ROOT_URLCONF = 'trendsetter.urls'
+ROOT_URLCONF = 'django_app.urls'
 
 WSGI_APPLICATION = 'trendsetter.wsgi.application'
 
