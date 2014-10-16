@@ -1,0 +1,11 @@
+---
+- user: name="{{ user.name }}" shell=/bin/bash
+
+# add keys for authorized users
+- authorized_key: user="{{ user.name }}" key="{{ lookup('file', item) }}"
+  with_fileglob:
+    - public_keys/*.pub
+
+# add deployment keys
+- copy: src=deploy_keys/id_rsa dest={{ user.home }}/.ssh/id_rsa owner={{ user.name }} mode=0600 force=yes
+- copy: src=deploy_keys/id_rsa.pub dest={{ user.home }}/.ssh/id_rsa.pub owner={{ user.name }} mode=0644 force=yes

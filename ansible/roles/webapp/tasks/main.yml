@@ -1,45 +1,19 @@
 ---
-- name: add node.js ppa
+- apt_repository: repo='ppa:chris-lea/node.js' state=present update_cache=yes
   sudo: true
-  apt_repository: repo='ppa:chris-lea/node.js' state=present update_cache=yes
   tags: nodejs
 
-- name: update apt cache
-  apt: update_cache=yes cache_valid_time=600
+
+- apt: update_cache=yes cache_valid_time=600
   sudo: true
 
-- name: Install required apt packages for the web app
-  apt: pkg={{ item }} state=latest
+
+- apt: pkg={{ item }} state=latest
   sudo: true
   with_items:
     - nodejs
     - ruby1.9.3
     - rubygems1.9.1
-    # rubinius dependencies
-    - git
-    - gcc
-    - g++
-    - automake
-    - flex
-    - bison
-    - ruby1.9.1-dev
-    - llvm-dev
-    - zlib1g-dev
-    - libyaml-dev
-    - libssl-dev
-    - libgdbm-dev
-    - libreadline-dev
-    - libncurses5-dev
-    - libmagickwand-dev
-    # python dependencies
-    - python-pip
-    - python-dev
-    - python-virtualenv
-    # tools
-    - multitail
-
-# install app specific python packages
-- pip: requirements='/vagrant/requirements/development.txt' virtualenv='/home/vagrant/venv/'
 
 
 # install ruby packages
@@ -60,3 +34,28 @@
     - yuglify
 
 
+# clone the webapp
+- git: repo=git@bitbucket.org:intosite/feinschmecker-image-upload.git dest="{{ user.home }}/{{ app.id }}" version="{{ app.version }}" accept_hostkey=yes
+  sudo: yes
+  sudo_user: "{{ user.name }}"
+  when: app.environment != "development"
+
+
+# add correct permissons
+- file: path={{ item }} group=www-data mode=0770 state=directory recurse=yes
+  with_items:
+    - "{{ app.media_path }}"
+    - "{{ app.basedir}}/log"
+    - "{{ app.basedir}}/db" # sqlite dir
+  when: app.environment != "development"
+
+
+# install app specific python packages
+# It is really important that the webapp is cloned before the requirements are installed.
+- pip: requirements={{ virtualenv.requirements }} virtualenv={{ virtualenv.path }}
+
+# do migrations
+- shell: "{{ virtualenv.path }}/bin/python {{ app.basedir }}/manage.py migrate --settings=django_app.settings.{{ app.environment }}"
+
+# do collectstatic
+- shell: "{{ virtualenv.path }}/bin/python {{ app.basedir }}/manage.py collectstatic --settings=django_app.settings.{{ app.environment }} --noinput"

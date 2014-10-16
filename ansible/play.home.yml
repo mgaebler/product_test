@@ -1,0 +1,5 @@
+---
+# not sure if this is wise
+- hosts: webservers
+  roles:
+    - user

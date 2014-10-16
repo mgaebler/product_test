@@ -1,4 +1,4 @@
 ---
-# Use this playbook to provision your vagrant
-- include: webservers.yml
-- include: dbservers.yml
+# Use this playbook to provision your vagrant vm
+- include: play.webservers.yml
+

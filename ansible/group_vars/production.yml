@@ -1,6 +1,15 @@
 ---
-- deploy:
-  user: deploy
-  basedir: "/var/www"
+user:
+  name: deploy
+  home: /home/deploy
 
-newrelic_license_key: 2dc38681e41eb933eeb515782b63e86f6fe4d587
+app:
+  name: "Feinschmecker image upload form"
+  id: "feinschmecker_image_upload_form"
+  version: master
+  domain: "upload.der-feinschmecker-shop.de"
+  basedir: "{{ user.home }}/feinschmecker_image_upload_form"
+  media_path: "{{ user.home }}/feinschmecker_image_upload_form/.media"
+  static_path: "{{ user.home }}/feinschmecker_image_upload_form/.static"
+  environment: production # development | production | staging | testing
+  webserver_port: 80

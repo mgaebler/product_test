@@ -6,24 +6,13 @@
 - include: bootstrap.yml
   when: bootstrapped.stat.exists == false or bootstrapped.stat.isreg == false
 
-- name: enable UTF-8 locale
-  lineinfile: dest="/etc/locale.gen" line="en_US.UTF-8 UTF-8" state=present create=yes
+- shell: locale-gen de_DE.UTF-8
   sudo: true
 
-- name: generate locales
-  shell: locale-gen
+- shell: dpkg-reconfigure locales
   sudo: true
 
-- name: update default locale
-  shell: update-locale LC_ALL=en_US.utf-8 LC_CTYPE=en_US.utf-8 LANG=en_US.utf-8 LANGUAGE=en_US.utf-8
-  sudo: true
-
-- name: ensure default locale is loaded
-  lineinfile: dest="/etc/profile" line="source /etc/default/locale" state=present create=yes
-  sudo: true
-
-- name: Install required apt packages for every system
-  apt: pkg={{ item }} state=latest
+- apt: pkg={{ item }} state=latest
   sudo: true
   with_items:
     # utilities
@@ -32,3 +21,8 @@
     - git
     - wget
     - curl
+    - multitail
+    # python dependencies
+    - python-pip
+    - python-dev
+    - python-virtualenv

@@ -1,0 +1,19 @@
+uwsgi:
+  defaults:
+    run_at_startup: yes
+    verbose: yes
+    inherited_config: "/etc/uwsgi/apps_enabled/{{ app.id }}.ini"
+
+  chdir: "{{ app.basedir }}"
+  module: django_app.wsgi
+  # /path/to/virtualenv
+  home: "{{ virtualenv.path }}"
+  master: 'true'
+  processes: 4
+  threads: 2
+  socket: '0.0.0.0:3031'
+  stats: '0.0.0.0:9191'
+  # clear environment on exit?
+  vacuum: 'false'
+  plugins: python
+

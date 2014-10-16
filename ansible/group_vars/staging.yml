@@ -1,7 +1,0 @@
----
-- app:
-  name: "trendsetter-staging"
-  id: "trendsetter_staging"
-  domain: "staging.trendsetter.eu"
-  additional_domains: "trendsetter.eu"
-  restricted_access: false

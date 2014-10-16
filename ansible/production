@@ -1,14 +1,5 @@
 [webservers]
-trendsetter ansible_ssh_user=deploy
-
-[dbservers]
-foobar
-
-[imgservers]
-foobar
-
+fsupload.exor ansible_ssh_user=root
 
 [production:children]
 webservers
-dbservers
-imgservers
