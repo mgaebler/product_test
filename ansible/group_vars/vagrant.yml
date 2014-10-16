@@ -3,13 +3,16 @@ user:
   name: vagrant
   home: /home/vagrant
 
+project: &PROJECT
+  name: "Trendsetter"               # just for identity ;)
+  id: "trendsetter"                 # will be used for config and log files as well as the project folder
+
 app:
-  name: "Feinschmecker image upload form"     # just for identity ;)
-  id: "feinschmecker_image_upload_form"       # will be used for config and log files as well as the project folder
-  version: develop                            # represents the repository version, this can be a branch a version hash or tag
-  domain: "upload.feinschmecker.local"        # domain name for the webserver configuration
-  basedir: "/vagrant"                         # the base path of your project
-  media_path: "/vagrant/.media"               # the media path of your project
-  static_path: "/vagrant/.static"             # the folder where you host your static files
-  environment: development                    # development | production | staging | testing
+  <<: *PROJECT
+  version: develop                  # represents the repository version, this can be a branch a version hash or tag
+  domain: "trendsetter.local"       # domain name for the webserver configuration
+  basedir: "/vagrant"               # the base path of your project
+  media_path: "/vagrant/.media"     # the media path of your project
+  static_path: "/vagrant/.static"   # the folder where you host your static files
+  environment: development          # development | production | staging | testing
   webserver_port: 80

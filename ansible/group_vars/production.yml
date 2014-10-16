@@ -3,13 +3,15 @@ user:
   name: deploy
   home: /home/deploy
 
+project:
+  name: "Trendsetter"
+  id: "trendsetter_production"
+
 app:
-  name: "Feinschmecker image upload form"
-  id: "feinschmecker_image_upload_form"
   version: master
   domain: "upload.der-feinschmecker-shop.de"
-  basedir: "{{ user.home }}/feinschmecker_image_upload_form"
-  media_path: "{{ user.home }}/feinschmecker_image_upload_form/.media"
-  static_path: "{{ user.home }}/feinschmecker_image_upload_form/.static"
+  basedir: "{{ user.home }}/{{ project.id }}"
+  media_path: "{{ user.home }}/{{ project.id }}/.media"
+  static_path: "{{ user.home }}/{{ project.id }}/.static"
   environment: production # development | production | staging | testing
   webserver_port: 80
