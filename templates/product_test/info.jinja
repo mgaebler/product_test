@@ -1,8 +1,11 @@
 {% extends 'product_test/base.jinja' %}
 
 {% block product_test_content %}
+
+<style>{{ product_test.custom_css }}</style>
+
 {% autoescape off %}
-{{ product_test.custom_css }}
 {{ product_test.custom_html }}
 {% endautoescape %}
+
 {% endblock %}
