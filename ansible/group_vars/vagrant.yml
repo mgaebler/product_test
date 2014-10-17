@@ -11,10 +11,10 @@ app:
   <<: *PROJECT
   repo: git@bitbucket.org:intosite/trendsetter-django.git
   version: develop                  # represents the repository version, this can be a branch a version hash or tag
-  domain: "trendsetter.local"       # domain name for the webserver configuration
   basedir: "/vagrant"               # the base path of your project
   media_path: "/vagrant/.media"     # the media path of your project
   static_path: "/vagrant/.static"   # the folder where you host your static files
   environment: development          # development | production | staging | testing
+  domain: "trendsetter.local"       # domain name of the webserver configuration
   webserver_port: 80
   uwsgi_socket: "127.0.0.1:3031"
