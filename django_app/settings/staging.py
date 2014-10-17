@@ -20,4 +20,7 @@ INSTALLED_APPS += (
 #     'debug_toolbar.middleware.DebugToolbarMiddleware',
 # )
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'mail00.exor'
+DEFAULT_FROM_EMAIL = 'staging@trendsetter.eu'

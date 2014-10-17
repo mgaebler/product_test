@@ -11,3 +11,7 @@ DEBUG_TOOLBAR = False
 
 # https://django-pipeline.readthedocs.org/en/latest/storages.html
 STATICFILES_STORAGE = 'pipeline.storage.NonPackagingPipelineCachedStorage'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'mail00.exor'
+DEFAULT_FROM_EMAIL = 'staging@trendsetter.eu'
