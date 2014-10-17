@@ -1,6 +1,6 @@
 # coding: utf8
 """
-Django settings for trendsetter project.
+Django settings for django_app project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.7/topics/settings/
@@ -119,7 +119,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'django_app.urls'
 
-WSGI_APPLICATION = 'trendsetter.wsgi.application'
+WSGI_APPLICATION = 'django_app.wsgi.application'
 
 AUTH_USER_MODEL = 'user_accounts.UserAccount'
 
