@@ -54,8 +54,19 @@
 # It is really important that the webapp is cloned before the requirements are installed.
 - pip: requirements={{ virtualenv.requirements }} virtualenv={{ virtualenv.path }}
 
+
+# make developers love you
+# this depends on a ready installed virtualenv so I put it in here
+- lineinfile: dest="{{ item.dest }}" line="{{ item.line }}"
+  with_items:
+    - { dest: "{{ user.home }}/.bashrc", line: "source {{ virtualenv.path }}/bin/activate" }
+    - { dest: "{{ user.home }}/.bashrc", line: "cd {{ app.basedir }}" }
+  when: app.environment == "development"
+
+
 # do migrations
 - shell: "{{ virtualenv.path }}/bin/python {{ app.basedir }}/manage.py migrate --settings=django_app.settings.{{ app.environment }}"
+
 
 # do collectstatic
 - shell: "{{ virtualenv.path }}/bin/python {{ app.basedir }}/manage.py collectstatic --settings=django_app.settings.{{ app.environment }} --noinput"
