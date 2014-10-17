@@ -44,14 +44,12 @@ class UserAccount(AbstractEmailUser):
     postcode = models.IntegerField(blank=True, null=True)
     family_status = models.CharField(choices=FAMILY_STATUS_CHOICES, max_length=2)
 
+    registration_at = models.DateTimeField(blank=True, null=True)
     confirmation_token = models.CharField(max_length=254)
     confirmation_at = models.DateTimeField(blank=True, null=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-
-    def get_absolute_url(self):
-        return reverse('user:index')
 
     def get_full_name(self):
         return self.full_name
