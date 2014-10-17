@@ -12,8 +12,12 @@
   sudo: true
   with_items:
     - nodejs
+    - build-essential
     - ruby1.9.3
     - rubygems1.9.1
+    - ruby1.9.1-dev
+    - libffi-dev
+
 
 
 # install ruby packages
