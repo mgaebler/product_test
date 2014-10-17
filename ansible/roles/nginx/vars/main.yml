@@ -3,6 +3,7 @@ nginx:
   listen: "{{ app.webserver_port }}"
   server_name: "{{ app.domain }}"
   access_log: "/var/log/nginx/{{ app.id }}_access.log"
+  error_log: "/var/log/nginx/{{ app.id }}_error.log"
   media_path: "{{ app.media_path }}"
   static_path: "{{ app.static_path }}"
   error_page_path_404: "{{ app.basedir }}/templates/404.html"

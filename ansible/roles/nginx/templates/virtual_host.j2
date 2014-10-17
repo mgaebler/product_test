@@ -6,7 +6,8 @@ upstream django {
 server {
   listen {{ nginx.listen }};
   server_name {{ nginx.server_name }};
-  access_log {{ nginx.access_log }};
+  access_log {{ nginx.access_log }} timed;
+  error_log {{ nginx.error_log }} info;
   client_max_body_size 20M;
   error_page  404  {{ nginx.error_page_path_404 }};
 
