@@ -120,5 +120,8 @@ class UserProfileChangeView(LoginRequiredMixin, UpdateView):
 
 class AccountCreateView(CreateView):
     model = UserAccount
-    template_name = 'profiles/register_form.jinja'
+    template_name = 'registration/register_form.jinja'
     fields = ('email',)
+
+    def get_success_url(self):
+        return reverse('user:register-success')

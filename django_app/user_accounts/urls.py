@@ -14,6 +14,8 @@ urlpatterns = patterns(
     url(r'^freunde-einladen$', TemplateView.as_view(template_name='profiles/my_site/invite_friends.jinja'), name='invite_friends'),
 
     url(r'^register$', views.AccountCreateView.as_view(), name='register'),
+    url(r'^register-success$', TemplateView.as_view(template_name='registration/register_form_success.jinja'), name='register-success'),
+
     url(r'^preregister$', views.login_view, name='preregister'),
 
     url(r'^login-form$', TemplateView.as_view(template_name='profiles/login_form.jinja'), name='login_form'),
