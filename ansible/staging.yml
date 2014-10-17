@@ -1,0 +1,3 @@
+---
+- include: play.home.yml
+- include: play.webservers.yml

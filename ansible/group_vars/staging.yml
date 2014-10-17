@@ -1,0 +1,19 @@
+---
+user:
+  name: deploy
+  home: /home/deploy
+
+project: &PROJECT
+  name: "Trendsetter"
+  id: "trendsetter_production"
+
+app:
+  <<: *PROJECT
+  repo: git@bitbucket.org:intosite/trendsetter-django.git
+  version: master
+  domain: "upload.der-feinschmecker-shop.de"
+  basedir: "{{ user.home }}/{{ project.id }}"
+  media_path: "{{ user.home }}/{{ project.id }}/.media"
+  static_path: "{{ user.home }}/{{ project.id }}/.static"
+  environment: production # development | production | staging | testing
+  webserver_port: 80
