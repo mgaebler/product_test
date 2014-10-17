@@ -3,6 +3,9 @@
 {% block body_class %}s--tests p--show reduced-header{% endblock %}
 
 {% block content %}
+
+  <style>{{ product_test.custom_css }}</style>
+
   <div class="container">
     <div class="info" id="ptw">
       <img alt="Produkttest purina header" src="{{ thumbnail(product_test.hero_image, size=(950, 250)) }}">
