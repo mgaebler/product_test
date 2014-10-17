@@ -8,5 +8,5 @@ nginx:
   error_page_path_404: "{{ app.basedir }}/templates/404.html"
   location:
     root: "{{ app.basedir }}"
-    uwsgi_pass: '0.0.0.0:3031'
+    uwsgi_pass: '{{ app.uwsgi_socket }}'
     include: "{{ app.basedir }}/uwsgi_params"

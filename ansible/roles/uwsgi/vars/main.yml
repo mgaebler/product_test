@@ -11,7 +11,7 @@ uwsgi:
   master: 'true'
   processes: 4
   threads: 2
-  socket: '127.0.0.1:3031'
+  socket: '{{ app.uwsgi_socket }}'
   stats: '127.0.0.1:9191'
   # clear environment on exit?
   vacuum: 'false'

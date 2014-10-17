@@ -17,3 +17,4 @@ app:
   static_path: "/vagrant/.static"   # the folder where you host your static files
   environment: development          # development | production | staging | testing
   webserver_port: 80
+  uwsgi_socket: "127.0.0.1:3031"

@@ -17,3 +17,4 @@ app:
   static_path: "{{ user.home }}/{{ project.id }}/.static"
   environment: staging # development | production | staging | testing
   webserver_port: 80
+  uwsgi_socket: "127.0.0.1:3031"
