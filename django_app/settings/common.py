@@ -26,7 +26,7 @@ from .components.pipeline import *
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 ADMINS = (
-    ('Marian Gaebler', 'marian.gaebler@intosite.de'),
+    ('Intosite Developers', 'devs@intosite.de'),
 )
 
 # SECURITY WARNING: keep the secret key used in production secret!
