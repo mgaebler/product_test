@@ -16,4 +16,4 @@ app:
   media_path: "{{ user.home }}/{{ project.id }}/.media"
   static_path: "{{ user.home }}/{{ project.id }}/.static"
   environment: staging # development | production | staging | testing
-  webserver_port: 8080
+  webserver_port: 80
