@@ -1,4 +1,4 @@
 ---
 virtualenv:
-  requirements: "{{ app.basedir }}/requirements/development.txt"
+  requirements: "{{ app.basedir }}/requirements/{{ app.environment }}.txt"
   path: "{{ user.home }}/venv"

@@ -1,5 +1,5 @@
 [webservers]
 trendsetterdjangostage.exor ansible_ssh_user=root
 
-[production:children]
+[staging:children]
 webservers

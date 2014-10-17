@@ -5,7 +5,7 @@ user:
 
 project: &PROJECT
   name: "Trendsetter"
-  id: "trendsetter_production"
+  id: "trendsetter_staging"
 
 app:
   <<: *PROJECT
@@ -15,5 +15,5 @@ app:
   basedir: "{{ user.home }}/{{ project.id }}"
   media_path: "{{ user.home }}/{{ project.id }}/.media"
   static_path: "{{ user.home }}/{{ project.id }}/.static"
-  environment: production # development | production | staging | testing
-  webserver_port: 80
+  environment: staging # development | production | staging | testing
+  webserver_port: 8080
