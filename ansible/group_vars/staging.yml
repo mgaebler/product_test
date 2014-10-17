@@ -10,8 +10,8 @@ project: &PROJECT
 app:
   <<: *PROJECT
   repo: git@bitbucket.org:intosite/trendsetter-django.git
-  version: master
-  domain: "upload.der-feinschmecker-shop.de"
+  version: develop
+  domain: "staging.django.trendsetter.eu"
   basedir: "{{ user.home }}/{{ project.id }}"
   media_path: "{{ user.home }}/{{ project.id }}/.media"
   static_path: "{{ user.home }}/{{ project.id }}/.static"
