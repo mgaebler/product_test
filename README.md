@@ -4,46 +4,93 @@
 ```text
 |
 |-ansible/    - Files for provisioning
-|-assets/     - aka. static_files 
-|                This folder is used for all client side assets. 
-|                Use [bower](http://bower.io/docs) to control it. 
+|-assets/     - aka. static_files
+|                This folder is used for all client side assets.
+|                Use [bower](http://bower.io/docs) to control it.
 |                Also read, [how do I use bower in this project](#use-bower).
-|-templates/  - The django template directory. 
-|                In my opinion it is easier to maintain if it's not in the app path. 
-|                Talk to me if I'm wrong. marian.gaebler@gmail.com
-|-trendsetter/- Django app folder. Settings and packages are placed here. 
-|-requirements/ - Python requirements
+|-templates/  - The django template directory.
+|                In my opinion it is easier to maintain if it's not inside the app path.
+|                Talk to me if I'm wrong. marian.gaebler@intosite.de
+|-django_app/- Django app folder. Settings and packages are placed here.
+|-requirements/ - Python requirements for development, production and test
 |-Vagrantfile - the default settings file for vagrant
 ```
-
 
 
 # Provisioning
 Du benötigst Ansible für die Provisionierung.
 ``brew install ansible``
-## Local
 
+## Local
 ### Vagrant - erste Ausführung
 ``vagrant up``
-In diesem Fall wird die Provisionierung automatisch durchgeführt.
+In diesem Fall wird die locale Provisionierung automatisch durchgeführt.
 
 ### Vagrant - Provisionierung manuell ausführen
 ``vagrant provision``
 
-### Provisionierung eines bestimmten Playbooks
-``ansible-playbook ansible/webservers.yml -i ansible/local``
+### Ausführung eines bestimmten Plays
+``ansible-playbook ansible/webservers.yml -i ansible/vagrant``
+
+
+# Development
+## Initial Start of Development System
+``vagrant ssh``
+``./manage.py createsuperuser``
+``./manage.py runserver 0.0.0.0:8000``
+
+## Start the Development System
+```text
+vagrant ssh
+./manage.py runserver 0.0.0.0:8000
+```
+
+## Environment
+### Home-URL
+``192.168.105.11:8000``
+
+### Admin-URL
+``192.168.105.11:8000/admin/``
+Suche eine Customer Email raus, oder lege eine Testemail an
+
+## How do I use bower in this project <a name='use-bower' />
+Change to your project directory in your vagrant box(this is really important) and use:
+``bower install name-of-your-js-app``
+
+
+# Deployment
+## Vagrant
+``vagrant up`` (``ansible-playbook ansible/vagrant.yml -i ansible/vagrant``)
+
+Folgende Punkte werden im Deployment abgehandelt.
+
+* Provisionierung des Systems
+* Installation der **development** Requirements (Python) 
+* Ausführen der Datenbankmigrationen
+* Ausführen von collectstatic
+* virtualenv ist nach Login sofort verfügbar (.bashrc)
+* Arbeitsverzeichnis nach Login ist /vagrant (.bashrc) 
 
 
 ## Staging
-- ungetestet!!! -
-``ansible-playbook ansible/site.yml -i ansible/staging``
+``ansible-playbook ansible/staging.yml -i ansible/staging``
+
+Folgende Punkte werden im Deployment abgehandelt.
+
+* Provisionierung des Systems
+* Clonen/Aktualisieren des **develop** Branches
+* Installation der **staging** Requirements (Python)
+* Ausführen der Datenbankmigrationen
+* Ausführen von collectstatic
+
 
 ## Production
-- ungetestet!!! -
-``ansible-playbook ansible/site.yml -i ansible/production``
+``ansible-playbook ansible/production.yml -i ansible/production``
 
+Folgende Punkte werden im Deployment abgehandelt.
 
-# How do I use bower in this project
-<a name='use-bower' />
-Change to your project directory in your vagrant box(this is really important) and use:
-``bower install name-of-your-js-app``
+* Provisionierung des Systems
+* Clonen/Aktualisieren des **master** Branches
+* Installation der **production** Requirements (Python)
+* Ausführen der Datenbankmigrationen
+* Ausführen von collectstatic
