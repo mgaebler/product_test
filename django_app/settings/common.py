@@ -14,6 +14,9 @@ import os
 import sys
 import markdown
 
+from logging.handlers import SysLogHandler
+
+
 APP_DIR = os.path.dirname(os.path.dirname(__file__))
 BASE_DIR = os.path.join(APP_DIR, '..')
 sys.path.insert(0, APP_DIR)
@@ -75,7 +78,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = (
-    'grappelli', # 3rd party
+    'grappelli',  # 3rd party
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -97,10 +100,10 @@ INSTALLED_APPS = (
     'django_jinja.contrib._easy_thumbnails',
     'crispy_forms',
     # our apps
-    'user_accounts', # the user profiles
+    'user_accounts',  # the user profiles
     'faq',
     'django_simple_forum',
-    #'gallery',
+    # 'gallery',
     'product_test',
     'simple_bank',
     'simple_shop',
@@ -174,8 +177,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '.media')
 
 # CACHES = {
-#     'default': {
-#         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+# 'default': {
+# 'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
 #         'LOCATION': '/tmp/trendsetter/django_cache',
 #     },
 #     'staticfiles': {
@@ -199,20 +202,22 @@ LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'handlers': {
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'log', 'debug.log'),
-        },
+        'syslog': {
+            'level': 'INFO',
+            'class': 'logging.handlers.SysLogHandler',
+            # 'formatter': 'verbose',
+            'facility': SysLogHandler.LOG_LOCAL2,
+            'address': '/dev/log',
+        }
     },
     'loggers': {
         'django.request': {
-            'handlers': ['file'],
+            'handlers': ['syslog'],
             'level': 'DEBUG',
             'propagate': True,
         },
         'django_jinja.builtins.global_context': {
-            'handlers': ['file'],
+            'handlers': ['syslog'],
             'level': 'DEBUG',
             'propagate': True,
         },
