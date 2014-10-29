@@ -1,12 +1,8 @@
 # coding: utf8
 
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser
 from django.utils.translation import ugettext_lazy as _
-from django.core.urlresolvers import reverse
-
 from authtools.models import AbstractEmailUser
-
 from easy_thumbnails.fields import ThumbnailerImageField
 
 
@@ -24,11 +20,9 @@ class UserAccount(AbstractEmailUser):
         ('an', _('another')),
     )
 
-    # REQUIRED_FIELDS = ('email',)
     # profile
     full_name = models.CharField('full name', max_length=255, blank=True)
     preferred_name = models.CharField('preferred name', max_length=255, blank=True)
-    #email = models.EmailField(unique=True)
     invited_by = models.ForeignKey("self", blank=True, null=True)
     gender = models.CharField(choices=GENDER_CHOICES, max_length=1)
     avatar = ThumbnailerImageField(blank=True, null=True)
@@ -47,6 +41,8 @@ class UserAccount(AbstractEmailUser):
     registration_at = models.DateTimeField(blank=True, null=True)
     confirmation_token = models.CharField(max_length=254)
     confirmation_at = models.DateTimeField(blank=True, null=True)
+
+    verification_token = models.CharField(max_length=254, blank=True, null=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
