@@ -1,0 +1,22 @@
+---
+- apt: name='{{ item }}'
+  with_items:
+    - libpq-dev
+    - python-dev
+    - postgresql
+    - postgresql-contrib
+    - python-psycopg2
+  sudo: true
+
+
+- postgresql_user: db='{{ app.id }}' user='{{ user.name }}' password=nopass role_attr_flags=CREATEDB,NOSUPERUSER
+  sudo: true
+  sudo_user: postgres
+
+# Create a new database
+- postgresql_db: name='{{ app.id }}' owner='{{ user.name }}'
+  sudo: true
+  sudo_user: postgres
+
+- service: name=postgresql state=reloaded
+  sudo: true

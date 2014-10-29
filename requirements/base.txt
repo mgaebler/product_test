@@ -48,3 +48,7 @@ django-allauth
 python-openid
 requests
 requests-oauthlib
+
+
+# Database, db
+psycopg2

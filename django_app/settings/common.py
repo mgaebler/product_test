@@ -133,6 +133,7 @@ DATABASES = {
     }
 }
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
@@ -225,18 +226,3 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-## THUMBOR SETTINGS
-# The host serving the thumbor resized images
-THUMBOR_SERVER = 'http://localhost:8888'
-
-# The prefix for the host serving the original images
-# This must be a resolvable address to allow thumbor to reach the images
-THUMBOR_MEDIA_URL = 'http://localhost:8000/media'
-
-# The same security key used in the thumbor service to
-# match the URL construction
-THUMBOR_SECURITY_KEY = 'MY_SECURE_KEY'
-
-# Default arguments passed to the `generate_url` helper or
-# the `thumbor_url` templatetag
-THUMBOR_ARGUMENTS = {}
