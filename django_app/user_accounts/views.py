@@ -1,6 +1,9 @@
 #coding: utf8
+from datetime import datetime
+from hashlib import sha1
 
 from django.core.urlresolvers import reverse
+from django.core.mail import send_mail
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import PasswordChangeForm, PasswordResetForm
@@ -12,6 +15,7 @@ from django.utils.translation import gettext_lazy as _
 from braces.views import LoginRequiredMixin
 
 from .models import UserAccount
+from .forms import RegisterForm
 
 
 def login_view(request):
@@ -30,6 +34,11 @@ def login_view(request):
         return redirect('user:login_form')
 
     return redirect('home')
+
+
+def register_confirm_view(request):
+    # todo: check the register confirmation on base of the verification token
+    pass
 
 
 def logout_view(request):
@@ -118,10 +127,39 @@ class UserProfileChangeView(LoginRequiredMixin, UpdateView):
         return redirect('user:settings')
 
 
-class AccountCreateView(CreateView):
+class AccountCreateView(FormView):
     model = UserAccount
+    form_class = RegisterForm
     template_name = 'registration/register_form.jinja'
-    fields = ('email',)
 
     def get_success_url(self):
         return reverse('user:register-success')
+
+    def form_valid(self, form):
+        email = form.cleaned_data['email']
+        token = self.generate_verification_token(email)
+
+        user = UserAccount.objects.create_user(
+            email=email, password=None,
+            verification_token=token
+        )
+        self.send_verification_email(user, token)
+        return super(AccountCreateView, self).form_valid(form)
+
+    @staticmethod
+    def generate_verification_token(email):
+        time = datetime.now().isoformat()
+        plain = email + '\0' + time
+        token = sha1(plain)
+        return token.hexdigest()
+
+    @staticmethod
+    def send_verification_email(user, token):
+        # on success send an email with link and set a verification token
+        message = ''
+        send_mail(
+            'Confirm Mail',
+            'Here is the message.',
+            'mail@trendsetter.de',
+            [user.email], fail_silently=False
+        )
