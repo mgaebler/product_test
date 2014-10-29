@@ -1,10 +1,16 @@
+import yaml
 from .common import *
+
+ansible_vars = {}
+with file(os.path.join(BASE_DIR, 'ansible', 'group_vars', 'production.yml')) as f:
+    ansible_vars = yaml.load(f.read())
 
 # production settings here
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 THUMBNAIL_DEBUG = False
+
 # Template Settings
 TEMPLATE_DEBUG = False
 DEBUG_TOOLBAR = False
@@ -15,3 +21,14 @@ STATICFILES_STORAGE = 'pipeline.storage.NonPackagingPipelineCachedStorage'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'mail00.exor'
 DEFAULT_FROM_EMAIL = 'staging@trendsetter.eu'
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': ansible_vars['app']['id'],
+        'USER': ansible_vars['app']['id'],
+        'PASSWORD': ansible_vars['app']['id'],
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}

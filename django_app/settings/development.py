@@ -1,5 +1,10 @@
+import yaml
 from .common import *
 # development stuff here
+
+ansible_vars = {}
+with file(os.path.join(BASE_DIR, 'ansible', 'group_vars', 'vagrant.yml')) as f:
+    ansible_vars = yaml.load(f.read())
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -27,13 +32,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, '.media')
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'trendsetter',
-        # The following settings are not used with sqlite3:
-        'USER': 'vagrant',
-        'PASSWORD': 'nopass',
-        'HOST': 'localhost',                      # Empty for localhost through domain sockets or           '127.0.0.1' for localhost through TCP.
-        'PORT': '',                      # Set to empty string for default.
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': ansible_vars['app']['id'],
+        'USER': ansible_vars['app']['id'],
+        'PASSWORD': ansible_vars['app']['id'],
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
