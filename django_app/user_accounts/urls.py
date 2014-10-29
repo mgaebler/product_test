@@ -27,4 +27,8 @@ urlpatterns = patterns(
     url(r'^reset-password/confirm/(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)/$', views.reset_confirm, name='reset_confirm'),
     url(r'^reset-password/complete$', TemplateView.as_view(template_name='registration/password_reset_complete.jinja'), name='password_reset_complete'),
     url(r'^reset-password/success$', TemplateView.as_view(template_name='registration/password_reset_success.jinja'), name='password_reset_success'),
+
+    url(r'^verification/(?P<token>.+)$', TemplateView.as_view(template_name='registration/verification_success.jinja'), name='verification_success'),
+
+
 )
