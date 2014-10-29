@@ -6,11 +6,14 @@
 - include: bootstrap.yml
   when: bootstrapped.stat.exists == false or bootstrapped.stat.isreg == false
 
-- shell: locale-gen de_DE.UTF-8
-  sudo: true
+#- shell: locale-gen de_DE.UTF-8
+#  sudo: true
+#- shell: dpkg-reconfigure locales
+#  sudo: true
 
-- shell: dpkg-reconfigure locales
-  sudo: true
+# Ensure a locale exists.
+- locale_gen: name=de_DE.UTF-8 state=present
+
 
 - apt: pkg={{ item }} state=latest
   sudo: true

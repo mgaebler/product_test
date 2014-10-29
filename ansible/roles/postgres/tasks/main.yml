@@ -9,14 +9,16 @@
   sudo: true
 
 
-- postgresql_user: db='{{ app.id }}' user='{{ user.name }}' password=nopass role_attr_flags=CREATEDB,NOSUPERUSER
+- postgresql_user: user='{{ app.id }}' password='{{ app.id }}' role_attr_flags=CREATEDB,NOSUPERUSER
   sudo: true
   sudo_user: postgres
 
+
 # Create a new database
-- postgresql_db: name='{{ app.id }}' owner='{{ user.name }}'
+- postgresql_db: name='{{ app.id }}' owner='{{ app.id }}'
   sudo: true
   sudo_user: postgres
+
 
 - service: name=postgresql state=reloaded
   sudo: true
