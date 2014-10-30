@@ -38,30 +38,9 @@
                   action="{{ url('user:register') }}" class="new_user" id="new_user"
                   method="post">
               {% csrf_token %}
+              {{ register_form.as_ul() }}
 
-              <div class="form-group">
-                <label class="sr-only control-label" for="user_email">
-                  E-Mail-Adresse
-                </label>
-                <input class="form-control"
-                       id="user_email"
-                       name="user[email]"
-                       placeholder="E-Mail-Adresse"
-                       type="text">
-              </div>
-              <small>
-                <div class="checkbox">
-                  <label for="user_terms">
-                    <input name="user[terms]" type="hidden" value="0">
-                    <input id="user_terms" name="user[terms]" type="checkbox" value="1">
-                    Ich akzeptiere die <a href="{{ url('agb') }}" target="_blank">Nutzungs-</a> und&nbsp;
-                    <a href="/teilnahmebedingungen" target="_blank">
-                      Teilnahmebedingungen
-                    </a>
-                  </label>
-                </div>
-              </small>
-              <input class="btn-inverted btn-block btn-block-big" name="commit" type="submit"
+              <input class="btn-block btn-block-big" name="commit" type="submit"
                      value="Jetzt registrieren">
             </form>
           {% endif %}

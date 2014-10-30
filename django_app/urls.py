@@ -4,10 +4,11 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
 
+from core.views import IndexView
 
 urlpatterns = patterns('',
     # static content
-    url(r'^$', TemplateView.as_view(template_name='index.jinja'), name='home'),
+    url(r'^$', IndexView.as_view(), name='home'),
     url(r'^ueber-uns/$', TemplateView.as_view(template_name='static/ueber_uns.jinja'), name='about_us'),
     url(r'^unsere-marken/$', TemplateView.as_view(template_name='static/unsere_marken.jinja'), name='our_brands'),
     url(r'^wie-funktioniert-es/$', TemplateView.as_view(template_name='static/wie_funktioniert_es.jinja'), name='how_it_works'),
