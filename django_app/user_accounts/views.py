@@ -15,7 +15,7 @@ from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
 from django.views.generic import FormView, UpdateView
 from django.shortcuts import redirect, get_object_or_404
-from django.core.exceptions import PermissionDenied
+
 
 from braces.views import LoginRequiredMixin
 
@@ -24,13 +24,16 @@ from .forms import RegisterForm, PasswordSetForm
 
 
 def login_view(request):
-    username = request.POST.get('user[email]', None)
+    email = request.POST.get('user[email]', None)
     password = request.POST.get('user[password]', None)
-    user = authenticate(username=username, password=password)
+    user = authenticate(username=email, password=password)
     if user is not None:
         if user.is_active:
             login(request, user)
             messages.add_message(request, messages.INFO, u'Login erfolgreich')
+            if not user.profile_complete:
+                messages.add_message(request, messages.INFO, u'Bitte vervollständige dein Profil')
+                return redirect('user:settings')
         else:
             messages.add_message(request, messages.ERROR, u'Dieser Account ist nicht aktiviert.')
             return redirect('user:login_form')
@@ -42,7 +45,7 @@ def login_view(request):
 
 
 def register_verify(request, token):
-    # activate user and redirect to the user form
+    # activate user and redirect to the password form
     user = get_object_or_404(UserAccount, confirmation_token=token)
     user.confirmation_at = timezone.now()
     user.is_active = True
@@ -142,21 +145,30 @@ class UserProfileChangeView(LoginRequiredMixin, UpdateView):
         'gender',
         'family_status',
     )
+
     labels = {
         'address2': '',
         'address3': '',
-    },
+    }
+
     help_texts = {
         'avatar': _(u'Max. 10MB. Wird öffentlich angezeigt.'),
         'password': _(u'Nur, wenn Du Dein Passwort ändern willst.'),
     }
 
+    def get_success_url(self):
+        return reverse('user:settings')
+
     def get_object(self, queryset=None):
         return self.request.user
 
     def form_valid(self, form):
+        user = UserAccount.objects.get(pk=self.request.user.pk)
+        user.profile_complete = True
+        user.save()
         messages.add_message(self.request, messages.INFO, u'Profil erfolgreich gespeichert.')
-        return redirect('user:settings')
+
+        return super(UserProfileChangeView, self).form_valid(form)
 
 
 class AccountCreateView(FormView):
