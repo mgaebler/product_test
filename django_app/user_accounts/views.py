@@ -8,9 +8,13 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import PasswordChangeForm, PasswordResetForm
 from django.contrib.auth.views import password_reset, password_reset_confirm
-from django.shortcuts import redirect
-from django.views.generic import TemplateView, FormView, CreateView, UpdateView
+from django.template import Context
+from django.template.loader import get_template
 from django.utils.translation import gettext_lazy as _
+from django.utils import timezone
+from django.views.generic import FormView, UpdateView
+from django.shortcuts import redirect, get_object_or_404
+from django.core.exceptions import PermissionDenied
 
 from braces.views import LoginRequiredMixin
 
@@ -36,9 +40,17 @@ def login_view(request):
     return redirect('home')
 
 
-def register_confirm_view(request):
-    # todo: check the register confirmation on base of the verification token
-    pass
+def register_verify(request, token):
+    # activate user and redirect to the user form
+    user = get_object_or_404(UserAccount, confirmation_token=token)
+    user.confirmation_at = timezone.now()
+    user.is_active = True
+    user.confirmation_token = ''
+    user.save()
+    user.backend = 'django.contrib.auth.backends.ModelBackend'
+    login(request, user)
+
+    return redirect(reverse('user:settings'))
 
 
 def logout_view(request):
@@ -137,29 +149,39 @@ class AccountCreateView(FormView):
 
     def form_valid(self, form):
         email = form.cleaned_data['email']
-        token = self.generate_verification_token(email)
+        token = self._generate_confirmation_token(email)
 
         user = UserAccount.objects.create_user(
             email=email, password=None,
-            verification_token=token
+            registration_at=timezone.now(),
+            confirmation_token=token
         )
-        self.send_verification_email(user, token)
+
+        self._send_verification_email(user.email, token)
+
         return super(AccountCreateView, self).form_valid(form)
 
-    @staticmethod
-    def generate_verification_token(email):
-        time = datetime.now().isoformat()
-        plain = email + '\0' + time
-        token = sha1(plain)
-        return token.hexdigest()
-
-    @staticmethod
-    def send_verification_email(user, token):
+    def _send_verification_email(self, recipient, token):
         # on success send an email with link and set a verification token
-        message = ''
+        verification_link = "{}{}".format(
+            self.request.META['HTTP_ORIGIN'],
+            reverse('user:verify_token', kwargs={'token': token})
+        )
+
+        template = get_template('registration/registration_email.jinja')
+        context = Context({'verification_link': verification_link})
+        email_body = template.render(context)
+
         send_mail(
             'Confirm Mail',
-            'Here is the message.',
-            'mail@trendsetter.de',
-            [user.email], fail_silently=False
+            email_body,
+            'mail@trendsetter.de', # todo: change this
+            [recipient], fail_silently=False
         )
+
+    @staticmethod
+    def _generate_confirmation_token(email):
+        time = datetime.now().isoformat()
+        token = sha1(email + '\0' + time)
+        return token.hexdigest()
+
