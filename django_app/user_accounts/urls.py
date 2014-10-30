@@ -22,11 +22,12 @@ urlpatterns = patterns(
     url(r'^login$', views.login_view, name='login'),
     url(r'^logout$', views.logout_view, name='logout'),
 
+    url(r'^set-password$', views.PasswordSetView.as_view(), name='set_password'),
     url(r'^change-password$', views.PasswordChangeView.as_view(), name='change_password'),
     url(r'^reset-password$', views.reset, name='password_reset'),
     url(r'^reset-password/confirm/(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)/$', views.reset_confirm, name='reset_confirm'),
-    url(r'^reset-password/complete$', TemplateView.as_view(template_name='registration/password_reset_complete.jinja'), name='password_reset_complete'),
-    url(r'^reset-password/success$', TemplateView.as_view(template_name='registration/password_reset_success.jinja'), name='password_reset_success'),
+    url(r'^reset-password/complete$', TemplateView.as_view(template_name='profiles/password/password_reset_complete.jinja'), name='password_reset_complete'),
+    url(r'^reset-password/success$', TemplateView.as_view(template_name='profiles/password/password_reset_success.jinja'), name='password_reset_success'),
 
     url(r'^verify/(?P<token>.+)$', views.register_verify, name='verify_token'),
 

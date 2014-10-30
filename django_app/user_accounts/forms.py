@@ -28,3 +28,13 @@ class RegisterForm(forms.Form):
     email = forms.EmailField(max_length=254, validators=[validate_if_user_exists])
     accept_terms_of_use = forms.BooleanField(required=False, validators=[validate_terms_of_use])
 
+
+class PasswordSetForm(forms.Form):
+    password = password = forms.CharField(
+        widget=forms.PasswordInput(render_value=False),
+        max_length=100
+    )
+    re_password = password = forms.CharField(
+        widget=forms.PasswordInput(render_value=False),
+        max_length=100
+    )
