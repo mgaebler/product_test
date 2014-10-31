@@ -2,6 +2,7 @@
 
 from django.db import models
 from django.conf import settings
+from django.utils.translation import ugettext as _
 from django.db.models.signals import post_save
 
 
@@ -36,7 +37,7 @@ class Account(models.Model):
 class Transfer(models.Model):
     sender = models.ForeignKey(Account, related_name="sender")
     receiver = models.ForeignKey(Account, related_name="receiver")
-    reference = models.CharField(max_length=255, blank=True, null=True)
+    reference = models.CharField(max_length=255, blank=True, null=True, help_text=_(u'A short description of what why you did this.'))
     amount = models.IntegerField(default=0)
     executed = models.BooleanField(default=False)
     updated = models.DateTimeField(auto_now=True)
@@ -50,6 +51,16 @@ def create_customer_account(sender, **kwargs):
         Account.objects.create(customer=user_account)
 
 post_save.connect(create_customer_account, sender=settings.AUTH_USER_MODEL, dispatch_uid="create_user_profile")
+
+
+def create_transfer(sender_account, receiver_account, amount, message):
+    assert isinstance(sender_account, Account)
+    assert isinstance(receiver_account, Account)
+    transfer = Transfer()
+    transfer.sender = sender_account
+    transfer.receiver = receiver_account
+    transfer.amount = amount
+    transfer.save()
 
 
 def execute_transfer(sender, **kwargs):
