@@ -100,6 +100,7 @@ INSTALLED_APPS = (
     'django_jinja.contrib._easy_thumbnails',
     'core.django_jinja.contrib._bootstrapform',
     # 'bootstrapform',
+    'django_nose',
 
     # our apps
     'user_accounts',  # the user profiles
@@ -228,8 +229,24 @@ LOGGING = {
 
 }
 
+
 AUTHENTICATION_BACKENDS = (
     'social.backends.google.GoogleOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
 
+
+# nose
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+# Tell nose to measure coverage on the 'foo' and 'bar' apps
+NOSE_ARGS = [
+    '--quiet',
+    '--logging-level=INFO',
+    '--with-spec',
+    '--spec-color',
+    # '--with-coverage',
+    # '--cover-package=foo,bar',
+]
+# NOSE_PLUGINS = [
+#     'yourapp.tests.plugins.SystematicDysfunctioner',
+# ]
