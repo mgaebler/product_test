@@ -1,0 +1,7 @@
+{{ formset.management_form }}
+
+{% for form in formset %}
+
+  {% include "bootstrapform/form.jinja" with form=form %}
+
+{% endfor %}

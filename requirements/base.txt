@@ -6,10 +6,10 @@ django-grappelli
 python-memcached
 fabric
 pytz
-django-crispy-forms
 coverage
 factory_boy
 pyyaml
+django-bootstrap-form
 
 
 # auth
