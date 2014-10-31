@@ -8,10 +8,12 @@ from django.db.models.signals import post_save
 
 class Account(models.Model):
     CURRENCY_CHOICES = (('tp', 'Trend Points'),)
+
     TYPE_CHOICES = (
         ('ha', 'House account'),
         ('ca', 'Customer account'),
     )
+
     name = models.CharField(max_length=255, blank=True, null=True)
     type = models.CharField(max_length=2, choices=TYPE_CHOICES, default='ca')
     description = models.TextField(blank=True, null=True)
