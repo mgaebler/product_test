@@ -1,4 +1,4 @@
-# coding: urf8
+# coding: utf8
 
 import factory
 from . import models
