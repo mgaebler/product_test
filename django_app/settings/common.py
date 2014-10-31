@@ -61,6 +61,8 @@ TEMPLATE_DIRS = (
 )
 
 DEFAULT_JINJA2_TEMPLATE_EXTENSION = '.jinja'
+DEFAULT_FROM_EMAIL = 'info@trendsetter.de'
+
 
 JINJA2_EXTENSIONS = (
     'pipeline.jinja2.ext.PipelineExtension',
