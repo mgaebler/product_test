@@ -53,3 +53,8 @@ requests-oauthlib
 
 # Database, db
 psycopg2
+
+
+# Tests
+django-nose
+pinocchio
