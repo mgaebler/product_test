@@ -9,9 +9,9 @@
           method="post"
       >
       {% csrf_token %}
-
-      {{ form.as_p() }}
-
+      {% autoescape off %}
+      {{ form|bootstrap }}
+      {% endautoescape %}
       <div class="form-group"><label class="control-label col-sm-6"></label>
 
         <div class="col-sm-10">

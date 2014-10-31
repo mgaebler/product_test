@@ -27,6 +27,7 @@ class UserAccount(AbstractEmailUser):
     gender = models.CharField(choices=GENDER_CHOICES, max_length=1)
     avatar = ThumbnailerImageField(blank=True, null=True)
     avatar_url = models.URLField(max_length=254, null=True, blank=True)
+    # todo: mindestalter?
     birth_date = models.DateField(blank=True, null=True)
     #address
     city = models.CharField(max_length=254)
