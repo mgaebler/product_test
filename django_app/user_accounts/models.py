@@ -40,10 +40,10 @@ class UserAccount(AbstractEmailUser):
     family_status = models.CharField(choices=FAMILY_STATUS_CHOICES, max_length=2)
 
     registration_at = models.DateTimeField(blank=True, null=True)
-    confirmation_token = models.CharField(max_length=254)
+    confirmation_token = models.CharField(max_length=254, blank=True, null=True)
     confirmation_at = models.DateTimeField(blank=True, null=True)
     # use this to identify friend invites
-    invite_token = models.CharField(max_length=254)
+    invite_token = models.CharField(max_length=254, blank=True, null=True)
     profile_complete = models.BooleanField(default=False)
 
     created_at = models.DateTimeField(auto_now_add=True)
