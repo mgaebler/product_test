@@ -1,4 +1,5 @@
 #coding: utf8
+import logging
 from datetime import datetime
 from hashlib import sha1
 
@@ -18,9 +19,13 @@ from django.shortcuts import redirect, get_object_or_404
 
 
 from braces.views import LoginRequiredMixin
+from simple_bank.models import create_transfer
 
 from .models import UserAccount
 from .forms import RegisterForm, PasswordSetForm
+
+
+logger = logging.getLogger(__name__)
 
 
 def login_view(request):
@@ -164,8 +169,26 @@ class UserProfileChangeView(LoginRequiredMixin, UpdateView):
 
     def form_valid(self, form):
         user = UserAccount.objects.get(pk=self.request.user.pk)
-        user.profile_complete = True
-        user.save()
+        if not user.profile_complete:
+            user.profile_complete = True
+            user.save()
+            # pay the user 5 points
+            create_transfer(
+                sender_account=UserAccount.objects.get(email='info@trendsetter.eu').bank_account.all().first(),
+                receiver_account=user.bank_account.all().first(),
+                amount=5,
+                message=u'Vielen Dank für die Verfollständigung deines Profiles.'
+            )
+            messages.add_message(self.request, messages.INFO, u'Du hast 5 Trendpoints verdient!')
+            if user.invited_by:
+                # todo: if the user has an invited_by pay the invite 5 points
+                create_transfer(
+                    sender_account=UserAccount.objects.get(email='info@trendsetter.eu').bank_account.all().first(),
+                    receiver_account=user.invited_by.bank_account.all().first(),
+                    amount=5,
+                    message=u'Dein Invite wurde eingelöst.'
+                )
+
         messages.add_message(self.request, messages.INFO, u'Profil erfolgreich gespeichert.')
 
         return super(UserProfileChangeView, self).form_valid(form)
@@ -180,14 +203,23 @@ class AccountCreateView(FormView):
         return reverse('user:register-success')
 
     def form_valid(self, form):
+        invite_token = self.request.GET.get('invite_token', None)
         email = form.cleaned_data['email']
         token = self._generate_confirmation_token(email)
 
         user = UserAccount.objects.create_user(
             email=email, password=None,
             registration_at=timezone.now(),
-            confirmation_token=token
+            confirmation_token=token,
         )
+
+        if invite_token:
+            try:
+                # try to identify invite
+                user.invited_by = UserAccount.objects.get(invite_token=invite_token)
+                user.save()
+            except:
+                logger.exception("Invite identification failed!")
 
         self._send_verification_email(user.email, token)
 
@@ -205,10 +237,10 @@ class AccountCreateView(FormView):
         email_body = template.render(context)
 
         send_mail(
-            'Confirm Mail',
-            email_body,
-            'mail@trendsetter.de', # todo: change this
-            [recipient], fail_silently=False
+            subject='Confirm Mail',
+            html_message=email_body,
+            recipient=[recipient],
+            fail_silently=False
         )
 
     @staticmethod
