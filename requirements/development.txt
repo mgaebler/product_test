@@ -2,3 +2,6 @@
 
 # development
 django-debug-toolbar
+
+# debug
+pudb
