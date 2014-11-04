@@ -55,6 +55,8 @@ class Transfer(models.Model):
     reference = models.CharField(max_length=255, blank=True, null=True, help_text=_(u'A short description of what why you did this.'))
     amount = models.IntegerField(default=0)
     executed = models.BooleanField(default=False)
+    # todo: it could be useful also log aborted transfers
+    aborted = models.DateTimeField(blank=True, null=True)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
 
