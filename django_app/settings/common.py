@@ -103,6 +103,7 @@ INSTALLED_APPS = (
     'django_nose',
 
     # our apps
+    'core',
     'user_accounts',  # the user profiles
     'faq',
     'django_simple_forum',
