@@ -19,7 +19,7 @@ from django.shortcuts import redirect, get_object_or_404
 
 
 from braces.views import LoginRequiredMixin
-from simple_bank.models import create_transfer
+from simple_bank.models import create_transfer, Account
 
 from .models import UserAccount
 from .forms import RegisterForm, PasswordSetForm
@@ -174,7 +174,7 @@ class UserProfileChangeView(LoginRequiredMixin, UpdateView):
             user.save()
             # pay the user 5 points
             create_transfer(
-                sender_account=UserAccount.objects.get(email='info@trendsetter.eu').bank_account.all().first(),
+                sender_account=Account.objects.get(name='trendsetter').all().first(),
                 receiver_account=user.bank_account.all().first(),
                 amount=5,
                 message=u'Vielen Dank für die Verfollständigung deines Profiles.'
