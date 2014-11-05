@@ -1,17 +1,10 @@
 # coding: utf8
 from django import forms
 from django.core.exceptions import ValidationError
+from django.core.validators import validate_email
 from django.utils.translation import ugettext_lazy as _
 
 from .models import UserAccount
-
-
-class LoginForm(forms.Form):
-    username = forms.CharField(max_length=100)
-    password = forms.CharField(
-        widget=forms.PasswordInput(render_value=False),
-        max_length=100
-    )
 
 
 def validate_terms_of_use(value):
@@ -21,7 +14,34 @@ def validate_terms_of_use(value):
 
 def validate_if_user_exists(value):
     if UserAccount.objects.filter(email=value).exists():
-        raise ValidationError(u'Ein Benutzer mit dieser Emailadresse existiert bereits. Passwort vergessen?')
+        raise ValidationError(_(u'Ein Benutzer mit dieser Emailadresse existiert bereits. Passwort vergessen?'))
+
+
+class MultiEmailField(forms.Field):
+    def to_python(self, value):
+        """Normalize data to a list of strings."""
+
+        # Return an empty list if no input was given.
+        if not value:
+            return []
+        return value.split(',')
+
+    def validate(self, value):
+        """Check if value consists only of valid emails."""
+
+        # Use the parent's handling of required fields, etc.
+        super(MultiEmailField, self).validate(value)
+
+        for email in value:
+            validate_email(email)
+
+
+class LoginForm(forms.Form):
+    username = forms.CharField(max_length=100)
+    password = forms.CharField(
+        widget=forms.PasswordInput(render_value=False),
+        max_length=100
+    )
 
 
 class RegisterForm(forms.Form):
@@ -38,3 +58,11 @@ class PasswordSetForm(forms.Form):
         widget=forms.PasswordInput(render_value=False),
         max_length=100
     )
+
+
+class InviteFriendsForm(forms.Form):
+    recipients = MultiEmailField(widget=forms.Textarea(attrs={'rows':1, 'cols':15}), help_text=_(u'Please provide the email addresses comma separated.'))
+    subject = forms.CharField()
+    message = forms.CharField(widget=forms.Textarea, help_text=_(u'Du kannst den Text verändern, solltest aber den Link nicht entfernen.'))
+
+
