@@ -107,7 +107,7 @@ INSTALLED_APPS = (
     'user_accounts',  # the user profiles
     'faq',
     'django_simple_forum',
-    # 'gallery',
+    'gallery',
     'product_test',
     'simple_bank',
     'simple_shop',

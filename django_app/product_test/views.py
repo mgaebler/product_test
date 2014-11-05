@@ -23,3 +23,12 @@ class ProductBrandListView(ListView):
     template_name = 'product_test/brand_list.jinja'
     model = Brand
     context_object_name = 'brands'
+
+
+# faq view
+
+# form view
+
+# gallery view
+
+# test result view

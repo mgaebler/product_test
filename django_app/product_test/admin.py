@@ -26,6 +26,9 @@ class ProductTestAdmin(admin.ModelAdmin):
         ('Customization', {
             'fields': ('custom_html', 'custom_css',)
         }),
+        ('Additional Pages', {
+            'fields': ('gallery', 'faq', 'forum')
+        }),
         (None, {
             'fields': (
                 'published_at',

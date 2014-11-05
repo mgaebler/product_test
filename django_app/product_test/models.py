@@ -4,6 +4,9 @@ from django.utils import timezone
 from django.core.urlresolvers import reverse
 from django.conf import settings
 
+from django_simple_forum.models import Forum
+from faq.models import FaqGroup
+from gallery.models import Gallery
 
 class Brand(models.Model):
     name = models.CharField(max_length=254)
@@ -40,6 +43,10 @@ class ProductTest(models.Model):
     published_at = models.DateTimeField(default=timezone.now, null=True)
     ends_at = models.DateTimeField(default=timezone.now, null=True)
     activated_at = models.DateTimeField(default=timezone.now, null=True)
+
+    faq = models.OneToOneField(FaqGroup, null=True, blank=True)
+    gallery = models.OneToOneField(Gallery, null=True, blank=True)
+    forum = models.OneToOneField(Forum, null=True, blank=True)
 
     state = models.BooleanField(default=False)
 
