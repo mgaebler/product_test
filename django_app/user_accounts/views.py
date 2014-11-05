@@ -22,7 +22,7 @@ from braces.views import LoginRequiredMixin
 from simple_bank.models import create_transfer, Account
 
 from .models import UserAccount
-from .forms import RegisterForm, PasswordSetForm
+from . import forms
 
 
 logger = logging.getLogger(__name__)
@@ -112,7 +112,7 @@ class PasswordResetView(FormView):
 
 class PasswordSetView(LoginRequiredMixin, FormView):
     template_name = 'profiles/password/password_set.jinja'
-    form_class = PasswordSetForm
+    form_class = forms.PasswordSetForm
 
     def form_valid(self, form):
         password = form.cleaned_data['password']
@@ -196,7 +196,7 @@ class UserProfileChangeView(LoginRequiredMixin, UpdateView):
 
 class AccountCreateView(FormView):
     model = UserAccount
-    form_class = RegisterForm
+    form_class = forms.RegisterForm
     template_name = 'registration/register_form.jinja'
 
     def get_success_url(self):
@@ -248,4 +248,38 @@ class AccountCreateView(FormView):
         time = datetime.now().isoformat()
         token = sha1(email + '\0' + time)
         return token.hexdigest()
+
+
+class InviteFriendsView(FormView):
+    form_class = forms.InviteFriendsForm
+    template_name = 'profiles/my_site/invite_friends_form.jinja'
+
+    def get_initial(self):
+        initial = super(InviteFriendsView, self).get_initial()
+        invite_token = self.request.user.invite_token
+        # todo: provide an invite link
+        invite_link = invite_token
+        template = get_template('profiles/emails/invite_users_email.jinja')
+        context = Context({'invite_link': invite_link})
+        email_body = template.render(context)
+
+        initial['message'] = email_body
+        initial['subject'] = 'Kostenlos Produkttester werden'
+
+        self.form_class.invite_link = invite_link
+        return initial
+
+    def form_valid(self, form):
+        data = form.cleaned_data
+
+        for recipient in data.recipients:
+            send_mail(
+                from_email=self.request.user.email,
+                subject=data.subject,
+                html_message=data.message,
+                recipient=[recipient],
+                fail_silently=False
+            )
+
+        return super(InviteFriendsView, self).form_valid(form)
 
