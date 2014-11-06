@@ -19,7 +19,7 @@ urlpatterns = patterns('',
     url(r'^partner-info/$', TemplateView.as_view(template_name='static/partner_info.jinja'), name='partner_info'),
 
     url(r'my/', include('user_accounts.urls', namespace='user')),
-    url(r'produkttests/', include('product_test.urls')),
+    url(r'produkttests/', include('product_test.urls', namespace='product_test')),
 
     url(r'forum/', include('django_simple_forum.urls')),
 

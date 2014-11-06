@@ -11,18 +11,18 @@
             <div class="col-md-12">
               <div class="brand-fuersie test-tile">
                 <h3 class="test-title">
-                  <a href="{{ url('product_test_info', slug=test.slug) }}">
+                  <a href="{{ url('product_test:info', slug=test.slug) }}">
                     {{ test.title }}
                   </a>
                 </h3>
 
                 <div class="test-link">
-                  <a class="btn btn-inverted" href="{{ url('product_test_info', slug=test.slug) }}">
+                  <a class="btn btn-inverted" href="{{ url('product_test:info', slug=test.slug) }}">
                     Jetzt mitmachen
                   </a>
                 </div>
 
-                <a class="test-teaser" href="{{ url('product_test_info', slug=test.slug) }}"
+                <a class="test-teaser" href="{{ url('product_test:info', slug=test.slug) }}"
                    style="background: url({{ thumbnail(test.list_image, size=(400, 400)) }}) no-repeat 50% 100%">
                   {{ test.title }}
                 </a>
