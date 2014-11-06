@@ -12,6 +12,10 @@ class UserRegistrationTestCase(TestCase):
     def test_registration_link_is_only_7_days_valid(self):
         raise SkipTest
 
+    def test_mark_profile_as_complete_if_user_did_so(self):
+        raise SkipTest
+
+
 class UserInviteTestCase(TestCase):
     def setUp(self):
         pass
