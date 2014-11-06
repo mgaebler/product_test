@@ -30,6 +30,4 @@ urlpatterns = patterns(
     url(r'^reset-password/success$', TemplateView.as_view(template_name='profiles/password/password_reset_success.jinja'), name='password_reset_success'),
 
     url(r'^verify/(?P<token>.+)$', views.register_verify, name='verify_token'),
-
-
 )

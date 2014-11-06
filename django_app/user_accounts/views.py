@@ -4,7 +4,7 @@ from datetime import datetime
 from hashlib import sha1
 
 from django.core.urlresolvers import reverse
-from django.core.mail import send_mail
+from django.core.mail import send_mail, send_mass_mail
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.hashers import make_password
@@ -275,15 +275,11 @@ class InviteFriendsView(FormView):
 
     def form_valid(self, form):
         data = form.cleaned_data
-
-        for recipient in data.recipients:
-            send_mail(
-                from_email=self.request.user.email,
-                subject=data.subject,
-                html_message=data.message,
-                recipient_list=[recipient],
-                fail_silently=False
-            )
-
+        # import pudb; pu.db
+        mails = ((data['subject'], data['message'], self.request.user.email, [recipient]) for recipient in data['recipients'])
+        send_mass_mail(mails, fail_silently=False)
+        messages.info(self.request, u'Es wurde eine Einladung an deine Freude verschickt.')
         return super(InviteFriendsView, self).form_valid(form)
 
+    def get_success_url(self):
+        return reverse('user:invite_friends')
