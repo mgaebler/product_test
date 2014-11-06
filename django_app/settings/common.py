@@ -241,10 +241,12 @@ AUTHENTICATION_BACKENDS = (
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 # Tell nose to measure coverage on the 'foo' and 'bar' apps
 NOSE_ARGS = [
-    # '--quiet',
     # '--logging-level=INFO',
+    # '--verbosity=3',
     '--with-spec',
     '--spec-color',
+    # '--with-progressive',
+    # '--logging-clear-handlers',
     # '--with-coverage',
-    # '--cover-package=foo,bar',
+    # '--no-skip'
 ]
