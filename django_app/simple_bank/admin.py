@@ -10,7 +10,7 @@ admin.site.register(Account, AccountAdmin)
 
 class TransferAdmin(admin.ModelAdmin):
     actions = None
-    list_display = ('sender', 'receiver', 'amount', 'created', 'updated', 'executed',)
+    list_display = ('sender', 'receiver', 'amount', 'reference', 'created', 'updated', 'executed',)
     readonly_fields = ('created', 'updated', 'executed',)
 
     # disable edit link

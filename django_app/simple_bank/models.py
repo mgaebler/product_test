@@ -46,7 +46,7 @@ class Account(models.Model):
         pass
 
     def __unicode__(self):
-        return u"{customer} / {name}".format(customer=self.customer, name=self.name)
+        return u"{name}".format(name=self.name)
 
 
 class Transfer(models.Model):
@@ -86,7 +86,7 @@ def create_customer_account(sender, **kwargs):
     # use the user instance to create a new account if it not already exists
     user_account = kwargs.get('instance', None)
     if not user_account.bank_account.all():
-        Account.objects.create(customer=user_account)
+        Account.objects.create(customer=user_account, name=user_account.email)
 
 
 post_save.connect(create_customer_account, sender=settings.AUTH_USER_MODEL, dispatch_uid="create_user_profile")
@@ -99,6 +99,7 @@ def create_transfer(sender_account, receiver_account, amount, message):
     transfer.sender = sender_account
     transfer.receiver = receiver_account
     transfer.amount = amount
+    transfer.reference = message
     transfer.save()
 
     return transfer
