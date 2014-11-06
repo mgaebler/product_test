@@ -58,4 +58,5 @@ psycopg2
 # Tests
 #django-nose
 -e git://github.com/django-nose/django-nose.git#egg=django-nose
+nose-progressive
 pinocchio
