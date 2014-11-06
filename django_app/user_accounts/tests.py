@@ -1,3 +1,4 @@
+from nose import SkipTest
 from django.test import TestCase
 
 
@@ -6,15 +7,15 @@ class UserRegistrationTestCase(TestCase):
         pass
 
     def test_if_registration_link_is_only_7_days_valid(self):
-        pass
-
+        raise SkipTest
 
 class UserInviteTestCase(TestCase):
     def setUp(self):
         pass
 
     def test_if_invite_link_is_valid(self):
-        pass
+        raise SkipTest
+
 
     def test_if_invite_user_is_set(self):
-        pass
+        raise SkipTest
