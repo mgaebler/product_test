@@ -1,9 +1,17 @@
 # coding: utf8
 
-from django.db import models
-from django.utils.translation import ugettext_lazy as _
 from authtools.models import AbstractEmailUser
+from django.db import models
+from django.utils import timezone
+from django.utils.translation import ugettext_lazy as _
 from easy_thumbnails.fields import ThumbnailerImageField
+from hashlib import sha1
+
+
+def generate_token():
+    time = timezone.now().isoformat()
+    token = sha1(time)
+    return token.hexdigest()
 
 
 class UserAccount(AbstractEmailUser):
@@ -32,7 +40,6 @@ class UserAccount(AbstractEmailUser):
     #address
     city = models.CharField(max_length=254)
     country = models.CharField(max_length=254)
-    status = models.CharField(max_length=254)
     address1 = models.CharField(max_length=254)
     address2 = models.CharField(max_length=254, blank=True, null=True)
     address3 = models.CharField(max_length=254, blank=True, null=True)
@@ -43,7 +50,7 @@ class UserAccount(AbstractEmailUser):
     confirmation_token = models.CharField(max_length=254, blank=True, null=True)
     confirmation_at = models.DateTimeField(blank=True, null=True)
     # use this to identify friend invites
-    invite_token = models.CharField(max_length=254, blank=True, null=True)
+    invite_token = models.CharField(max_length=254, blank=True, null=True, default=generate_token())
     profile_complete = models.BooleanField(default=False)
 
     created_at = models.DateTimeField(auto_now_add=True)
@@ -57,3 +64,4 @@ class UserAccount(AbstractEmailUser):
 
     def __unicode__(self):
         return "{} ({})".format(self.full_name, self.email)
+
