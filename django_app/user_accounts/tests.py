@@ -6,16 +6,19 @@ class UserRegistrationTestCase(TestCase):
     def setUp(self):
         pass
 
-    def test_if_registration_link_is_only_7_days_valid(self):
+    def test_initial_password_screen_should_not_contain_navigation(self):
+        raise SkipTest
+
+    def test_registration_link_is_only_7_days_valid(self):
         raise SkipTest
 
 class UserInviteTestCase(TestCase):
     def setUp(self):
         pass
 
-    def test_if_invite_link_is_valid(self):
+    def test_invite_link_is_valid(self):
         raise SkipTest
 
 
-    def test_if_invite_user_is_set(self):
+    def test_invite_user_is_set(self):
         raise SkipTest
