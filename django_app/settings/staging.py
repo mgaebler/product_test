@@ -1,5 +1,5 @@
+import yaml
 from .common import *
-# development stuff here
 
 ansible_vars = {}
 with file(os.path.join(BASE_DIR, 'ansible', 'group_vars', 'staging.yml')) as f:
