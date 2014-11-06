@@ -41,8 +41,6 @@
 
 # clone the webapp
 - git: repo={{ app.repo }} dest="{{ user.home }}/{{ app.id }}" version="{{ app.version }}" accept_hostkey=yes
-  sudo: yes
-  sudo_user: "{{ user.name }}"
   when: app.environment != "development"
 
 
@@ -50,8 +48,7 @@
 - file: path={{ item }} group=www-data mode=0770 state=directory recurse=yes
   with_items:
     - "{{ app.media_path }}"
-    - "{{ app.basedir}}/log"
-    - "{{ app.basedir}}/db" # sqlite dir
+  sudo: yes
   when: app.environment != "development"
 
 
