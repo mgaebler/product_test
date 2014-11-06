@@ -10,7 +10,7 @@ project: &PROJECT
 app:
   <<: *PROJECT
   repo: git@bitbucket.org:intosite/trendsetter-django.git
-  version: develop
+  version: staging
   domain: "staging.django.trendsetter.eu"
   basedir: "{{ user.home }}/{{ project.id }}"
   media_path: "{{ user.home }}/{{ project.id }}/.media"
