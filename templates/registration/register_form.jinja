@@ -9,7 +9,7 @@
       <h2>Registrierung bei Trendsetter</h2>
 
       <div class="form-group">
-        <form accept-charset="UTF-8" action="{{ url('user:register') }}" class="new_user" id="new_user" method="post">
+        <form accept-charset="UTF-8" action="{{ url('user:register') }}{% if request.META.QUERY_STRING %}?{{ request.META.QUERY_STRING }}{% endif %}" class="new_user" id="new_user" method="post">
           {% csrf_token %}
           {{ form.as_ul() }}
           <input class="btn-primary btn-block btn-block-big" name="commit" type="submit" value="Jetzt registrieren">
