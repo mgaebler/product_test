@@ -35,15 +35,15 @@ def login_view(request):
     if user is not None:
         if user.is_active:
             login(request, user)
-            messages.add_message(request, messages.INFO, u'Login erfolgreich')
+            messages.add_message(request, messages.INFO, _(u'Login erfolgreich'))
             if not user.profile_complete:
-                messages.add_message(request, messages.INFO, u'Bitte vervollständige dein Profil')
+                messages.add_message(request, messages.INFO, _(u'Bitte vervollständige dein Profil'))
                 return redirect('user:settings')
         else:
-            messages.add_message(request, messages.ERROR, u'Dieser Account ist nicht aktiviert.')
+            messages.add_message(request, messages.ERROR, _(u'Dieser Account ist nicht aktiviert.'))
             return redirect('user:login_form')
     else:
-        messages.add_message(request, messages.ERROR, u'Falscher Benutzername oder Password')
+        messages.add_message(request, messages.ERROR, _(u'Falscher Benutzername oder Password'))
         return redirect('user:login_form')
 
     return redirect('home')
@@ -64,7 +64,7 @@ def register_verify(request, token):
 
 def logout_view(request):
     logout(request)
-    messages.add_message(request, messages.INFO, u'Du hast dich erfolgreich ausgeloggt.')
+    messages.add_message(request, messages.INFO, _(u'Du hast dich erfolgreich ausgeloggt.'))
     return redirect('home')
 
 
@@ -123,7 +123,7 @@ class PasswordSetView(LoginRequiredMixin, FormView):
         return super(PasswordSetView, self).form_valid(form)
 
     def get_success_url(self):
-        messages.info(self.request, u'Password wurde erfolgreich gesetzt.')
+        messages.info(self.request, _(u'Password wurde erfolgreich gesetzt.'))
         return reverse('user:login_form')
 
 
@@ -168,7 +168,7 @@ class UserProfileChangeView(LoginRequiredMixin, UpdateView):
         return self.request.user
 
     def form_valid(self, form):
-        user = UserAccount.objects.get(pk=self.request.user.pk)
+        user = self.request.user
         if not user.profile_complete:
             user.profile_complete = True
             user.save()
@@ -179,7 +179,7 @@ class UserProfileChangeView(LoginRequiredMixin, UpdateView):
                 amount=5,
                 message=u'Vielen Dank für die Verfollständigung deines Profiles.'
             )
-            messages.add_message(self.request, messages.INFO, u'Du hast 5 Trendpoints verdient!')
+            messages.add_message(self.request, messages.INFO, _(u'Du hast 5 Trendpoints verdient!'))
             if user.invited_by:
                 # todo: if the user has an invited_by pay the invite 5 points
                 create_transfer(
@@ -189,7 +189,7 @@ class UserProfileChangeView(LoginRequiredMixin, UpdateView):
                     message=u'Dein Invite wurde eingelöst.'
                 )
 
-        messages.add_message(self.request, messages.INFO, u'Profil erfolgreich gespeichert.')
+        messages.add_message(self.request, messages.INFO, _(u'Profil erfolgreich gespeichert.'))
 
         return super(UserProfileChangeView, self).form_valid(form)
 
@@ -216,7 +216,6 @@ class AccountCreateView(FormView):
             try:
                 # try to identify invite
                 user.invited_by = UserAccount.objects.get(invite_token=invite_token)
-                print invite_token
             except:
                 logger.exception("Invite identification failed!")
         user.save()
@@ -268,7 +267,7 @@ class InviteFriendsView(FormView):
         email_body = template.render(context)
 
         initial['message'] = email_body
-        initial['subject'] = u'Kostenlos Produkttester werden'
+        initial['subject'] = _(u'Kostenlos Produkttester werden')
 
         self.form_class.invite_link = invite_link
         return initial
@@ -278,7 +277,7 @@ class InviteFriendsView(FormView):
         # import pudb; pu.db
         mails = ((data['subject'], data['message'], self.request.user.email, [recipient]) for recipient in data['recipients'])
         send_mass_mail(mails, fail_silently=False)
-        messages.info(self.request, u'Es wurde eine Einladung an deine Freude verschickt.')
+        messages.info(self.request, _(u'Es wurde eine Einladung an deine Freude verschickt.'))
         return super(InviteFriendsView, self).form_valid(form)
 
     def get_success_url(self):
