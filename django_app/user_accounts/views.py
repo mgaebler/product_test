@@ -174,7 +174,7 @@ class UserProfileChangeView(LoginRequiredMixin, UpdateView):
             user.save()
             # pay the user 5 points
             create_transfer(
-                sender_account=Account.objects.get(name='trendsetter').all().first(),
+                sender_account=Account.objects.get(name='trendsetter'),
                 receiver_account=user.bank_account.all().first(),
                 amount=5,
                 message=u'Vielen Dank für die Verfollständigung deines Profiles.'
@@ -183,7 +183,7 @@ class UserProfileChangeView(LoginRequiredMixin, UpdateView):
             if user.invited_by:
                 # todo: if the user has an invited_by pay the invite 5 points
                 create_transfer(
-                    sender_account=UserAccount.objects.get(email='info@trendsetter.eu').bank_account.all().first(),
+                    sender_account=Account.objects.get(name='trendsetter'),
                     receiver_account=user.invited_by.bank_account.all().first(),
                     amount=5,
                     message=u'Dein Invite wurde eingelöst.'
@@ -203,23 +203,23 @@ class AccountCreateView(FormView):
         return reverse('user:register-success')
 
     def form_valid(self, form):
-        invite_token = self.request.GET.get('invite_token', None)
+        invite_token = self.request.GET.get('invite', '')
         email = form.cleaned_data['email']
         token = self._generate_confirmation_token(email)
 
-        user = UserAccount.objects.create_user(
-            email=email, password=None,
-            registration_at=timezone.now(),
-            confirmation_token=token,
-        )
-
+        user = UserAccount()
+        user.email=email
+        # user.password=None
+        user.registration_at=timezone.now()
+        user.confirmation_token=token
         if invite_token:
             try:
                 # try to identify invite
                 user.invited_by = UserAccount.objects.get(invite_token=invite_token)
-                user.save()
+                print invite_token
             except:
                 logger.exception("Invite identification failed!")
+        user.save()
 
         self._send_verification_email(user.email, token)
 
@@ -235,11 +235,11 @@ class AccountCreateView(FormView):
         template = get_template('registration/registration_email.jinja')
         context = Context({'verification_link': verification_link})
         email_body = template.render(context)
-
         send_mail(
             subject='Confirm Mail',
-            html_message=email_body,
-            recipient=[recipient],
+            message=email_body,
+            from_email='registration@trendsetter.de',
+            recipient_list=[recipient],
             fail_silently=False
         )
 
@@ -256,15 +256,19 @@ class InviteFriendsView(FormView):
 
     def get_initial(self):
         initial = super(InviteFriendsView, self).get_initial()
-        invite_token = self.request.user.invite_token
         # todo: provide an invite link
-        invite_link = invite_token
+        invite_link = "{}{}?invite={}".format(
+            self.request.META['HTTP_HOST'],
+            reverse('user:register'),
+            self.request.user.invite_token
+        )
+
         template = get_template('profiles/emails/invite_users_email.jinja')
         context = Context({'invite_link': invite_link})
         email_body = template.render(context)
 
         initial['message'] = email_body
-        initial['subject'] = 'Kostenlos Produkttester werden'
+        initial['subject'] = u'Kostenlos Produkttester werden'
 
         self.form_class.invite_link = invite_link
         return initial
@@ -277,7 +281,7 @@ class InviteFriendsView(FormView):
                 from_email=self.request.user.email,
                 subject=data.subject,
                 html_message=data.message,
-                recipient=[recipient],
+                recipient_list=[recipient],
                 fail_silently=False
             )
 
