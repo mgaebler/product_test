@@ -1,12 +1,18 @@
 # coding: utf8
+import logging
 from django.db import models
 from django.utils import timezone
 from django.core.urlresolvers import reverse
 from django.conf import settings
+from django.db.models.signals import post_save
 
 from django_simple_forum.models import Forum
 from faq.models import FaqGroup
 from gallery.models import Gallery
+
+
+log = logging.getLogger('product_test')
+
 
 class Brand(models.Model):
     name = models.CharField(max_length=254)
@@ -63,3 +69,26 @@ class Participation(models.Model):
     users = models.ForeignKey(settings.AUTH_USER_MODEL)
     product_test = models.ForeignKey(ProductTest)
     created_at = models.DateTimeField(auto_now_add=True)
+
+
+def create_product_test_add_ons(sender, **kwargs):
+    # use the user instance to create a new account if it not already exists
+    product_test = kwargs.get('instance', None)
+    if not product_test.faq:
+        product_test.faq = FaqGroup.objects.create(
+            name=u"{name}-faq".format(name=product_test.title),
+            text=u" "
+        )
+        product_test.save()
+
+    if not product_test.gallery:
+        product_test.gallery = Gallery.objects.create(name=u"{name}-gallery".format(name=product_test.title))
+        product_test.save()
+
+    if not product_test.forum:
+        product_test.forum = Forum.objects.create(title=u"{name}-forum".format(name=product_test.title))
+        product_test.save()
+    # import pudb; pu.db
+
+
+post_save.connect(create_product_test_add_ons, sender=ProductTest, dispatch_uid="create_product_test_subs")
