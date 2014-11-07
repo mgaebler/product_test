@@ -5,7 +5,7 @@ uwsgi:
     inherited_config: "/etc/uwsgi/apps_enabled/{{ app.id }}.ini"
 
   chdir: "{{ app.basedir }}"
-  module: django_app.wsgi
+  module: "django_app.wsgi.{{ app.environment }}"
   # /path/to/virtualenv
   home: "{{ virtualenv.path }}"
   master: 'true'
