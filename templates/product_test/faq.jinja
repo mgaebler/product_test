@@ -1,7 +1,18 @@
 {% extends 'product_test/base.jinja' %}
 
 {% block product_test_content %}
-<div class="forum-header">
-  <h4>FAQ</h4>
-</div>
+  <div class="forum-header">
+    <h4>FAQ</h4>
+
+    <p>{{ product_test.faq.text }}</p>
+
+    <div>
+      {% for entry in product_test.faq.faqentry_set.all() %}
+        <div>{{ entry.question }}</div>
+        <div>{% autoescape off %}{{ entry.answer.replace('\n', '<br>') }}{% endautoescape %}
+        </div>
+
+      {% endfor %}
+    </div>
+  </div>
 {% endblock %}
