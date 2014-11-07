@@ -45,10 +45,8 @@
 
 
 # add correct permissons
-- file: path={{ item }} group=www-data mode=0770 state=directory recurse=yes
-  with_items:
-    - "{{ app.media_path }}"
-  sudo: yes
+- file: path="{{ app.media_path }}" owner="{{ user.name }}" group=www-data mode=0770 state=directory recurse=yes
+  sudo: true
   when: app.environment != "development"
 
 
