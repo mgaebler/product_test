@@ -250,3 +250,6 @@ NOSE_ARGS = [
     # '--with-coverage',
     # '--no-skip'
 ]
+
+# grappelli
+GRAPPELLI_ADMIN_TITLE = 'Trendsetter Admin'
