@@ -50,7 +50,7 @@ class UserAccount(AbstractEmailUser):
     confirmation_token = models.CharField(max_length=254, blank=True, null=True)
     confirmation_at = models.DateTimeField(blank=True, null=True)
     # use this to identify friend invites
-    invite_token = models.CharField(max_length=254, blank=True, null=True, default=generate_token())
+    invite_token = models.CharField(max_length=254, blank=True, null=True, default=generate_token)
     profile_complete = models.BooleanField(default=False)
 
     created_at = models.DateTimeField(auto_now_add=True)
