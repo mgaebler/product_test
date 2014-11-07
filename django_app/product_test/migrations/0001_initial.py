@@ -3,13 +3,14 @@ from __future__ import unicode_literals
 
 from django.db import models, migrations
 import django.utils.timezone
-from django.conf import settings
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
-        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
+        ('faq', '0001_initial'),
+        ('gallery', '0001_initial'),
+        ('django_simple_forum', '0001_initial'),
     ]
 
     operations = [
@@ -59,22 +60,12 @@ class Migration(migrations.Migration):
                 ('activated_at', models.DateTimeField(default=django.utils.timezone.now, null=True)),
                 ('state', models.BooleanField(default=False)),
                 ('brand', models.ForeignKey(blank=True, to='product_test.Brand', null=True)),
-                ('participants', models.ManyToManyField(to=settings.AUTH_USER_MODEL, through='product_test.Participation')),
+                ('faq', models.OneToOneField(null=True, blank=True, to='faq.FaqGroup')),
+                ('forum', models.OneToOneField(null=True, blank=True, to='django_simple_forum.Forum')),
+                ('gallery', models.OneToOneField(null=True, blank=True, to='gallery.Gallery')),
             ],
             options={
             },
             bases=(models.Model,),
-        ),
-        migrations.AddField(
-            model_name='participation',
-            name='product_test',
-            field=models.ForeignKey(to='product_test.ProductTest'),
-            preserve_default=True,
-        ),
-        migrations.AddField(
-            model_name='participation',
-            name='users',
-            field=models.ForeignKey(to=settings.AUTH_USER_MODEL),
-            preserve_default=True,
         ),
     ]

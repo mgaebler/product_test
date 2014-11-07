@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from django.db import models, migrations
 import django.utils.timezone
 from django.conf import settings
+import user_accounts.models
 import easy_thumbnails.fields
 
 
@@ -33,14 +34,16 @@ class Migration(migrations.Migration):
                 ('birth_date', models.DateField(null=True, blank=True)),
                 ('city', models.CharField(max_length=254)),
                 ('country', models.CharField(max_length=254)),
-                ('status', models.CharField(max_length=254)),
                 ('address1', models.CharField(max_length=254)),
                 ('address2', models.CharField(max_length=254, null=True, blank=True)),
                 ('address3', models.CharField(max_length=254, null=True, blank=True)),
                 ('postcode', models.IntegerField(null=True, blank=True)),
                 ('family_status', models.CharField(max_length=2, choices=[(b'si', 'single'), (b'pa', 'partnership'), (b'ma', 'married'), (b'di', 'divorced'), (b'an', 'another')])),
-                ('confirmation_token', models.CharField(max_length=254)),
+                ('registration_at', models.DateTimeField(null=True, blank=True)),
+                ('confirmation_token', models.CharField(max_length=254, null=True, blank=True)),
                 ('confirmation_at', models.DateTimeField(null=True, blank=True)),
+                ('invite_token', models.CharField(default=user_accounts.models.generate_token, max_length=254, null=True, blank=True)),
+                ('profile_complete', models.BooleanField(default=False)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
                 ('groups', models.ManyToManyField(related_query_name='user', related_name='user_set', to='auth.Group', blank=True, help_text='The groups this user belongs to. A user will get all permissions granted to each of his/her group.', verbose_name='groups')),

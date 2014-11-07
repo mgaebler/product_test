@@ -2,16 +2,12 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
-import datetime
-from django.utils.timezone import utc
-import django.db.models.deletion
-from django.conf import settings
+import gallery.models
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
-        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
@@ -25,10 +21,9 @@ class Migration(migrations.Migration):
                 ('teaser_image', models.ImageField(upload_to=b'galleries/teaser/%Y-%m-%d/', max_length=255, verbose_name='teaser image')),
                 ('is_deleted', models.BooleanField(default=False, verbose_name='is_deleted')),
                 ('active', models.BooleanField(default=True, verbose_name='published')),
-                ('publish_date', models.DateTimeField(default=datetime.datetime(2014, 11, 5, 7, 47, 31, 643083, tzinfo=utc), verbose_name='publish_date')),
-                ('creation_date', models.DateTimeField(default=datetime.datetime(2014, 11, 5, 7, 47, 31, 643163, tzinfo=utc), editable=False)),
+                ('publish_date', models.DateTimeField(default=gallery.models.utc_now, verbose_name='publish_date')),
+                ('creation_date', models.DateTimeField(default=gallery.models.utc_now, editable=False)),
                 ('last_modified', models.DateTimeField(auto_now=True)),
-                ('photographer', models.ForeignKey(related_name='gallery_photographer', on_delete=django.db.models.deletion.SET_NULL, verbose_name='photographer', to=settings.AUTH_USER_MODEL, null=True)),
             ],
             options={
             },

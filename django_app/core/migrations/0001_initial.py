@@ -21,7 +21,7 @@ def add_initial_house_accounts(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('simple_bank', '0005_auto_20141103_1033'),
+        ('simple_bank', '0001_initial'),
     ]
 
     operations = [
