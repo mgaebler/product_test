@@ -46,6 +46,9 @@ class Gallery(models.Model):
         self.is_deleted = True
         self.save()
 
+    def __unicode__(self):
+        return self.name
+
 
 class GalleryImage(models.Model):
     gallery = models.ForeignKey(Gallery, related_name='images')
