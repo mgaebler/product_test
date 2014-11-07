@@ -30,7 +30,7 @@ class Account(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def get_possible_amount(self):
-        #todo: Of cause this is a bad name for this function. Please think over and refactor.
+        # todo: Of cause this is a bad name for this function. Please think over and refactor.
         return self.balance + self.overdraft
 
     def credit(self, account):
@@ -52,7 +52,8 @@ class Account(models.Model):
 class Transfer(models.Model):
     sender = models.ForeignKey(Account, related_name="sender")
     receiver = models.ForeignKey(Account, related_name="receiver")
-    reference = models.CharField(max_length=255, blank=True, null=True, help_text=_(u'A short description of what why you did this.'))
+    reference = models.CharField(max_length=255, blank=True, null=True,
+                                 help_text=_(u'A short description of what why you did this.'))
     amount = models.IntegerField(default=0)
     executed = models.BooleanField(default=False)
     # todo: it could be useful also log aborted transfers
@@ -64,7 +65,8 @@ class Transfer(models.Model):
         # Don't allow transfers below the credit limit.
 
         if (self.sender.get_possible_amount() - self.amount) < 0 and not self.sender.type == 'ha':
-            log.warning(_(u'Balance limit of {} is reached. Limit is:'.format(self.sender, self.sender.get_possible_amount())))
+            log.warning(
+                _(u'Balance limit of {} is reached. Limit is:'.format(self.sender, self.sender.get_possible_amount())))
             return False
         elif self.sender.type == 'ha':
             log.info(_('Debit by house account'))
@@ -73,14 +75,14 @@ class Transfer(models.Model):
             super(Transfer, self).save(force_insert, force_update, using, update_fields)
 
     # def clean(self):
-    #     # Don't allow transfers below the credit limit.
+    # # Don't allow transfers below the credit limit.
     #     if (self.sender.get_possible_amount() - self.amount) < 0:
     #         log.warning(_(u'Balance limit of {} is reached. Limit is:'.format(self.sender, self.sender.get_possible_amount())))
     #         raise ValidationError('Balance limit is reached.')
 
-
     def __unicode__(self):
         return u"{} -> {}".format(self.sender, self.receiver)
+
 
 def create_customer_account(sender, **kwargs):
     # use the user instance to create a new account if it not already exists
