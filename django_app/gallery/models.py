@@ -10,6 +10,9 @@ from django.utils.translation import ugettext_lazy as _
 
 logger = logging.getLogger(__name__)
 
+def utc_now():
+    datetime.datetime.utcnow().replace(tzinfo=utc)
+
 
 class Gallery(models.Model):
     name = models.CharField(_(u'name'), max_length=255)
@@ -27,7 +30,7 @@ class Gallery(models.Model):
     active = models.BooleanField(verbose_name=_('published'), default=True)
     publish_date = models.DateTimeField(
         verbose_name=_('publish_date'),
-        default=datetime.datetime.utcnow().replace(tzinfo=utc)
+        default=utc_now
     )
 
     photographer = models.ForeignKey(
@@ -36,7 +39,7 @@ class Gallery(models.Model):
         null=True, on_delete=models.SET_NULL
     )
 
-    creation_date = models.DateTimeField(default=datetime.datetime.utcnow().replace(tzinfo=utc), editable=False)
+    creation_date = models.DateTimeField(default=utc_now, editable=False)
     last_modified = models.DateTimeField(auto_now=True, editable=False)
 
     def delete(self, using=None):
