@@ -11,7 +11,7 @@ from django.utils.translation import ugettext_lazy as _
 logger = logging.getLogger(__name__)
 
 def utc_now():
-    datetime.datetime.utcnow().replace(tzinfo=utc)
+    return datetime.datetime.utcnow().replace(tzinfo=utc)
 
 
 class Gallery(models.Model):
