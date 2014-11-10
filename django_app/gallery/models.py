@@ -53,7 +53,7 @@ class GalleryImage(models.Model):
     )
     owner = models.ForeignKey(
         User, verbose_name=_('owner'),
-        related_name='owner',
+        related_name='image_owner',
         null=True, on_delete=models.SET_NULL
     )
 
@@ -62,14 +62,13 @@ class GalleryImage(models.Model):
     is_deleted = models.BooleanField(verbose_name=_('is_deleted'), default=False)
 
 
-
 class GalleryVideo(models.Model):
     gallery = models.ForeignKey(Gallery, related_name='videos')
     link = models.URLField()
 
     owner = models.ForeignKey(
-        User, verbose_name=_('owner'),
-        related_name='owner',
+        User, verbose_name=_('video_owner'),
+        related_name='video_owner',
         null=True, on_delete=models.SET_NULL
     )
 
