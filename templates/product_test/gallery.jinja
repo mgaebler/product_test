@@ -1,15 +1,31 @@
 {% extends 'product_test/base.jinja' %}
 
 {% block product_test_content %}
-  <div class="forum-header">
-    <p style="background-color: #eaeaea; font-weight: bold; padding: 5px">
-      Hier kannst Du Deine Fotos und Videos aus der Trendsetter-Aktion
-      <span>PRO PLAN DELICATE: Das hochwertige Trockenfutter für Deine Katze</span>
-      hochladen
-    </p>
+<div class="forum-header">
+  <p style="background-color: #eaeaea; font-weight: bold; padding: 5px">
+    Hier kannst Du Deine Fotos und Videos aus der Trendsetter-Aktion
+    <span>PRO PLAN DELICATE: Das hochwertige Trockenfutter für Deine Katze</span>
+    hochladen
+  </p>
 
-    <h4>Hochgeladene Bilder</h4>
+  <h4>Hochgeladene Bilder</h4>
 
-    <h4>Hochgeladene Videos</h4>
-  </div>
+  <form action="post">
+    {% csrf_token %}
+    {% autoescape off %}
+    {{ image_upload_form|bootstrap }}
+    {% endautoescape %}
+    <input type="submit"/>
+  </form>
+
+  <h4>Hochgeladene Videos</h4>
+
+  <form action="post">
+    {% csrf_token %}
+    {% autoescape off %}
+    {{ video_upload_form|bootstrap }}
+    {% endautoescape %}
+    <input type="submit"/>
+  </form>
+</div>
 {% endblock %}
