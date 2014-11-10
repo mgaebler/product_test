@@ -4,11 +4,15 @@
 <div class="forum-header">
   <p style="background-color: #eaeaea; font-weight: bold; padding: 5px">
     Hier kannst Du Deine Fotos und Videos aus der Trendsetter-Aktion
-    <span>PRO PLAN DELICATE: Das hochwertige Trockenfutter für Deine Katze</span>
+    <span>{{ product_test.title }}</span>
     hochladen
   </p>
 
   <h4>Hochgeladene Bilder</h4>
+
+  {% for image in product_test.gallery.images.all() %}
+    <img src="{{ image.file.url }}" alt=""/>
+  {% endfor %}
 
   <form action="post">
     {% csrf_token %}
@@ -19,6 +23,10 @@
   </form>
 
   <h4>Hochgeladene Videos</h4>
+
+    {% for video in product_test.gallery.videos.all() %}
+        Video
+    {% endfor %}
 
   <form action="post">
     {% csrf_token %}

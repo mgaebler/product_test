@@ -25,9 +25,8 @@ class ProductBrandListView(ListView):
     context_object_name = 'brands'
 
 
-# faq view
-
 # form view
+
 
 # gallery view
 class GalleryView(ProductTestDetail):
