@@ -33,12 +33,6 @@ class Gallery(models.Model):
         default=utc_now
     )
 
-    photographer = models.ForeignKey(
-        User, verbose_name=_('photographer'),
-        related_name='gallery_photographer',
-        null=True, on_delete=models.SET_NULL
-    )
-
     creation_date = models.DateTimeField(default=utc_now, editable=False)
     last_modified = models.DateTimeField(auto_now=True, editable=False)
 
@@ -52,29 +46,32 @@ class Gallery(models.Model):
 
 class GalleryImage(models.Model):
     gallery = models.ForeignKey(Gallery, related_name='images')
-
-    orig_file = models.ImageField(
-        verbose_name=_('original file'),
-        upload_to='galleries/%Y-%m-%d/original/',
-        max_length=255,
-        width_field='width',
-        height_field='height',
-        help_text=_('gallery_galleryimage_file_help_text')
-    )
-
     file = models.ImageField(
-        verbose_name=_('800 x 600 image file'),
+        verbose_name=_('image file'),
         upload_to='galleries/%Y-%m-%d/',
-        max_length=255,
-        width_field='width',
-        height_field='height',
-        help_text=_('gallery_galleryimage_file_help_text'),
-        db_index=True
+        max_length=255
+    )
+    owner = models.ForeignKey(
+        User, verbose_name=_('owner'),
+        related_name='owner',
+        null=True, on_delete=models.SET_NULL
     )
 
+    creation_date = models.DateTimeField(default=utc_now, editable=False)
+    last_modified = models.DateTimeField(auto_now=True, editable=False)
     is_deleted = models.BooleanField(verbose_name=_('is_deleted'), default=False)
-    is_checked = models.BooleanField(verbose_name=_('is_checked'), default=False)
+
 
 
 class GalleryVideo(models.Model):
     gallery = models.ForeignKey(Gallery, related_name='videos')
+    link = models.URLField()
+
+    owner = models.ForeignKey(
+        User, verbose_name=_('owner'),
+        related_name='owner',
+        null=True, on_delete=models.SET_NULL
+    )
+
+    def __unicode__(self):
+        return self.link
