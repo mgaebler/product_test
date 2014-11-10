@@ -1,0 +1,277 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-10 12:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: django_app/gallery/models.py:18
+msgid "name"
+msgstr ""
+
+#: django_app/gallery/models.py:19
+msgid "slug"
+msgstr ""
+
+#: django_app/gallery/models.py:22
+msgid "description"
+msgstr ""
+
+#: django_app/gallery/models.py:23
+msgid "gallery_gallery_description_help_text"
+msgstr ""
+
+#: django_app/gallery/models.py:27
+msgid "teaser image"
+msgstr ""
+
+#: django_app/gallery/models.py:28 django_app/gallery/models.py:75
+msgid "is_deleted"
+msgstr ""
+
+#: django_app/gallery/models.py:30
+msgid "published"
+msgstr ""
+
+#: django_app/gallery/models.py:32
+msgid "publish_date"
+msgstr ""
+
+#: django_app/gallery/models.py:37
+msgid "photographer"
+msgstr ""
+
+#: django_app/gallery/models.py:57
+msgid "original file"
+msgstr ""
+
+#: django_app/gallery/models.py:62 django_app/gallery/models.py:71
+msgid "gallery_galleryimage_file_help_text"
+msgstr ""
+
+#: django_app/gallery/models.py:66
+msgid "800 x 600 image file"
+msgstr ""
+
+#: django_app/gallery/models.py:76
+msgid "is_checked"
+msgstr ""
+
+#: django_app/simple_bank/models.py:27
+msgid "Limit of overdraft the current account."
+msgstr ""
+
+#: django_app/simple_bank/models.py:56
+msgid "A short description of what why you did this."
+msgstr ""
+
+#: django_app/simple_bank/models.py:69
+msgid "Balance limit of {} is reached. Limit is:"
+msgstr ""
+
+#: django_app/simple_bank/models.py:72
+msgid "Debit by house account"
+msgstr ""
+
+#: django_app/user_accounts/forms.py:17
+msgid ""
+"Ein Benutzer mit dieser Emailadresse existiert bereits. Passwort vergessen?"
+msgstr ""
+
+#: django_app/user_accounts/forms.py:62
+msgid "Please provide the email addresses comma separated."
+msgstr ""
+
+#: django_app/user_accounts/forms.py:64
+msgid "Du kannst den Text verändern, solltest aber den Link nicht entfernen."
+msgstr ""
+
+#: django_app/user_accounts/models.py:19
+msgid "male"
+msgstr ""
+
+#: django_app/user_accounts/models.py:20
+msgid "female"
+msgstr ""
+
+#: django_app/user_accounts/models.py:21
+msgid "something else"
+msgstr ""
+
+#: django_app/user_accounts/models.py:24
+msgid "single"
+msgstr ""
+
+#: django_app/user_accounts/models.py:25
+msgid "partnership"
+msgstr ""
+
+#: django_app/user_accounts/models.py:26
+msgid "married"
+msgstr ""
+
+#: django_app/user_accounts/models.py:27
+msgid "divorced"
+msgstr ""
+
+#: django_app/user_accounts/models.py:28
+msgid "another"
+msgstr ""
+
+#: django_app/user_accounts/views.py:38
+msgid "Login erfolgreich"
+msgstr ""
+
+#: django_app/user_accounts/views.py:40
+msgid "Bitte vervollständige dein Profil"
+msgstr ""
+
+#: django_app/user_accounts/views.py:43
+msgid "Dieser Account ist nicht aktiviert."
+msgstr ""
+
+#: django_app/user_accounts/views.py:46
+msgid "Falscher Benutzername oder Password"
+msgstr ""
+
+#: django_app/user_accounts/views.py:67
+msgid "Du hast dich erfolgreich ausgeloggt."
+msgstr ""
+
+#: django_app/user_accounts/views.py:126
+msgid "Password wurde erfolgreich gesetzt."
+msgstr ""
+
+#: django_app/user_accounts/views.py:160
+msgid "Max. 10MB. Wird öffentlich angezeigt."
+msgstr ""
+
+#: django_app/user_accounts/views.py:161
+msgid "Nur, wenn Du Dein Passwort ändern willst."
+msgstr ""
+
+#: django_app/user_accounts/views.py:182
+msgid "Du hast 5 Trendpoints verdient!"
+msgstr ""
+
+#: django_app/user_accounts/views.py:192
+msgid "Profil erfolgreich gespeichert."
+msgstr ""
+
+#: django_app/user_accounts/views.py:270
+msgid "Kostenlos Produkttester werden"
+msgstr ""
+
+#: django_app/user_accounts/views.py:280
+msgid "Es wurde eine Einladung an deine Freude verschickt."
+msgstr ""
+
+#: templates/admin/base.html:85
+#: templates/profiles/password/password_change_done.html:3
+#: templates/profiles/password/password_change_form.html:4
+msgid "Change password"
+msgstr ""
+
+#: templates/admin/base.html:88
+#: templates/profiles/password/password_change_done.html:3
+#: templates/profiles/password/password_change_form.html:4
+msgid "Log out"
+msgstr ""
+
+#: templates/admin/base.html:96
+#: templates/profiles/password/password_change_done.html:3
+#: templates/profiles/password/password_change_form.html:4
+msgid "Documentation"
+msgstr ""
+
+#: templates/admin/base.html:111
+#: templates/profiles/password/password_change_done.html:6
+#: templates/profiles/password/password_change_form.html:7
+#: templates/profiles/password/password_reset_done.html:6
+msgid "Home"
+msgstr ""
+
+#: templates/admin/base_site.html:4
+msgid "Django site admin"
+msgstr ""
+
+#: templates/profiles/password/password_change_done.html:7
+#: templates/profiles/password/password_change_form.html:8
+msgid "Password change"
+msgstr ""
+
+#: templates/profiles/password/password_change_done.html:14
+msgid "Your password was changed."
+msgstr ""
+
+#: templates/profiles/password/password_change_form.html:21
+msgid "Please correct the error below."
+msgstr ""
+
+#: templates/profiles/password/password_change_form.html:21
+msgid "Please correct the errors below."
+msgstr ""
+
+#: templates/profiles/password/password_change_form.html:26
+msgid ""
+"Please enter your old password, for security's sake, and then enter your new "
+"password twice so we can verify you typed it in correctly."
+msgstr ""
+
+#: templates/profiles/password/password_change_form.html:32
+msgid "Old password"
+msgstr ""
+
+#: templates/profiles/password/password_change_form.html:37
+msgid "New password"
+msgstr ""
+
+#: templates/profiles/password/password_change_form.html:42
+msgid "Password (again)"
+msgstr ""
+
+#: templates/profiles/password/password_change_form.html:48
+msgid "Change my password"
+msgstr ""
+
+#: templates/profiles/password/password_reset_done.html:7
+msgid "Password reset"
+msgstr ""
+
+#: templates/profiles/password/password_reset_done.html:15
+msgid ""
+"We've emailed you instructions for setting your password. You should be "
+"receiving them shortly."
+msgstr ""
+
+#: templates/profiles/password/password_reset_done.html:17
+msgid ""
+"If you don't receive an email, please make sure you've entered the address "
+"you registered with, and check your spam folder."
+msgstr ""
+
+#: templates/profiles/password/password_reset_subject.txt:2
+#, python-format
+msgid "Password reset on %(site_name)s"
+msgstr ""
+
+#: templates/registration/logged_out.html:3
+msgid "Thanks for spending some quality time with the Web site today."
+msgstr ""
+
+#: templates/registration/logged_out.html:5
+msgid "Log in again"
+msgstr ""
