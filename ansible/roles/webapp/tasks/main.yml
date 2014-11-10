@@ -68,6 +68,8 @@
 # do migrations
 - shell: "{{ virtualenv.path }}/bin/python {{ app.basedir }}/manage.py migrate --settings=django_app.settings.{{ app.environment }}"
 
-
 # do collectstatic
 - shell: "{{ virtualenv.path }}/bin/python {{ app.basedir }}/manage.py collectstatic --settings=django_app.settings.{{ app.environment }} --noinput"
+
+# do collectstatic
+- shell: "{{ virtualenv.path }}/bin/python {{ app.basedir }}/manage.py compilemessages --settings=django_app.settings.{{ app.environment }}"
