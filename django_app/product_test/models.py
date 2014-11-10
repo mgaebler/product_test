@@ -1,4 +1,4 @@
-# coding: utf8
+# coding: utf-8
 import logging
 from django.db import models
 from django.utils import timezone

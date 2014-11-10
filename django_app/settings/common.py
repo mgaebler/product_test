@@ -1,4 +1,4 @@
-# coding: utf8
+# coding: utf-8
 """
 Django settings for django_app project.
 
@@ -126,7 +126,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'django_app.urls'
 
-WSGI_APPLICATION = 'django_app.wsgi.application'
+WSGI_APPLICATION = 'django_app.wsgi.production.application'
 
 AUTH_USER_MODEL = 'user_accounts.UserAccount'
 
@@ -155,6 +155,10 @@ USE_L10N = True
 USE_TZ = True
 
 USE_X_FORWARDED_HOST = True
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/

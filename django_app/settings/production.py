@@ -6,6 +6,7 @@ with file(os.path.join(BASE_DIR, 'ansible', 'group_vars', 'production.yml')) as 
     ansible_vars = yaml.load(f.read())
 
 # production settings here
+WSGI_APPLICATION = 'django_app.wsgi.production.application'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False

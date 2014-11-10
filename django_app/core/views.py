@@ -1,4 +1,4 @@
-# coding: utf8
+# coding: utf-8
 
 from django.views.generic import TemplateView
 from user_accounts.forms import RegisterForm

@@ -1,4 +1,4 @@
-# coding: utf8
+# coding: utf-8
 from django import forms
 from django_jinja import library
 from django.template import Context

@@ -1,4 +1,4 @@
-# coding: utf8
+# coding: utf-8
 
 from authtools.models import AbstractEmailUser
 from django.db import models
