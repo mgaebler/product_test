@@ -2,7 +2,7 @@
 
 {% block product_test_content %}
 
-  <form action="{{ url('product_test:forum:topic-detail', slug=product_test.slug, topic_id=topic.pk) }}" method="POST">
+  <form action="{{ url('product_test:forum:reply', slug=product_test.slug, topic_id=topic.pk) }}" method="POST">
     {% csrf_token %}
     {% autoescape off %}
     {{ form|bootstrap }}
