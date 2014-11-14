@@ -11,7 +11,9 @@
       <div class="form-group">
         <form accept-charset="UTF-8" action="{{ url('user:register') }}{% if request.META.QUERY_STRING %}?{{ request.META.QUERY_STRING }}{% endif %}" class="new_user" id="new_user" method="post">
           {% csrf_token %}
-          {{ form.as_ul() }}
+          {% autoescape off %}
+          {{ form|bootstrap }}
+          {% endautoescape %}
           <input class="btn-primary btn-block btn-block-big" name="commit" type="submit" value="Jetzt registrieren">
         </form>
 
