@@ -86,18 +86,7 @@
 
 <body class="{% block body_class %}{% endblock %}">
 
-{% if messages %}
-  <ul class="messages">
-    {% for message in messages %}
-      <li{% if message.tags %} class="{{ message.tags }} alert-info"{% endif %}>
-        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
-        {{ message }}
-      </li>
-    {% endfor %}
-  </ul>
-{% endif %}
-
-<header>
+<header class="main">
   {% block user_panel %}
     <div class='current-user logged-in'>
       <div class='inner'>
@@ -130,9 +119,12 @@
           Schon Mitglied?
           <a href="{{ url('user:login_form') }}">{{ _('Log in') }}</a>
         {% else %}
+
           <a href="{{ url('user:tests') }}">
             {% if user.avatar %}
-              <img align="right" alt="Default avatar" class="user-avatar user-avatar-medium"
+              <img align="right"
+                   alt="Default avatar"
+                   class="user-avatar user-avatar-medium"
                    src="{{ thumbnail(user.avatar, size=(32, 32)) }}"/>
             {% else %}
               <img align="right" alt="avatar" class="user-avatar user-avatar-medium"
@@ -179,6 +171,31 @@
   {% endblock dash_nav %}
 
 </header>
+
+{# flash messages #}
+{% if messages %}
+  <div class="inner container">
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('.flash').click(function (e) {
+          $(this).hide('slow');
+        });
+      });
+    </script>
+    <div id="flashes">
+      <div class="inner">
+        <ul class="messages">
+          {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }} flash alert-info"{% endif %}>
+              {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+              {{ message }}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endif %}
 
 <section role='content'>
 
