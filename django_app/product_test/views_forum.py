@@ -1,6 +1,8 @@
 # coding: utf-8
 from django.core.urlresolvers import reverse
-from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect, render, get_object_or_404
+from product_test.models import ProductTest
 from product_test.views import ProductTestDetail
 from django_simple_forum.models import Forum, Topic, Post
 from django_simple_forum.forms import TopicForm, PostForm
@@ -31,56 +33,55 @@ class TopicView(ProductTestDetail):
         return context
 
 
-class ReplyView(ProductTestDetail):
-    template_name = 'product_test/forum/reply.jinja'
+@login_required
+def post_reply(request, slug, topic_id):
+    form = PostForm()
+    topic = Topic.objects.get(pk=topic_id)
+    product_test = ProductTest.objects.get(slug=slug)
+    if request.method == 'POST':
+        form = PostForm(request.POST)
 
-    def get_context_data(self, **kwargs):
-        context = super(ReplyView, self).get_context_data(**kwargs)
+        if form.is_valid():
+            post = Post()
+            post.topic = topic
+            post.title = form.cleaned_data['title']
+            post.body = form.cleaned_data['body']
+            post.creator = request.user
+            post.user_ip = request.META['REMOTE_ADDR']
 
-        form = PostForm()
-        topic = Topic.objects.get(pk=self.kwargs['topic_id'])
+            post.save()
 
-        if self.request.method == 'POST':
-            form = PostForm(self.request.POST)
+            return redirect(reverse('product_test:forum:topic-detail', kwargs={'slug': slug, 'topic_id': topic_id}))
 
-            if form.is_valid():
-                post = Post()
-                post.topic = topic
-                post.title = form.cleaned_data['title']
-                post.body = form.cleaned_data['body']
-                post.creator = self.request.user
-                post.user_ip = self.request.META['REMOTE_ADDR']
+    return render(request, 'product_test/forum/reply.jinja', {
+        'form': form,
+        'topic': topic,
+        'product_test': product_test
+    })
 
-                post.save()
 
-                return redirect(reverse('product_test:forum:topic-detail', slug=self.get_object().slug, topic_id=topic.pk))
+@login_required
+def new_topic(request, slug, forum_id):
+    form = TopicForm()
+    forum = get_object_or_404(Forum, pk=forum_id)
+    product_test = ProductTest.objects.get(slug=slug)
 
-        context['form'] = form
-        context['topic'] = topic
+    if request.method == 'POST':
+        form = TopicForm(request.POST)
 
-        return context
+        if form.is_valid():
+            topic = Topic()
+            topic.title = form.cleaned_data['title']
+            topic.description = form.cleaned_data['description']
+            topic.forum = forum
+            topic.creator = request.user
 
-#
-#
-# def new_topic(request, forum_id):
-#     form = TopicForm()
-#     forum = get_object_or_404(Forum, pk=forum_id)
-#
-#     if request.method == 'POST':
-#         form = TopicForm(request.POST)
-#
-#         if form.is_valid():
-#             topic = Topic()
-#             topic.title = form.cleaned_data['title']
-#             topic.description = form.cleaned_data['description']
-#             topic.forum = forum
-#             topic.creator = request.user
-#
-#             topic.save()
-#
-#             return HttpResponseRedirect(reverse('forum-detail', args=(forum_id, )))
-#
-#     return render_to_response('django_simple_forum/new-topic.html', {
-#         'form': form,
-#         'forum': forum,
-#     }, context_instance=RequestContext(request))
+            topic.save()
+
+            return redirect(reverse('product_test:forum:forum-detail', kwargs={'slug': slug}))
+
+    return render(request, 'product_test/forum/new-topic.jinja', {
+        'form': form,
+        'forum': forum,
+        'product_test': product_test
+    })
