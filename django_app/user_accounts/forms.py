@@ -1,5 +1,6 @@
 # coding: utf-8
 from django import forms
+# from django.core.urlresolvers import reverse_lazy
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
 from django.utils.translation import ugettext_lazy as _
@@ -7,9 +8,17 @@ from django.utils.translation import ugettext_lazy as _
 from .models import UserAccount
 
 
+## Using reverse at this point causes an circular import
+def get_terms_of_use_and_eligibility_requirements_link():
+    # terms_of_use = u"<a href='{link}'>{name}</a>".format(link=reverse_lazy("agb"), name="Nutzungs-")
+    # eligibility_requirements = u"<a href='{link}'>{name}</a>".format(link=reverse_lazy("agb"), name="Teilnahmebedingungen")
+    # return u"{} und {}".format(terms_of_use, eligibility_requirements)
+    return u"Nutzungs und Teilnahmebedingungen"
+
+
 def validate_terms_of_use(value):
     if not value:
-        raise ValidationError(u'Bitte bestätigen Sie die Nutzungsrechte')
+        raise ValidationError(u'Bitte bestätigen Sie die {}'.format(get_terms_of_use_and_eligibility_requirements_link()))
 
 
 def validate_if_user_exists(value):
@@ -44,7 +53,10 @@ class LoginForm(forms.Form):
 
 class RegisterForm(forms.Form):
     email = forms.EmailField(max_length=254, validators=[validate_if_user_exists])
-    accept_terms_of_use = forms.BooleanField(required=False, validators=[validate_terms_of_use])
+    accept_terms_of_use = forms.BooleanField(
+        required=False,
+        label=u'Ich akzeptiere die {}'.format(get_terms_of_use_and_eligibility_requirements_link()),
+        validators=[validate_terms_of_use])
 
 
 class PasswordSetForm(forms.Form):
@@ -59,7 +71,7 @@ class PasswordSetForm(forms.Form):
 
 
 class InviteFriendsForm(forms.Form):
-    recipients = MultiEmailField(widget=forms.Textarea(attrs={'rows':1, 'cols':15}), help_text=_(u'Please provide the email addresses comma separated.'))
+    recipients = MultiEmailField(widget=forms.Textarea(attrs={'rows': 1, 'cols': 15}), help_text=_(u'Please provide the email addresses comma separated.'))
     subject = forms.CharField()
     message = forms.CharField(widget=forms.Textarea, help_text=_(u'Du kannst den Text verändern, solltest aber den Link nicht entfernen.'))
 
