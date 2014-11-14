@@ -1,0 +1,13 @@
+{% extends 'product_test/base.jinja' %}
+
+{% block product_test_content %}
+
+<form action="{{ url('product_test:forum:new-topic', slug=product_test.slug, forum_id=forum.id) }}" method="POST">
+    {% csrf_token %}
+    {% autoescape off %}
+    {{ form|bootstrap }}
+    {% endautoescape %}
+    <input type="submit" value="Submit" />
+</form>
+
+{% endblock %}

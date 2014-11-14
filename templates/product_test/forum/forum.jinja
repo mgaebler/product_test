@@ -3,7 +3,7 @@
 {% block product_test_content %}
 
   <!-- Threads  -->
-  <a id="new_topic" class="button" href="{{ url('new-topic', forum.pk) }}">Start New Topic</a>
+  <a id="new_topic" class="button" href="{{ url('product_test:forum:new-topic', slug=product_test.slug, forum_id=forum.pk) }}">Start New Topic</a>
   <br/>
   <br/>
 
