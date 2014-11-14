@@ -25,9 +25,6 @@ class ProductBrandListView(ListView):
     context_object_name = 'brands'
 
 
-# form view
-
-
 # gallery view
 class GalleryView(ProductTestDetail):
     template_name = 'product_test/gallery.jinja'
@@ -37,4 +34,7 @@ class GalleryView(ProductTestDetail):
         context['video_upload_form'] = VideoLinkUploadForm()
         return context
 
+
 # test result view
+class ResultView(ProductTestDetail):
+    pass
