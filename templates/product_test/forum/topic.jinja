@@ -14,5 +14,5 @@
       </div>
     {% endfor %}
   </div>
-
+  <a class="button" href="{{ url('product_test:forum:reply', slug=product_test.slug, topic_id=topic.pk) }}">Reply</a>
 {% endblock %}

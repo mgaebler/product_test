@@ -20,7 +20,7 @@
         <tr>
           <td {% if loop.last %}class="last"{% endif %}>
             <div class="title">
-              <a href="{{ url('topic-detail', topic.pk) }}">{{ topic.title }}</a>
+              <a href="{{ url('product_test:forum:topic-detail', slug=product_test.slug, topic_id=topic.pk) }}">{{ topic.title }}</a>
             </div>
           </td>
           <td {% if loop.last %}class="last"{% endif %}>
@@ -29,7 +29,7 @@
           <td {% if loop.last %}class="last"{% endif %}>
             {{ topic.last_post() }}</td>
           <td {% if loop.last %}class="last"{% endif %}>
-            <a class="button" href="{{ url('topic-detail', topic.pk) }}">VIEW</a>
+{#            <a class="button" href="{{ url('product_test:forum:topic-detail', topic.pk) }}">VIEW</a>#}
           </td>
         </tr>
 
