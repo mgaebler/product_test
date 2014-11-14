@@ -1,0 +1,18 @@
+{% extends 'product_test/base.jinja' %}
+
+{% block product_test_content %}
+
+  <!-- Posts  -->
+  <div class="ttitle">{{ topic.title }}</div>
+  <div id="list">
+
+    {% for post in posts %}
+      <div class="post">
+        <span class="title">{{ post.title }}</span><br/>
+        by {{ post.creator }} | <span class="date">{{ post.created }}</span> <br/><br/>
+        {{ post.body }} <br/>
+      </div>
+    {% endfor %}
+  </div>
+
+{% endblock %}

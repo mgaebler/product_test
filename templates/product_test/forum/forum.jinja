@@ -1,8 +1,9 @@
-{% extends 'base.jinja' %}
+{% extends 'product_test/base.jinja' %}
 
-{% block content %}
+{% block product_test_content %}
+
   <!-- Threads  -->
-  <a id="new_topic" class="button" href="{% url 'new-topic' pk %}">Start New Topic</a>
+  <a id="new_topic" class="button" href="{{ url('new-topic', forum.pk) }}">Start New Topic</a>
   <br/>
   <br/>
 
@@ -15,17 +16,20 @@
         <td></td>
       </tr>
 
-      {% for topic in topics.object_list %}
+      {% for topic in topics %}
         <tr>
-          <td {% if forloop.last %}class="last"{% endif %}>
-            <div class="title"><a href="{% url 'topic-detail' topic.pk %}">{{ topic.title }}</a>
+          <td {% if loop.last %}class="last"{% endif %}>
+            <div class="title">
+              <a href="{{ url('topic-detail', topic.pk) }}">{{ topic.title }}</a>
             </div>
           </td>
-          <td {% if forloop.last %}class="last"{% endif %}>{{ topic.num_replies }}</td>
-          <td {% if forloop.last %}class="last"{% endif %}>
-            {{ topic.last_post.short|linebreaksbr }}</td>
-          <td {% if forloop.last %}class="last"{% endif %}>
-            <a class="button" href="{% url 'topic-detail' topic.pk %}">VIEW</a>
+          <td {% if loop.last %}class="last"{% endif %}>
+            {{ topic.num_replies() }}
+          </td>
+          <td {% if loop.last %}class="last"{% endif %}>
+            {{ topic.last_post() }}</td>
+          <td {% if loop.last %}class="last"{% endif %}>
+            <a class="button" href="{{ url('topic-detail', topic.pk) }}">VIEW</a>
           </td>
         </tr>
 
