@@ -63,5 +63,5 @@ class UserAccount(AbstractEmailUser):
         return self.preferred_name
 
     def __unicode__(self):
-        return "{} ({})".format(self.full_name, self.email)
+        return self.email
 

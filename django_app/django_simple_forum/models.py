@@ -46,10 +46,10 @@ class Topic(models.Model):
 
     def last_post(self):
         if self.post_set.count():
-            return self.post_set.order_by("created")[0]
+            return self.post_set.order_by("created").first()
 
     def __unicode__(self):
-        return unicode(self.creator) + " - " + self.title
+        return u"{} ({})".format(self.title, self.creator.preferred_name)
 
 
 class Post(models.Model):
