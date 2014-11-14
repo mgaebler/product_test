@@ -16,6 +16,7 @@ import markdown
 
 from logging.handlers import SysLogHandler
 
+SITE_ID = 1
 
 APP_DIR = os.path.dirname(os.path.dirname(__file__))
 BASE_DIR = os.path.join(APP_DIR, '..')
@@ -84,6 +85,7 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
@@ -122,6 +124,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'pipeline.middleware.MinifyHTMLMiddleware',
+    # 'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 )
 
 ROOT_URLCONF = 'django_app.urls'

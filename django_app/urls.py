@@ -26,6 +26,7 @@ urlpatterns = patterns('',
     url('', include('social.apps.django_app.urls', namespace='social')),
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^pages/', include('django.contrib.flatpages.urls')),
 )
 
 if settings.DEBUG:
