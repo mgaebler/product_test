@@ -5,18 +5,7 @@
   <div class="forum-header">
     <h4>Hier kannst Du uns von Deinen Eindrücken und Erfahrungen berichten</h4>
   </div>
-  <div class="forum-not-logged-in">
-    {% if not user.is_authenticated() %}
-      <p>
-        <a href="{{ url('user:login_form') }}">Log Dich ein</a>, um einen Beitrag zu verfassen.
-      </p>
-    {% else %}
-      <a id="new_topic" class="btn btn-default"
-         href="{{ url('product_test:forum:new-topic', slug=product_test.slug, forum_id=forum.pk) }}">
-        Start New Topic
-      </a>
-    {% endif %}
-  </div>
+
 
   <!-- Threads  -->
 
@@ -55,6 +44,20 @@
       </tbody>
     </table>
   </div>
+
+  <div class="forum-not-logged-in">
+    {% if not user.is_authenticated() %}
+      <p class="bg-info">
+        <a href="{{ url('user:login_form') }}">Log Dich ein</a> um einen Beitrag zu verfassen.
+      </p>
+    {% else %}
+      <a id="new_topic" class="btn btn-default"
+         href="{{ url('product_test:forum:new-topic', slug=product_test.slug, forum_id=forum.pk) }}">
+        Start New Topic
+      </a>
+    {% endif %}
+  </div>
+
 
   <!-- Next/Prev page links  -->
   {% if topics.object_list and topics.paginator.num_pages > 1 %}
