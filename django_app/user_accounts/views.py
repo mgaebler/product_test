@@ -256,14 +256,17 @@ class InviteFriendsView(FormView):
     def get_initial(self):
         initial = super(InviteFriendsView, self).get_initial()
         # todo: provide an invite link
-        invite_link = "{}{}?invite={}".format(
+        invite_link = "http://{}{}?invite={}".format(
             self.request.META['HTTP_HOST'],
             reverse('user:register'),
             self.request.user.invite_token
         )
 
-        template = get_template('profiles/emails/invite_users_email.jinja')
-        context = Context({'invite_link': invite_link})
+        template = get_template('profiles/emails/invite_users_email_text.jinja')
+        context = Context({
+            'invite_link': invite_link,
+            'user_name': self.request.user.preferred_name
+        })
         email_body = template.render(context)
 
         initial['message'] = email_body
@@ -275,7 +278,14 @@ class InviteFriendsView(FormView):
     def form_valid(self, form):
         data = form.cleaned_data
         # import pudb; pu.db
-        mails = ((data['subject'], data['message'], self.request.user.email, [recipient]) for recipient in data['recipients'])
+
+        template = get_template('profiles/emails/invite_users_email.jinja')
+        context = Context({
+            'email_message': data['message']
+        })
+        email_body = template.render(context)
+
+        mails = ((data['subject'], email_body, self.request.user.email, [recipient]) for recipient in data['recipients'])
         send_mass_mail(mails, fail_silently=False)
         messages.info(self.request, _(u'Es wurde eine Einladung an deine Freude verschickt.'))
         return super(InviteFriendsView, self).form_valid(form)
