@@ -48,6 +48,11 @@ $icons2x: sprite-map("icons2x/*.png")
   margin: 0 auto
   width: 960px
 
+
+///////////////////////////////////////////////////////////////////
+// element customization
+///////////////////////////////////////////////////////////////////
+
 *
   box-sizing: border-box
 
@@ -75,6 +80,18 @@ h2
   margin-top: 18px
   margin-bottom: 18px
 
+
+.btn-inverted
+  background: $inverse-background-color
+  color: $inverse-text-color
+  &:hover, &:focus
+    background: lighten($inverse-background-color, 15%)
+    color: $inverse-text-color
+
+
+///////////////////////////////////////////////////////////////////
+// Specific page customization
+///////////////////////////////////////////////////////////////////
 
 header.main
   width: 100%
@@ -369,12 +386,7 @@ a.btn.btn-primary
     +replace-text-with-dimensions("gewinnspiel/gewinnspiel_philips_registrierung_teaser.jpg")
     +border-radius(4px)
 
-.btn-inverted
-  background: $inverse-background-color
-  color: $inverse-text-color
-  &:hover, &:focus
-    background: lighten($inverse-background-color, 15%)
-    color: $inverse-text-color
+
 
 .inverse
   .form-control
