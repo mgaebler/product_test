@@ -160,10 +160,18 @@
   {% block main_navigation %}
     <div class='inner'>
       <nav class='main-nav'>
-        <li><a href="{{ url('how_it_works') }}">Wie funktioniert’s?</a></li>
-        <li><a href="{{ url('product_test:index') }}">Produkttests</a></li>
-        <li><a href="{{ url('our_brands') }}">Unsere Marken</a></li>
-        <li><a href="{{ url('about_us') }}">Über uns</a></li>
+        <li {% if request.path == url('how_it_works') %}class="active"{% endif %}>
+          <a href="{{ url('how_it_works') }}">Wie funktioniert’s?</a>
+        </li>
+        <li {% if request.path == url('product_test:index') %}class="active"{% endif %}>
+          <a href="{{ url('product_test:index') }}">Produkttests</a>
+        </li>
+        <li {% if request.path == url('our_brands') %}class="active"{% endif %}>
+          <a href="{{ url('our_brands') }}">Unsere Marken</a>
+        </li>
+        <li {% if request.path == url('about_us') %}class="active"{% endif %}>
+          <a href="{{ url('about_us') }}">Über uns</a>
+        </li>
       </nav>
     </div>
   {% endblock main_navigation %}
