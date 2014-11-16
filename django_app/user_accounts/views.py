@@ -281,7 +281,7 @@ class InviteFriendsView(FormView):
 
         template = get_template('profiles/emails/invite_users_email.jinja')
         context = Context({
-            'email_message': data['message']
+            'email_message': data['message'].replace('\n','<br>\n')
         })
         html_email_body = template.render(context)
 
