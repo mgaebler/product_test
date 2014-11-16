@@ -187,8 +187,8 @@
       <div class="inner">
         <ul class="messages">
           {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }} flash alert-info"{% endif %}>
-              {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+            <li class="flash {% if message.tags %}{{ message.tags }}{% endif %}">
+{#              {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}#}
               {{ message }}
             </li>
           {% endfor %}
