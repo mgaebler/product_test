@@ -283,10 +283,21 @@ class InviteFriendsView(FormView):
         context = Context({
             'email_message': data['message']
         })
-        email_body = template.render(context)
+        html_email_body = template.render(context)
 
-        mails = ((data['subject'], email_body, self.request.user.email, [recipient]) for recipient in data['recipients'])
-        send_mass_mail(mails, fail_silently=False)
+        ## todo: send mass mail does not support html messages. We can implement that in the future, but for now we'll use send_mail
+        for recipient in data['recipients']:
+            send_mail(
+                subject=['subject'],
+                message=data['message'],
+                from_email=self.request.user.email,
+                recipient_list=[recipient],
+                html_message=html_email_body
+            )
+
+        # mails = ((data['subject'], data['message'], self.request.user.email, [recipient]) for recipient in data['recipients'])
+        # send_mass_mail(mails, fail_silently=False)
+
         messages.info(self.request, _(u'Es wurde eine Einladung an deine Freude verschickt.'))
         return super(InviteFriendsView, self).form_valid(form)
 
