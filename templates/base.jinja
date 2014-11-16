@@ -132,7 +132,7 @@
                    src="{{ static('app/images/default_avatar.jpg') }}"/>
             {% endif %}
           </a>
-          Hallo, {{ user }}!
+          Hallo, {{ user.preferred_name }}
           <br>
 
           {% if user.is_staff %}
