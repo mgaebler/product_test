@@ -3,68 +3,41 @@
 {% block profile_content %}
 
 
+<div class="col-md-16 col-md-offset-4">
 
-  <div class="col-md-16 col-md-offset-4">
+  <h2>Freunde einladen</h2>
 
-    <h2>Freunde einladen</h2>
+  <p>Lade Deine Freunde und Bekannten zu Trendsetter ein!</p>
 
-    <p>Lade Deine Freunde und Bekannten zu Trendsetter ein!</p>
+  <p>Für jede Person, die Deiner Einladung gefolgt ist und die sich erfolgreich registriert hat, erhältst Du 5
+    Trendpoints gutgeschrieben! Die Trendpoints kannst Du dann gegen tolle Artikel eintauschen.</p>
 
-    <p>Für jede Person, die Deiner Einladung gefolgt ist und die sich erfolgreich registriert hat, erhältst Du 5
-      Trendpoints gutgeschrieben! Die Trendpoints kannst Du dann gegen tolle Artikel eintauschen.</p>
+  <p>Teile einfach folgenden Link mit Deinen Freunden:</p>
 
-    <p>Teile einfach folgenden Link mit Deinen Freunden:</p>
+  <p>
+    <input class="form-control" readonly="readonly" type="text" value="{{ form.invite_link }}">
+  </p>
 
-    <p>
-      <code>
-        <input class="js-select-on-focus" readonly="readonly" style="width: 100%" type="text"
-               value="{{ form.invite_link }}">
-      </code>
-    </p>
+  <p>Oder lade Freunde direkt per Mail ein:</p>
 
-    <p>Oder lade Freunde direkt per Mail ein:</p>
+  <form accept-charset="UTF-8" action="{{ url('user:invite_friends') }}" method="post">
+    {% csrf_token %}
 
-    <form accept-charset="UTF-8" action="{{ url('user:invite_friends') }}" method="post">
-      {% csrf_token %}
+    <div class="form-group">
+      <label class="control-label">Absender</label>
+      <input class="form-control" readonly="readonly" type="text" value="{{ user.email }}">
+    </div>
 
-      <div class="form-group">
-        <label class="control-label">Absender</label>
-        <div class="form-control-static">
-          {{ user.name }} / {{ user.email }}
-        </div>
-      </div>
+    {% autoescape off %}
+    {{ form|bootstrap }}
+    {% endautoescape %}
+    <div class="form-group">
+      <input class="btn btn-primary" name="commit" type="submit" value="Einladungen senden">
+    </div>
 
-      <div class="form-group">
-        {{ form.recipients.errors }}
-        <label for="{{ form.recipients.id }}" class="control-label">{{ form.recipients.label_tag() }}</label>
-        {{ form.recipients }}
-        <span class="help-block">{{ form.recipients.help_text }}</span>
-      </div>
+  </form>
 
-      <div class="form-group">
-        {{ form.subject.errors }}
-        <label for="{{ form.subject.id }}" class="control-label">{{ form.subject.label_tag() }}</label>
-        <div class="form-control-static">
-          {{ form.subject }}
-        </div>
-        {{ form.subject.help_text }}
-      </div>
-
-      <div class="form-group">
-        {{ form.message.errors }}
-        <label for="{{ form.message.id }}" class="control-label">{{ form.message.label_tag() }}</label>
-        {{ form.message }}
-        <span class="help-block">{{ form.message.help_text }}</span>
-      </div>
-
-      <div class="form-group">
-        <input class="btn btn-primary" name="commit" type="submit" value="Einladungen senden">
-      </div>
-
-    </form>
-
-  </div>
-
+</div>
 
 
 {% endblock %}
