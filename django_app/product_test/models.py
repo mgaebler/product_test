@@ -32,6 +32,7 @@ class Brand(models.Model):
 class ProductTest(models.Model):
     slug = models.SlugField(max_length=254, db_index=True)
     title = models.CharField(max_length=254)
+    link = models.URLField(max_length=254)
     brand = models.ForeignKey(Brand, null=True, blank=True)
     # Images
     hero_image = models.ImageField(null=True, blank=True)
