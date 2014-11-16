@@ -288,7 +288,7 @@ class InviteFriendsView(FormView):
         ## todo: send mass mail does not support html messages. We can implement that in the future, but for now we'll use send_mail
         for recipient in data['recipients']:
             send_mail(
-                subject=['subject'],
+                subject=data['subject'],
                 message=data['message'],
                 from_email=self.request.user.email,
                 recipient_list=[recipient],
