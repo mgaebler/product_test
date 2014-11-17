@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-17 10:13+0000\n"
+"POT-Creation-Date: 2014-11-17 17:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -71,10 +71,6 @@ msgstr ""
 
 #: django_app/simple_bank/models.py:69
 msgid "Balance limit of {} is reached. Limit is:"
-msgstr ""
-
-#: django_app/simple_bank/models.py:72
-msgid "Debit by house account"
 msgstr ""
 
 #: django_app/user_accounts/forms.py:26
@@ -162,11 +158,11 @@ msgstr ""
 msgid "Profil erfolgreich gespeichert."
 msgstr ""
 
-#: django_app/user_accounts/views.py:273
+#: django_app/user_accounts/views.py:278
 msgid "Kostenlos Produkttester werden"
 msgstr ""
 
-#: django_app/user_accounts/views.py:301
+#: django_app/user_accounts/views.py:306
 msgid "Es wurde eine Einladung an deine Freude verschickt."
 msgstr ""
 
