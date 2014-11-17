@@ -30,6 +30,10 @@ easy-thumbnails
 pillow
 
 
+# Files
+django-filebrowser
+
+
 # Templating
 ## http://niwibe.github.io/django-jinja/
 django-jinja
