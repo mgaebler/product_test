@@ -3,24 +3,25 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Trendsetter\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-17 10:13+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2014-11-17 18:08+0100\n"
+"Last-Translator: Claudia <Claudia_Thiede@intosite.de>\n"
+"Language-Team:  <info@trendsetter.eu>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.6.10\n"
+"Language: de_DE\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 
 #: django_app/gallery/models.py:18
 msgid "name"
-msgstr ""
+msgstr "Name"
 
 #: django_app/gallery/models.py:19
 msgid "slug"
@@ -28,7 +29,7 @@ msgstr ""
 
 #: django_app/gallery/models.py:22
 msgid "description"
-msgstr ""
+msgstr "Beschreibung"
 
 #: django_app/gallery/models.py:23
 msgid "gallery_gallery_description_help_text"
@@ -36,43 +37,44 @@ msgstr ""
 
 #: django_app/gallery/models.py:27
 msgid "teaser image"
-msgstr ""
+msgstr "Teaser Bild"
 
 #: django_app/gallery/models.py:28 django_app/gallery/models.py:62
 msgid "is_deleted"
-msgstr ""
+msgstr "wurde gelöscht"
 
 #: django_app/gallery/models.py:30
 msgid "published"
-msgstr ""
+msgstr "veröffentlicht"
 
 #: django_app/gallery/models.py:32
 msgid "publish_date"
-msgstr ""
+msgstr "Veröffentlichungsdatum"
 
 #: django_app/gallery/models.py:50
 msgid "image file"
-msgstr ""
+msgstr "Bilddatei"
 
 #: django_app/gallery/models.py:55
 msgid "owner"
-msgstr ""
+msgstr "Eigentümer"
 
 #: django_app/gallery/models.py:70
 msgid "video_owner"
-msgstr ""
+msgstr "Video-Eigentümer"
 
 #: django_app/simple_bank/models.py:27
 msgid "Limit of overdraft the current account."
 msgstr ""
+"Du hast nicht genügend Trendpoints, um die gewünschte Aktion auszuführen."
 
 #: django_app/simple_bank/models.py:56
 msgid "A short description of what why you did this."
-msgstr ""
+msgstr "Grund für Trendpoint-Vergabe"
 
 #: django_app/simple_bank/models.py:69
 msgid "Balance limit of {} is reached. Limit is:"
-msgstr ""
+msgstr "Das Volumen ist überschritten. Das maximale Volumen beträgt:"
 
 #: django_app/simple_bank/models.py:72
 msgid "Debit by house account"
@@ -82,166 +84,169 @@ msgstr ""
 msgid ""
 "Ein Benutzer mit dieser Emailadresse existiert bereits. Passwort vergessen?"
 msgstr ""
+"Ein Benutzer mit dieser Emailadresse existiert bereits. Passwort vergessen?"
 
 #: django_app/user_accounts/forms.py:74
 msgid "Please provide the email addresses comma separated."
-msgstr ""
+msgstr "Bitte die E-mail Adressen durch Komma trennen."
 
 #: django_app/user_accounts/forms.py:76
 msgid "Du kannst den Text verändern, solltest aber den Link nicht entfernen."
-msgstr ""
+msgstr "Du kannst den Text verändern, solltest aber den Link nicht entfernen."
 
 #: django_app/user_accounts/models.py:19
 msgid "male"
-msgstr ""
+msgstr "männlich"
 
 #: django_app/user_accounts/models.py:20
 msgid "female"
-msgstr ""
+msgstr "weiblich"
 
 #: django_app/user_accounts/models.py:21
 msgid "something else"
-msgstr ""
+msgstr "anderes"
 
 #: django_app/user_accounts/models.py:24
 msgid "single"
-msgstr ""
+msgstr "single"
 
 #: django_app/user_accounts/models.py:25
 msgid "partnership"
-msgstr ""
+msgstr "in einer Partnerschaft"
 
 #: django_app/user_accounts/models.py:26
 msgid "married"
-msgstr ""
+msgstr "verheiratet"
 
 #: django_app/user_accounts/models.py:27
 msgid "divorced"
-msgstr ""
+msgstr "geschieden"
 
 #: django_app/user_accounts/models.py:28
 msgid "another"
-msgstr ""
+msgstr "anderes"
 
 #: django_app/user_accounts/views.py:38
 msgid "Login erfolgreich"
-msgstr ""
+msgstr "Login erfolgreich"
 
 #: django_app/user_accounts/views.py:40
 msgid "Bitte vervollständige dein Profil"
-msgstr ""
+msgstr "Bitte vervollständige Dein Profil"
 
 #: django_app/user_accounts/views.py:43
 msgid "Dieser Account ist nicht aktiviert."
-msgstr ""
+msgstr "Dieser Account ist nicht aktiviert."
 
 #: django_app/user_accounts/views.py:46
 msgid "Falscher Benutzername oder Password"
-msgstr ""
+msgstr "Falscher Benutzername oder Passwort"
 
 #: django_app/user_accounts/views.py:67
 msgid "Du hast dich erfolgreich ausgeloggt."
-msgstr ""
+msgstr "Du hast Dich erfolgreich ausgeloggt."
 
 #: django_app/user_accounts/views.py:126
 msgid "Password wurde erfolgreich gesetzt."
-msgstr ""
+msgstr "Passwort wurde erfolgreich gespeichert."
 
 #: django_app/user_accounts/views.py:160
 msgid "Max. 10MB. Wird öffentlich angezeigt."
-msgstr ""
+msgstr "Max. 10MB. Wird öffentlich angezeigt."
 
 #: django_app/user_accounts/views.py:161
 msgid "Nur, wenn Du Dein Passwort ändern willst."
-msgstr ""
+msgstr "Nur, wenn Du Dein Passwort ändern willst."
 
 #: django_app/user_accounts/views.py:182
 msgid "Du hast 5 Trendpoints verdient!"
-msgstr ""
+msgstr "Du hast 5 Trendpoints verdient!"
 
 #: django_app/user_accounts/views.py:192
 msgid "Profil erfolgreich gespeichert."
-msgstr ""
+msgstr "Profil erfolgreich gespeichert."
 
 #: django_app/user_accounts/views.py:273
 msgid "Kostenlos Produkttester werden"
-msgstr ""
+msgstr "Kostenlos Produkttester werden"
 
 #: django_app/user_accounts/views.py:301
 msgid "Es wurde eine Einladung an deine Freude verschickt."
-msgstr ""
+msgstr "Es wurde eine Einladung an Deine Freude verschickt."
 
 #: templates/admin/base.html:85
 #: templates/profiles/password/password_change_done.html:3
 #: templates/profiles/password/password_change_form.html:4
 msgid "Change password"
-msgstr ""
+msgstr "Passwort ändern"
 
 #: templates/admin/base.html:88
 #: templates/profiles/password/password_change_done.html:3
 #: templates/profiles/password/password_change_form.html:4
 msgid "Log out"
-msgstr ""
+msgstr "Log out"
 
 #: templates/admin/base.html:96
 #: templates/profiles/password/password_change_done.html:3
 #: templates/profiles/password/password_change_form.html:4
 msgid "Documentation"
-msgstr ""
+msgstr "Documentation"
 
 #: templates/admin/base.html:111
 #: templates/profiles/password/password_change_done.html:6
 #: templates/profiles/password/password_change_form.html:7
 #: templates/profiles/password/password_reset_done.html:6
 msgid "Home"
-msgstr ""
+msgstr "Startseite"
 
 #: templates/admin/base_site.html:4
 msgid "Django site admin"
-msgstr ""
+msgstr "Django site admin"
 
 #: templates/profiles/password/password_change_done.html:7
 #: templates/profiles/password/password_change_form.html:8
 msgid "Password change"
-msgstr ""
+msgstr "Passwort ändern"
 
 #: templates/profiles/password/password_change_done.html:14
 msgid "Your password was changed."
-msgstr ""
+msgstr "Dein Passwort wurde geändert."
 
 #: templates/profiles/password/password_change_form.html:21
 msgid "Please correct the error below."
-msgstr ""
+msgstr "Bitte überprüfe Deine Angaben."
 
 #: templates/profiles/password/password_change_form.html:21
 msgid "Please correct the errors below."
-msgstr ""
+msgstr "Bitte überprüfe Deine Angaben."
 
 #: templates/profiles/password/password_change_form.html:26
 msgid ""
 "Please enter your old password, for security's sake, and then enter your new "
 "password twice so we can verify you typed it in correctly."
 msgstr ""
+"Bitte gib Dein bisheriges Passwort ein und suche Dir ein neues Passwort aus. "
+"Zur Sicherheit gegen Vertipper, gib Dein neues Passwort ein zweites Mal ein."
 
 #: templates/profiles/password/password_change_form.html:32
 msgid "Old password"
-msgstr ""
+msgstr "Bisheriges Passwort"
 
 #: templates/profiles/password/password_change_form.html:37
 msgid "New password"
-msgstr ""
+msgstr "Neues Passwort"
 
 #: templates/profiles/password/password_change_form.html:42
 msgid "Password (again)"
-msgstr ""
+msgstr "Wiederholung des Passworts"
 
 #: templates/profiles/password/password_change_form.html:48
 msgid "Change my password"
-msgstr ""
+msgstr "Mein Passwort ändern"
 
 #: templates/profiles/password/password_reset_done.html:7
 msgid "Password reset"
-msgstr ""
+msgstr "Passwort zurücksetzen"
 
 #: templates/profiles/password/password_reset_done.html:15
 msgid ""
@@ -254,6 +259,8 @@ msgid ""
 "If you don't receive an email, please make sure you've entered the address "
 "you registered with, and check your spam folder."
 msgstr ""
+"Wenn Du keine Bestätigungsmail erhalten hast, überprüfe, ob es sich um die "
+"richtige E-Mail Adresse handelt und schaue auch in Deinem Spam-Ordner nach."
 
 #: templates/profiles/password/password_reset_subject.txt:2
 #, python-format
@@ -266,4 +273,4 @@ msgstr ""
 
 #: templates/registration/logged_out.html:5
 msgid "Log in again"
-msgstr ""
+msgstr "Bitte log Dich erneut ein"
