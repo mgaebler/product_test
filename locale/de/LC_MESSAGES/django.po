@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-10 12:52+0000\n"
+"POT-Creation-Date: 2014-11-17 10:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,7 +38,7 @@ msgstr ""
 msgid "teaser image"
 msgstr ""
 
-#: django_app/gallery/models.py:28 django_app/gallery/models.py:75
+#: django_app/gallery/models.py:28 django_app/gallery/models.py:62
 msgid "is_deleted"
 msgstr ""
 
@@ -50,24 +50,16 @@ msgstr ""
 msgid "publish_date"
 msgstr ""
 
-#: django_app/gallery/models.py:37
-msgid "photographer"
+#: django_app/gallery/models.py:50
+msgid "image file"
 msgstr ""
 
-#: django_app/gallery/models.py:57
-msgid "original file"
+#: django_app/gallery/models.py:55
+msgid "owner"
 msgstr ""
 
-#: django_app/gallery/models.py:62 django_app/gallery/models.py:71
-msgid "gallery_galleryimage_file_help_text"
-msgstr ""
-
-#: django_app/gallery/models.py:66
-msgid "800 x 600 image file"
-msgstr ""
-
-#: django_app/gallery/models.py:76
-msgid "is_checked"
+#: django_app/gallery/models.py:70
+msgid "video_owner"
 msgstr ""
 
 #: django_app/simple_bank/models.py:27
@@ -86,16 +78,16 @@ msgstr ""
 msgid "Debit by house account"
 msgstr ""
 
-#: django_app/user_accounts/forms.py:17
+#: django_app/user_accounts/forms.py:26
 msgid ""
 "Ein Benutzer mit dieser Emailadresse existiert bereits. Passwort vergessen?"
 msgstr ""
 
-#: django_app/user_accounts/forms.py:62
+#: django_app/user_accounts/forms.py:74
 msgid "Please provide the email addresses comma separated."
 msgstr ""
 
-#: django_app/user_accounts/forms.py:64
+#: django_app/user_accounts/forms.py:76
 msgid "Du kannst den Text verändern, solltest aber den Link nicht entfernen."
 msgstr ""
 
@@ -171,11 +163,11 @@ msgstr ""
 msgid "Profil erfolgreich gespeichert."
 msgstr ""
 
-#: django_app/user_accounts/views.py:270
+#: django_app/user_accounts/views.py:273
 msgid "Kostenlos Produkttester werden"
 msgstr ""
 
-#: django_app/user_accounts/views.py:280
+#: django_app/user_accounts/views.py:301
 msgid "Es wurde eine Einladung an deine Freude verschickt."
 msgstr ""
 
