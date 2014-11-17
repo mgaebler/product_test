@@ -48,6 +48,10 @@
 # add correct permissons
 - file: path="{{ app.media_path }}" owner="{{ user.name }}" group=www-data mode=0770 state=directory recurse=yes
   sudo: true
+  with_items:
+    - app.media_path
+    - "{{ app.media_path }}/upload"
+    - app.static_path
   when: app.environment != "development"
 
 

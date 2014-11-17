@@ -3,6 +3,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
+from filebrowser.sites import site
 
 from core.views import IndexView
 
@@ -25,6 +26,7 @@ urlpatterns = patterns('',
     url(r'forum/', include('django_simple_forum.urls')),
 
     url('', include('social.apps.django_app.urls', namespace='social')),
+    url(r'^admin/filebrowser/', include(site.urls)),
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^pages/', include('django.contrib.flatpages.urls')),

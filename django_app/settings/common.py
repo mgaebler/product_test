@@ -81,6 +81,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = (
     'grappelli',  # 3rd party
+    'filebrowser',# 3rd party
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
