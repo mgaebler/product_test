@@ -226,8 +226,9 @@ class AccountCreateView(FormView):
 
     def _send_verification_email(self, recipient, token):
         # on success send an email with link and set a verification token
-        verification_link = "http://{}{}".format(
-            self.request.META['HTTP_HOST'],
+        verification_link = "{}{}{}".format(
+            self.request.schema,
+            self.request.get_host(),
             reverse('user:verify_token', kwargs={'token': token})
         )
 
