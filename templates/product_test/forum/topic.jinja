@@ -4,6 +4,7 @@
 
   <div class="forum-topic">
     <h2>{{ topic.title }}</h2>
+
     <div>
       <p>
         {{ topic.description|linebreaks }}
@@ -20,10 +21,14 @@
           {# avatar #}
           <div class="forum-entry-user col-md-3">
             {% if post.creator.is_staff %}
-              <img class="team crown" src="{{ static('app/images/crown.png') }}" class="user-avatar user-avatar-medium" />
+              <div>
+                <img class="team crown" src="{{ static('app/images/crown.png') }}"
+                     class="user-avatar user-avatar-medium"/>
+              </div>
             {% endif %}
             {% if post.creator.avatar %}
-              <img class="img-circle" alt="Default avatar" src="{{ thumbnail(post.creator.avatar, size=(42, 42), crop=True) }}"/>
+              <img class="img-circle" alt="Default avatar"
+                   src="{{ thumbnail(post.creator.avatar, size=(42, 42), crop=True) }}"/>
             {% else %}
               <img alt="avatar" class="img-circle user-avatar user-avatar-medium"
                    src="{{ static('app/images/default_avatar.jpg') }}"/>
@@ -33,9 +38,9 @@
               {{ post.creator.preferred_name }}
             </div>
             {% if post.creator.is_staff %}
-            <div class="title">
+              <div class="title">
                 Admin
-            </div>
+              </div>
             {% endif %}
           </div>
 
@@ -67,16 +72,16 @@
   </div>
 
 
-    {% if not user.is_authenticated() %}
-      <div class="forum-not-logged-in">
+  {% if not user.is_authenticated() %}
+    <div class="forum-not-logged-in">
       <p>
         <a href="{{ url('user:login_form') }}">Log Dich ein</a>, um einen Beitrag zu verfassen.
       </p>
-      </div>
-    {% else %}
-      <a class="btn btn-default"
-         href="{{ url('product_test:forum:reply', slug=product_test.slug, topic_id=topic.pk) }}">Antworten</a>
-    {% endif %}
+    </div>
+  {% else %}
+    <a class="btn btn-default"
+       href="{{ url('product_test:forum:reply', slug=product_test.slug, topic_id=topic.pk) }}">Antworten</a>
+  {% endif %}
 
 
 
