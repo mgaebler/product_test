@@ -19,17 +19,24 @@
         <section>
           {# avatar #}
           <div class="forum-entry-user col-md-3">
+            {% if post.creator.is_staff %}
+              <img class="team crown" src="{{ static('app/images/crown.png') }}" class="user-avatar user-avatar-medium" />
+            {% endif %}
             {% if post.creator.avatar %}
-              <img alt="Default avatar" src="{{ thumbnail(post.creator.avatar, size=(64, 64)) }}"/>
+              <img class="img-circle" alt="Default avatar" src="{{ thumbnail(post.creator.avatar, size=(42, 42), crop=True) }}"/>
             {% else %}
-              <img align="right" alt="avatar" class="user-avatar user-avatar-medium"
+              <img alt="avatar" class="img-circle user-avatar user-avatar-medium"
                    src="{{ static('app/images/default_avatar.jpg') }}"/>
             {% endif %}
 
             <div class="nickname">
               {{ post.creator.preferred_name }}
             </div>
-
+            {% if post.creator.is_staff %}
+            <div class="title">
+                Admin
+            </div>
+            {% endif %}
           </div>
 
           <header>
