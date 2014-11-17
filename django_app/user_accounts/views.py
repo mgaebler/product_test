@@ -204,7 +204,7 @@ class AccountCreateView(FormView):
 
     def form_valid(self, form):
         invite_token = self.request.GET.get('invite', '')
-        email = form.cleaned_data['email']
+        email = form.cleaned_data['email'].lower()
         token = self._generate_confirmation_token(email)
 
         user = UserAccount()
@@ -226,8 +226,8 @@ class AccountCreateView(FormView):
 
     def _send_verification_email(self, recipient, token):
         # on success send an email with link and set a verification token
-        verification_link = "{}{}".format(
-            self.request.META['HTTP_ORIGIN'],
+        verification_link = "http://{}{}".format(
+            self.request.META['HTTP_HOST'],
             reverse('user:verify_token', kwargs={'token': token})
         )
 
