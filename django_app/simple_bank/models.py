@@ -69,7 +69,7 @@ class Transfer(models.Model):
                 _(u'Balance limit of {} is reached. Limit is:'.format(self.sender, self.sender.get_possible_amount())))
             return False
         elif self.sender.type == 'ha':
-            log.info(_('Debit by house account'))
+            log.info('Debit by house account')
             super(Transfer, self).save(force_insert, force_update, using, update_fields)
         else:
             super(Transfer, self).save(force_insert, force_update, using, update_fields)
