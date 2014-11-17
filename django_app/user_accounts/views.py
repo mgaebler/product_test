@@ -226,8 +226,8 @@ class AccountCreateView(FormView):
 
     def _send_verification_email(self, recipient, token):
         # on success send an email with link and set a verification token
-        verification_link = "{}{}{}".format(
-            self.request.schema,
+        verification_link = "{}://{}{}".format(
+            self.request.scheme,
             self.request.get_host(),
             reverse('user:verify_token', kwargs={'token': token})
         )
@@ -257,8 +257,9 @@ class InviteFriendsView(FormView):
     def get_initial(self):
         initial = super(InviteFriendsView, self).get_initial()
         # todo: provide an invite link
-        invite_link = "http://{}{}?invite={}".format(
-            self.request.META['HTTP_HOST'],
+        invite_link = "{}://{}{}?invite={}".format(
+            self.request.scheme,
+            self.request.get_host(),
             reverse('user:register'),
             self.request.user.invite_token
         )
