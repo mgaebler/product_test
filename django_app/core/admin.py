@@ -2,6 +2,14 @@
 
 from django.contrib import admin
 from models import StaticPage
+from django.templatetags.static import static
 
 
-admin.site.register(StaticPage)
+class StaticPageAdmin(admin.ModelAdmin):
+    class Media:
+        js = [
+            static('grappelli/tinymce/jscripts/tiny_mce/tiny_mce.js'),
+            static('grappelli/tinymce_setup/tinymce_setup.js'),
+        ]
+
+admin.site.register(StaticPage, StaticPageAdmin)

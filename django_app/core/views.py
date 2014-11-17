@@ -10,6 +10,6 @@ class IndexView(TemplateView):
     def get_context_data(self, **kwargs):
         StaticPage.objects.get(slug='/')
         return {
-            "content": StaticPage.objects.get(slug='/'),
+            "content": StaticPage.objects.get(slug='/').content,
             "register_form": RegisterForm()
         }
