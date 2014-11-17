@@ -235,11 +235,14 @@ class AccountCreateView(FormView):
         template = get_template('registration/registration_email.jinja')
         context = Context({'verification_link': verification_link})
         email_body = template.render(context)
+
         send_mail(
             subject='Confirm Mail',
+            # todo: create also a text email
             message=email_body,
             from_email='registration@trendsetter.de',
             recipient_list=[recipient],
+            html_message=email_body,
             fail_silently=False
         )
 
