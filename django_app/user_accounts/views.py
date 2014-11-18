@@ -94,7 +94,7 @@ def reset(request):
         from_email=None,
         current_app=None,
         extra_context=None,
-        html_email_template_name=None
+        html_email_template_name='profiles/password/password_reset_html_email.jinja'
     )
 
 
