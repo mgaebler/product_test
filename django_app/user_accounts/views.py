@@ -10,16 +10,17 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.forms import PasswordChangeForm, PasswordResetForm
 from django.contrib.auth.views import password_reset, password_reset_confirm
+from django.db.models import Q
 from django.template import Context
 from django.template.loader import get_template
 from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
-from django.views.generic import FormView, UpdateView
+from django.views.generic import FormView, UpdateView, ListView
 from django.shortcuts import redirect, get_object_or_404
 
 
 from braces.views import LoginRequiredMixin
-from simple_bank.models import create_transfer, Account
+from simple_bank.models import create_transfer, Account, Transfer
 
 from .models import UserAccount
 from . import forms
@@ -308,3 +309,10 @@ class InviteFriendsView(FormView):
 
     def get_success_url(self):
         return reverse('user:invite_friends')
+
+
+class TransferListView(ListView):
+    template_name='profiles/my_site/trendpoints.jinja'
+    def get_queryset(self):
+        current_user_account = self.request.user.bank_account.all().first()
+        return Transfer.objects.filter(Q(sender=current_user_account)|Q(receiver=current_user_account))

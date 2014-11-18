@@ -10,7 +10,8 @@ urlpatterns = patterns(
     url(r'^site$', TemplateView.as_view(template_name='profiles/my_site/product_tests.jinja'), name='index'),
     url(r'^profil$', views.UserProfileChangeView.as_view(), name='settings'),
     url(r'^tests$', TemplateView.as_view(template_name='profiles/my_site/product_tests.jinja'), name='tests'),
-    url(r'^trendpoints$', ShopItemsListView.as_view(template_name='profiles/my_site/trendpoints.jinja'), name='trendpoints'),
+    url(r'^trendpoints$', views.TransferListView.as_view(), name='trendpoints'),
+    url(r'^trendshop$', ShopItemsListView.as_view(template_name='profiles/my_site/trendshop.jinja'), name='trendshop'),
     url(r'^freunde-einladen$', views.InviteFriendsView.as_view(), name='invite_friends'),
 
     url(r'^register$', views.AccountCreateView.as_view(), name='register'),

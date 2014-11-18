@@ -14,38 +14,38 @@
     </div>
 
 
+
     <div class="row">
       <div class="col-md-14 col-md-offset-5">
 
-        <table class="table">
-          <thead>
-          <tr>
-            <th>Transaktion</td>
-            <th>Trendpoints</td>
-          </tr>
-          </thead>
-          <tbody>
-          {% for transfer in object_list %}
-            <tr>
-              <td>{{ transfer.reference }}</td>
-              <td class="reward-points">
-                  <span class="reward-points">{{ transfer.amount }}</span>
-              </td>
-            </tr>
+        <div class="goodies-list">
+          {% for product in object_list %}
+          <div class="goodie">
+            <div class="goodie-img">
+              <a class="js-open-in-overlay" href="{{ static('') }}">
+                <img alt="Trendpunkte praemie {{ product.name }}" src="{{ thumbnail(product.image, size=(64, 64)) }}">
+              </a>
+            </div>
+            <div class="goodie-name">
+              {{ product.name }}
+            </div>
+            <div class="goodie-cost">
+              <span>{{ product.value }}</span>
+            </div>
+            <div class="goodie-action">
+              <a class="btn btn-primary" href="">Jetzt anfordern</a>
+            </div>
+          </div>
           {% endfor %}
-          </tbody>
-        </table>
+        </div>
       </div>
     </div>
-
-
     <div class="row">
       <div class="col-md-14 col-md-offset-5">
 
         <div class="how-to-earn">
           <h4>Wie verdiene ich Trendpoints?</h4>
         </div>
-
         <div class="reward-list">
 
           <div class="reward">
