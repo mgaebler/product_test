@@ -213,13 +213,13 @@ footer
     span
       line-height: 42px
       +inline-block
-    .philips, .proplan, .kitchenaid
+    .philips, .proplan, .kitchenaid, .bellabambi
       margin-left: 16px
       line-height: 20px
       a
         display: block
         height: 100%
-    @each $pubname in philips proplan kitchenaid
+    @each $pubname in philips proplan kitchenaid bellabambi
       .#{$pubname}
         +retina-sprite-replace-text-with-dimensions($icons, $icons2x, "logo_#{$pubname}")
 
@@ -240,9 +240,9 @@ footer
         padding-left: 22px
         line-height: 15px
         display: block
-//@each $sn in facebook twitter gplus
-//  .#{$sn} a
-//    +retina-sprite($icons, $icons2x, "icon_#{$sn}")
+    @each $sn in facebook twitter gplus
+      .#{$sn} a
+        +retina-sprite($icons, $icons2x, "icon_#{$sn}")
 
 .user-avatar
   width: 256px
