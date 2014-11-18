@@ -1,0 +1,38 @@
+///////////////////////////////////////////////////////////////////
+// element customization
+///////////////////////////////////////////////////////////////////
+
+*
+  box-sizing: border-box
+
+html
+  overflow-y: scroll
+
+html, body
+  margin: 0
+  padding: 0
+
+body
+  font-family: $font-family-sans-serif
+  font-size: 14px
+  line-height: 22px
+  background: $body-bg image-url("shared/background.jpg") no-repeat 50% 0
+  color: $text-color
+
+
+a
+  text-decoration: none
+  +link-colors($primary, $primary, $primary, $primary, $primary)
+
+h2
+  font-size: 30px
+  margin-top: 18px
+  margin-bottom: 18px
+
+
+.btn-inverted
+  background: $inverse-background-color
+  color: $inverse-text-color
+  &:hover, &:focus
+    background: lighten($inverse-background-color, 15%)
+    color: $inverse-text-color

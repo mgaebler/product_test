@@ -4,8 +4,6 @@
 
 @import "base_variables"
 
-
-
 $icons: sprite-map("icons/*.png")
 $icons2x: sprite-map("icons2x/*.png")
 
@@ -13,81 +11,22 @@ $icons2x: sprite-map("icons2x/*.png")
 @import "flashes"
 @import "environment"
 @import "forum"
-
-
-=retina-sprite($map, $map2x, $name)
-  background-image: sprite-url($map)
-  background-position: sprite-position($map, $name)
-  background-repeat: no-repeat
-  @media (-webkit-min-device-pixel-ratio: 1.5), (-moz-min-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-device-pixel-ratio: 1.5)
-    &
-      $pos: sprite-position($map2x, $name)
-      background-image: sprite-url($map2x)
-      background-position: nth($pos, 1) nth($pos, 2) / 2
-      @include background-size(ceil(image-width(sprite-path($map2x)) / 2) auto)
-
-=retina-sprite-replace-text-with-dimensions($map, $map2x, $name)
-  +retina-sprite($map, $map2x, $name)
-  +hide-text
-  +sprite-dimensions($map, $name)
-
-
-
-=inverse-text-fix()
-  -webkit-font-smoothing: antialiased
-  -moz-osx-font-smoothing: grayscale
-
-=all-link-colors($color)
-  +link-colors($color, $color, $color, $color, $color)
-
-=inverse-links()
-  a
-    +all-link-colors($inverse-link-color)
+@import "mixins"
+@import "elements"
 
 %inner-block
   margin: 0 auto
   width: 960px
 
-
-///////////////////////////////////////////////////////////////////
-// element customization
-///////////////////////////////////////////////////////////////////
-
-*
-  box-sizing: border-box
-
-html
-  overflow-y: scroll
-
-html, body
-  margin: 0
-  padding: 0
-
-body
-  font-family: $font-family-sans-serif
-  font-size: 14px
-  line-height: 22px
-  background: $body-bg image-url("shared/background.jpg") no-repeat 50% 0
-  color: $text-color
-
-
-a
-  text-decoration: none
-  +link-colors($primary, $primary, $primary, $primary, $primary)
-
-h2
-  font-size: 30px
-  margin-top: 18px
-  margin-bottom: 18px
-
-
-.btn-inverted
-  background: $inverse-background-color
-  color: $inverse-text-color
-  &:hover, &:focus
-    background: lighten($inverse-background-color, 15%)
-    color: $inverse-text-color
-
+.reward-points
+  width: 75px
+  padding: 16px
+  text-align: right
+  font-weight: bold
+  font-size: 16px
+  span
+    background: image-url('trendpunkte_points_small.png') no-repeat 0 50%
+    padding-left: image-width("trendpunkte_points_small.png") + 4px
 
 ///////////////////////////////////////////////////////////////////
 // Specific page customization
@@ -301,9 +240,9 @@ footer
         padding-left: 22px
         line-height: 15px
         display: block
-    //@each $sn in facebook twitter gplus
-    //  .#{$sn} a
-    //    +retina-sprite($icons, $icons2x, "icon_#{$sn}")
+//@each $sn in facebook twitter gplus
+//  .#{$sn} a
+//    +retina-sprite($icons, $icons2x, "icon_#{$sn}")
 
 .user-avatar
   width: 256px
@@ -316,7 +255,6 @@ footer
 .user-avatar-small
   width: 16px
   height: 16px
-
 
 ul.shares
   list-style: none
@@ -391,8 +329,6 @@ a.btn.btn-primary
     display: block
     +replace-text-with-dimensions("gewinnspiel/gewinnspiel_philips_registrierung_teaser.jpg")
     +border-radius(4px)
-
-
 
 .inverse
   .form-control
@@ -538,8 +474,8 @@ body.s--static.p--brands
     background-image: image-url('marken_fuersie.png')
   .brand-petra a
     background-image: image-url('marken_petra.png')
-  //.sep
-  //  background: image-url('marken_sep.png') repeat-y 50% 0
+//.sep
+//  background: image-url('marken_sep.png') repeat-y 50% 0
 
 body.s--users.p--trendpoints
   .trendpoints
@@ -753,7 +689,6 @@ tr.odd
       margin: 0 2px
       width: 24px
       font-weight: bold
-
 
 .faq-entry
   margin-bottom: 32px
