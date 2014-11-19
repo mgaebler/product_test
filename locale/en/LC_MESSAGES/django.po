@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-17 17:27+0000\n"
+"POT-Creation-Date: 2014-11-19 11:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -118,52 +118,104 @@ msgstr ""
 msgid "another"
 msgstr ""
 
-#: django_app/user_accounts/views.py:38
-msgid "Login erfolgreich"
+#: django_app/user_accounts/models.py:32
+msgid "full name"
 msgstr ""
 
-#: django_app/user_accounts/views.py:40
-msgid "Bitte vervollständige dein Profil"
+#: django_app/user_accounts/models.py:33
+msgid "preferred name"
 msgstr ""
 
-#: django_app/user_accounts/views.py:43
-msgid "Dieser Account ist nicht aktiviert."
+#: django_app/user_accounts/models.py:35
+msgid "gender"
 msgstr ""
 
-#: django_app/user_accounts/views.py:46
-msgid "Falscher Benutzername oder Password"
+#: django_app/user_accounts/models.py:36
+msgid "avatar"
 msgstr ""
 
-#: django_app/user_accounts/views.py:67
-msgid "Du hast dich erfolgreich ausgeloggt."
+#: django_app/user_accounts/models.py:39
+msgid "birth date"
 msgstr ""
 
-#: django_app/user_accounts/views.py:126
-msgid "Password wurde erfolgreich gesetzt."
+#: django_app/user_accounts/models.py:41
+msgid "city"
 msgstr ""
 
-#: django_app/user_accounts/views.py:160
-msgid "Max. 10MB. Wird öffentlich angezeigt."
+#: django_app/user_accounts/models.py:42
+msgid "country"
+msgstr ""
+
+#: django_app/user_accounts/models.py:43
+msgid "address1"
+msgstr ""
+
+#: django_app/user_accounts/models.py:44
+msgid "address2"
+msgstr ""
+
+#: django_app/user_accounts/models.py:45
+msgid "address3"
+msgstr ""
+
+#: django_app/user_accounts/models.py:46
+msgid "postcode"
+msgstr ""
+
+#: django_app/user_accounts/models.py:47
+msgid "family status"
+msgstr ""
+
+#: django_app/user_accounts/views.py:39
+msgid "Login successful"
+msgstr ""
+
+#: django_app/user_accounts/views.py:41
+msgid "Please complete your profile."
+msgstr ""
+
+#: django_app/user_accounts/views.py:44
+msgid "This account is not active."
+msgstr ""
+
+#: django_app/user_accounts/views.py:47
+msgid "Wrong username or password."
+msgstr ""
+
+#: django_app/user_accounts/views.py:68
+msgid "Your login was successfully."
+msgstr ""
+
+#: django_app/user_accounts/views.py:127
+msgid "Your password was set successfully."
 msgstr ""
 
 #: django_app/user_accounts/views.py:161
+msgid "Max. 10MB. Wird öffentlich angezeigt."
+msgstr ""
+
+#: django_app/user_accounts/views.py:162
 msgid "Nur, wenn Du Dein Passwort ändern willst."
 msgstr ""
 
-#: django_app/user_accounts/views.py:182
+#: django_app/user_accounts/views.py:183
 msgid "Du hast 5 Trendpoints verdient!"
 msgstr ""
 
-#: django_app/user_accounts/views.py:192
-msgid "Profil erfolgreich gespeichert."
+#: django_app/user_accounts/views.py:190
+msgid "Your invite was redeemed."
 msgstr ""
 
-#: django_app/user_accounts/views.py:278
-msgid "Kostenlos Produkttester werden"
+#: django_app/user_accounts/views.py:193
+msgid "Your profile was saved successfully."
 msgstr ""
 
-#: django_app/user_accounts/views.py:306
-msgid "Es wurde eine Einladung an deine Freude verschickt."
+#: django_app/user_accounts/views.py:279
+msgid "Become a product tester for free."
+msgstr ""
+
+#: django_app/user_accounts/views.py:307
+msgid "An invite was send to your friends."
 msgstr ""
 
 #: templates/admin/base.html:85
