@@ -36,15 +36,15 @@ def login_view(request):
     if user is not None:
         if user.is_active:
             login(request, user)
-            messages.add_message(request, messages.INFO, _(u'Login erfolgreich'))
+            messages.add_message(request, messages.INFO, _(u'Login successful'))
             if not user.profile_complete:
-                messages.add_message(request, messages.INFO, _(u'Bitte vervollständige dein Profil'))
+                messages.add_message(request, messages.INFO, _(u'Please complete your profile.'))
                 return redirect('user:settings')
         else:
-            messages.add_message(request, messages.ERROR, _(u'Dieser Account ist nicht aktiviert.'))
+            messages.add_message(request, messages.ERROR, _(u'This account is not active.'))
             return redirect('user:login_form')
     else:
-        messages.add_message(request, messages.ERROR, _(u'Falscher Benutzername oder Password'))
+        messages.add_message(request, messages.ERROR, _(u'Wrong username or password.'))
         return redirect('user:login_form')
 
     return redirect('home')
@@ -65,7 +65,7 @@ def register_verify(request, token):
 
 def logout_view(request):
     logout(request)
-    messages.info(request, _(u'Du hast dich erfolgreich ausgeloggt.'))
+    messages.info(request, _(u'Your login was successfully.'))
     return redirect('home')
 
 
@@ -124,7 +124,7 @@ class PasswordSetView(LoginRequiredMixin, FormView):
         return super(PasswordSetView, self).form_valid(form)
 
     def get_success_url(self):
-        messages.info(self.request, _(u'Password wurde erfolgreich gesetzt.'))
+        messages.info(self.request, _(u'Your password was set successfully.'))
         return reverse('user:login_form')
 
 
@@ -178,7 +178,7 @@ class UserProfileChangeView(LoginRequiredMixin, UpdateView):
                 sender_account=Account.objects.get(name='trendsetter'),
                 receiver_account=user.bank_account.all().first(),
                 amount=5,
-                message=u'Vielen Dank für die Verfollständigung deines Profiles.'
+                message=u'Thank you for completing your profile.'
             )
             messages.add_message(self.request, messages.INFO, _(u'Du hast 5 Trendpoints verdient!'))
             if user.invited_by:
@@ -187,10 +187,10 @@ class UserProfileChangeView(LoginRequiredMixin, UpdateView):
                     sender_account=Account.objects.get(name='trendsetter'),
                     receiver_account=user.invited_by.bank_account.all().first(),
                     amount=5,
-                    message=u'Dein Invite wurde eingelöst.'
+                    message=_(u'Your invite was redeemed.')
                 )
 
-        messages.add_message(self.request, messages.INFO, _(u'Profil erfolgreich gespeichert.'))
+        messages.add_message(self.request, messages.INFO, _(u'Your profile was saved successfully.'))
 
         return super(UserProfileChangeView, self).form_valid(form)
 
@@ -276,7 +276,7 @@ class InviteFriendsView(FormView):
         email_body = template.render(context)
 
         initial['message'] = email_body
-        initial['subject'] = _(u'Kostenlos Produkttester werden')
+        initial['subject'] = _(u'Become a product tester for free.')
 
         self.form_class.invite_link = invite_link
         return initial
@@ -304,7 +304,7 @@ class InviteFriendsView(FormView):
         # mails = ((data['subject'], data['message'], self.request.user.email, [recipient]) for recipient in data['recipients'])
         # send_mass_mail(mails, fail_silently=False)
 
-        messages.info(self.request, _(u'Es wurde eine Einladung an deine Freude verschickt.'))
+        messages.info(self.request, _(u'An invite was send to your friends.'))
         return super(InviteFriendsView, self).form_valid(form)
 
     def get_success_url(self):

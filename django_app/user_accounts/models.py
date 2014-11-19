@@ -29,22 +29,24 @@ class UserAccount(AbstractEmailUser):
     )
 
     # profile
-    full_name = models.CharField('full name', max_length=255, blank=True)
-    preferred_name = models.CharField('preferred name', max_length=255, blank=True)
-    invited_by = models.ForeignKey("self", blank=True, null=True)
-    gender = models.CharField(choices=GENDER_CHOICES, max_length=1)
-    avatar = ThumbnailerImageField(blank=True, null=True)
+    full_name = models.CharField(_('full name'), max_length=255, blank=True)
+    preferred_name = models.CharField(_('preferred name'), max_length=255, blank=True)
+
+    gender = models.CharField(_('gender'), choices=GENDER_CHOICES, max_length=1)
+    avatar = ThumbnailerImageField(_('avatar'), blank=True, null=True)
     avatar_url = models.URLField(max_length=254, null=True, blank=True)
-    # todo: mindestalter?
-    birth_date = models.DateField(blank=True, null=True)
+    # todo: mindestalter validieren?
+    birth_date = models.DateField(_('birth date'), blank=True, null=True)
     #address
-    city = models.CharField(max_length=254)
-    country = models.CharField(max_length=254)
-    address1 = models.CharField(max_length=254)
-    address2 = models.CharField(max_length=254, blank=True, null=True)
-    address3 = models.CharField(max_length=254, blank=True, null=True)
-    postcode = models.IntegerField(blank=True, null=True)
-    family_status = models.CharField(choices=FAMILY_STATUS_CHOICES, max_length=2)
+    city = models.CharField(_('city'), max_length=254)
+    country = models.CharField(_('country'),max_length=254)
+    address1 = models.CharField(_('address1'),max_length=254)
+    address2 = models.CharField(_('address2'), max_length=254, blank=True, null=True)
+    address3 = models.CharField(_('address3'), max_length=254, blank=True, null=True)
+    postcode = models.IntegerField(_('postcode'), blank=True, null=True)
+    family_status = models.CharField(_('family status'),choices=FAMILY_STATUS_CHOICES, max_length=2)
+
+    invited_by = models.ForeignKey("self", blank=True, null=True)
 
     registration_at = models.DateTimeField(blank=True, null=True)
     confirmation_token = models.CharField(max_length=254, blank=True, null=True)
