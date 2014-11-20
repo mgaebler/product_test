@@ -65,7 +65,7 @@ def register_verify(request, token):
 
 def logout_view(request):
     logout(request)
-    messages.info(request, _(u'Your login was successfully.'))
+    messages.info(request, _(u'Your logout was successfully.'))
     return redirect('home')
 
 

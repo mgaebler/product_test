@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trendsetter\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-19 11:06+0000\n"
+"POT-Creation-Date: 2014-11-20 16:38+0000\n"
 "PO-Revision-Date: 2014-11-19 12:28+0100\n"
 "Last-Translator: Claudia <Claudia_Thiede@intosite.de>\n"
 "Language-Team:  <info@trendsetter.eu>\n"
@@ -175,26 +175,23 @@ msgid "Login successful"
 msgstr "Login erfolgreich"
 
 #: django_app/user_accounts/views.py:41
-#| msgid "Please correct the error below."
 msgid "Please complete your profile."
 msgstr "Bitte überprüfe Deine Angaben."
 
 #: django_app/user_accounts/views.py:44
-#| msgid "Dieser Account ist nicht aktiviert."
 msgid "This account is not active."
 msgstr "Dieser Account ist nicht aktiviert."
 
 #: django_app/user_accounts/views.py:47
-#| msgid "Falscher Benutzername oder Password"
 msgid "Wrong username or password."
 msgstr "Falscher Benutzername oder Passwort"
 
 #: django_app/user_accounts/views.py:68
-msgid "Your login was successfully."
-msgstr "Dein Login war er erfolgreich"
+#| msgid "Your login was successfully."
+msgid "Your logout was successfully."
+msgstr "Dein Logout war er erfolgreich"
 
 #: django_app/user_accounts/views.py:127
-#| msgid "Your password was changed."
 msgid "Your password was set successfully."
 msgstr "Dein Passwort wurde geändert."
 
