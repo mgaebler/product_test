@@ -26,10 +26,10 @@ DEFAULT_FROM_EMAIL = 'staging@trendsetter.eu'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': ansible_vars['app']['id'],
-        'USER': ansible_vars['app']['id'],
-        'PASSWORD': ansible_vars['app']['id'],
-        'HOST': 'localhost',
+        'NAME': 'trendsetter2',
+        'USER': 'trendsetter2',
+        'PASSWORD': 'miejohrohm1iechedeeY4be9P',
+        'HOST': 'intodb.exor',
         'PORT': '',
     }
 }
