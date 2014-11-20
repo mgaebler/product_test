@@ -19,7 +19,8 @@
     - libffi-dev
     - libjpeg-dev
     - gettext
-
+    - libpq-dev
+    - python-dev
 
 
 # install ruby packages
