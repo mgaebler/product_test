@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-20 17:08+0000\n"
+"POT-Creation-Date: 2014-11-20 17:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -78,11 +78,21 @@ msgid ""
 "Ein Benutzer mit dieser Emailadresse existiert bereits. Passwort vergessen?"
 msgstr ""
 
-#: django_app/user_accounts/forms.py:74
-msgid "Please provide the email addresses comma separated."
+#: django_app/user_accounts/forms.py:64
+#: templates/profiles/password/password_change_form.html:37
+msgid "New password"
+msgstr ""
+
+#: django_app/user_accounts/forms.py:69
+#: templates/profiles/password/password_change_form.html:42
+msgid "Password (again)"
 msgstr ""
 
 #: django_app/user_accounts/forms.py:76
+msgid "Please provide the email addresses comma separated."
+msgstr ""
+
+#: django_app/user_accounts/forms.py:78
 msgid "Du kannst den Text verändern, solltest aber den Link nicht entfernen."
 msgstr ""
 
@@ -276,14 +286,6 @@ msgstr ""
 
 #: templates/profiles/password/password_change_form.html:32
 msgid "Old password"
-msgstr ""
-
-#: templates/profiles/password/password_change_form.html:37
-msgid "New password"
-msgstr ""
-
-#: templates/profiles/password/password_change_form.html:42
-msgid "Password (again)"
 msgstr ""
 
 #: templates/profiles/password/password_change_form.html:48

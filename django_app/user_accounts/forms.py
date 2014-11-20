@@ -61,12 +61,12 @@ class RegisterForm(forms.Form):
 
 class PasswordSetForm(forms.Form):
     password = password = forms.CharField(
-        label=_('password'),
+        label=_('New password'),
         widget=forms.PasswordInput(render_value=False),
         max_length=100
     )
     re_password = password = forms.CharField(
-        label=_('retype password'),
+        label=_('Password (again)'),
         widget=forms.PasswordInput(render_value=False),
         max_length=100
     )

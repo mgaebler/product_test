@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trendsetter\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-20 17:08+0000\n"
+"POT-Creation-Date: 2014-11-20 17:30+0000\n"
 "PO-Revision-Date: 2014-11-19 12:28+0100\n"
 "Last-Translator: Claudia <Claudia_Thiede@intosite.de>\n"
 "Language-Team:  <info@trendsetter.eu>\n"
@@ -82,11 +82,21 @@ msgid ""
 msgstr ""
 "Ein Benutzer mit dieser Emailadresse existiert bereits. Passwort vergessen?"
 
-#: django_app/user_accounts/forms.py:74
+#: django_app/user_accounts/forms.py:64
+#: templates/profiles/password/password_change_form.html:37
+msgid "New password"
+msgstr "Neues Passwort"
+
+#: django_app/user_accounts/forms.py:69
+#: templates/profiles/password/password_change_form.html:42
+msgid "Password (again)"
+msgstr "Wiederholung des Passworts"
+
+#: django_app/user_accounts/forms.py:76
 msgid "Please provide the email addresses comma separated."
 msgstr "Bitte die E-mail Adressen durch Komma trennen."
 
-#: django_app/user_accounts/forms.py:76
+#: django_app/user_accounts/forms.py:78
 msgid "Du kannst den Text verändern, solltest aber den Link nicht entfernen."
 msgstr "Du kannst den Text verändern, solltest aber den Link nicht entfernen."
 
@@ -203,7 +213,6 @@ msgid "Nur, wenn Du Dein Passwort ändern willst."
 msgstr "Nur, wenn Du Dein Passwort ändern willst."
 
 #: django_app/user_accounts/views.py:181
-#| msgid "Please complete your profile."
 msgid "Thank you for completing your profile."
 msgstr "Vervollständigung Deines Profils"
 
@@ -285,14 +294,6 @@ msgstr ""
 msgid "Old password"
 msgstr "Bisheriges Passwort"
 
-#: templates/profiles/password/password_change_form.html:37
-msgid "New password"
-msgstr "Neues Passwort"
-
-#: templates/profiles/password/password_change_form.html:42
-msgid "Password (again)"
-msgstr "Wiederholung des Passworts"
-
 #: templates/profiles/password/password_change_form.html:48
 msgid "Change my password"
 msgstr "Mein Passwort ändern"
@@ -329,24 +330,3 @@ msgstr "Danke für Deinen Besuch auf trendsetter.eu"
 #: templates/registration/logged_out.html:5
 msgid "Log in again"
 msgstr "Bitte log Dich erneut ein"
-
-#~ msgid "Login erfolgreich"
-#~ msgstr "Login erfolgreich"
-
-#~ msgid "Bitte vervollständige dein Profil"
-#~ msgstr "Bitte vervollständige Dein Profil"
-
-#~ msgid "Du hast dich erfolgreich ausgeloggt."
-#~ msgstr "Du hast Dich erfolgreich ausgeloggt."
-
-#~ msgid "Password wurde erfolgreich gesetzt."
-#~ msgstr "Passwort wurde erfolgreich gespeichert."
-
-#~ msgid "Profil erfolgreich gespeichert."
-#~ msgstr "Profil erfolgreich gespeichert."
-
-#~ msgid "Kostenlos Produkttester werden"
-#~ msgstr "Kostenlos Produkttester werden"
-
-#~ msgid "Es wurde eine Einladung an deine Freude verschickt."
-#~ msgstr "Es wurde eine Einladung an Deine Freude verschickt."
