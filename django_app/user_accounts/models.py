@@ -18,7 +18,7 @@ class UserAccount(AbstractEmailUser):
     GENDER_CHOICES = (
         ('m', _('male')),
         ('f', _('female')),
-        ('-', _('something else')),
+        ('o', _('something else')),
     )
     FAMILY_STATUS_CHOICES = (
         ('si', _('single')),
@@ -43,7 +43,7 @@ class UserAccount(AbstractEmailUser):
     address1 = models.CharField(_('address1'),max_length=254)
     address2 = models.CharField(_('address2'), max_length=254, blank=True, null=True)
     address3 = models.CharField(_('address3'), max_length=254, blank=True, null=True)
-    postcode = models.IntegerField(_('postcode'), blank=True, null=True)
+    postcode = models.CharField(_('postcode'), max_length=12, blank=True, null=True)
     family_status = models.CharField(_('family status'),choices=FAMILY_STATUS_CHOICES, max_length=2)
 
     invited_by = models.ForeignKey("self", blank=True, null=True)
