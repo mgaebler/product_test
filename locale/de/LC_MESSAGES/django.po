@@ -175,19 +175,16 @@ msgid "Login successful"
 msgstr "Login erfolgreich"
 
 #: django_app/user_accounts/views.py:41
-#, fuzzy
 #| msgid "Please correct the error below."
 msgid "Please complete your profile."
 msgstr "Bitte überprüfe Deine Angaben."
 
 #: django_app/user_accounts/views.py:44
-#, fuzzy
 #| msgid "Dieser Account ist nicht aktiviert."
 msgid "This account is not active."
 msgstr "Dieser Account ist nicht aktiviert."
 
 #: django_app/user_accounts/views.py:47
-#, fuzzy
 #| msgid "Falscher Benutzername oder Password"
 msgid "Wrong username or password."
 msgstr "Falscher Benutzername oder Passwort"
@@ -197,7 +194,6 @@ msgid "Your login was successfully."
 msgstr "Dein Login war er erfolgreich"
 
 #: django_app/user_accounts/views.py:127
-#, fuzzy
 #| msgid "Your password was changed."
 msgid "Your password was set successfully."
 msgstr "Dein Passwort wurde geändert."
