@@ -182,7 +182,7 @@ class UserProfileChangeView(LoginRequiredMixin, UpdateView):
             )
             messages.add_message(self.request, messages.INFO, _(u'Du hast 5 Trendpoints verdient!'))
             if user.invited_by:
-                # todo: if the user has an invited_by pay the invite 5 points
+                # if the user has an invited_by pay the invite 5 points
                 create_transfer(
                     sender_account=Account.objects.get(name='trendsetter'),
                     receiver_account=user.invited_by.bank_account.all().first(),
