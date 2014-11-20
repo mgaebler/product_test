@@ -19,6 +19,9 @@ class Command(BaseCommand):
             else:
                 u = UserAccount.objects.create_user(user.get('email').strip())
             # u.legacy_id=int(user.get('id'))
+            if user.get('password'):
+                u.password = "bcrypt${}".format(user.get('password'))
+
             if user.get('name'):
                 u.full_name=user.get('name')
 
