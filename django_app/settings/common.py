@@ -29,6 +29,18 @@ from .components.pipeline import *
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
+PASSWORD_HASHERS = (
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+    'django.contrib.auth.hashers.BCryptPasswordHasher',
+    'django.contrib.auth.hashers.SHA1PasswordHasher',
+    'django.contrib.auth.hashers.MD5PasswordHasher',
+    'django.contrib.auth.hashers.UnsaltedSHA1PasswordHasher',
+    'django.contrib.auth.hashers.UnsaltedMD5PasswordHasher',
+    'django.contrib.auth.hashers.CryptPasswordHasher'
+)
+
 ADMINS = (
     ('Intosite Developers', 'devs@intosite.de'),
 )
@@ -51,7 +63,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 # jinja 2 settings
-## http://niwibe.github.io/django-jinja/#_introduction
+# # http://niwibe.github.io/django-jinja/#_introduction
 TEMPLATE_LOADERS = (
     'django_jinja.loaders.AppLoader',
     'django_jinja.loaders.FileSystemLoader',
@@ -64,7 +76,6 @@ TEMPLATE_DIRS = (
 DEFAULT_JINJA2_TEMPLATE_EXTENSION = '.jinja'
 DEFAULT_FROM_EMAIL = 'info@trendsetter.de'
 
-
 JINJA2_EXTENSIONS = (
     'pipeline.jinja2.ext.PipelineExtension',
 )
@@ -73,7 +84,6 @@ MARKUP_FIELD_TYPES = (
     ('markdown', markdown.markdown),
 )
 
-
 ALLOWED_HOSTS = ['*']
 
 
@@ -81,7 +91,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = (
     'grappelli',  # 3rd party
-    'filebrowser',# 3rd party
+    'filebrowser',  # 3rd party
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -237,7 +247,6 @@ LOGGING = {
     },
 
 }
-
 
 AUTHENTICATION_BACKENDS = (
     'social.backends.google.GoogleOAuth2',
