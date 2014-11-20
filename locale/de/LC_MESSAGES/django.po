@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trendsetter\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-20 16:38+0000\n"
+"POT-Creation-Date: 2014-11-20 17:08+0000\n"
 "PO-Revision-Date: 2014-11-19 12:28+0100\n"
 "Last-Translator: Claudia <Claudia_Thiede@intosite.de>\n"
 "Language-Team:  <info@trendsetter.eu>\n"
@@ -187,7 +187,6 @@ msgid "Wrong username or password."
 msgstr "Falscher Benutzername oder Passwort"
 
 #: django_app/user_accounts/views.py:68
-#| msgid "Your login was successfully."
 msgid "Your logout was successfully."
 msgstr "Dein Logout war er erfolgreich"
 
@@ -202,6 +201,11 @@ msgstr "Max. 10MB. Wird öffentlich angezeigt."
 #: django_app/user_accounts/views.py:162
 msgid "Nur, wenn Du Dein Passwort ändern willst."
 msgstr "Nur, wenn Du Dein Passwort ändern willst."
+
+#: django_app/user_accounts/views.py:181
+#| msgid "Please complete your profile."
+msgid "Thank you for completing your profile."
+msgstr "Vervollständigung Deines Profils"
 
 #: django_app/user_accounts/views.py:183
 msgid "Du hast 5 Trendpoints verdient!"

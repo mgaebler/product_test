@@ -178,7 +178,7 @@ class UserProfileChangeView(LoginRequiredMixin, UpdateView):
                 sender_account=Account.objects.get(name='trendsetter'),
                 receiver_account=user.bank_account.all().first(),
                 amount=5,
-                message=u'Thank you for completing your profile.'
+                message=_(u'Thank you for completing your profile.')
             )
             messages.add_message(self.request, messages.INFO, _(u'Du hast 5 Trendpoints verdient!'))
             if user.invited_by:
