@@ -241,7 +241,7 @@ class AccountCreateView(FormView):
             subject='Confirm Mail',
             # todo: create also a text email
             message=email_body,
-            from_email='registration@trendsetter.de',
+            from_email='registrierung@trendsetter.eu',
             recipient_list=[recipient],
             html_message=email_body,
             fail_silently=False
