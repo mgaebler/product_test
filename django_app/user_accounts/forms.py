@@ -13,7 +13,7 @@ def get_terms_of_use_and_eligibility_requirements_link():
     # terms_of_use = u"<a href='{link}'>{name}</a>".format(link=reverse_lazy("agb"), name="Nutzungs-")
     # eligibility_requirements = u"<a href='{link}'>{name}</a>".format(link=reverse_lazy("agb"), name="Teilnahmebedingungen")
     # return u"{} und {}".format(terms_of_use, eligibility_requirements)
-    return u"Nutzungs und Teilnahmebedingungen"
+    return u"Nutzungs- und Teilnahmebedingungen"
 
 
 def validate_terms_of_use(value):
@@ -61,10 +61,12 @@ class RegisterForm(forms.Form):
 
 class PasswordSetForm(forms.Form):
     password = password = forms.CharField(
+        label=_('password'),
         widget=forms.PasswordInput(render_value=False),
         max_length=100
     )
     re_password = password = forms.CharField(
+        label=_('retype password'),
         widget=forms.PasswordInput(render_value=False),
         max_length=100
     )
