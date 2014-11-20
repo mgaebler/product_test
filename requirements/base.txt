@@ -1,6 +1,7 @@
 # common
 django
 django-braces
+django-bcrypt
 django-extensions
 django-grappelli
 python-memcached
