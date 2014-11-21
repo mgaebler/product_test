@@ -5,7 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 
 class FaqGroup(models.Model):
     name = models.CharField(max_length=255)
-    text = models.TextField()
+    text = models.TextField(blank=True, null=True)
     creation_date = models.DateTimeField(auto_now_add=True, editable=False)
     last_modified_date = models.DateTimeField(auto_now=True, editable=False)
 
