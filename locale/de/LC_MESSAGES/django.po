@@ -198,7 +198,7 @@ msgstr "Falscher Benutzername oder Passwort"
 
 #: django_app/user_accounts/views.py:68
 msgid "Your logout was successfully."
-msgstr "Dein Logout war er erfolgreich"
+msgstr "Du hast Dich erfolgreich abgemeldet."
 
 #: django_app/user_accounts/views.py:127
 msgid "Your password was set successfully."
