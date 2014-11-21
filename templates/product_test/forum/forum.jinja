@@ -46,10 +46,10 @@
   </div>
 
   <div class="forum-not-logged-in">
-    {% if not user.is_staff %}
+    {% if user.is_staff %}
       <a id="new_topic" class="btn btn-default"
          href="{{ url('product_test:forum:new-topic', slug=product_test.slug, forum_id=forum.pk) }}">
-        Start New Topic
+        Start a new topic
       </a>
     {% endif %}
   </div>
