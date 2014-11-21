@@ -2,6 +2,7 @@
 import json
 from django.core.management.base import BaseCommand, CommandError
 from user_accounts.models import UserAccount
+from simple_bank import models
 
 users = json.load(open('import/users.json'))
 
@@ -11,6 +12,14 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         count = 0
+        admin_emails = [
+            "marian.gaebler@intosite.de",
+            "christian.fillies@intosite.de",
+            "wolfgang.boremski@intosite.de",
+            "claudia.thiede@intosite.de",
+            "katharina.birr@intosite.de",
+            "buket.kaya@intosite.de"
+        ]
         for user in users:
             self.stdout.write(u"Import:{} - {}".format(count, user.get('email')))
             # check if user exists
@@ -18,6 +27,10 @@ class Command(BaseCommand):
                 u = UserAccount.objects.get(email=user.get('email'))
             else:
                 u = UserAccount.objects.create_user(user.get('email').strip(), id=int(user.get('id')))
+
+            if user.get('email') in admin_emails:
+                u.is_superuser = True
+                u.is_staff = True
 
             if user.get('password_digest'):
                 u.password = "bcrypt${}".format(user.get('password_digest'))
@@ -61,6 +74,19 @@ class Command(BaseCommand):
 
             if user.get('avatar'):
                 u.avatar = "user/avatar/{}/{}".format(user.get('id'), user.get('avatar'))
+
+            # if user.get('invited_by'):
+            #     u.invited_by = UserAccount.objects.get(id=(user.get('invited_by')))
+
+            if user.get('trendpoints'):
+                tp = int(user.get('trendpoints'))
+                # @todo: uebertrag auf das neue system
+                models.create_transfer(
+                    models.Account.objects.get(name='trendsetter'),
+                    u.bank_account.all().first(),
+                    tp,
+                    'Übertragung Deiner bisher gesammelten Trendpoints in das neue Trendsetter-Kontosystem'
+                )
 
             if user.get('country'):
                 u.country=user.get('country')
