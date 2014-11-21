@@ -14,6 +14,10 @@ def generate_token():
     return token.hexdigest()
 
 
+def get_avatar_upload_path(instance, filename):
+    return u"user/avatar/{}/{}".format(instance.id, filename)
+
+
 class UserAccount(AbstractEmailUser):
     GENDER_CHOICES = (
         ('m', _('male')),
@@ -33,7 +37,7 @@ class UserAccount(AbstractEmailUser):
     preferred_name = models.CharField(_('preferred name'), max_length=255, blank=True)
 
     gender = models.CharField(_('gender'), choices=GENDER_CHOICES, max_length=1)
-    avatar = ThumbnailerImageField(_('avatar'), blank=True, null=True)
+    avatar = ThumbnailerImageField(_('avatar'), upload_to=get_avatar_upload_path, blank=True, null=True)
     avatar_url = models.URLField(max_length=254, null=True, blank=True)
     # todo: mindestalter validieren?
     birth_date = models.DateField(_('birth date'), blank=True, null=True)
