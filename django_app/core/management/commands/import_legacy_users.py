@@ -20,6 +20,7 @@ class Command(BaseCommand):
             "katharina.birr@intosite.de",
             "buket.kaya@intosite.de"
         ]
+
         for user in users:
             self.stdout.write(u"Import:{} - {}".format(count, user.get('email')))
             # check if user exists
