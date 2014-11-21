@@ -11,3 +11,4 @@ db/
 reset.sh
 log/*
 htmlcov/*
+import/
