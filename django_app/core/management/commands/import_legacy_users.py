@@ -91,6 +91,10 @@ class Command(BaseCommand):
             if user.get('country'):
                 u.country=user.get('country')
 
+            if user.get('name') and user.get('city') and user.get('address1') and user.get('postcode')\
+                and user.get('country') and user.get('status') and user.get('gender') and user.get('birthdate'):
+                u.profile_complete=True
+
             u.save()
             count +=1
 
