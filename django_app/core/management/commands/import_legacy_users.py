@@ -3,7 +3,7 @@ import json
 from django.core.management.base import BaseCommand, CommandError
 from user_accounts.models import UserAccount
 
-users = json.load(open('users.json'))
+users = json.load(open('import/users.json'))
 
 
 class Command(BaseCommand):
@@ -17,10 +17,10 @@ class Command(BaseCommand):
             if UserAccount.objects.filter(email=user.get('email')).exists():
                 u = UserAccount.objects.get(email=user.get('email'))
             else:
-                u = UserAccount.objects.create_user(user.get('email').strip())
-            # u.legacy_id=int(user.get('id'))
-            if user.get('password'):
-                u.password = "bcrypt${}".format(user.get('password'))
+                u = UserAccount.objects.create_user(user.get('email').strip(), id=int(user.get('id')))
+
+            if user.get('password_digest'):
+                u.password = "bcrypt${}".format(user.get('password_digest'))
 
             if user.get('name'):
                 u.full_name=user.get('name')
@@ -55,8 +55,13 @@ class Command(BaseCommand):
 
             if user.get('gender'):
                 u.gender=user.get('gender')
-            # u.birth_date=user.get('birthdate')
-            # u.avatar=user['avatar']
+
+            if user.get('birthdate'):
+                u.birth_date=user.get('birthdate')
+
+            if user.get('avatar'):
+                u.avatar = "user/avatar/{}/{}".format(user.get('id'), user.get('avatar'))
+
             if user.get('country'):
                 u.country=user.get('country')
 
