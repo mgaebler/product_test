@@ -13,6 +13,8 @@ class TransferAdmin(admin.ModelAdmin):
     list_display = ('sender', 'receiver', 'amount', 'reference', 'created', 'updated', 'executed',)
     readonly_fields = ('created', 'updated', 'executed',)
 
+
+
     # disable edit link
     def __init__(self, *args, **kwargs):
         super(TransferAdmin, self).__init__(*args, **kwargs)

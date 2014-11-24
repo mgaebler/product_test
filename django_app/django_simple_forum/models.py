@@ -49,7 +49,7 @@ class Topic(models.Model):
             return self.post_set.order_by("created").first()
 
     def __unicode__(self):
-        return u"{} ({})".format(self.title, self.creator.preferred_name)
+        return u"{}".format(self.title)
 
 
 class Post(models.Model):
@@ -62,7 +62,7 @@ class Post(models.Model):
     user_ip = models.GenericIPAddressField(blank=True, null=True)
 
     def __unicode__(self):
-        return u"%s - %s - %s" % (self.creator, self.topic, self.title)
+        return u"%s - %s - %s" % (self.creator.preferred_name, self.topic, self.title)
 
     def short(self):
         return u"%s - %s\n%s" % (self.creator, self.title, self.created.strftime("%b %d, %I:%M %p"))
