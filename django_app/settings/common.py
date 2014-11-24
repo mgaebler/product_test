@@ -57,6 +57,7 @@ TEMPLATE_DEBUG = True
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
+    'django.core.context_processors.debug',
     'django.contrib.auth.context_processors.auth',
     'django.contrib.messages.context_processors.messages',
     'social.apps.django_app.context_processors.backends',
