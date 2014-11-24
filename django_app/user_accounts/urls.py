@@ -1,8 +1,7 @@
 # coding: utf-8
 from django.conf.urls import patterns, url
 from django.views.generic import TemplateView
-
-from simple_shop.views import ShopItemsListView
+from simple_shop.views import ShopItemsListView, shop_buy_item_view
 from . import views
 
 urlpatterns = patterns(
@@ -11,7 +10,9 @@ urlpatterns = patterns(
     url(r'^profil$', views.UserProfileChangeView.as_view(), name='settings'),
     url(r'^tests$', TemplateView.as_view(template_name='profiles/my_site/product_tests.jinja'), name='tests'),
     url(r'^trendpoints$', views.TransferListView.as_view(), name='trendpoints'),
+    url(r'^trendshop/buy/(?P<pk>\d+)/$', shop_buy_item_view, name='trendshop_buy_item'),
     url(r'^trendshop$', ShopItemsListView.as_view(template_name='profiles/my_site/trendshop.jinja'), name='trendshop'),
+
     url(r'^freunde-einladen$', views.InviteFriendsView.as_view(), name='invite_friends'),
 
     url(r'^register$', views.AccountCreateView.as_view(), name='register'),

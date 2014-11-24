@@ -12,6 +12,9 @@
         <li class="page-nav-info{% if request.path == url('user:trendpoints') %} active{% endif %}">
           <a href="{{ url('user:trendpoints') }}">Meine Trendpoints</a>
         </li>
+        <li class="page-nav-info{% if request.path == url('user:trendshop') %} active{% endif %}">
+          <a href="{{ url('user:trendshop') }}">Trendshop</a>
+        </li>
         <li class="page-nav-info{% if request.path == url('user:invite_friends') %} active{% endif %}">
           <a href="{{ url('user:invite_friends') }}">Freunde einladen</a>
         </li>

@@ -33,51 +33,14 @@
               <span>{{ product.value }}</span>
             </div>
             <div class="goodie-action">
-              <a class="btn btn-primary" href="">Jetzt anfordern</a>
+              <a class="btn btn-primary" href="{{ url('user:trendshop_buy_item', pk=product.pk) }}">Jetzt anfordern</a>
             </div>
           </div>
           {% endfor %}
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-14 col-md-offset-5">
 
-        <div class="how-to-earn">
-          <h4>Wie verdiene ich Trendpoints?</h4>
-        </div>
-        <div class="reward-list">
-
-          <div class="reward">
-            <div class="reward-title">Anmelden</div>
-            <div class="reward-points">
-              <span>5</span>
-            </div>
-          </div>
-
-          <div class="reward">
-            <div class="reward-title">
-              <a href="{{ url('user:invite_friends') }}">Freunde einladen</a>
-            </div>
-            <div class="reward-points">
-              <span>5</span>
-            </div>
-          </div>
-
-          <div class="reward">
-            <div class="reward-title">
-              Teilnahme an einem Produkttest
-              <br>
-              <small>inkl. Ausfüllen des Bewerbungs- und Abschlussfragebogens</small>
-            </div>
-            <div class="reward-points">
-              <span>20</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
 
   </div>
 
