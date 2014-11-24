@@ -20,6 +20,7 @@ SITE_ID = 1
 
 APP_DIR = os.path.dirname(os.path.dirname(__file__))
 BASE_DIR = os.path.join(APP_DIR, '..')
+# add django_app to syspath
 sys.path.insert(0, APP_DIR)
 
 # Component import
@@ -74,7 +75,7 @@ TEMPLATE_DIRS = (
 )
 
 DEFAULT_JINJA2_TEMPLATE_EXTENSION = '.jinja'
-DEFAULT_FROM_EMAIL = 'info@trendsetter.de'
+DEFAULT_FROM_EMAIL = 'info@trendsetter.eu'
 
 JINJA2_EXTENSIONS = (
     'pipeline.jinja2.ext.PipelineExtension',
