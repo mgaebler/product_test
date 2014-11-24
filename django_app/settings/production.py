@@ -2,6 +2,8 @@ import yaml
 from .common import *
 
 
+ENVIRONMENT = 'production'
+
 # production settings here
 WSGI_APPLICATION = 'django_app.wsgi.production.application'
 

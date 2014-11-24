@@ -6,6 +6,8 @@ ansible_vars = {}
 with file(os.path.join(BASE_DIR, 'ansible', 'group_vars', 'vagrant.yml')) as f:
     ansible_vars = yaml.load(f.read())
 
+ENVIRONMENT = 'development'
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 THUMBNAIL_DEBUG = True

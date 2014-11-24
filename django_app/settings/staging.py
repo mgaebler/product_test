@@ -5,6 +5,8 @@ ansible_vars = {}
 with file(os.path.join(BASE_DIR, 'ansible', 'group_vars', 'staging.yml')) as f:
     ansible_vars = yaml.load(f.read())
 
+ENVIRONMENT = 'staging'
+
 WSGI_APPLICATION = 'django_app.wsgi.staging.application'
 
 # SECURITY WARNING: don't run with debug turned on in production
