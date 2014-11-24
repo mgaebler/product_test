@@ -2,17 +2,30 @@
 - apt: name=nginx
   sudo: true
 
+
 - name: delete default vhost
   file: name=/etc/nginx/sites-available/default state=absent
   sudo: true
   tags: bootstrap
 
+
+# check what nginx flavour we use
+- stat: path=/etc/nginx/sites-enabled
+  register: sites_enabled
+
 - template: src=virtual_host.j2 dest=/etc/nginx/sites-enabled/{{ app.id }} owner=www-data group=www-data mode=0644
   sudo: true
+  when: sites_enabled.stat.exists
+
+- template: src=virtual_host.j2 dest=/etc/nginx/conf.d/{{ app.id }} owner=www-data group=www-data mode=0644
+  sudo: true
+  when: not sites_enabled.stat.exists
+
 
 # make sure the access_log will be created otherwise the deployment will fail
 - file: path={{ nginx.access_log }} state=touch
   sudo: true
+
 
 - name: reload nginx
   service: name=nginx state=reloaded
