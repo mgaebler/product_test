@@ -9,7 +9,7 @@
         {% for test in product_test_list %}
 
           <div class="test-tile" style="display: inline-block">
-            <h3 class="test-title" {% if test.brand %}style="background-image: url({{ test.brand.logo.url }}{% endif %})">
+            <h3 class="test-title" {% if test.brand %}style="background-image: url({{ test.brand.logo.url }}); background-repeat: no-repeat; background-position: 15px 15px;{% endif %}">
               <a href="{{ url('product_test:info', slug=test.slug) }}">
                 {{ test.title }}
               </a>
