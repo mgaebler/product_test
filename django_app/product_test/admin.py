@@ -33,6 +33,7 @@ class ProductTestAdmin(admin.ModelAdmin):
             'fields': (
                 'published_at',
                 'activated_at',
+                'ends_at',
                 'state',
                 ('updated_at', 'created_at',),
             )

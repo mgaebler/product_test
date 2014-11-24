@@ -48,7 +48,7 @@ class ProductTest(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     published_at = models.DateTimeField(default=timezone.now, null=True)
-    ends_at = models.DateTimeField(default=timezone.now, null=True)
+    ends_at = models.DateTimeField(blank=True, null=True)
     activated_at = models.DateTimeField(default=timezone.now, null=True)
 
     faq = models.OneToOneField(FaqGroup, null=True, blank=True)

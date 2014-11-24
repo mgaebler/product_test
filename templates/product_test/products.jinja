@@ -7,7 +7,7 @@
 
       <div class="col-md-24">
         {% for test in product_test_list %}
-
+            {% if not test.ends_at %}
           <div class="test-tile" style="display: inline-block">
             <h3 class="test-title" {% if test.brand %}style="background-image: url({{ test.brand.logo.url }}); background-repeat: no-repeat; background-position: 15px 15px;{% endif %}">
               <a href="{{ url('product_test:info', slug=test.slug) }}">
@@ -26,7 +26,7 @@
               {{ test.title }}
             </a>
           </div>
-
+            {% endif %}
         {% endfor %}
       </div>
     </div>
@@ -34,30 +34,30 @@
     <div class="row">
       <h2>Abgeschlossene Projekte</h2>
 
-{#      <div class="col-md-24">#}
-{#        {% for test in product_test_list %}#}
-{##}
-{#          <div class="brand-fuersie test-tile" style="display: inline-block">#}
-{#            <h3 class="test-title">#}
-{#              <a href="{{ url('product_test:info', slug=test.slug) }}">#}
-{#                {{ test.title }}#}
-{#              </a>#}
-{#            </h3>#}
-{##}
-{#            <div class="test-link">#}
-{#              <a class="btn btn-inverted" href="{{ url('product_test:info', slug=test.slug) }}">#}
-{#                Jetzt mitmachen#}
-{#              </a>#}
-{#            </div>#}
-{##}
-{#            <a class="test-teaser" href="{{ url('product_test:info', slug=test.slug) }}"#}
-{#               style="background: url({{ thumbnail(test.list_image, size=(400, 400)) }}) no-repeat 50% 100%">#}
-{#              {{ test.title }}#}
-{#            </a>#}
-{#          </div>#}
-{##}
-{#        {% endfor %}#}
-{#      </div>#}
+      <div class="col-md-24">
+        {% for test in product_test_list %}
+            {% if test.ends_at %}
+          <div class="test-tile" style="display: inline-block">
+            <h3 class="test-title" {% if test.brand %}style="background-image: url({{ test.brand.logo.url }}); background-repeat: no-repeat; background-position: 15px 15px;{% endif %}">
+              <a href="{{ url('product_test:info', slug=test.slug) }}">
+                {{ test.title }}
+              </a>
+            </h3>
+
+            <div class="test-link">
+              <a class="btn btn-inverted" href="{{ url('product_test:info', slug=test.slug) }}">
+                Jetzt Bewertung lesen
+              </a>
+            </div>
+
+            <a class="test-teaser" href="{{ url('product_test:info', slug=test.slug) }}"
+               style="background: url({{ thumbnail(test.list_image, size=(400, 400)) }}) no-repeat 50% 100%">
+              {{ test.title }}
+            </a>
+          </div>
+            {% endif %}
+        {% endfor %}
+      </div>
 
     </div>
 
