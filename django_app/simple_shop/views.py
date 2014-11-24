@@ -26,7 +26,7 @@ def shop_buy_item_view(request, pk):
             u'Artikel erworben: {}'.format(item.name)
         )
         if transfer.executed:
-            messages.info(request, u'Du hast {} angefordert.'.format(item.name))
+            messages.info(request, u'Du hast "{}" angefordert.'.format(item.name))
 
             message = u"""
                 Artikel:
@@ -37,7 +37,9 @@ def shop_buy_item_view(request, pk):
                 User:
                 - User:
                     Name: {user_name}
+                    Nick: {user_nick}
                     Id: {user_id}
+                    Email: {user_email}
                 - Adress:
                     {user_address1}
                     {user_address2}
@@ -47,6 +49,8 @@ def shop_buy_item_view(request, pk):
                 item_name=item.name,
                 item_value=item.value,
                 user_id=user.id,
+                user_email=user.email,
+                user_nick=user.preferred_name,
                 user_name=user.full_name,
                 user_address1=user.address1,
                 user_address2=user.address2,
