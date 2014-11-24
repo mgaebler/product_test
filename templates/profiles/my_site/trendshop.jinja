@@ -22,7 +22,7 @@
           {% for product in object_list %}
           <div class="goodie">
             <div class="goodie-img">
-              <a class="js-open-in-overlay" href="{{ static('') }}">
+              <a class="js-open-in-overlay" href="{{ product.image.url }}">
                 <img alt="Trendpunkte praemie {{ product.name }}" src="{{ thumbnail(product.image, size=(64, 64)) }}">
               </a>
             </div>
