@@ -8,8 +8,8 @@
       <div class="col-md-24">
         {% for test in product_test_list %}
 
-          <div class="brand-fuersie test-tile" style="display: inline-block">
-            <h3 class="test-title">
+          <div class="test-tile" style="display: inline-block">
+            <h3 class="test-title" {% if test.brand %}style="background-image: url({{ test.brand.logo.url }}{% endif %})">
               <a href="{{ url('product_test:info', slug=test.slug) }}">
                 {{ test.title }}
               </a>
