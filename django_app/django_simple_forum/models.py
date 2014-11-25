@@ -17,16 +17,7 @@ class Forum(models.Model):
         return sum([t.num_posts() for t in self.topic_set.all()])
 
     def last_post(self):
-        if self.topic_set.count():
-            last = None
-            for t in self.topic_set.all():
-                l = t.last_post()
-                if l:
-                    if not last:
-                        last = l
-                    elif l.created > last.created:
-                        last = l
-            return last
+        return self.topic_set.all().last()
 
 
 class Topic(models.Model):
@@ -62,7 +53,7 @@ class Post(models.Model):
     user_ip = models.GenericIPAddressField(blank=True, null=True)
 
     def __unicode__(self):
-        return u"%s - %s - %s" % (self.creator.preferred_name, self.topic, self.title)
+        return u"{}".format(self.title)
 
     def short(self):
         return u"%s - %s\n%s" % (self.creator, self.title, self.created.strftime("%b %d, %I:%M %p"))

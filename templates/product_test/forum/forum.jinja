@@ -14,9 +14,9 @@
     <table class="table" border="0" cellpadding="4" width="100%">
       <thead>
       <tr>
-        <th>Topics</th>
-        <th>Replies</th>
-        <th>Last post</th>
+        <th>Thema</th>
+        <th>Beiträge</th>
+        <th>Letzter Beitrag</th>
       </tr>
       </thead>
       <tbody>
@@ -32,7 +32,7 @@
           </td>
           <td>
             {% if topic.last_post() %}
-                {{ topic.last_post()|truncatewords(15) }} {{ topic.created|date }}, {{ topic.created|time }}
+                {{ topic.last_post()|truncatewords(15) }} / {{ topic.last_post().creator.preferred_name }}
             {% endif %}
           </td>
           {#          <td>#}
