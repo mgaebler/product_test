@@ -17,7 +17,7 @@
 
         <nav class="page-nav">
           <h2>
-            <a href="{{ product_test.link }}">
+            <a href="{{ url('product_test:info', slug=product_test.slug) }}">
               <img
                   alt="{{ product_test.title }}"
                   src="{{ thumbnail(product_test.logo, size=(232, 52)) }}">
