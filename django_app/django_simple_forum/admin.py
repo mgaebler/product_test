@@ -1,11 +1,7 @@
 # coding: utf-8
 
 from django.contrib import admin
-from .models import Forum, Topic, Post, ProfaneWord
-
-
-class ForumAdmin(admin.ModelAdmin):
-    pass
+from django_simple_forum.models import Forum, Topic, Post, ProfaneWord
 
 
 class TopicAdmin(admin.ModelAdmin):
@@ -18,10 +14,8 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ["title", "topic", "creator", "created"]
 
 
-class ProfaneWordAdmin(admin.ModelAdmin):
-    pass
 
-admin.site.register(Forum, ForumAdmin)
+admin.site.register(Forum)
 admin.site.register(Topic, TopicAdmin)
 admin.site.register(Post, PostAdmin)
-admin.site.register(ProfaneWord, ProfaneWordAdmin)
+admin.site.register(ProfaneWord)
