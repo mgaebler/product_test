@@ -1,9 +1,11 @@
 from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
 from filebrowser.sites import site
+from core.views_utils import streaming_csv_view
 
 from core.views import IndexView
 
@@ -30,6 +32,8 @@ urlpatterns = patterns('',
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^pages/', include('django.contrib.flatpages.urls')),
+
+    url(r'^export/csv/confirmed-users', streaming_csv_view),
 )
 
 if settings.DEBUG:
