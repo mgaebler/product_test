@@ -10,10 +10,11 @@
       padding: 6px 12px;
       width: 100%;
     }
-    input[type="checkbox"], input[type="radio"]
-    {
+
+    input[type="checkbox"], input[type="radio"] {
       width: 24px;
     }
+
     div.avatar a {
       display: block;
     }
@@ -184,7 +185,9 @@
     </label>
 
     <div class="col-sm-10">
-      <input id="{{ form.birth_date.id }}" name="{{ form.birth_date.name }}" type="date" value="{{ form.birth_date.value() }}">
+      <input id="{{ form.birth_date.id }}" name="{{ form.birth_date.name }}" type="date"
+             value="{{ form.birth_date.value() }}">
+
       <div class="help-block">
         Pflichtfeld.
         {{ form.birth_date.errors }}
