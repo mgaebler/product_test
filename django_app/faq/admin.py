@@ -4,8 +4,9 @@ from .models import FaqGroup, FaqEntry
 
 class FaqEntryRelation(admin.TabularInline):
     model = FaqEntry
-    extra = 1
-
+    extra = 0
+    # define the sortable
+    sortable_field_name = "position"
 
 class FaqGroupAdmin(admin.ModelAdmin):
     inlines = (FaqEntryRelation,)

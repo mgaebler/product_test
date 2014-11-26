@@ -21,6 +21,11 @@ class FaqEntry(models.Model):
     last_modified_date = models.DateTimeField(auto_now=True, editable=False)
     is_active = models.BooleanField(default=True)
 
+    position = models.PositiveSmallIntegerField(_("Position"))
+
+    class Meta:
+        ordering = ['position']
+
     def __unicode__(self):
         return self.question
 
