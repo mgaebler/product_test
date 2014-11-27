@@ -94,3 +94,10 @@ Folgende Punkte werden im Deployment abgehandelt.
 * Installation der **production** Requirements (Python)
 * Ausführen der Datenbankmigrationen
 * Ausführen von collectstatic
+
+
+## Übersetzungen
+Zum erstellen der Dateien 
+``./manage.py makemessages -e jinja -e html -e txt --all`` 
+ausführen. 
+Es ist notwendig jinja als Extension mitzugeben da sonst die Jinja-Templates nicht erfasst werden.
