@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trendsetter\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-20 17:30+0000\n"
+"POT-Creation-Date: 2014-11-27 11:50+0000\n"
 "PO-Revision-Date: 2014-11-19 12:28+0100\n"
 "Last-Translator: Claudia <Claudia_Thiede@intosite.de>\n"
 "Language-Team:  <info@trendsetter.eu>\n"
@@ -18,6 +18,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.6.10\n"
 "X-Poedit-SourceCharset: UTF-8\n"
+
+#: django_app/faq/models.py:24
+#, fuzzy
+#| msgid "description"
+msgid "Position"
+msgstr "Beschreibung"
 
 #: django_app/gallery/models.py:18
 msgid "name"
@@ -100,83 +106,83 @@ msgstr "Bitte die E-mail Adressen durch Komma trennen."
 msgid "Du kannst den Text verändern, solltest aber den Link nicht entfernen."
 msgstr "Du kannst den Text verändern, solltest aber den Link nicht entfernen."
 
-#: django_app/user_accounts/models.py:19
+#: django_app/user_accounts/models.py:23
 msgid "male"
 msgstr "männlich"
 
-#: django_app/user_accounts/models.py:20
+#: django_app/user_accounts/models.py:24
 msgid "female"
 msgstr "weiblich"
 
-#: django_app/user_accounts/models.py:21
+#: django_app/user_accounts/models.py:25
 msgid "something else"
 msgstr "anderes"
 
-#: django_app/user_accounts/models.py:24
+#: django_app/user_accounts/models.py:28
 msgid "single"
 msgstr "single"
 
-#: django_app/user_accounts/models.py:25
+#: django_app/user_accounts/models.py:29
 msgid "partnership"
 msgstr "in einer Partnerschaft"
 
-#: django_app/user_accounts/models.py:26
+#: django_app/user_accounts/models.py:30
 msgid "married"
 msgstr "verheiratet"
 
-#: django_app/user_accounts/models.py:27
+#: django_app/user_accounts/models.py:31
 msgid "divorced"
 msgstr "geschieden"
 
-#: django_app/user_accounts/models.py:28
+#: django_app/user_accounts/models.py:32
 msgid "another"
 msgstr "anderes"
 
-#: django_app/user_accounts/models.py:32
+#: django_app/user_accounts/models.py:36
 msgid "full name"
 msgstr "Vollständiger Name"
 
-#: django_app/user_accounts/models.py:33
+#: django_app/user_accounts/models.py:37
 msgid "preferred name"
 msgstr "Gewünschter Nutzername"
 
-#: django_app/user_accounts/models.py:35
+#: django_app/user_accounts/models.py:39
 msgid "gender"
 msgstr "Geschlecht"
 
-#: django_app/user_accounts/models.py:36
+#: django_app/user_accounts/models.py:40
 msgid "avatar"
 msgstr "Profilbild"
 
-#: django_app/user_accounts/models.py:39
+#: django_app/user_accounts/models.py:43
 msgid "birth date"
 msgstr "Geburtsdatum"
 
-#: django_app/user_accounts/models.py:41
+#: django_app/user_accounts/models.py:45
 msgid "city"
 msgstr "Stadt"
 
-#: django_app/user_accounts/models.py:42
+#: django_app/user_accounts/models.py:46
 msgid "country"
 msgstr "Land"
 
-#: django_app/user_accounts/models.py:43
+#: django_app/user_accounts/models.py:47
 msgid "address1"
 msgstr "Straße und Hausnummer"
 
-#: django_app/user_accounts/models.py:44
+#: django_app/user_accounts/models.py:48
 msgid "address2"
 msgstr "Zusatz (optional)"
 
-#: django_app/user_accounts/models.py:45
+#: django_app/user_accounts/models.py:49
 msgid "address3"
 msgstr "Hinweis (optional)"
 
-#: django_app/user_accounts/models.py:46
+#: django_app/user_accounts/models.py:50
 msgid "postcode"
 msgstr "Postleitzahl"
 
-#: django_app/user_accounts/models.py:47
+#: django_app/user_accounts/models.py:51
 msgid "family status"
 msgstr "Familienstand"
 
@@ -265,6 +271,14 @@ msgstr "Startseite"
 msgid "Django site admin"
 msgstr "Django site admin"
 
+#: templates/base.jinja:124
+#: templates/profiles/password/password_reset_complete.jinja:12
+#: templates/registration/register_form.jinja:29
+#, fuzzy
+#| msgid "Log in again"
+msgid "Log in"
+msgstr "Bitte log Dich erneut ein"
+
 #: templates/profiles/password/password_change_done.html:7
 #: templates/profiles/password/password_change_form.html:8
 msgid "Password change"
@@ -283,6 +297,10 @@ msgid "Please correct the errors below."
 msgstr "Bitte überprüfe Deine Angaben."
 
 #: templates/profiles/password/password_change_form.html:26
+#, fuzzy
+#| msgid ""
+#| "Please enter your old password, for security's sake, and then enter your "
+#| "new password twice so we can verify you typed it in correctly."
 msgid ""
 "Please enter your old password, for security's sake, and then enter your new "
 "password twice so we can verify you typed it in correctly."
@@ -295,8 +313,27 @@ msgid "Old password"
 msgstr "Bisheriges Passwort"
 
 #: templates/profiles/password/password_change_form.html:48
+#: templates/profiles/password/password_reset_confirm.jinja:28
 msgid "Change my password"
 msgstr "Mein Passwort ändern"
+
+#: templates/profiles/password/password_reset_confirm.jinja:11
+#, fuzzy
+#| msgid ""
+#| "Please enter your old password, for security's sake, and then enter your "
+#| "new password twice so we can verify you typed it in correctly."
+msgid ""
+"Please enter your new password twice so we can verify you typed it in "
+"correctly."
+msgstr ""
+"Bitte gib Dein bisheriges Passwort ein und suche Dir ein neues Passwort aus. "
+"Zur Sicherheit gegen Vertipper, gib Dein neues Passwort ein zweites Mal ein."
+
+#: templates/profiles/password/password_reset_confirm.jinja:34
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a new password reset."
+msgstr ""
 
 #: templates/profiles/password/password_reset_done.html:7
 msgid "Password reset"
@@ -318,15 +355,48 @@ msgstr ""
 "Wenn Du keine Bestätigungsmail erhalten hast, überprüfe, ob es sich um die "
 "richtige E-Mail Adresse handelt und schaue auch in Deinem Spam-Ordner nach."
 
-#: templates/profiles/password/password_reset_subject.txt:2
+#: templates/profiles/password/password_reset_email.jinja:2
+#: templates/profiles/password/password_reset_html_email.jinja:7
 #, python-format
-msgid "Password reset on %(site_name)s"
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at %(site_name)s."
 msgstr ""
+
+#: templates/profiles/password/password_reset_email.jinja:4
+#: templates/profiles/password/password_reset_html_email.jinja:10
+msgid "Please go to the following page and choose a new password:"
+msgstr ""
+
+#: templates/profiles/password/password_reset_email.jinja:10
+msgid "Your username, in case you've forgotten:"
+msgstr ""
+
+#: templates/profiles/password/password_reset_email.jinja:12
+#: templates/profiles/password/password_reset_html_email.jinja:17
+#, fuzzy
+#| msgid "Thank you for completing your profile."
+msgid "Thanks for using our site!"
+msgstr "Vervollständigung Deines Profils"
+
+#: templates/profiles/password/password_reset_email.jinja:14
+#: templates/profiles/password/password_reset_html_email.jinja:20
+#, python-format
+msgid "The %(site_name)s team"
+msgstr ""
+
+#: templates/profiles/password/password_reset_subject.txt:2
+#, fuzzy, python-format
+#| msgid "Password reset"
+msgid "Password reset on %(site_name)s"
+msgstr "Passwort zurücksetzen"
 
 #: templates/registration/logged_out.html:3
 msgid "Thanks for spending some quality time with the Web site today."
 msgstr "Danke für Deinen Besuch auf trendsetter.eu"
 
 #: templates/registration/logged_out.html:5
+#, fuzzy
+#| msgid "Log in again"
 msgid "Log in again"
 msgstr "Bitte log Dich erneut ein"
