@@ -37,7 +37,7 @@ class Topic(models.Model):
 
     def last_post(self):
         if self.post_set.count():
-            return self.post_set.order_by("created").first()
+            return self.post_set.order_by("created").last()
 
     def __unicode__(self):
         return u"{}".format(self.title)
