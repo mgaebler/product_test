@@ -20,10 +20,9 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: django_app/faq/models.py:24
-#, fuzzy
 #| msgid "description"
 msgid "Position"
-msgstr "Beschreibung"
+msgstr "Position"
 
 #: django_app/gallery/models.py:18
 msgid "name"
@@ -274,7 +273,6 @@ msgstr "Django site admin"
 #: templates/base.jinja:124
 #: templates/profiles/password/password_reset_complete.jinja:12
 #: templates/registration/register_form.jinja:29
-#, fuzzy
 #| msgid "Log in again"
 msgid "Log in"
 msgstr "Bitte log Dich erneut ein"
@@ -297,7 +295,6 @@ msgid "Please correct the errors below."
 msgstr "Bitte überprüfe Deine Angaben."
 
 #: templates/profiles/password/password_change_form.html:26
-#, fuzzy
 #| msgid ""
 #| "Please enter your old password, for security's sake, and then enter your "
 #| "new password twice so we can verify you typed it in correctly."
@@ -318,7 +315,6 @@ msgid "Change my password"
 msgstr "Mein Passwort ändern"
 
 #: templates/profiles/password/password_reset_confirm.jinja:11
-#, fuzzy
 #| msgid ""
 #| "Please enter your old password, for security's sake, and then enter your "
 #| "new password twice so we can verify you typed it in correctly."
@@ -378,7 +374,6 @@ msgstr "Dein Username, falls Du ihn gerade nicht weißt:"
 
 #: templates/profiles/password/password_reset_email.jinja:12
 #: templates/profiles/password/password_reset_html_email.jinja:17
-#, fuzzy
 #| msgid "Thank you for completing your profile."
 msgid "Thanks for using our site!"
 msgstr "Vervollständigung Deines Profils"
@@ -400,7 +395,6 @@ msgid "Thanks for spending some quality time with the Web site today."
 msgstr "Danke für Deinen Besuch auf trendsetter.eu"
 
 #: templates/registration/logged_out.html:5
-#, fuzzy
 #| msgid "Log in again"
 msgid "Log in again"
 msgstr "Bitte log Dich erneut ein"
