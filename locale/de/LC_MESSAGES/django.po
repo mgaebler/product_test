@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Trendsetter\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-27 11:50+0000\n"
-"PO-Revision-Date: 2014-11-19 12:28+0100\n"
+"PO-Revision-Date: 2014-11-27 14:09+0100\n"
 "Last-Translator: Claudia <Claudia_Thiede@intosite.de>\n"
 "Language-Team:  <info@trendsetter.eu>\n"
 "Language: de_DE\n"
@@ -31,7 +31,7 @@ msgstr "Name"
 
 #: django_app/gallery/models.py:19
 msgid "slug"
-msgstr ""
+msgstr "Titel"
 
 #: django_app/gallery/models.py:22
 msgid "description"
@@ -334,6 +334,8 @@ msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used.  Please request a new password reset."
 msgstr ""
+"Der Link zum Zurücksetzen Deines Passwortes ist ungültig, da er bereits "
+"genutzt wurde. Bitte fordere ein neues Passwort an."
 
 #: templates/profiles/password/password_reset_done.html:7
 msgid "Password reset"
@@ -362,15 +364,17 @@ msgid ""
 "You're receiving this email because you requested a password reset for your "
 "user account at %(site_name)s."
 msgstr ""
+"Du erhältst diese E-Mail, weil Du ein neues Passwort für Deinen User-Account "
+"bei %(site_name)s angefordert hast."
 
 #: templates/profiles/password/password_reset_email.jinja:4
 #: templates/profiles/password/password_reset_html_email.jinja:10
 msgid "Please go to the following page and choose a new password:"
-msgstr ""
+msgstr "Bitte gehe auf folgende Seite und wähle ein neues Passwort aus:"
 
 #: templates/profiles/password/password_reset_email.jinja:10
 msgid "Your username, in case you've forgotten:"
-msgstr ""
+msgstr "Dein Username, falls Du ihn gerade nicht weißt:"
 
 #: templates/profiles/password/password_reset_email.jinja:12
 #: templates/profiles/password/password_reset_html_email.jinja:17
@@ -383,7 +387,7 @@ msgstr "Vervollständigung Deines Profils"
 #: templates/profiles/password/password_reset_html_email.jinja:20
 #, python-format
 msgid "The %(site_name)s team"
-msgstr ""
+msgstr "Dein %(site_name)s Team"
 
 #: templates/profiles/password/password_reset_subject.txt:2
 #, fuzzy, python-format
