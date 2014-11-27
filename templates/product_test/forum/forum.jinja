@@ -17,6 +17,7 @@
         <th>Thema</th>
         <th>Beiträge</th>
         <th>Letzter Beitrag</th>
+        <th></th>
       </tr>
       </thead>
       <tbody>
@@ -27,12 +28,29 @@
               <a href="{{ url('product_test:forum:topic-detail', slug=product_test.slug, topic_id=topic.pk) }}">{{ topic.title }}</a>
             </div>
           </td>
-          <td>
+          <td align="center">
             {{ topic.num_posts() }}
           </td>
           <td>
             {% if topic.last_post() %}
-                {{ topic.last_post()|truncatewords(15) }} / {{ topic.last_post().creator.preferred_name }}
+              <a href="{{ url('product_test:forum:topic-detail', slug=product_test.slug, topic_id=topic.pk) }}">
+              <strong>{{ topic.last_post().title }}</strong>  {{ topic.last_post().created|time }} - {{ topic.last_post().created|date }}
+              </a>
+              <p>
+              {{ topic.last_post().body|truncatewords(30) }}
+              </p>
+            {% endif %}
+          </td>
+
+          <td align="center">
+          {% if topic.last_post() %}
+            {% with creator=topic.last_post().creator %}
+              {% include 'product_test/forum/snippets/avatar.jinja' %}
+            {% endwith %}
+
+            <div class="nickname">
+              {{ topic.last_post().creator.preferred_name }}
+            </div>
             {% endif %}
           </td>
           {#          <td>#}

@@ -1,0 +1,13 @@
+{% if creator.is_staff %}
+  <div>
+    <img class="team crown" src="{{ static('app/images/crown.png') }}"
+         class="user-avatar user-avatar-medium"/>
+  </div>
+{% endif %}
+{% if creator.avatar %}
+  <img class="img-circle" alt="Default avatar"
+       src="{{ thumbnail(creator.avatar, size=(42, 42), crop=True) }}"/>
+{% else %}
+  <img alt="avatar" class="img-circle user-avatar user-avatar-medium"
+       src="{{ static('app/images/default_avatar.jpg') }}"/>
+{% endif %}
