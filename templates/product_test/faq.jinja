@@ -6,12 +6,14 @@
 
   <p>{{ product_test.faq.text }}</p>
 
+  <ol>
   {% for entry in product_test.faq.faqentry_set.all() %}
-  <div class="faq-entry">
+
+  <li class="faq-entry">
     <h4>{{ entry.question }}</h4>
     <p>{% autoescape off %}{{ entry.answer.replace('\n', '<br>') }}{% endautoescape %}</p>
-  </div>
+  </li>
   {% endfor %}
-
+    </ol>
 </div>
 {% endblock %}
