@@ -43,14 +43,15 @@
           </td>
 
           <td align="center">
+          {% if topic.last_post() %}
             {% with creator=topic.last_post().creator %}
               {% include 'product_test/forum/snippets/avatar.jinja' %}
             {% endwith %}
 
             <div class="nickname">
-              {{ topic.last_post().creator.preferred_name }}<br/>
+              {{ topic.last_post().creator.preferred_name }}
             </div>
-
+            {% endif %}
           </td>
           {#          <td>#}
           {#            <a class="button" href="{{ url('product_test:forum:topic-detail', topic.pk) }}">VIEW</a>#}
