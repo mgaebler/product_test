@@ -1,19 +1,13 @@
-{% extends 'email/base.jinja' %}
+Lieber Trendsetter,
+-------------------
 
-{% block context %}
-  <h3>Lieber Trendsetter,</h3>
-  <p>
-    wir freuen uns über Deine Registrierung bei Trendsetter!
-    Um Deine Registrierung abzuschließen, klicke bitte auf Registrierung bestätigen oder gib die folgende Adresse in
-    deinem Browser ein:
-  </p>
-  {{ verification_link }}
+wir freuen uns über Deine Registrierung bei Trendsetter!
+Um Deine Registrierung abzuschließen, klicke bitte auf Registrierung bestätigen oder gib die folgende Adresse in
+deinem Browser ein:
 
-  <p>
-    Viel Spaß!
-    Dein Trendsetter Team
-  </p>
-  <p>
-    PS: Dieser Registrierungslink ist einmalig für 7 Tage gültig, danach wird Deine Registrierung gelöscht.
-  </p>
-{% endblock %}
+{{ verification_link }}
+
+Viel Spaß!
+Dein Trendsetter Team
+
+PS: Dieser Registrierungslink ist einmalig für 7 Tage gültig, danach wird Deine Registrierung gelöscht.

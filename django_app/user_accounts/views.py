@@ -234,19 +234,25 @@ class AccountCreateView(FormView):
             reverse('user:verify_token', kwargs={'token': token})
         )
 
+
         template = get_template('registration/registration_email.jinja')
         context = Context({'verification_link': verification_link})
         email_body = template.render(context)
 
+        html_template = get_template('registration/registration_email_html.jinja')
+        context = Context({'verification_link': verification_link})
+        html_email_body = html_template.render(context)
+
         send_mail(
             subject='Confirm Mail',
-            # todo: create also a text email
             message=email_body,
             from_email='registrierung@trendsetter.eu',
             recipient_list=[recipient],
-            html_message=email_body,
+            html_message=html_email_body,
             fail_silently=False
         )
+
+        logger.info('Send verification mail')
 
     @staticmethod
     def _generate_confirmation_token(email):
