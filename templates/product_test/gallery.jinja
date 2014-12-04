@@ -32,6 +32,7 @@
     </p>
   </div>
   {% else %}
+  <hr/>
   <form
       action="{{ url('product_test:gallery:image_upload', slug=product_test.slug) }}"
       method="post"
@@ -40,7 +41,7 @@
     {% autoescape off %}
     {{ image_upload_form|bootstrap }}
     {% endautoescape %}
-    <input type="submit"/>
+    <input class="btn btn-primary" value="Bild hochladen" type="submit"/>
   </form>
   {% endif %}
 
