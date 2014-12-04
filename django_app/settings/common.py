@@ -227,7 +227,7 @@ LOGGING = {
     'disable_existing_loggers': False,
     'handlers': {
         'syslog': {
-            'level': 'INFO',
+            'level': 'DEBUG',
             'class': 'logging.handlers.SysLogHandler',
             # 'formatter': 'verbose',
             'facility': SysLogHandler.LOG_LOCAL2,
@@ -245,9 +245,7 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': True,
         },
-
     },
-
 }
 
 AUTHENTICATION_BACKENDS = (

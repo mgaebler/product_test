@@ -26,7 +26,7 @@ from .models import UserAccount
 from . import forms
 
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('user_account.view')
 
 
 def login_view(request):
@@ -37,6 +37,7 @@ def login_view(request):
         if user.is_active:
             login(request, user)
             messages.add_message(request, messages.INFO, _(u'Login successful'))
+            logger.info("Successful login")
             if not user.profile_complete:
                 messages.add_message(request, messages.INFO, _(u'Please complete your profile.'))
                 return redirect('user:settings')
@@ -70,6 +71,7 @@ def logout_view(request):
 
 
 def reset_confirm(request, uidb64=None, token=None):
+    logger.debug('Execute password confirm.')
     return password_reset_confirm(
         request,
         uidb64=uidb64,
@@ -83,6 +85,7 @@ def reset_confirm(request, uidb64=None, token=None):
 
 
 def reset(request):
+    logger.debug('Execute password reset.')
     return password_reset(
         request,
         is_admin_site=False,
@@ -233,19 +236,25 @@ class AccountCreateView(FormView):
             reverse('user:verify_token', kwargs={'token': token})
         )
 
+
         template = get_template('registration/registration_email.jinja')
         context = Context({'verification_link': verification_link})
         email_body = template.render(context)
 
+        html_template = get_template('registration/registration_email_html.jinja')
+        context = Context({'verification_link': verification_link})
+        html_email_body = html_template.render(context)
+
         send_mail(
-            subject='Confirm Mail',
-            # todo: create also a text email
+            subject='Deine Registrierung bei Trendsetter',
             message=email_body,
             from_email='registrierung@trendsetter.eu',
             recipient_list=[recipient],
-            html_message=email_body,
+            html_message=html_email_body,
             fail_silently=False
         )
+
+        logger.info('Send verification mail')
 
     @staticmethod
     def _generate_confirmation_token(email):
