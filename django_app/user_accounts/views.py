@@ -244,7 +244,7 @@ class AccountCreateView(FormView):
         html_email_body = html_template.render(context)
 
         send_mail(
-            subject='Confirm Mail',
+            subject='Deine Registrierung bei Trendsetter',
             message=email_body,
             from_email='registrierung@trendsetter.eu',
             recipient_list=[recipient],
