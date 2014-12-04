@@ -1,6 +1,12 @@
 {% extends 'product_test/base.jinja' %}
 
 {% block product_test_content %}
+<script>
+  $(document).delegate('*[data-toggle="lightbox"]', 'click', function (event) {
+    event.preventDefault();
+    $(this).ekkoLightbox();
+  });
+</script>
 <div class="forum-header">
   <p>
     Hier kannst Du Deine Fotos und Videos aus der Trendsetter-Aktion
@@ -14,7 +20,7 @@
   <div class="row">
     {% for image in product_test.gallery.images.all() %}
       <div class="col-md-4 col-sm-6" align="center">
-        <a class="thumbnail" href="{{ image.file.url }}">
+        <a class="thumbnail" datatype="image" data-toggle="lightbox" data-gallery="test" href="{{ image.file.url }}">
           <img class="img-responsive" src="{{ thumbnail(image.file, size=(165, 165), crop=True) }}"/>
           <small>
             {{ image.owner.preferred_name }}
