@@ -71,6 +71,7 @@ def logout_view(request):
 
 
 def reset_confirm(request, uidb64=None, token=None):
+    logger.debug('Execute password confirm.')
     return password_reset_confirm(
         request,
         uidb64=uidb64,
@@ -84,6 +85,7 @@ def reset_confirm(request, uidb64=None, token=None):
 
 
 def reset(request):
+    logger.debug('Execute password reset.')
     return password_reset(
         request,
         is_admin_site=False,
