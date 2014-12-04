@@ -26,7 +26,7 @@ from .models import UserAccount
 from . import forms
 
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('user_account.view')
 
 
 def login_view(request):
@@ -37,6 +37,7 @@ def login_view(request):
         if user.is_active:
             login(request, user)
             messages.add_message(request, messages.INFO, _(u'Login successful'))
+            logger.info("Successful login")
             if not user.profile_complete:
                 messages.add_message(request, messages.INFO, _(u'Please complete your profile.'))
                 return redirect('user:settings')

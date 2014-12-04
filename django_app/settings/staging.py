@@ -46,3 +46,35 @@ DATABASES = {
         'PORT': '',
     }
 }
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'syslog': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.SysLogHandler',
+            # 'formatter': 'verbose',
+            'facility': SysLogHandler.LOG_LOCAL2,
+            'address': '/dev/log',
+        }
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['syslog'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'django_jinja.builtins.global_context': {
+            'handlers': ['syslog'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'user_account.view': {
+            'handlers': ['syslog'],
+            'level': 'DEBUG',
+            'propagate': True,
+        }
+    },
+
+}
