@@ -29,3 +29,7 @@
     - python-pip
     - python-dev
     - python-virtualenv
+    # logging support
+    - bsdutils
+    - inetutils-syslogd
+    - rsyslog
