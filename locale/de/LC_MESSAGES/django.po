@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Trendsetter\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-12-05 09:39+0000\n"
-"PO-Revision-Date: 2014-11-19 12:28+0100\n"
+"PO-Revision-Date: 2014-12-05 10:59+0100\n"
 "Last-Translator: Claudia <Claudia_Thiede@intosite.de>\n"
 "Language-Team:  <info@trendsetter.eu>\n"
 "Language: de_DE\n"
@@ -23,7 +23,7 @@ msgstr ""
 #: django_app/django_simple_forum/models.py:24
 #: django_app/django_simple_forum/models.py:47
 msgid "title"
-msgstr ""
+msgstr "Titel"
 
 #: django_app/django_simple_forum/models.py:8
 #: django_app/django_simple_forum/models.py:25 django_app/gallery/models.py:21
@@ -34,15 +34,15 @@ msgstr "Beschreibung"
 #: django_app/django_simple_forum/models.py:27
 #: django_app/django_simple_forum/models.py:48
 msgid "creator"
-msgstr ""
+msgstr "Urheber"
 
 #: django_app/django_simple_forum/models.py:51
 msgid "topic"
-msgstr ""
+msgstr "Thema"
 
 #: django_app/django_simple_forum/models.py:52
 msgid "body"
-msgstr ""
+msgstr "Inhalt"
 
 #: django_app/faq/models.py:24
 #, fuzzy
@@ -328,7 +328,7 @@ msgstr "Mein Passwort ändern"
 
 #: templates/profiles/password/password_reset_complete.jinja:9
 msgid "Your password has been set.  You may go ahead and log in now."
-msgstr ""
+msgstr "Dein Passwort wurde geändert. Du kannst Dich nun wieder einloggen."
 
 #: templates/profiles/password/password_reset_confirm.jinja:11
 #, fuzzy
@@ -359,6 +359,8 @@ msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used.  Please request a new password reset."
 msgstr ""
+"Der Link zum Zurücksetzen des Passworts war ungültig, weil er bereits "
+"genutzt wurde. Bitte fordere noch einmal ein neues Passwort an."
 
 #: templates/profiles/password/password_reset_done.html:7
 msgid "Password reset"
@@ -387,15 +389,17 @@ msgid ""
 "You're receiving this email because you requested a password reset for your "
 "user account at %(site_name)s."
 msgstr ""
+"Du erhältst diese E-Mail, weil Du ein neues Passwort für %(site_name)s "
+"angefordert hast."
 
 #: templates/profiles/password/password_reset_email.jinja:4
 #: templates/profiles/password/password_reset_html_email.jinja:10
 msgid "Please go to the following page and choose a new password:"
-msgstr ""
+msgstr "Bitte gehe auf folgende Seite und wähle ein neues Passwort aus:"
 
 #: templates/profiles/password/password_reset_email.jinja:8
 msgid "Your username, in case you've forgotten:"
-msgstr ""
+msgstr "Dein Nutzername, falls Du ihn gerade nicht weißt:"
 
 #: templates/profiles/password/password_reset_email.jinja:10
 #: templates/profiles/password/password_reset_html_email.jinja:17
@@ -408,12 +412,12 @@ msgstr "Vervollständigung Deines Profils"
 #: templates/profiles/password/password_reset_html_email.jinja:20
 #, python-format
 msgid "The %(site_name)s team"
-msgstr ""
+msgstr "Dein %(site_name)s Team"
 
 #: templates/profiles/password/password_reset_subject.txt:2
 #, python-format
 msgid "Password reset on %(site_name)s"
-msgstr ""
+msgstr "Passwort zurücksetzen auf %(site_name)s"
 
 #: templates/registration/logged_out.html:3
 msgid "Thanks for spending some quality time with the Web site today."
