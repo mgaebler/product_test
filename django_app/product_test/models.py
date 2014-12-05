@@ -1,6 +1,8 @@
 # coding: utf-8
-import logging
 from __future__ import unicode_literals
+
+import logging
+
 from django.db import models
 from django.utils import timezone
 from django.core.urlresolvers import reverse
@@ -30,6 +32,16 @@ class Brand(models.Model):
         return reverse('brand_detail', kwargs={'slug': self.slug})
 
 
+class TestResult(models.Model):
+    title = models.CharField(max_length=255)
+    content = models.TextField(blank=True, null=True)
+    is_active = models.BooleanField(default=True)
+    published_at = models.DateTimeField(default=timezone.now, blank=True, null=True)
+
+    def __unicode__(self):
+        return self.title
+
+
 class ProductTest(models.Model):
     slug = models.SlugField(max_length=254, db_index=True)
     title = models.CharField(max_length=254)
@@ -55,6 +67,7 @@ class ProductTest(models.Model):
     faq = models.OneToOneField(FaqGroup, null=True, blank=True)
     gallery = models.OneToOneField(Gallery, null=True, blank=True)
     forum = models.OneToOneField(Forum, null=True, blank=True)
+    test_result = models.OneToOneField(TestResult, null=True, blank=True)
 
     state = models.BooleanField(default=False)
 
@@ -72,16 +85,6 @@ class Participation(models.Model):
     product_test = models.ForeignKey(ProductTest)
     created_at = models.DateTimeField(auto_now_add=True)
 
-
-class TestResult(models.Model):
-    product_test = models.OneToOneField(ProductTest)
-    title = models.CharField(max_length=255)
-    content = models.TextField(blank=True, null=True)
-    is_active = models.BooleanField(default=True)
-    published_at = models.DateTimeField(default=timezone.now, blank=True, null=True)
-
-    def __unicode__(self):
-        return self.title
 
 
 def create_product_test_add_ons(sender, **kwargs):

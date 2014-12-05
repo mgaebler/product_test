@@ -1,5 +1,9 @@
+# coding: utf-8
+from __future__ import unicode_literals
 from django.contrib import admin
-from .models import ProductTest, Brand, Participation
+from django.templatetags.static import static
+
+from .models import ProductTest, Brand, Participation, TestResult
 
 
 class ParticipationInline(admin.TabularInline):
@@ -27,7 +31,7 @@ class ProductTestAdmin(admin.ModelAdmin):
             'fields': ('custom_html', 'custom_css',)
         }),
         ('Additional Pages', {
-            'fields': ('gallery', 'faq', 'forum')
+            'fields': ('gallery', 'faq', 'forum', 'test_result')
         }),
         (None, {
             'fields': (
@@ -39,6 +43,15 @@ class ProductTestAdmin(admin.ModelAdmin):
             )
         })
     )
+
+
+@admin.register(TestResult)
+class TestResultAdmin(admin.ModelAdmin):
+    class Media:
+        js = [
+            static('grappelli/tinymce/jscripts/tiny_mce/tiny_mce.js'),
+            static('grappelli/tinymce_setup/tinymce_setup.js'),
+        ]
 
 
 admin.site.register(Brand)
