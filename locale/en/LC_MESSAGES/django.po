@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-20 17:30+0000\n"
+"POT-Creation-Date: 2014-12-05 09:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,47 +17,64 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: django_app/django_simple_forum/models.py:7
+#: django_app/django_simple_forum/models.py:24
+#: django_app/django_simple_forum/models.py:47
+msgid "title"
+msgstr ""
+
+#: django_app/django_simple_forum/models.py:8
+#: django_app/django_simple_forum/models.py:25 django_app/gallery/models.py:21
+msgid "description"
+msgstr ""
+
+#: django_app/django_simple_forum/models.py:11
+#: django_app/django_simple_forum/models.py:27
+#: django_app/django_simple_forum/models.py:48
+msgid "creator"
+msgstr ""
+
+#: django_app/django_simple_forum/models.py:51
+msgid "topic"
+msgstr ""
+
+#: django_app/django_simple_forum/models.py:52
+msgid "body"
+msgstr ""
+
+#: django_app/faq/models.py:24
+msgid "Position"
+msgstr ""
+
 #: django_app/gallery/models.py:18
 msgid "name"
 msgstr ""
 
-#: django_app/gallery/models.py:19
-msgid "slug"
-msgstr ""
-
 #: django_app/gallery/models.py:22
-msgid "description"
-msgstr ""
-
-#: django_app/gallery/models.py:23
 msgid "gallery_gallery_description_help_text"
 msgstr ""
 
-#: django_app/gallery/models.py:27
-msgid "teaser image"
-msgstr ""
-
-#: django_app/gallery/models.py:28 django_app/gallery/models.py:62
-msgid "is_deleted"
-msgstr ""
-
-#: django_app/gallery/models.py:30
+#: django_app/gallery/models.py:28
 msgid "published"
 msgstr ""
 
-#: django_app/gallery/models.py:32
+#: django_app/gallery/models.py:30
 msgid "publish_date"
 msgstr ""
 
-#: django_app/gallery/models.py:50
+#: django_app/gallery/models.py:51
 msgid "image file"
 msgstr ""
 
-#: django_app/gallery/models.py:55
+#: django_app/gallery/models.py:56
 msgid "owner"
 msgstr ""
 
-#: django_app/gallery/models.py:70
+#: django_app/gallery/models.py:63
+msgid "is_deleted"
+msgstr ""
+
+#: django_app/gallery/models.py:71
 msgid "video_owner"
 msgstr ""
 
@@ -96,83 +113,83 @@ msgstr ""
 msgid "Du kannst den Text verändern, solltest aber den Link nicht entfernen."
 msgstr ""
 
-#: django_app/user_accounts/models.py:19
+#: django_app/user_accounts/models.py:23
 msgid "male"
 msgstr ""
 
-#: django_app/user_accounts/models.py:20
+#: django_app/user_accounts/models.py:24
 msgid "female"
 msgstr ""
 
-#: django_app/user_accounts/models.py:21
+#: django_app/user_accounts/models.py:25
 msgid "something else"
 msgstr ""
 
-#: django_app/user_accounts/models.py:24
+#: django_app/user_accounts/models.py:28
 msgid "single"
 msgstr ""
 
-#: django_app/user_accounts/models.py:25
+#: django_app/user_accounts/models.py:29
 msgid "partnership"
 msgstr ""
 
-#: django_app/user_accounts/models.py:26
+#: django_app/user_accounts/models.py:30
 msgid "married"
 msgstr ""
 
-#: django_app/user_accounts/models.py:27
+#: django_app/user_accounts/models.py:31
 msgid "divorced"
 msgstr ""
 
-#: django_app/user_accounts/models.py:28
+#: django_app/user_accounts/models.py:32
 msgid "another"
 msgstr ""
 
-#: django_app/user_accounts/models.py:32
+#: django_app/user_accounts/models.py:36
 msgid "full name"
 msgstr ""
 
-#: django_app/user_accounts/models.py:33
+#: django_app/user_accounts/models.py:37
 msgid "preferred name"
 msgstr ""
 
-#: django_app/user_accounts/models.py:35
+#: django_app/user_accounts/models.py:39
 msgid "gender"
 msgstr ""
 
-#: django_app/user_accounts/models.py:36
+#: django_app/user_accounts/models.py:40
 msgid "avatar"
 msgstr ""
 
-#: django_app/user_accounts/models.py:39
+#: django_app/user_accounts/models.py:43
 msgid "birth date"
 msgstr ""
 
-#: django_app/user_accounts/models.py:41
+#: django_app/user_accounts/models.py:45
 msgid "city"
 msgstr ""
 
-#: django_app/user_accounts/models.py:42
+#: django_app/user_accounts/models.py:46
 msgid "country"
 msgstr ""
 
-#: django_app/user_accounts/models.py:43
+#: django_app/user_accounts/models.py:47
 msgid "address1"
 msgstr ""
 
-#: django_app/user_accounts/models.py:44
+#: django_app/user_accounts/models.py:48
 msgid "address2"
 msgstr ""
 
-#: django_app/user_accounts/models.py:45
+#: django_app/user_accounts/models.py:49
 msgid "address3"
 msgstr ""
 
-#: django_app/user_accounts/models.py:46
+#: django_app/user_accounts/models.py:50
 msgid "postcode"
 msgstr ""
 
-#: django_app/user_accounts/models.py:47
+#: django_app/user_accounts/models.py:51
 msgid "family status"
 msgstr ""
 
@@ -180,55 +197,55 @@ msgstr ""
 msgid "Login successful"
 msgstr ""
 
-#: django_app/user_accounts/views.py:41
+#: django_app/user_accounts/views.py:42
 msgid "Please complete your profile."
 msgstr ""
 
-#: django_app/user_accounts/views.py:44
+#: django_app/user_accounts/views.py:45
 msgid "This account is not active."
 msgstr ""
 
-#: django_app/user_accounts/views.py:47
+#: django_app/user_accounts/views.py:48
 msgid "Wrong username or password."
 msgstr ""
 
-#: django_app/user_accounts/views.py:68
+#: django_app/user_accounts/views.py:69
 msgid "Your logout was successfully."
 msgstr ""
 
-#: django_app/user_accounts/views.py:127
+#: django_app/user_accounts/views.py:130
 msgid "Your password was set successfully."
 msgstr ""
 
-#: django_app/user_accounts/views.py:161
+#: django_app/user_accounts/views.py:164
 msgid "Max. 10MB. Wird öffentlich angezeigt."
 msgstr ""
 
-#: django_app/user_accounts/views.py:162
+#: django_app/user_accounts/views.py:165
 msgid "Nur, wenn Du Dein Passwort ändern willst."
 msgstr ""
 
-#: django_app/user_accounts/views.py:181
+#: django_app/user_accounts/views.py:184
 msgid "Thank you for completing your profile."
 msgstr ""
 
-#: django_app/user_accounts/views.py:183
+#: django_app/user_accounts/views.py:186
 msgid "Du hast 5 Trendpoints verdient!"
 msgstr ""
 
-#: django_app/user_accounts/views.py:190
+#: django_app/user_accounts/views.py:193
 msgid "Your invite was redeemed."
 msgstr ""
 
-#: django_app/user_accounts/views.py:193
+#: django_app/user_accounts/views.py:196
 msgid "Your profile was saved successfully."
 msgstr ""
 
-#: django_app/user_accounts/views.py:279
+#: django_app/user_accounts/views.py:288
 msgid "Become a product tester for free."
 msgstr ""
 
-#: django_app/user_accounts/views.py:307
+#: django_app/user_accounts/views.py:316
 msgid "An invite was send to your friends."
 msgstr ""
 
@@ -261,6 +278,12 @@ msgstr ""
 msgid "Django site admin"
 msgstr ""
 
+#: templates/base.jinja:124
+#: templates/profiles/password/password_reset_complete.jinja:11
+#: templates/registration/register_form.jinja:29
+msgid "Log in"
+msgstr ""
+
 #: templates/profiles/password/password_change_done.html:7
 #: templates/profiles/password/password_change_form.html:8
 msgid "Password change"
@@ -289,7 +312,32 @@ msgid "Old password"
 msgstr ""
 
 #: templates/profiles/password/password_change_form.html:48
+#: templates/profiles/password/password_reset_confirm.jinja:22
 msgid "Change my password"
+msgstr ""
+
+#: templates/profiles/password/password_reset_complete.jinja:9
+msgid "Your password has been set.  You may go ahead and log in now."
+msgstr ""
+
+#: templates/profiles/password/password_reset_confirm.jinja:11
+msgid ""
+"Please enter your new password twice so we can verify you typed it in "
+"correctly."
+msgstr ""
+
+#: templates/profiles/password/password_reset_confirm.jinja:16
+msgid "New password:"
+msgstr ""
+
+#: templates/profiles/password/password_reset_confirm.jinja:20
+msgid "Confirm password:"
+msgstr ""
+
+#: templates/profiles/password/password_reset_confirm.jinja:27
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a new password reset."
 msgstr ""
 
 #: templates/profiles/password/password_reset_done.html:7
@@ -306,6 +354,34 @@ msgstr ""
 msgid ""
 "If you don't receive an email, please make sure you've entered the address "
 "you registered with, and check your spam folder."
+msgstr ""
+
+#: templates/profiles/password/password_reset_email.jinja:2
+#: templates/profiles/password/password_reset_html_email.jinja:7
+#, python-format
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at %(site_name)s."
+msgstr ""
+
+#: templates/profiles/password/password_reset_email.jinja:4
+#: templates/profiles/password/password_reset_html_email.jinja:10
+msgid "Please go to the following page and choose a new password:"
+msgstr ""
+
+#: templates/profiles/password/password_reset_email.jinja:8
+msgid "Your username, in case you've forgotten:"
+msgstr ""
+
+#: templates/profiles/password/password_reset_email.jinja:10
+#: templates/profiles/password/password_reset_html_email.jinja:17
+msgid "Thanks for using our site!"
+msgstr ""
+
+#: templates/profiles/password/password_reset_email.jinja:12
+#: templates/profiles/password/password_reset_html_email.jinja:20
+#, python-format
+msgid "The %(site_name)s team"
 msgstr ""
 
 #: templates/profiles/password/password_reset_subject.txt:2
