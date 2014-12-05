@@ -12,6 +12,13 @@ class ProductTestDetail(DetailView):
     model = ProductTest
     context_object_name = 'product_test'
 
+    def get_context_data(self, **kwargs):
+        context = super(ProductTestDetail, self).get_context_data(**kwargs)
+        product_test = self.get_object()
+        if product_test.test_result and product_test.test_result.is_active == True:
+            context['test_result'] = product_test.test_result
+        return context
+
 
 class ProductBrandDetailView(DetailView):
     template_name = 'product_test/brand_detail.jinja'
@@ -25,16 +32,10 @@ class ProductBrandListView(ListView):
     context_object_name = 'brands'
 
 
-# gallery view
-class GalleryView(ProductTestDetail):
-    template_name = 'product_test/gallery.jinja'
-    def get_context_data(self, **kwargs):
-        context = super(GalleryView, self).get_context_data(**kwargs)
-        context['image_upload_form'] = ImageUploadForm()
-        context['video_upload_form'] = VideoLinkUploadForm()
-        return context
-
-
 # test result view
 class ResultView(ProductTestDetail):
-    pass
+    template_name = 'product_test/test_result.jinja'
+    def get_context_data(self, **kwargs):
+        context = super(ResultView, self).get_context_data(**kwargs)
+        context['test_result'] = self.get_object().test_result
+        return context
