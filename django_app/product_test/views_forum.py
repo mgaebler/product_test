@@ -29,6 +29,7 @@ class TopicView(ProductTestDetail):
         topic_id = self.kwargs['topic_id']
         context['posts'] = Post.objects.filter(topic=topic_id).order_by("created")
         context['topic'] = Topic.objects.get(pk=topic_id)
+        context['post_form'] = PostForm()
 
         return context
 

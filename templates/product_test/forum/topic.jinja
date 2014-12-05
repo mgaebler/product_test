@@ -2,77 +2,83 @@
 
 {% block product_test_content %}
 
-  <div class="forum-topic">
-    <h2>{{ topic.title }}</h2>
+<div class="forum-topic">
+  <h2>{{ topic.title }}</h2>
 
-    <div>
-      <p>
-        {{ topic.description|linebreaks }}
-      </p>
-    </div>
+  <div>
+    <p>
+      {{ topic.description|linebreaks }}
+    </p>
   </div>
+</div>
 
-  <div class="forum-entries-holder">
+<div class="forum-entries-holder">
 
-    {% for post in posts %}
+  {% for post in posts %}
 
-      <div class="forum-entry row" id="post-{{ post.pk }}">
-        <section>
-          {# avatar #}
-          <div class="forum-entry-user col-md-3">
-            {% with creator=post.creator %}
-                {% include 'product_test/forum/snippets/avatar.jinja' %}
-            {% endwith %}
+    <div class="forum-entry row" id="post-{{ post.pk }}">
+      <section>
+        {# avatar #}
+        <div class="forum-entry-user col-md-3">
+          {% with creator=post.creator %}
+            {% include 'product_test/forum/snippets/avatar.jinja' %}
+          {% endwith %}
 
-            <div class="nickname">
-              {{ post.creator.preferred_name }}
+          <div class="nickname">
+            {{ post.creator.preferred_name }}
+          </div>
+          {% if post.creator.is_staff %}
+            <div class="title">
+              Admin
             </div>
-            {% if post.creator.is_staff %}
-              <div class="title">
-                Admin
-              </div>
-            {% endif %}
+          {% endif %}
+        </div>
+
+        <header>
+          {# title #}
+          <div class="forum-entry-title col-md-15">
+            <h3>{{ post.title }}</h3>
           </div>
 
-          <header>
-            {# title #}
-            <div class="forum-entry-title col-md-15">
-              <h3>{{ post.title }}</h3>
-            </div>
-
-            {# date #}
-            <div class="forum-entry-timestamp col-md-6">
+          {# date #}
+          <div class="forum-entry-timestamp col-md-6">
             <span class="link-camo">
               <span class="date">{{ post.created|date }}</span>,
               <time>{{ post.created|time }}</time>
             </span>
-            </div>
-          </header>
-
-          <div class="forum-entry-body col-md-21">
-            {{ post.body|linebreaks }}
           </div>
+        </header>
 
-        </section>
+        <div class="forum-entry-body col-md-21">
+          {{ post.body|linebreaks }}
+        </div>
 
-      </div>
+      </section>
 
-    {% endfor %}
-
-  </div>
-
-
-  {% if not user.is_authenticated() %}
-    <div class="forum-not-logged-in">
-      <p>
-        <a href="{{ url('user:login_form') }}">Log Dich ein</a>, um einen Beitrag zu verfassen.
-      </p>
     </div>
-  {% else %}
-    <a class="btn btn-default"
-       href="{{ url('product_test:forum:reply', slug=product_test.slug, topic_id=topic.pk) }}">Beitrag verfassen</a>
-  {% endif %}
 
+  {% endfor %}
+
+</div>
+
+
+{% if not user.is_authenticated() %}
+<div class="forum-not-logged-in">
+  <p>
+    <a href="{{ url('user:login_form') }}">Log Dich ein</a>, um einen Beitrag zu verfassen.
+  </p>
+</div>
+{% else %}
+<form action="{{ url('product_test:forum:reply', slug=product_test.slug, topic_id=topic.pk) }}" method="POST">
+  {% csrf_token %}
+  {% autoescape off %}
+  {{ post_form|bootstrap }}
+  {% endautoescape %}
+  <input class="btn btn-primary" type="submit" value="Beitrag senden">
+</form>
+{#<a class="btn btn-default"#}
+{#   href="{{ url('product_test:forum:reply', slug=product_test.slug, topic_id=topic.pk) }}">Beitrag verfassen</a>#}
+{% endif %}
 
 
 {% endblock %}
