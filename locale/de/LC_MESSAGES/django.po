@@ -7,8 +7,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trendsetter\n"
 "Report-Msgid-Bugs-To: \n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2014-11-27 11:50+0000\n"
 "PO-Revision-Date: 2014-11-27 14:09+0100\n"
+=======
+"POT-Creation-Date: 2014-12-05 09:39+0000\n"
+"PO-Revision-Date: 2014-12-05 10:59+0100\n"
+>>>>>>> staging
 "Last-Translator: Claudia <Claudia_Thiede@intosite.de>\n"
 "Language-Team:  <info@trendsetter.eu>\n"
 "Language: de_DE\n"
@@ -19,52 +24,80 @@ msgstr ""
 "X-Generator: Poedit 1.6.10\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
+<<<<<<< HEAD
 #: django_app/faq/models.py:24
 #| msgid "description"
 msgid "Position"
 msgstr "Position"
+=======
+#: django_app/django_simple_forum/models.py:7
+#: django_app/django_simple_forum/models.py:24
+#: django_app/django_simple_forum/models.py:47
+msgid "title"
+msgstr "Titel"
+
+#: django_app/django_simple_forum/models.py:8
+#: django_app/django_simple_forum/models.py:25 django_app/gallery/models.py:21
+msgid "description"
+msgstr "Beschreibung"
+
+#: django_app/django_simple_forum/models.py:11
+#: django_app/django_simple_forum/models.py:27
+#: django_app/django_simple_forum/models.py:48
+msgid "creator"
+msgstr "Urheber"
+
+#: django_app/django_simple_forum/models.py:51
+msgid "topic"
+msgstr "Thema"
+
+#: django_app/django_simple_forum/models.py:52
+msgid "body"
+msgstr "Inhalt"
+
+#: django_app/faq/models.py:24
+#, fuzzy
+#| msgid "description"
+msgid "Position"
+msgstr "Beschreibung"
+>>>>>>> staging
 
 #: django_app/gallery/models.py:18
 msgid "name"
 msgstr "Name"
 
+<<<<<<< HEAD
 #: django_app/gallery/models.py:19
 msgid "slug"
 msgstr "Titel"
 
+=======
+>>>>>>> staging
 #: django_app/gallery/models.py:22
-msgid "description"
-msgstr "Beschreibung"
-
-#: django_app/gallery/models.py:23
 msgid "gallery_gallery_description_help_text"
 msgstr ""
 
-#: django_app/gallery/models.py:27
-msgid "teaser image"
-msgstr "Teaser Bild"
-
-#: django_app/gallery/models.py:28 django_app/gallery/models.py:62
-msgid "is_deleted"
-msgstr "wurde gelöscht"
-
-#: django_app/gallery/models.py:30
+#: django_app/gallery/models.py:28
 msgid "published"
 msgstr "veröffentlicht"
 
-#: django_app/gallery/models.py:32
+#: django_app/gallery/models.py:30
 msgid "publish_date"
 msgstr "Veröffentlichungsdatum"
 
-#: django_app/gallery/models.py:50
+#: django_app/gallery/models.py:51
 msgid "image file"
 msgstr "Bilddatei"
 
-#: django_app/gallery/models.py:55
+#: django_app/gallery/models.py:56
 msgid "owner"
 msgstr "Eigentümer"
 
-#: django_app/gallery/models.py:70
+#: django_app/gallery/models.py:63
+msgid "is_deleted"
+msgstr "wurde gelöscht"
+
+#: django_app/gallery/models.py:71
 msgid "video_owner"
 msgstr "Video-Eigentümer"
 
@@ -189,55 +222,55 @@ msgstr "Familienstand"
 msgid "Login successful"
 msgstr "Login erfolgreich"
 
-#: django_app/user_accounts/views.py:41
+#: django_app/user_accounts/views.py:42
 msgid "Please complete your profile."
 msgstr "Bitte überprüfe Deine Angaben."
 
-#: django_app/user_accounts/views.py:44
+#: django_app/user_accounts/views.py:45
 msgid "This account is not active."
 msgstr "Dieser Account ist nicht aktiviert."
 
-#: django_app/user_accounts/views.py:47
+#: django_app/user_accounts/views.py:48
 msgid "Wrong username or password."
 msgstr "Falscher Benutzername oder Passwort"
 
-#: django_app/user_accounts/views.py:68
+#: django_app/user_accounts/views.py:69
 msgid "Your logout was successfully."
 msgstr "Du hast Dich erfolgreich abgemeldet."
 
-#: django_app/user_accounts/views.py:127
+#: django_app/user_accounts/views.py:130
 msgid "Your password was set successfully."
 msgstr "Dein Passwort wurde geändert."
 
-#: django_app/user_accounts/views.py:161
+#: django_app/user_accounts/views.py:164
 msgid "Max. 10MB. Wird öffentlich angezeigt."
 msgstr "Max. 10MB. Wird öffentlich angezeigt."
 
-#: django_app/user_accounts/views.py:162
+#: django_app/user_accounts/views.py:165
 msgid "Nur, wenn Du Dein Passwort ändern willst."
 msgstr "Nur, wenn Du Dein Passwort ändern willst."
 
-#: django_app/user_accounts/views.py:181
+#: django_app/user_accounts/views.py:184
 msgid "Thank you for completing your profile."
 msgstr "Vervollständigung Deines Profils"
 
-#: django_app/user_accounts/views.py:183
+#: django_app/user_accounts/views.py:186
 msgid "Du hast 5 Trendpoints verdient!"
 msgstr "Du hast 5 Trendpoints verdient!"
 
-#: django_app/user_accounts/views.py:190
+#: django_app/user_accounts/views.py:193
 msgid "Your invite was redeemed."
 msgstr "Deine Einladung wurde eingelöst."
 
-#: django_app/user_accounts/views.py:193
+#: django_app/user_accounts/views.py:196
 msgid "Your profile was saved successfully."
 msgstr "Dein Profil wurde erfolgreich gespeichert."
 
-#: django_app/user_accounts/views.py:279
+#: django_app/user_accounts/views.py:288
 msgid "Become a product tester for free."
 msgstr "Werde kostenlos Produkttester"
 
-#: django_app/user_accounts/views.py:307
+#: django_app/user_accounts/views.py:316
 msgid "An invite was send to your friends."
 msgstr "Es wurde eine Einladung an Deine Freunde versendet."
 
@@ -271,8 +304,14 @@ msgid "Django site admin"
 msgstr "Django site admin"
 
 #: templates/base.jinja:124
+<<<<<<< HEAD
 #: templates/profiles/password/password_reset_complete.jinja:12
 #: templates/registration/register_form.jinja:29
+=======
+#: templates/profiles/password/password_reset_complete.jinja:11
+#: templates/registration/register_form.jinja:29
+#, fuzzy
+>>>>>>> staging
 #| msgid "Log in again"
 msgid "Log in"
 msgstr "Bitte log Dich erneut ein"
@@ -310,11 +349,24 @@ msgid "Old password"
 msgstr "Bisheriges Passwort"
 
 #: templates/profiles/password/password_change_form.html:48
+<<<<<<< HEAD
 #: templates/profiles/password/password_reset_confirm.jinja:28
 msgid "Change my password"
 msgstr "Mein Passwort ändern"
 
 #: templates/profiles/password/password_reset_confirm.jinja:11
+=======
+#: templates/profiles/password/password_reset_confirm.jinja:22
+msgid "Change my password"
+msgstr "Mein Passwort ändern"
+
+#: templates/profiles/password/password_reset_complete.jinja:9
+msgid "Your password has been set.  You may go ahead and log in now."
+msgstr "Dein Passwort wurde geändert. Du kannst Dich nun wieder einloggen."
+
+#: templates/profiles/password/password_reset_confirm.jinja:11
+#, fuzzy
+>>>>>>> staging
 #| msgid ""
 #| "Please enter your old password, for security's sake, and then enter your "
 #| "new password twice so we can verify you typed it in correctly."
@@ -325,13 +377,34 @@ msgstr ""
 "Bitte gib Dein bisheriges Passwort ein und suche Dir ein neues Passwort aus. "
 "Zur Sicherheit gegen Vertipper, gib Dein neues Passwort ein zweites Mal ein."
 
+<<<<<<< HEAD
 #: templates/profiles/password/password_reset_confirm.jinja:34
+=======
+#: templates/profiles/password/password_reset_confirm.jinja:16
+#, fuzzy
+#| msgid "New password"
+msgid "New password:"
+msgstr "Neues Passwort"
+
+#: templates/profiles/password/password_reset_confirm.jinja:20
+#, fuzzy
+#| msgid "Change password"
+msgid "Confirm password:"
+msgstr "Passwort ändern"
+
+#: templates/profiles/password/password_reset_confirm.jinja:27
+>>>>>>> staging
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used.  Please request a new password reset."
 msgstr ""
+<<<<<<< HEAD
 "Der Link zum Zurücksetzen Deines Passwortes ist ungültig, da er bereits "
 "genutzt wurde. Bitte fordere ein neues Passwort an."
+=======
+"Der Link zum Zurücksetzen des Passworts war ungültig, weil er bereits "
+"genutzt wurde. Bitte fordere noch einmal ein neues Passwort an."
+>>>>>>> staging
 
 #: templates/profiles/password/password_reset_done.html:7
 msgid "Password reset"
@@ -355,6 +428,7 @@ msgstr ""
 
 #: templates/profiles/password/password_reset_email.jinja:2
 #: templates/profiles/password/password_reset_html_email.jinja:7
+<<<<<<< HEAD
 #, python-format
 msgid ""
 "You're receiving this email because you requested a password reset for your "
@@ -389,6 +463,42 @@ msgstr "Dein %(site_name)s Team"
 #| msgid "Password reset"
 msgid "Password reset on %(site_name)s"
 msgstr "Passwort zurücksetzen"
+=======
+#, python-format
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at %(site_name)s."
+msgstr ""
+"Du erhältst diese E-Mail, weil Du ein neues Passwort für %(site_name)s "
+"angefordert hast."
+
+#: templates/profiles/password/password_reset_email.jinja:4
+#: templates/profiles/password/password_reset_html_email.jinja:10
+msgid "Please go to the following page and choose a new password:"
+msgstr "Bitte gehe auf folgende Seite und wähle ein neues Passwort aus:"
+
+#: templates/profiles/password/password_reset_email.jinja:8
+msgid "Your username, in case you've forgotten:"
+msgstr "Dein Nutzername, falls Du ihn gerade nicht weißt:"
+
+#: templates/profiles/password/password_reset_email.jinja:10
+#: templates/profiles/password/password_reset_html_email.jinja:17
+#, fuzzy
+#| msgid "Thank you for completing your profile."
+msgid "Thanks for using our site!"
+msgstr "Vervollständigung Deines Profils"
+
+#: templates/profiles/password/password_reset_email.jinja:12
+#: templates/profiles/password/password_reset_html_email.jinja:20
+#, python-format
+msgid "The %(site_name)s team"
+msgstr "Dein %(site_name)s Team"
+
+#: templates/profiles/password/password_reset_subject.txt:2
+#, python-format
+msgid "Password reset on %(site_name)s"
+msgstr "Passwort zurücksetzen auf %(site_name)s"
+>>>>>>> staging
 
 #: templates/registration/logged_out.html:3
 msgid "Thanks for spending some quality time with the Web site today."
@@ -398,3 +508,6 @@ msgstr "Danke für Deinen Besuch auf trendsetter.eu"
 #| msgid "Log in again"
 msgid "Log in again"
 msgstr "Bitte log Dich erneut ein"
+
+#~ msgid "teaser image"
+#~ msgstr "Teaser Bild"

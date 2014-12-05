@@ -32,9 +32,9 @@
             <li class="page-nav-forum{% if request.path == url('product_test:forum:forum-detail', slug=product_test.slug) %} active{% endif %}">
               <a href="{{ url('product_test:forum:forum-detail', slug=product_test.slug) }}">Forum</a>
             </li>
-            {#              <li class="page-nav-gallery{% if request.path == url('product_test:gallery', slug=product_test.slug) %} active{% endif %}">#}
-            {#                <a href="{{ url('product_test:gallery', slug=product_test.slug) }}">Galerie</a>#}
-            {#              </li>#}
+            <li class="page-nav-gallery{% if request.path == url('product_test:gallery:index', slug=product_test.slug) %} active{% endif %}">
+                <a href="{{ url('product_test:gallery:index', slug=product_test.slug) }}">Galerie</a>
+            </li>
             <li class="page-nav-faq{% if request.path == url('product_test:faq', slug=product_test.slug) %} active{% endif %}">
               <a href="{{ url('product_test:faq', slug=product_test.slug) }}">FAQ</a>
             </li>

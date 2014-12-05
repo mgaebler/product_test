@@ -1,39 +1,79 @@
 {% extends 'product_test/base.jinja' %}
 
 {% block product_test_content %}
+<script>
+  $(document).delegate('*[data-toggle="lightbox"]', 'click', function (event) {
+    event.preventDefault();
+    $(this).ekkoLightbox();
+  });
+</script>
+
+{% if product_test.gallery.description %}
 <div class="forum-header">
-  <p style="background-color: #eaeaea; font-weight: bold; padding: 5px">
-    Hier kannst Du Deine Fotos und Videos aus der Trendsetter-Aktion
-    <span>{{ product_test.title }}</span>
-    hochladen
+  <p>
+    {{ product_test.gallery.description }}
   </p>
+</div>
+{% endif %}
 
+{% if not user.is_authenticated() %}
+  <div class="forum-not-logged-in">
+    <p>
+      <a href="{{ url('user:login_form') }}">Log Dich ein</a>, um Bilder hochzuladen.
+    </p>
+  </div>
+{% endif %}
+
+<div>
   <h4>Hochgeladene Bilder</h4>
+  <hr/>
+  <div class="row">
+    {% for image in product_test.gallery.images.all() %}
+      <div class="col-md-4 col-sm-6" align="center">
+        <a class="thumbnail" datatype="image" data-toggle="lightbox" data-gallery="test"
+           href="{{ thumbnail(image.file, size=(800, 800)) }}">
+          <img class="img-responsive" src="{{ thumbnail(image.file, size=(165, 165), crop=True) }}"/>
+          <small>
+            {{ image.owner.preferred_name }}
+          </small>
+        </a>
+      </div>
 
-  {% for image in product_test.gallery.images.all() %}
-    <img src="{{ image.file.url }}" alt=""/>
-  {% endfor %}
+    {% endfor %}
+  </div>
 
-  <form action="post">
+  {% if not user.is_authenticated() %}
+  <div class="forum-not-logged-in">
+    <p>
+      <a href="{{ url('user:login_form') }}">Log Dich ein</a>, um Bilder hochzuladen.
+    </p>
+  </div>
+  {% else %}
+  <hr/>
+  <form
+      action="{{ url('product_test:gallery:image_upload', slug=product_test.slug) }}"
+      method="post"
+      enctype="multipart/form-data">
     {% csrf_token %}
     {% autoescape off %}
     {{ image_upload_form|bootstrap }}
     {% endautoescape %}
-    <input type="submit"/>
+    <input class="btn btn-primary" value="Bild hochladen" type="submit"/>
   </form>
+  {% endif %}
 
-  <h4>Hochgeladene Videos</h4>
-
-    {% for video in product_test.gallery.videos.all() %}
-        Video
-    {% endfor %}
-
-  <form action="post">
-    {% csrf_token %}
-    {% autoescape off %}
-    {{ video_upload_form|bootstrap }}
-    {% endautoescape %}
-    <input type="submit"/>
-  </form>
+  {#  <h4>Hochgeladene Videos</h4>#}
+  {##}
+  {#    {% for video in product_test.gallery.videos.all() %}#}
+  {#        Video#}
+  {#    {% endfor %}#}
+  {##}
+  {#  <form action="{{ url('product_test:gallery:video_upload', slug=product_test.slug) }}" method="post">#}
+  {#    {% csrf_token %}#}
+  {#    {% autoescape off %}#}
+  {#    {{ video_upload_form|bootstrap }}#}
+  {#    {% endautoescape %}#}
+  {#    <input type="submit"/>#}
+  {#  </form>#}
 </div>
 {% endblock %}

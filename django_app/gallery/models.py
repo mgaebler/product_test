@@ -16,7 +16,6 @@ def utc_now():
 
 class Gallery(models.Model):
     name = models.CharField(_(u'name'), max_length=255)
-    slug = models.SlugField(_(u'slug'), max_length=255)
 
     description = models.TextField(
         verbose_name=_('description'),
@@ -24,8 +23,7 @@ class Gallery(models.Model):
         blank=True,
         null=True
     )
-    teaser_image = models.ImageField(_(u'teaser image'), upload_to='galleries/teaser/%Y-%m-%d/', max_length=255)
-    is_deleted = models.BooleanField(verbose_name=_('is_deleted'), default=False)
+    # teaser_image = models.ImageField(_(u'teaser image'), upload_to='galleries/teaser/%Y-%m-%d/', max_length=255)
 
     active = models.BooleanField(verbose_name=_('published'), default=True)
     publish_date = models.DateTimeField(
@@ -42,6 +40,9 @@ class Gallery(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    class Meta:
+        verbose_name_plural = 'Galleries'
 
 
 class GalleryImage(models.Model):

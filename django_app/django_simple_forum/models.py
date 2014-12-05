@@ -4,11 +4,11 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class Forum(models.Model):
-    title = models.CharField(max_length=255)
-    description = models.TextField(blank=True, default='')
+    title = models.CharField(_(u'title'), max_length=255)
+    description = models.TextField(_(u'description'), blank=True, default='')
     updated = models.DateTimeField(auto_now=True, editable=False)
     created = models.DateTimeField(auto_now_add=True, editable=False)
-    creator = models.ForeignKey(settings.AUTH_USER_MODEL, blank=True, null=True)
+    creator = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u'creator'),  blank=True, null=True)
 
     def __unicode__(self):
         return self.title
@@ -21,10 +21,10 @@ class Forum(models.Model):
 
 
 class Topic(models.Model):
-    title = models.CharField(max_length=255)
-    description = models.TextField(max_length=10000, blank=True, null=True)
+    title = models.CharField(_(u'title'), max_length=255)
+    description = models.TextField(_(u'description'), max_length=10000, blank=True, null=True)
     forum = models.ForeignKey(Forum)
-    creator = models.ForeignKey(settings.AUTH_USER_MODEL, blank=True, null=True)
+    creator = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u'creator'), blank=True, null=True)
     created = models.DateField(auto_now_add=True, editable=False)
     updated = models.DateTimeField(auto_now=True, editable=False)
     closed = models.BooleanField(blank=True, default=False)
@@ -44,12 +44,12 @@ class Topic(models.Model):
 
 
 class Post(models.Model):
-    title = models.CharField(max_length=255)
-    creator = models.ForeignKey(settings.AUTH_USER_MODEL, blank=True, null=True)
+    title = models.CharField(_(u'title'), max_length=255)
+    creator = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u'creator'), blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True, editable=False)
     updated = models.DateTimeField(auto_now=True, editable=False)
-    topic = models.ForeignKey(Topic)
-    body = models.TextField(max_length=10000)
+    topic = models.ForeignKey(Topic, verbose_name=_(u'topic'))
+    body = models.TextField(verbose_name=_(u'body'), max_length=10000)
     user_ip = models.GenericIPAddressField(blank=True, null=True)
 
     def __unicode__(self):

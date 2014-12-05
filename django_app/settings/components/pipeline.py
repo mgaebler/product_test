@@ -6,8 +6,9 @@
 PIPELINE_CSS = {
     'common': {
         'source_filenames': (
-            # 'sass-bootstrap/lib/bootstrap.scss',
+            # 'sass-bootstrap/dist/css/bootstrap.css',
             'sass-bootstrap/dist/css/bootstrap-theme.css',
+            'lightbox/dist/ekko-lightbox.css',
         ),
         'output_filename': 'css/common.css',
         'extra_context': {'media': 'screen,projection'},
@@ -25,6 +26,7 @@ PIPELINE_JS = {
         'source_filenames': (
             'jquery/dist/jquery.js',
             'sass-bootstrap/dist/js/bootstrap.js',
+            'lightbox/dist/ekko-lightbox.js',
         ),
         'output_filename': 'js/common.js',
     }
