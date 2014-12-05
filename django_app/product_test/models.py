@@ -1,5 +1,6 @@
 # coding: utf-8
 import logging
+from __future__ import unicode_literals
 from django.db import models
 from django.utils import timezone
 from django.core.urlresolvers import reverse
@@ -70,6 +71,17 @@ class Participation(models.Model):
     users = models.ForeignKey(settings.AUTH_USER_MODEL)
     product_test = models.ForeignKey(ProductTest)
     created_at = models.DateTimeField(auto_now_add=True)
+
+
+class TestResult(models.Model):
+    product_test = models.OneToOneField(ProductTest)
+    title = models.CharField(max_length=255)
+    content = models.TextField(blank=True, null=True)
+    is_active = models.BooleanField(default=True)
+    published_at = models.DateTimeField(default=timezone.now, blank=True, null=True)
+
+    def __unicode__(self):
+        return self.title
 
 
 def create_product_test_add_ons(sender, **kwargs):
