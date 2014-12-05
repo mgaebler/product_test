@@ -29,6 +29,11 @@ class Topic(models.Model):
     updated = models.DateTimeField(auto_now=True, editable=False)
     closed = models.BooleanField(blank=True, default=False)
 
+    position = models.PositiveSmallIntegerField()
+
+    class Meta:
+        ordering = ['position']
+
     def num_posts(self):
         return self.post_set.count()
 
@@ -41,6 +46,7 @@ class Topic(models.Model):
 
     def __unicode__(self):
         return u"{}".format(self.title)
+
 
 
 class Post(models.Model):

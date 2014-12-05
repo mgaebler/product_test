@@ -21,7 +21,7 @@ class FaqEntry(models.Model):
     last_modified_date = models.DateTimeField(auto_now=True, editable=False)
     is_active = models.BooleanField(default=True)
 
-    position = models.PositiveSmallIntegerField(_("Position"))
+    position = models.PositiveSmallIntegerField()
 
     class Meta:
         ordering = ['position']
