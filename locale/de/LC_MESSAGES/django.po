@@ -7,13 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trendsetter\n"
 "Report-Msgid-Bugs-To: \n"
-<<<<<<< HEAD
 "POT-Creation-Date: 2014-11-27 11:50+0000\n"
 "PO-Revision-Date: 2014-11-27 14:09+0100\n"
-=======
-"POT-Creation-Date: 2014-12-05 09:39+0000\n"
-"PO-Revision-Date: 2014-12-05 10:59+0100\n"
->>>>>>> staging
+"POT-Creation-Date: 2014-12-05 10:58+0000\n"
 "Last-Translator: Claudia <Claudia_Thiede@intosite.de>\n"
 "Language-Team:  <info@trendsetter.eu>\n"
 "Language: de_DE\n"
@@ -24,12 +20,6 @@ msgstr ""
 "X-Generator: Poedit 1.6.10\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-<<<<<<< HEAD
-#: django_app/faq/models.py:24
-#| msgid "description"
-msgid "Position"
-msgstr "Position"
-=======
 #: django_app/django_simple_forum/models.py:7
 #: django_app/django_simple_forum/models.py:24
 #: django_app/django_simple_forum/models.py:47
@@ -60,19 +50,12 @@ msgstr "Inhalt"
 #| msgid "description"
 msgid "Position"
 msgstr "Beschreibung"
->>>>>>> staging
 
 #: django_app/gallery/models.py:18
 msgid "name"
 msgstr "Name"
 
-<<<<<<< HEAD
-#: django_app/gallery/models.py:19
-msgid "slug"
-msgstr "Titel"
 
-=======
->>>>>>> staging
 #: django_app/gallery/models.py:22
 msgid "gallery_gallery_description_help_text"
 msgstr ""
@@ -304,14 +287,8 @@ msgid "Django site admin"
 msgstr "Django site admin"
 
 #: templates/base.jinja:124
-<<<<<<< HEAD
-#: templates/profiles/password/password_reset_complete.jinja:12
-#: templates/registration/register_form.jinja:29
-=======
 #: templates/profiles/password/password_reset_complete.jinja:11
 #: templates/registration/register_form.jinja:29
-#, fuzzy
->>>>>>> staging
 #| msgid "Log in again"
 msgid "Log in"
 msgstr "Bitte log Dich erneut ein"
@@ -348,14 +325,6 @@ msgstr ""
 msgid "Old password"
 msgstr "Bisheriges Passwort"
 
-#: templates/profiles/password/password_change_form.html:48
-<<<<<<< HEAD
-#: templates/profiles/password/password_reset_confirm.jinja:28
-msgid "Change my password"
-msgstr "Mein Passwort ändern"
-
-#: templates/profiles/password/password_reset_confirm.jinja:11
-=======
 #: templates/profiles/password/password_reset_confirm.jinja:22
 msgid "Change my password"
 msgstr "Mein Passwort ändern"
@@ -365,8 +334,6 @@ msgid "Your password has been set.  You may go ahead and log in now."
 msgstr "Dein Passwort wurde geändert. Du kannst Dich nun wieder einloggen."
 
 #: templates/profiles/password/password_reset_confirm.jinja:11
-#, fuzzy
->>>>>>> staging
 #| msgid ""
 #| "Please enter your old password, for security's sake, and then enter your "
 #| "new password twice so we can verify you typed it in correctly."
@@ -377,34 +344,24 @@ msgstr ""
 "Bitte gib Dein bisheriges Passwort ein und suche Dir ein neues Passwort aus. "
 "Zur Sicherheit gegen Vertipper, gib Dein neues Passwort ein zweites Mal ein."
 
-<<<<<<< HEAD
-#: templates/profiles/password/password_reset_confirm.jinja:34
-=======
 #: templates/profiles/password/password_reset_confirm.jinja:16
-#, fuzzy
 #| msgid "New password"
 msgid "New password:"
 msgstr "Neues Passwort"
 
 #: templates/profiles/password/password_reset_confirm.jinja:20
-#, fuzzy
 #| msgid "Change password"
 msgid "Confirm password:"
 msgstr "Passwort ändern"
 
 #: templates/profiles/password/password_reset_confirm.jinja:27
->>>>>>> staging
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used.  Please request a new password reset."
 msgstr ""
-<<<<<<< HEAD
-"Der Link zum Zurücksetzen Deines Passwortes ist ungültig, da er bereits "
-"genutzt wurde. Bitte fordere ein neues Passwort an."
-=======
 "Der Link zum Zurücksetzen des Passworts war ungültig, weil er bereits "
 "genutzt wurde. Bitte fordere noch einmal ein neues Passwort an."
->>>>>>> staging
+
 
 #: templates/profiles/password/password_reset_done.html:7
 msgid "Password reset"
@@ -428,42 +385,6 @@ msgstr ""
 
 #: templates/profiles/password/password_reset_email.jinja:2
 #: templates/profiles/password/password_reset_html_email.jinja:7
-<<<<<<< HEAD
-#, python-format
-msgid ""
-"You're receiving this email because you requested a password reset for your "
-"user account at %(site_name)s."
-msgstr ""
-"Du erhältst diese E-Mail, weil Du ein neues Passwort für Deinen User-Account "
-"bei %(site_name)s angefordert hast."
-
-#: templates/profiles/password/password_reset_email.jinja:4
-#: templates/profiles/password/password_reset_html_email.jinja:10
-msgid "Please go to the following page and choose a new password:"
-msgstr "Bitte gehe auf folgende Seite und wähle ein neues Passwort aus:"
-
-#: templates/profiles/password/password_reset_email.jinja:10
-msgid "Your username, in case you've forgotten:"
-msgstr "Dein Username, falls Du ihn gerade nicht weißt:"
-
-#: templates/profiles/password/password_reset_email.jinja:12
-#: templates/profiles/password/password_reset_html_email.jinja:17
-#| msgid "Thank you for completing your profile."
-msgid "Thanks for using our site!"
-msgstr "Vervollständigung Deines Profils"
-
-#: templates/profiles/password/password_reset_email.jinja:14
-#: templates/profiles/password/password_reset_html_email.jinja:20
-#, python-format
-msgid "The %(site_name)s team"
-msgstr "Dein %(site_name)s Team"
-
-#: templates/profiles/password/password_reset_subject.txt:2
-#, fuzzy, python-format
-#| msgid "Password reset"
-msgid "Password reset on %(site_name)s"
-msgstr "Passwort zurücksetzen"
-=======
 #, python-format
 msgid ""
 "You're receiving this email because you requested a password reset for your "
@@ -498,7 +419,6 @@ msgstr "Dein %(site_name)s Team"
 #, python-format
 msgid "Password reset on %(site_name)s"
 msgstr "Passwort zurücksetzen auf %(site_name)s"
->>>>>>> staging
 
 #: templates/registration/logged_out.html:3
 msgid "Thanks for spending some quality time with the Web site today."

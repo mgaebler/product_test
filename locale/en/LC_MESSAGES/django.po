@@ -8,11 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-<<<<<<< HEAD
-"POT-Creation-Date: 2014-11-27 11:50+0000\n"
-=======
 "POT-Creation-Date: 2014-12-05 09:39+0000\n"
->>>>>>> staging
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,19 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-<<<<<<< HEAD
-#: django_app/faq/models.py:24
-msgid "Position"
-msgstr ""
-
-#: django_app/gallery/models.py:18
-msgid "name"
-=======
 #: django_app/django_simple_forum/models.py:7
 #: django_app/django_simple_forum/models.py:24
 #: django_app/django_simple_forum/models.py:47
 msgid "title"
->>>>>>> staging
 msgstr ""
 
 #: django_app/django_simple_forum/models.py:8
@@ -292,11 +279,6 @@ msgid "Django site admin"
 msgstr ""
 
 #: templates/base.jinja:124
-<<<<<<< HEAD
-#: templates/profiles/password/password_reset_complete.jinja:12
-=======
-#: templates/profiles/password/password_reset_complete.jinja:11
->>>>>>> staging
 #: templates/registration/register_form.jinja:29
 msgid "Log in"
 msgstr ""
@@ -329,12 +311,6 @@ msgid "Old password"
 msgstr ""
 
 #: templates/profiles/password/password_change_form.html:48
-<<<<<<< HEAD
-#: templates/profiles/password/password_reset_confirm.jinja:28
-msgid "Change my password"
-msgstr ""
-
-=======
 #: templates/profiles/password/password_reset_confirm.jinja:22
 msgid "Change my password"
 msgstr ""
@@ -343,16 +319,12 @@ msgstr ""
 msgid "Your password has been set.  You may go ahead and log in now."
 msgstr ""
 
->>>>>>> staging
 #: templates/profiles/password/password_reset_confirm.jinja:11
 msgid ""
 "Please enter your new password twice so we can verify you typed it in "
 "correctly."
 msgstr ""
 
-<<<<<<< HEAD
-#: templates/profiles/password/password_reset_confirm.jinja:34
-=======
 #: templates/profiles/password/password_reset_confirm.jinja:16
 msgid "New password:"
 msgstr ""
@@ -362,7 +334,6 @@ msgid "Confirm password:"
 msgstr ""
 
 #: templates/profiles/password/password_reset_confirm.jinja:27
->>>>>>> staging
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used.  Please request a new password reset."
@@ -397,28 +368,16 @@ msgstr ""
 msgid "Please go to the following page and choose a new password:"
 msgstr ""
 
-<<<<<<< HEAD
-#: templates/profiles/password/password_reset_email.jinja:10
-msgid "Your username, in case you've forgotten:"
-msgstr ""
-
-#: templates/profiles/password/password_reset_email.jinja:12
-=======
 #: templates/profiles/password/password_reset_email.jinja:8
 msgid "Your username, in case you've forgotten:"
 msgstr ""
 
 #: templates/profiles/password/password_reset_email.jinja:10
->>>>>>> staging
 #: templates/profiles/password/password_reset_html_email.jinja:17
 msgid "Thanks for using our site!"
 msgstr ""
 
-<<<<<<< HEAD
-#: templates/profiles/password/password_reset_email.jinja:14
-=======
 #: templates/profiles/password/password_reset_email.jinja:12
->>>>>>> staging
 #: templates/profiles/password/password_reset_html_email.jinja:20
 #, python-format
 msgid "The %(site_name)s team"
