@@ -51,7 +51,7 @@
   sudo: true
   with_items:
     - "{{ app.media_path }}"
-    - "{{ app.media_path }}/upload"
+    - "{{ app.media_path }}/uploads"
     - "{{ app.static_path }}"
   when: app.environment != "development"
 
