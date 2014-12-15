@@ -2,18 +2,19 @@
 
 {% block product_test_content %}
 <div id="Faq">
-  <h4>FAQ</h4>
-
-  <p>{{ product_test.faq.text }}</p>
-
+  <div class="forum-header">
+    <h4>FAQ</h4>
+    <p>{{ product_test.faq.text }}</p>
+  </div>
   <ol>
-  {% for entry in product_test.faq.faqentry_set.all() %}
+    {% for entry in product_test.faq.faqentry_set.all() %}
 
-  <li class="faq-entry">
-    <h4>{{ entry.question }}</h4>
-    <p>{% autoescape off %}{{ entry.answer.replace('\n', '<br>') }}{% endautoescape %}</p>
-  </li>
-  {% endfor %}
-    </ol>
+    <li class="faq-entry">
+      <h4>{{ entry.question }}</h4>
+
+      <p>{% autoescape off %}{{ entry.answer.replace('\n', '<br>') }}{% endautoescape %}</p>
+    </li>
+    {% endfor %}
+  </ol>
 </div>
 {% endblock %}
