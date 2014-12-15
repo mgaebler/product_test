@@ -15,7 +15,7 @@ class ParticipationInline(admin.TabularInline):
 class ProductTestAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
     readonly_fields = ('created_at', 'updated_at',)
-    inlines = (ParticipationInline,)
+    # inlines = (ParticipationInline,)
     fieldsets = (
         (None, {
             'fields': ('title', 'slug', 'brand')
