@@ -1,11 +1,26 @@
+# coding: utf-8
 from django.shortcuts import render
 from django.views.generic import DetailView, ListView, TemplateView
+from django.utils import timezone
 from product_test.models import ProductTest, Brand
 from gallery.forms import ImageUploadForm, VideoLinkUploadForm
 
 class ProductTestList(ListView):
     model = ProductTest
     context_object_name = "product_test_list"
+    def get_queryset(self):
+        queryset = super(ProductTestList, self).get_queryset()
+        if not self.request.user.is_staff:
+            queryset = queryset\
+            .filter(published_at__lt=timezone.now())\
+            .exclude(state='preview')
+
+        return queryset.exclude(state='draft')
+
+    def get_context_data(self, **kwargs):
+        context =  super(ProductTestList, self).get_context_data(**kwargs)
+        context['timezone_now'] = timezone.now()
+        return context
 
 
 class ProductTestDetail(DetailView):
