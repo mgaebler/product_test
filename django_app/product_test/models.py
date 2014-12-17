@@ -3,11 +3,12 @@ from __future__ import unicode_literals
 
 import logging
 
-from django.db import models
-from django.utils import timezone
-from django.core.urlresolvers import reverse
 from django.conf import settings
+from django.core.urlresolvers import reverse
+from django.db import models
 from django.db.models.signals import post_save
+from django.utils import timezone
+from django.utils.translation import ugettext_lazy as _
 
 from django_simple_forum.models import Forum
 from faq.models import FaqGroup
@@ -43,6 +44,15 @@ class TestResult(models.Model):
 
 
 class ProductTest(models.Model):
+    STATE_DRAFT = 'draft'
+    STATE_PUBLISHED = 'published'
+    STATE_PREVIEW = 'preview'
+    STATES = (
+        (STATE_DRAFT, _(u'draft')),
+        (STATE_PUBLISHED, _(u'published')),
+        (STATE_PREVIEW, _(u'preview')),
+    )
+
     slug = models.SlugField(max_length=254, db_index=True)
     title = models.CharField(max_length=254)
     link = models.URLField(max_length=254)
@@ -57,19 +67,25 @@ class ProductTest(models.Model):
     # Customization
     custom_html = models.TextField(null=True, blank=True)
     custom_css = models.TextField(null=True, blank=True)
-    # Dates
+
+    state = models.CharField(max_length=16, choices=STATES, default=u'draft',
+        help_text=u"""
+            Draft: The product test is not visible to everyone.
+            Published: The Product test is visible if the 'published at' date is arrived.
+            Preview: The Product is visible to every staff member independently of the 'publishing at' date.
+        """
+    )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     published_at = models.DateTimeField(default=timezone.now, null=True)
     ends_at = models.DateTimeField(blank=True, null=True)
     activated_at = models.DateTimeField(default=timezone.now, null=True)
 
+    # sub
     faq = models.OneToOneField(FaqGroup, null=True, blank=True)
     gallery = models.OneToOneField(Gallery, null=True, blank=True)
     forum = models.OneToOneField(Forum, null=True, blank=True)
     test_result = models.OneToOneField(TestResult, null=True, blank=True)
-
-    state = models.BooleanField(default=False)
 
     participants = models.ManyToManyField(settings.AUTH_USER_MODEL, through="Participation")
 
