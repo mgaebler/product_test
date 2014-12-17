@@ -6,7 +6,7 @@
   <h2>Aktuell laufende Produkttests</h2>
 
   {% for participation in user.participation_set.all() %}
-    <img src="{{ participation.product_test.logo.url }}" alt="{{ participation.product_test.name }}"/>
+    <img src="{{ thumbnail(participation.product_test.logo, size=(232, 52)) }}" alt="{{ participation.product_test.name }}"/>
   {% endfor %}
 
 {% endblock profile_content %}
