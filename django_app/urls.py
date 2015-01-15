@@ -5,7 +5,7 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
 from filebrowser.sites import site
-from core.views_utils import streaming_csv_view
+from core.views_utils import streaming_csv_view, get_gender_birth_date_csv
 
 from core.views import IndexView
 
@@ -34,6 +34,7 @@ urlpatterns = patterns('',
     url(r'^pages/', include('django.contrib.flatpages.urls')),
 
     url(r'^export/csv/confirmed-users', streaming_csv_view),
+    url(r'^export/csv/get_gender_birth_date', get_gender_birth_date_csv),
 )
 
 if settings.DEBUG:

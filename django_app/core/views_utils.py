@@ -29,3 +29,20 @@ def streaming_csv_view(request):
     )
     response['Content-Disposition'] = 'attachment; filename="confirmed_users.csv"'
     return response
+
+
+@staff_member_required
+def get_gender_birth_date_csv(request):
+    """A view that streams a large CSV file."""
+    # Generate a sequence of rows. The range is based on the maximum number of
+    # rows that can be handled by a single sheet in most spreadsheet
+    # applications.
+    rows = ([user.gender, user.birth_date] for user in UserAccount.objects.all())
+    pseudo_buffer = Echo()
+    writer = csv.writer(pseudo_buffer)
+    response = StreamingHttpResponse(
+        (writer.writerow(row) for row in rows),
+        content_type="text/csv"
+    )
+    response['Content-Disposition'] = 'attachment; filename="gender_birthdate_list.csv"'
+    return response
