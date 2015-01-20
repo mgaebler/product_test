@@ -16,7 +16,7 @@ PIPELINE_CSS = {
     'app': {
         'source_filenames': ('app/app.sass',),
         'output_filename': 'app/app_out.css',
-        'variant': 'datauri',
+        # 'variant': 'datauri',
         'extra_context': {'media': 'screen,projection'},
     }
 }
@@ -33,14 +33,16 @@ PIPELINE_JS = {
 }
 
 PIPELINE_SASS_ARGUMENTS = '--compass --trace'
+
 PIPELINE_COMPILERS = (
     'pipeline.compilers.sass.SASSCompiler',
 )
 
-PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'
+# PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'
 PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'
-# PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.yuglify.YuglifyCompressor'
+PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.yuglify.YuglifyCompressor'
 # PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.yuglify.YuglifyCompressor'
+PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.jsmin.JSMinCompressor'
 
 MANIFESTO_EXCLUDED_MANIFESTS = (
         # 'randomapp.manifest.WrongManifest',

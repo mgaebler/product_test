@@ -188,11 +188,12 @@ STATICFILES_DIRS = (
 )
 
 STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    # 'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'django.contrib.staticfiles.finders.FileSystemFinder',
-    'pipeline.finders.PipelineFinder',
+    # 'pipeline.finders.FileSystemFinder',
+    'pipeline.finders.AppDirectoriesFinder',
     'pipeline.finders.CachedFileFinder',
-    'pipeline.finders.FileSystemFinder',
+    'pipeline.finders.PipelineFinder',
 )
 
 STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
