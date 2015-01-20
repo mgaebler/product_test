@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 import sys
-import markdown
 
 from logging.handlers import SysLogHandler
 
@@ -82,9 +81,6 @@ JINJA2_EXTENSIONS = (
     'pipeline.jinja2.ext.PipelineExtension',
 )
 
-MARKUP_FIELD_TYPES = (
-    ('markdown', markdown.markdown),
-)
 
 ALLOWED_HOSTS = ['*']
 
