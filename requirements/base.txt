@@ -21,6 +21,7 @@ python-social-auth
 # assets
 django-pipeline
 manifesto
+jsmin
 
 
 # Imaging
