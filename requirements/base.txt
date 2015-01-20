@@ -1,27 +1,27 @@
 # common
-django
-django-braces
-django-bcrypt
-django-extensions
-django-grappelli
-python-memcached
-fabric
-pytz
-coverage
-factory_boy
-pyyaml
-django-bootstrap-form
+Django==1.7.3
+django-braces==1.4.0
+django-bcrypt==0.9.2
+django-extensions==1.4.9
+django-grappelli==2.6.3
+python-memcached==1.53
+Fabric==1.10.1
+pytz==2014.10
+coverage==4.0a2
+factory-boy==2.4.1
+PyYAML==3.11
+django-bootstrap-form==3.1
 
 
 # auth
-django-authtools
-python-social-auth
+django-authtools==1.0.0
+python-social-auth==0.2.1
 
 
 # assets
-django-pipeline
-manifesto
-jsmin
+django-pipeline==1.4.3
+manifesto==0.5
+jsmin==2.1.0
 
 
 # Imaging
@@ -29,40 +29,30 @@ easy-thumbnails
 ## try jinja support
 #-e git+https://github.com/mgaebler/django-thumbor@develop#egg=django-thumbor
 #django-thumbor
-pillow
+Pillow==2.7.0
 
 
 # Files
-django-filebrowser
+django-filebrowser==3.5.7
 
 
 # Templating
 ## http://niwibe.github.io/django-jinja/
-django-jinja
-pyjade
-
-
-# Markup
-# https://github.com/jamesturk/django-markupfield
-#django-markupfield
-# Since django markupfield has problems with django 1.7 migrations we have to use this fix branch
--e git+https://github.com/Matt3o12/django-markupfield@56ced9bb29216ae13d1b80c9a7e708241169d300#egg=django-markupfield
-markdown
+django-jinja==1.0.5
 
 
 # Auth
-django-allauth
-python-openid
-requests
-requests-oauthlib
-
+django-allauth==0.19.0
+python-openid==2.2.5
+requests==2.5.1
+requests-oauthlib==0.4.2
 
 # Database, db
-psycopg2
+psycopg2==2.5.4
 
 
 # Tests
 #django-nose
 -e git://github.com/django-nose/django-nose.git#egg=django-nose
-nose-progressive
-pinocchio
+nose-progressive==1.5.1
+pinocchio==0.4.2
