@@ -1,7 +1,8 @@
 # coding: utf-8
 import factory
+from django.utils.timezone import now
 from product_test import models
-
+from datetime import timedelta
 
 class BrandTestFactory(factory.django.DjangoModelFactory):
     class Meta:
@@ -19,6 +20,8 @@ class ProductTestFactory(factory.django.DjangoModelFactory):
     hero_image = factory.django.ImageField(color='green', width=950, height=284)
     list_image = factory.django.ImageField(color='blue', width=310, height=210)
     logo = factory.django.ImageField(color='red', width=232, height=52)
+    state = 'published'
+    published_at = now() - timedelta(0, 60)
 
     custom_html = """
       <div class='test-class'>

@@ -19,3 +19,4 @@ class FaqEntryFactory(factory.django.DjangoModelFactory):
     question = factory.Sequence(lambda n: "Test Question #%s" % n)
     answer = factory.Sequence(lambda n: "Test Answer #%s" % n)
     group = factory.SubFactory(FaqGroupFactory)
+    position = factory.Sequence(lambda n: n)
