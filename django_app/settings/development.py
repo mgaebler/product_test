@@ -27,12 +27,13 @@ INTERNAL_IPS = (
 )
 
 INSTALLED_APPS += (
-    'debug_toolbar.apps.DebugToolbarConfig',
+    'debug_toolbar',
+    # 'debug_toolbar.apps.DebugToolbarConfig',
 )
 
-# MIDDLEWARE_CLASSES += (
-#     'debug_toolbar.middleware.DebugToolbarMiddleware',
-# )
+MIDDLEWARE_CLASSES += (
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '.media')
