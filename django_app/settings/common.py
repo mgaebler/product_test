@@ -120,8 +120,10 @@ INSTALLED_APPS = (
     'django_simple_forum',
     'gallery',
     'product_test',
+    'senseo',
     'simple_bank',
     'simple_shop',
+    'static_pages',
 )
 
 MIDDLEWARE_CLASSES = (

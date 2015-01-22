@@ -1,0 +1,14 @@
+{% if seodata.meta_description %}
+    <meta name="description" content="{{ seodata.meta_description }}" />
+    <meta name="og:description" content="{{ seodata.meta_description }}" />
+{% endif %}
+{% if seodata.meta_keywords %}
+    <meta name="keywords" content="{{ seodata.meta_keywords }}" />
+{% endif %}
+{% if seodata.canonical_url %}
+    <link rel="canonical" href="{{ seodata.canonical_url }}" />
+    <meta property="og:url" content="{{ seodata.canonical_url }}" />
+{% endif %}
+{% if seodata.noindex %}
+    <meta name="robots" content="noindex" />
+{% endif %}
