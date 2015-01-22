@@ -16,7 +16,6 @@
 |-Vagrantfile - the default settings file for vagrant
 ```
 
-
 # Provisioning
 Du benötigst Ansible für die Provisionierung.
 ``brew install ansible``
@@ -34,6 +33,11 @@ In diesem Fall wird die locale Provisionierung automatisch durchgeführt.
 
 
 # Development
+## Systemvoraussetzungen
+* Virtualbox 4.3.20 (https://www.virtualbox.org/wiki/Downloads)
+* Vagrant 1.7.2 (https://www.vagrantup.com/)
+* ansible 1.8.2 (brew install ansible)
+
 ## Initial Start of Development System
 ``vagrant ssh``
 ``./manage.py createsuperuser``
