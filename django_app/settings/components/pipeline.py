@@ -39,11 +39,11 @@ PIPELINE_COMPILERS = (
 )
 
 # PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'
-PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'
+# PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'
 PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.yuglify.YuglifyCompressor'
 # PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.yuglify.YuglifyCompressor'
 PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.jsmin.JSMinCompressor'
 
-MANIFESTO_EXCLUDED_MANIFESTS = (
+# MANIFESTO_EXCLUDED_MANIFESTS = (
         # 'randomapp.manifest.WrongManifest',
-)
+# )
