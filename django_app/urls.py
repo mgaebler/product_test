@@ -27,14 +27,15 @@ urlpatterns = patterns('',
 
     url(r'forum/', include('django_simple_forum.urls')),
 
-    url('', include('social.apps.django_app.urls', namespace='social')),
+    url(r'^export/csv/confirmed-users', streaming_csv_view),
+    url(r'^export/csv/get_gender_birth_date', get_gender_birth_date_csv),
+
+    url(r'', include('social.apps.django_app.urls', namespace='social')),
     url(r'^admin/filebrowser/', include(site.urls)),
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^pages/', include('django.contrib.flatpages.urls')),
 
-    url(r'^export/csv/confirmed-users', streaming_csv_view),
-    url(r'^export/csv/get_gender_birth_date', get_gender_birth_date_csv),
+    url(r'', include('static_pages.urls')),
 )
 
 if settings.DEBUG:

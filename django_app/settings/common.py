@@ -135,7 +135,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'pipeline.middleware.MinifyHTMLMiddleware',
-    # 'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    'static_pages.middleware.FlatpageFallbackMiddleware',
 )
 
 ROOT_URLCONF = 'django_app.urls'
@@ -143,17 +143,6 @@ ROOT_URLCONF = 'django_app.urls'
 WSGI_APPLICATION = 'django_app.wsgi.production.application'
 
 AUTH_USER_MODEL = 'user_accounts.UserAccount'
-
-# Database
-# https://docs.djangoproject.com/en/1.7/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db', 'db.sqlite3'),
-    }
-}
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -189,8 +178,8 @@ STATICFILES_FINDERS = (
     # 'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'django.contrib.staticfiles.finders.FileSystemFinder',
     # 'pipeline.finders.FileSystemFinder',
-    'pipeline.finders.AppDirectoriesFinder',
     'pipeline.finders.CachedFileFinder',
+    'pipeline.finders.AppDirectoriesFinder',
     'pipeline.finders.PipelineFinder',
 )
 

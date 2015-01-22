@@ -1,0 +1,32 @@
+{% extends 'base.jinja' %}
+{#{% load staticfiles %}#}
+
+{% block body_class %}flatpage{% endblock %}
+{% block title %}{{ flatpage.title }} | {{ block.super }}{% endblock title %}
+{% block navbar_image %}{% endblock %}
+
+
+{% block seo_head %}
+  {% for seodata in flatpage.seo_data.all %}
+    {% include 'senseo/meta_data.html' %}
+  {% endfor %}
+{% endblock %}
+
+
+{% block content %}
+<div class="page-maincontent">
+
+  <div class="row">
+
+    <div class="col-md-24">
+
+      {% autoescape off %}
+      {{ flatpage.content }}
+      {% endautoescape %}
+
+    </div>
+
+  </div>
+
+</div>
+{% endblock content %}
