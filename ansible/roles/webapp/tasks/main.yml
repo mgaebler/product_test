@@ -28,8 +28,8 @@
 - shell: gem install {{ item }}
   sudo: true
   with_items:
-    - compass
-    - sass
+    - 'compass -v 1.0.3'
+    - 'sass -v 3.4.10'
 
 
 # install npm packages global
