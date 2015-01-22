@@ -14,19 +14,15 @@
 
 
 {% block content %}
-<div class="page-maincontent">
-
+<div class="inner container">
   <div class="row">
-
-    <div class="col-md-24">
+    <div class="col-md-20 col-md-offset-2">
 
       {% autoescape off %}
       {{ flatpage.content }}
       {% endautoescape %}
 
     </div>
-
   </div>
-
 </div>
 {% endblock content %}
