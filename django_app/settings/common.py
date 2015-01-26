@@ -110,6 +110,7 @@ INSTALLED_APPS = (
     'easy_thumbnails',
     'django_jinja.contrib._easy_thumbnails',
     'core.django_jinja.contrib._bootstrapform',
+    'stickerz',
     # 'bootstrapform',
     'django_nose',
 
@@ -124,7 +125,7 @@ INSTALLED_APPS = (
     'simple_bank',
     'simple_shop',
     'static_pages',
-    'stickerz',
+
 )
 
 MIDDLEWARE_CLASSES = (
