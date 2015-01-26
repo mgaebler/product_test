@@ -23,7 +23,7 @@ def stickers(identifier=""):
             identifier=identifier,
             active=True
         )
-
+        if container.stickers.count() == 0: return ''
         template_path = "stickerz/base.jinja" if not container.template else container.template
         try:
             template = get_template(template_path)
