@@ -212,15 +212,6 @@ footer
     span
       line-height: 42px
       +inline-block
-    .philips, .proplan, .kitchenaid, .bellabambi
-      margin-left: 16px
-      line-height: 20px
-      a
-        display: block
-        height: 100%
-    @each $pubname in philips proplan kitchenaid bellabambi
-      .#{$pubname}
-        +retina-sprite-replace-text-with-dimensions($icons, $icons2x, "logo_#{$pubname}")
 
   .legalese
     margin-top: 16px
@@ -230,7 +221,7 @@ footer
     text-align: center
     span
       line-height: 15px
-      +inline-block
+      // +inline-block
     strong
       margin-right: 30px
     .facebook, .twitter, .gplus
