@@ -12,7 +12,6 @@ class StickerRelation(admin.TabularInline):
     sortable_field_name = "position"
 
 
-
 class StickerContainerAdmin(admin.ModelAdmin):
     inlines = (StickerRelation,)
 
