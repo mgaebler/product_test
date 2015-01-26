@@ -9,7 +9,7 @@ class StickerContainer(models.Model):
     Containers hold their stickers. They know about the place they live and the template they use.
     """
     name = models.CharField(max_length=255)
-    identifier = models.CharField(max_length=12)
+    identifier = models.CharField(max_length=24)
     description = models.TextField(help_text=_("Say something about this container. For example where it lives."))
     active = models.BooleanField(verbose_name=_('active'), default=True)
     template = models.CharField(max_length=255, blank=True, null=True,
