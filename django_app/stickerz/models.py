@@ -20,7 +20,7 @@ class StickerContainer(models.Model):
 
 class Sticker(models.Model):
     name = models.CharField(_('name'), max_length=250)
-    link = models.URLField(max_length=510, blank=True, null=True)
+    target_url = models.URLField(max_length=510, blank=True, null=True)
     container = models.ForeignKey(StickerContainer, related_name=('stickers'))
     image = models.ImageField(upload_to='stickerz')
     position = models.PositiveSmallIntegerField()
