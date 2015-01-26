@@ -63,6 +63,9 @@
       </div>
 
       <p class="register-raffle-teaser">
+        {% autoescape off %}
+        {{ stickers('raffle_teaser') }}
+        {% endautoescape %}
       </p>
 
       {% if not user.is_authenticated() %}

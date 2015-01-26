@@ -6,6 +6,7 @@ from django.template.loader import get_template
 from django.template import Context
 from django_jinja import library
 from stickerz.models import StickerContainer
+from django.template import TemplateDoesNotExist
 from django.utils.timezone import utc
 
 
@@ -24,12 +25,18 @@ def stickers(identifier=""):
         )
 
         template_path = "stickerz/base.jinja" if not container.template else container.template
-        template = get_template(template_path)
-        context = Context({ "stickers": container.stickers.all() })
+        try:
+            template = get_template(template_path)
+            context = Context({ "stickers": container.stickers.all() })
+            return template.render(context)
 
-        return template.render(context)
+        except TemplateDoesNotExist:
+            log.warning('Cannot find the template at the given path: {0}.'.format(template_path))
 
     except StickerContainer.DoesNotExist:
         log.warning('Cannot find the sticker container ')
+
+    return ''
+
 
 
