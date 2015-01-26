@@ -15,8 +15,8 @@ register = template.Library()
 
 
 
-@library.filter
-def get_stickers(context, identifier=""):
+@library.global_function
+def stickers(identifier=""):
     try:
         container = StickerContainer.objects.get(
             identifier=identifier,
