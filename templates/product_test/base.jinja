@@ -29,15 +29,24 @@
               <a href="{{ url('product_test:info', slug=product_test.slug) }}">Info</a>
             </li>
 
+            {% if product_test.forum.state == 'published' or (product_test.forum.state == 'preview' and request.user.is_staff) %}
             <li class="page-nav-forum{% if request.path == url('product_test:forum:forum-detail', slug=product_test.slug) %} active{% endif %}">
               <a href="{{ url('product_test:forum:forum-detail', slug=product_test.slug) }}">Forum</a>
             </li>
+            {% endif %}
+
+            {% if product_test.gallery.state == 'published' or (product_test.gallery.state == 'preview' and request.user.is_staff) %}
             <li class="page-nav-gallery{% if request.path == url('product_test:gallery:index', slug=product_test.slug) %} active{% endif %}">
                 <a href="{{ url('product_test:gallery:index', slug=product_test.slug) }}">Galerie</a>
             </li>
+            {% endif %}
+
+            {% if product_test.faq.state == 'published' or (product_test.faq.state == 'preview' and request.user.is_staff) %}
             <li class="page-nav-faq{% if request.path == url('product_test:faq', slug=product_test.slug) %} active{% endif %}">
               <a href="{{ url('product_test:faq', slug=product_test.slug) }}">FAQ</a>
             </li>
+            {% endif %}
+
             {% if test_result %}
             <li class="page-nav-result{% if request.path == url('product_test:result', slug=product_test.slug) %} active{% endif %}">
               <a href="{{ url('product_test:result', slug=product_test.slug) }}">Ergebnisse</a>
