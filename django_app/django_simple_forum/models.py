@@ -4,12 +4,27 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class Forum(models.Model):
+    STATE_PUBLISHED = 'published'
+    STATE_PREVIEW = 'preview'
+    STATE_DEACTIVATED = 'deactivated'
+    STATES = (
+        (STATE_PUBLISHED, _(u'published')),
+        (STATE_PREVIEW, _(u'preview')),
+        (STATE_DEACTIVATED, _(u'deactivated')),
+    )
     title = models.CharField(_(u'title'), max_length=255)
     description = models.TextField(_(u'description'), blank=True, default='')
     updated = models.DateTimeField(auto_now=True, editable=False)
     created = models.DateTimeField(auto_now_add=True, editable=False)
     creator = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u'creator'),  blank=True, null=True)
 
+    state = models.CharField(max_length=24, choices=STATES, default=u'published',
+        help_text=u"""
+            Draft: The product test is not visible to everyone.
+            Published: The Product test is visible if the 'published at' date is arrived.
+            Preview: The Product is visible to every staff member independently of the 'publishing at' date.
+        """
+    )
     def __unicode__(self):
         return self.title
 

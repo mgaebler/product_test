@@ -15,28 +15,31 @@ def utc_now():
 
 
 class Gallery(models.Model):
+    STATE_PUBLISHED = 'published'
+    STATE_PREVIEW = 'preview'
+    STATE_DEACTIVATED = 'deactivated'
+    STATES = (
+        (STATE_PUBLISHED, _(u'published')),
+        (STATE_PREVIEW, _(u'preview')),
+        (STATE_DEACTIVATED, _(u'deactivated'))
+    )
     name = models.CharField(_(u'name'), max_length=255)
-
     description = models.TextField(
         verbose_name=_('description'),
         help_text=_('gallery_gallery_description_help_text'),
         blank=True,
         null=True
     )
-    # teaser_image = models.ImageField(_(u'teaser image'), upload_to='galleries/teaser/%Y-%m-%d/', max_length=255)
-
-    active = models.BooleanField(verbose_name=_('published'), default=True)
-    publish_date = models.DateTimeField(
-        verbose_name=_('publish_date'),
-        default=utc_now
+    state = models.CharField(max_length=24, choices=STATES, default=u'published',
+        help_text=u"""
+            Draft: The product test is not visible to everyone.
+            Published: The Product test is visible if the 'published at' date is arrived.
+            Preview: The Product is visible to every staff member independently of the 'publishing at' date.
+        """
     )
-
+    active = models.BooleanField(verbose_name=_('published'), default=True)
     creation_date = models.DateTimeField(default=utc_now, editable=False)
     last_modified = models.DateTimeField(auto_now=True, editable=False)
-
-    def delete(self, using=None):
-        self.is_deleted = True
-        self.save()
 
     def __unicode__(self):
         return self.name
@@ -60,7 +63,6 @@ class GalleryImage(models.Model):
 
     creation_date = models.DateTimeField(default=utc_now, editable=False)
     last_modified = models.DateTimeField(auto_now=True, editable=False)
-    is_deleted = models.BooleanField(verbose_name=_('is_deleted'), default=False)
 
 
 class GalleryVideo(models.Model):
