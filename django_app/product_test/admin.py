@@ -9,13 +9,14 @@ from .models import ProductTest, Brand, Participation, TestResult
 class ParticipationInline(admin.TabularInline):
     model = Participation
     extra = 1
+    raw_id_fields = ('users',)
 
 
 @admin.register(ProductTest)
 class ProductTestAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
     readonly_fields = ('created_at', 'updated_at',)
-    # inlines = (ParticipationInline,)
+    inlines = (ParticipationInline,)
     fieldsets = (
         (None, {
             'fields': ('title', 'slug', 'brand')
@@ -43,6 +44,8 @@ class ProductTestAdmin(admin.ModelAdmin):
             )
         })
     )
+
+
     class Media:
         js = [
             static('grappelli/tinymce/jscripts/tiny_mce/tiny_mce.js'),
