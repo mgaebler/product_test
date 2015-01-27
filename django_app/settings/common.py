@@ -125,7 +125,6 @@ INSTALLED_APPS = (
     'simple_bank',
     'simple_shop',
     'static_pages',
-
 )
 
 MIDDLEWARE_CLASSES = (
@@ -180,12 +179,12 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'django.contrib.staticfiles.finders.FileSystemFinder',
     # 'pipeline.finders.FileSystemFinder',
-    'pipeline.finders.CachedFileFinder',
     # 'pipeline.finders.AppDirectoriesFinder',
     'pipeline.finders.PipelineFinder',
 )
 
-STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
+# STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
+STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '.media')

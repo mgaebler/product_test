@@ -20,6 +20,9 @@ WSGI_APPLICATION = 'django_app.wsgi.development.application'
 # So to re-enable it just comment the next line.
 # PIPELINE_ENABLED = True
 
+PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'
+PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'
+
 INTERNAL_IPS = (
     '127.0.0.1',
     '192.168.178.41',
