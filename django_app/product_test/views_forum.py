@@ -1,5 +1,6 @@
 # coding: utf-8
 from django.core.urlresolvers import reverse
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render, get_object_or_404
 from product_test.models import ProductTest
@@ -27,7 +28,18 @@ class TopicView(ProductTestDetail):
     def get_context_data(self, **kwargs):
         context = super(TopicView, self).get_context_data(**kwargs)
         topic_id = self.kwargs['topic_id']
-        context['posts'] = Post.objects.filter(topic=topic_id).order_by("created")
+        posts_list = Post.objects.filter(topic=topic_id).order_by("created")
+        posts_paginator = Paginator(posts_list, 10) # show 10 posts per page
+        page = self.request.GET.get('page')
+        try:
+            context['posts'] = posts_paginator.page(page)
+        except PageNotAnInteger:
+            # If page is not an integer, deliver first page.
+            context['posts'] = posts_paginator.page(1)
+        except EmptyPage:
+            # If page is out of range (e.g. 9999), deliver last page of results.
+            context['posts'] = posts_paginator.page(posts_paginator.num_pages)
+
         context['topic'] = Topic.objects.get(pk=topic_id)
         context['post_form'] = PostForm()
 
@@ -76,7 +88,7 @@ def new_topic(request, slug, forum_id):
             topic.description = form.cleaned_data['description']
             topic.forum = forum
             topic.creator = request.user
-
+            topic.position = form.cleaned_data['position']
             topic.save()
 
             return redirect(reverse('product_test:forum:forum-detail', kwargs={'slug': slug}))

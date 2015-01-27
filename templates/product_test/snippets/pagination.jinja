@@ -1,0 +1,17 @@
+<div style="text-align: center">
+<nav class="pagination" >
+    <span class="page">
+        {% if objects.has_previous() %}
+            <a class="btn btn-default" href="?page={{ objects.previous_page_number() }}">< zurück</a>
+        {% endif %}
+
+        <span class="current">
+            Seite {{ objects.number }} von {{ objects.paginator.num_pages }}
+        </span>
+
+        {% if objects.has_next() %}
+            <a class="btn btn-default" href="?page={{ objects.next_page_number() }}">weiter ></a>
+        {% endif %}
+    </span>
+</nav>
+</div>

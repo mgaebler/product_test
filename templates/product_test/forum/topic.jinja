@@ -20,6 +20,10 @@
 </div>
 {% endif %}
 
+{% with objects=posts %}
+    {% include 'product_test/snippets/pagination.jinja' %}
+{% endwith %}
+
 <div class="forum-entries-holder">
 
   {% for post in posts %}
@@ -69,6 +73,9 @@
 
 </div>
 
+{% with objects=posts %}
+    {% include 'product_test/snippets/pagination.jinja' %}
+{% endwith %}
 
 {% if not user.is_authenticated() %}
 <div class="forum-not-logged-in">
