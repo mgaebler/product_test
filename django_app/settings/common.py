@@ -110,6 +110,7 @@ INSTALLED_APPS = (
     'easy_thumbnails',
     'django_jinja.contrib._easy_thumbnails',
     'core.django_jinja.contrib._bootstrapform',
+    'core.django_jinja.contrib._common',
     'stickerz',
     # 'bootstrapform',
     'django_nose',
