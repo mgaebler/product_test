@@ -12,9 +12,6 @@ from django.utils.timezone import utc
 
 log = logging.getLogger(__name__)
 
-register = template.Library()
-
-
 
 @library.global_function
 def stickers(identifier=""):

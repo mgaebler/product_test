@@ -30,3 +30,6 @@ class Sticker(models.Model):
 
     def __unicode__(self):
         return "{0}({1})".format(self.name, self.container)
+
+    class Meta:
+        ordering = ['position']
