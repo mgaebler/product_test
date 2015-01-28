@@ -18,7 +18,7 @@ WSGI_APPLICATION = 'django_app.wsgi.development.application'
 
 # ok, this is a bit weird. PIPELINE_ENABLED = True means, if debug is true pipeline is off.
 # So to re-enable it just comment the next line.
-PIPELINE_ENABLED = True
+# PIPELINE_ENABLED = True
 
 PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'
 PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'
