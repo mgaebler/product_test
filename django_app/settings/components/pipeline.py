@@ -7,7 +7,7 @@ PIPELINE_CSS = {
     'common': {
         'source_filenames': (
             # 'sass-bootstrap/dist/css/bootstrap.css',
-            'sass-bootstrap/dist/css/bootstrap-theme.css',
+            'bootstrap-sass-3.3.2/bootstrap-theme.css',
             'lightbox/dist/ekko-lightbox.css',
         ),
         'output_filename': 'css/common.css',

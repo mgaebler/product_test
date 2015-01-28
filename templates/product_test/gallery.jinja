@@ -1,19 +1,23 @@
 {% extends 'product_test/base.jinja' %}
 
-{% block product_test_content %}
-<script>
-  $(document).delegate('*[data-toggle="lightbox"]', 'click', function (event) {
-    event.preventDefault();
-    $(this).ekkoLightbox();
-  });
-</script>
 
+{% block javascript %}
+  <script>
+    $(document).delegate('*[data-toggle="lightbox"]', 'click', function (event) {
+      event.preventDefault();
+      $(this).ekkoLightbox();
+    });
+  </script>
+{% endblock javascript %}
+
+
+{% block product_test_content %}
 {% if product_test.gallery.description %}
-<div class="forum-header">
-  <h4>
-    {{ product_test.gallery.description }}
-  </h4>
-</div>
+  <div class="forum-header">
+    <h4>
+      {{ product_test.gallery.description }}
+    </h4>
+  </div>
 {% endif %}
 
 {% if not user.is_authenticated() %}
