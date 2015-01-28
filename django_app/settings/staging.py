@@ -18,6 +18,7 @@ TEMPLATE_DEBUG = False
 # ok, this is a bit weird. PIPELINE_ENABLED = True means, if debug is true pipeline is off.
 # So to re-enable it just comment the next line.
 PIPELINE_ENABLED = True
+PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'
 
 INTERNAL_IPS = (
     '127.0.0.1',
