@@ -2,8 +2,7 @@
 from django.conf.urls import patterns, url, include
 from . import views
 
-urlpatterns = patterns(
-    '',
+urlpatterns = patterns('',
     url(r'^$', views.ProductTestList.as_view(template_name='product_test/products.jinja'), name='index'),
     url(r'^(?P<slug>[\w-]+)/info$', views.ProductTestDetail.as_view(template_name='product_test/info.jinja'), name='info'),
 
