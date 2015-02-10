@@ -55,8 +55,8 @@
           {# date #}
           <div class="forum-entry-timestamp col-md-6">
             <span class="link-camo">
-              <span class="date">{{ post.created|date }}</span>,
-              <time>{{ post.created|time }}</time>
+              <span class="date">{{ post.created|localtime|date }}</span>,
+              <time>{{ post.created|localtime|time }}</time>
             </span>
           </div>
         </header>
