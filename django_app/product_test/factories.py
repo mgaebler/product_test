@@ -22,7 +22,7 @@ class ProductTestFactory(factory.django.DjangoModelFactory):
     logo = factory.django.ImageField(color='red', width=232, height=52)
     state = 'published'
     published_at = now() - timedelta(0, 60)
-
+    ends_at = now() + timedelta(30) # one month
     custom_html = """
       <div class='test-class'>
         <h1>This headline color is green - H1</h1>
