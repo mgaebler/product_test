@@ -212,21 +212,6 @@
 {% include 'footer.jinja' %}
 
 {% javascript 'common' %}
-<style>
-  .atlwdg-trigger {
-    background: #fd7263;
-  }
-</style>
-<script type="text/javascript">
-// Requires jQuery!
-jQuery.ajax({
-            url: "https://gvgnet.jira.com/s/3dd13b7f9351640faea31f7729d86516-T/en_US-bbjyi6/64012/298/1.4.23/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector-embededjs/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector-embededjs.js?locale=en-US&collectorId=e83090e3",
-        type: "get",
-    cache: true,
-    dataType: "script"
-});
-</script>
-
 {% block javascript %}{% endblock %}
 
 </body>
