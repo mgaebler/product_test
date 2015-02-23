@@ -1,4 +1,4 @@
-# common
+# Common
 Django==1.7.3
 django-braces==1.4.0
 django-bcrypt==0.9.2
@@ -13,7 +13,11 @@ PyYAML==3.11
 django-bootstrap-form==3.1
 
 
-# auth
+# Auth
+django-allauth==0.19.0
+python-openid==2.2.5
+requests==2.5.1
+requests-oauthlib==0.4.2
 django-authtools==1.0.0
 python-social-auth==0.2.1
 
@@ -24,31 +28,22 @@ manifesto==0.5
 jsmin==2.1.0
 
 
-# Imaging
-easy-thumbnails
-## try jinja support
-#-e git+https://github.com/mgaebler/django-thumbor@develop#egg=django-thumbor
-#django-thumbor
-Pillow==2.7.0
+# Database, db
+psycopg2==2.5.4
 
 
 # Files
 django-filebrowser==3.5.7
 
 
+# Imaging
+easy-thumbnails
+Pillow==2.7.0
+
+
 # Templating
 ## http://niwibe.github.io/django-jinja/
 django-jinja==1.0.5
-
-
-# Auth
-django-allauth==0.19.0
-python-openid==2.2.5
-requests==2.5.1
-requests-oauthlib==0.4.2
-
-# Database, db
-psycopg2==2.5.4
 
 
 # Tests
