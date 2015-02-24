@@ -20,6 +20,7 @@ urlpatterns = patterns('',
     url(r'produkttests/', include('product_test.urls', namespace='product_test')),
 
     url(r'forum/', include('django_simple_forum.urls')),
+    url(r'', include('simple_comments.urls', namespace='comments')),
 
     url(r'^export/csv/confirmed-users', streaming_csv_view),
     url(r'^export/csv/get_gender_birth_date', get_gender_birth_date_csv),

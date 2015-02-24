@@ -125,6 +125,7 @@ INSTALLED_APPS = (
     'senseo',
     'simple_bank',
     'simple_shop',
+    'simple_comments',
     'static_pages',
 )
 

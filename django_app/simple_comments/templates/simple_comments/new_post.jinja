@@ -1,0 +1,13 @@
+{% extends 'product_test/base.jinja' %}
+
+{% block product_test_content %}
+
+  <form action="{{ url('product_test:forum:reply', slug=product_test.slug, topic_id=topic.pk) }}" method="POST">
+    {% csrf_token %}
+    {% autoescape off %}
+    {{ form|bootstrap }}
+    {% endautoescape %}
+    <input class="btn btn-default" type="submit" value="Nachricht abschicken"/>
+  </form>
+
+{% endblock %}

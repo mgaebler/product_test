@@ -1,0 +1,40 @@
+<div class="forum-entry row" id="post-{{ post.pk }}">
+  <section>
+    {# avatar #}
+    <div class="forum-entry-user col-md-3">
+      {% with creator=post.creator %}
+        {% include 'product_test/forum/snippets/avatar.jinja' %}
+      {% endwith %}
+
+      <div class="nickname">
+        {{ post.creator.preferred_name }}
+      </div>
+      {% if post.creator.is_staff %}
+        <div class="title">
+          Admin
+        </div>
+      {% endif %}
+    </div>
+
+    <header>
+      {# title #}
+      <div class="forum-entry-title col-md-15">
+        <h3>{{ post.title }}</h3>
+      </div>
+
+      {# date #}
+      <div class="forum-entry-timestamp col-md-6">
+            <span class="link-camo">
+              <span class="date">{{ post.created|localtime|date }}</span>,
+              <time>{{ post.created|localtime|time }}</time>
+            </span>
+      </div>
+    </header>
+
+    <div class="forum-entry-body col-md-21">
+      {{ post.body|linebreaks }}
+    </div>
+
+  </section>
+
+</div>

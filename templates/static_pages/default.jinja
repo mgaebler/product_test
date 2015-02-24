@@ -23,6 +23,25 @@
       {% endautoescape %}
 
     </div>
+
+    {% if flatpage.enable_comments %}
+    <div>
+        {% for post in flatpage.comments.all() %}
+            {% include 'simple_comments/snippets/post.jinja' %}
+        {% endfor %}
+    </div>
+
+    <div>
+      <form action="{{ url('comments:new', page_id=flatpage.id) }}" method="POST">
+        {% csrf_token %}
+        {% autoescape off %}
+        {{ form|bootstrap }}
+        {% endautoescape %}
+        <input class="btn btn-default" type="submit" value="Kommentar abschicken"/>
+      </form>
+    </div>
+    {% endif %}
+
   </div>
 </div>
 {% endblock content %}

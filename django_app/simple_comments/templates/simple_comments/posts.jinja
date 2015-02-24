@@ -1,0 +1,82 @@
+{% if not user.is_authenticated() %}
+  <div class="forum-not-logged-in">
+    <p>
+      <a href="{{ url('user:login_form') }}">Log Dich ein</a>, um einen Beitrag zu verfassen.
+    </p>
+  </div>
+{% endif %}
+
+{% with objects=posts %}
+  {% include 'product_test/snippets/pagination.jinja' %}
+{% endwith %}
+
+<div class="forum-entries-holder">
+
+  {% for post in posts %}
+
+    <div class="forum-entry row" id="post-{{ post.pk }}">
+      <section>
+        {# avatar #}
+        <div class="forum-entry-user col-md-3">
+          {% with creator=post.creator %}
+            {% include 'product_test/forum/snippets/avatar.jinja' %}
+          {% endwith %}
+
+          <div class="nickname">
+            {{ post.creator.preferred_name }}
+          </div>
+          {% if post.creator.is_staff %}
+            <div class="title">
+              Admin
+            </div>
+          {% endif %}
+        </div>
+
+        <header>
+          {# title #}
+          <div class="forum-entry-title col-md-15">
+            <h3>{{ post.title }}</h3>
+          </div>
+
+          {# date #}
+          <div class="forum-entry-timestamp col-md-6">
+            <span class="link-camo">
+              <span class="date">{{ post.created|localtime|date }}</span>,
+              <time>{{ post.created|localtime|time }}</time>
+            </span>
+          </div>
+        </header>
+
+        <div class="forum-entry-body col-md-21">
+          {{ post.body|linebreaks }}
+        </div>
+
+      </section>
+
+    </div>
+
+  {% endfor %}
+
+</div>
+
+{% with objects=posts %}
+  {% include 'product_test/snippets/pagination.jinja' %}
+{% endwith %}
+
+{% if not user.is_authenticated() %}
+<div class="forum-not-logged-in">
+  <p>
+    <a href="{{ url('user:login_form') }}">Log Dich ein</a>, um einen Beitrag zu verfassen.
+  </p>
+</div>
+{% else %}
+<form action="{{ url('product_test:forum:reply', slug=product_test.slug, topic_id=topic.pk) }}" method="POST">
+  {% csrf_token %}
+  {% autoescape off %}
+  {{ post_form|bootstrap }}
+  {% endautoescape %}
+  <input class="btn btn-default" type="submit" value="Beitrag senden">
+</form>
+{% endif %}
+
+{% endblock %}

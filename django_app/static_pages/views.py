@@ -6,6 +6,7 @@ from django.shortcuts import get_object_or_404
 from django.template import loader, RequestContext
 from django.utils.safestring import mark_safe
 from django.views.decorators.csrf import csrf_protect
+from simple_comments.forms import PostForm
 
 DEFAULT_TEMPLATE = 'static_pages/default.jinja'
 
@@ -70,6 +71,7 @@ def render_flatpage(request, f):
 
     c = RequestContext(request, {
         'flatpage': f,
+        'form': PostForm(),
     })
     response = HttpResponse(t.render(c))
     return response

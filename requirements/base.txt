@@ -43,7 +43,7 @@ Pillow==2.7.0
 
 # Templating
 ## http://niwibe.github.io/django-jinja/
-django-jinja==1.0.5
+django-jinja==1.1.1
 
 
 # Tests
