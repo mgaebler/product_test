@@ -68,6 +68,10 @@ class UserAccount(AbstractEmailUser):
     def get_short_name(self):
         return self.preferred_name
 
+    @staticmethod
+    def autocomplete_search_fields():
+        return ("id__iexact", "email__icontains",)
+
     def __unicode__(self):
         return self.email
 

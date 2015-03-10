@@ -45,6 +45,10 @@ class Account(models.Model):
         # check balance based on the transfers
         pass
 
+    @staticmethod
+    def autocomplete_search_fields():
+        return ("id__iexact", "name__icontains",)
+
     def __unicode__(self):
         return u"{name}".format(name=self.name)
 
