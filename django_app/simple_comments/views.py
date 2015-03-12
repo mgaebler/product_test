@@ -28,7 +28,7 @@ def post_reply(request, page_id):
 
             post.save()
 
-    return redirect(reverse('static_pages.views.flatpage', kwargs={'url': flatpage.url}))
+    return redirect(flatpage.get_absolute_url())
 
     # return render(request, 'simple_comments/new_post.jinja', {
     #     'form': form,
