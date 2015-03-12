@@ -2,9 +2,8 @@
 from __future__ import absolute_import
 from __future__ import unicode_literals
 
-from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import redirect, render, get_object_or_404
+from django.shortcuts import redirect
 from simple_comments.models import Comment
 from static_pages.models import FlatPage
 
