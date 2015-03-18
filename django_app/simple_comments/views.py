@@ -2,9 +2,8 @@
 from __future__ import absolute_import
 from __future__ import unicode_literals
 
-from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import redirect, render, get_object_or_404
+from django.shortcuts import redirect
 from simple_comments.models import Comment
 from static_pages.models import FlatPage
 
@@ -28,7 +27,7 @@ def post_reply(request, page_id):
 
             post.save()
 
-    return redirect(reverse('static_pages.views.flatpage', kwargs={'url': flatpage.url}))
+    return redirect(flatpage.get_absolute_url())
 
     # return render(request, 'simple_comments/new_post.jinja', {
     #     'form': form,
