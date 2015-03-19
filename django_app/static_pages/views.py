@@ -1,5 +1,5 @@
 from django.conf import settings
-from static_pages.models import FlatPage
+from django.core.paginator import Paginator, EmptyPage, InvalidPage
 from django.contrib.sites.shortcuts import get_current_site
 from django.http import Http404, HttpResponse, HttpResponsePermanentRedirect
 from django.shortcuts import get_object_or_404
@@ -7,6 +7,7 @@ from django.template import loader, RequestContext
 from django.utils.safestring import mark_safe
 from django.views.decorators.csrf import csrf_protect
 from simple_comments.forms import PostForm
+from static_pages.models import FlatPage
 
 DEFAULT_TEMPLATE = 'static_pages/default.jinja'
 
@@ -69,9 +70,30 @@ def render_flatpage(request, f):
     f.title = mark_safe(f.title)
     f.content = mark_safe(f.content)
 
+    # Paginate comments
+    comments_per_page = getattr(settings, 'DJANGO_SIMPLE_COMMENTS_PER_PAGE', 10)
+    comments = mk_paginator(request, f.comments.all(), comments_per_page)
+
     c = RequestContext(request, {
         'flatpage': f,
         'form': PostForm(),
+        'comments': comments,
     })
+
     response = HttpResponse(t.render(c))
     return response
+
+
+# TODO: factor this out and use it for together with the forum's pagination?
+def mk_paginator(request, items, num_items):
+    """Create and return a paginator."""
+    paginator = Paginator(items, num_items)
+    try:
+        page = int(request.GET.get("page", '1'))
+    except ValueError:
+        page = 1
+    try:
+        items = paginator.page(page)
+    except (InvalidPage, EmptyPage):
+        items = paginator.page(paginator.num_pages)
+    return items
