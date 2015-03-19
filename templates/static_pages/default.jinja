@@ -25,12 +25,7 @@
     </div>
 
     {% if flatpage.enable_comments %}
-      <div>
-          {% for post in flatpage.comments.all() %}
-              {% include 'simple_comments/snippets/post.jinja' %}
-          {% endfor %}
-      </div>
-
+      <a name="comments"></a>
       {% if user.is_authenticated() %}
         <div>
           <form action="{{ url('comments:new', page_id=flatpage.id) }}" method="POST">
@@ -43,6 +38,16 @@
         </div>
       {% endif %}
 
+      {# TODO: factor this out and use it for together with the forum's pagination? #}
+      {% with objects=comments %}
+        {% include 'simple_comments/snippets/pagination.jinja' %}
+      {% endwith %}
+
+      <div>
+        {% for post in comments %}
+          {% include 'simple_comments/snippets/post.jinja' %}
+        {% endfor %}
+      </div>
     {% endif %}
 
   </div>
