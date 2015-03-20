@@ -71,7 +71,8 @@ def all_users_csv_view(request):
             address += " / " + user.address2
         if user.address3:
             address += " / " + user.address3
-        rows.append([
+
+        row = [
             user.preferred_name,
             user.email,
             user.full_name,
@@ -82,7 +83,11 @@ def all_users_csv_view(request):
             user.postcode,
             user.city,
             user.country
-        ])
+        ]
+
+        # Otherwise writerow throws UnicodeEncodeError
+        rows.append(
+            [x.encode('utf-8') for x in row if isinstance(x, unicode)])
 
     pseudo_buffer = Echo()
     writer = csv.writer(pseudo_buffer)
