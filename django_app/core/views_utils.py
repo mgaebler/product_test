@@ -73,20 +73,28 @@ def all_users_csv_view(request):
         if user.address3:
             address += u" / " + user.address3
 
-        # csv.writer needs encoding
-        rows.append([
-            user.preferred_name.encode('utf-8'),
-            user.email.encode('utf-8'),
-            user.full_name.encode('utf-8'),
+        row = []
+        for field in [
+            user.preferred_name,
+            user.email,
+            user.full_name,
             user.is_active,
-            user.gender.encode('utf-8'),
-            user.family_status.encode('utf-8'),
-            address.encode('utf-8'),
-            user.postcode.encode('utf-8'),
-            user.city.encode('utf-8'),
-            user.country.encode('utf-8'),
+            user.gender,
+            user.family_status,
+            address,
+            user.postcode,
+            user.city,
+            user.country,
             user.birth_date,
-        ])
+        ]:
+            # csv module doesn't support Unicode input
+            try:
+                field = field.encode("utf-8")
+            except AttributeError:
+                pass
+            row.append(field)
+
+        rows.append(row)
 
     pseudo_buffer = Echo()
     writer = csv.writer(pseudo_buffer)
