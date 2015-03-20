@@ -5,7 +5,7 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
 from filebrowser.sites import site
-from core.views_utils import streaming_csv_view, get_gender_birth_date_csv
+from core.views_utils import streaming_csv_view, get_gender_birth_date_csv, all_users_csv_view
 
 from core.views import IndexView
 
@@ -22,6 +22,7 @@ urlpatterns = patterns('',
     url(r'forum/', include('django_simple_forum.urls')),
     url(r'', include('simple_comments.urls', namespace='comments')),
 
+    url(r'^export/csv/all-users', all_users_csv_view),
     url(r'^export/csv/confirmed-users', streaming_csv_view),
     url(r'^export/csv/get_gender_birth_date', get_gender_birth_date_csv),
 

@@ -46,3 +46,49 @@ def get_gender_birth_date_csv(request):
     )
     response['Content-Disposition'] = 'attachment; filename="gender_birthdate_list.csv"'
     return response
+
+
+@staff_member_required
+def all_users_csv_view(request):
+    """A view that streams a large CSV file of all users."""
+
+    rows = [[
+        u"Nutzername",
+        u"E-Mail",
+        u"Name",
+        u"Aktiv",
+        u"Geschlecht",
+        u"Familienstand",
+        u"Adresse",
+        u"PLZ",
+        u"Stadt",
+        u"Land",
+    ]]
+
+    for user in UserAccount.objects.all():
+        address = user.address1
+        if user.address2:
+            address += " / " + user.address2
+        if user.address3:
+            address += " / " + user.address3
+        rows.append([
+            user.preferred_name,
+            user.email,
+            user.full_name,
+            user.is_active,
+            user.gender,
+            user.family_status,
+            address,
+            user.postcode,
+            user.city,
+            user.country
+        ])
+
+    pseudo_buffer = Echo()
+    writer = csv.writer(pseudo_buffer)
+    response = StreamingHttpResponse(
+        (writer.writerow(row) for row in rows),
+        content_type="text/csv"
+    )
+    response['Content-Disposition'] = 'attachment; filename="users.csv"'
+    return response
