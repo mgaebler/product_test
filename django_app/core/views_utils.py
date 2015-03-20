@@ -63,31 +63,30 @@ def all_users_csv_view(request):
         u"PLZ",
         u"Stadt",
         u"Land",
+        u"Geburtsdatum",
     ]]
 
     for user in UserAccount.objects.all():
         address = user.address1
         if user.address2:
-            address += " / " + user.address2
+            address += u" / " + user.address2
         if user.address3:
-            address += " / " + user.address3
+            address += u" / " + user.address3
 
-        row = [
-            user.preferred_name,
-            user.email,
-            user.full_name,
+        # csv.writer needs encoding
+        rows.append([
+            user.preferred_name.encode('utf-8'),
+            user.email.encode('utf-8'),
+            user.full_name.encode('utf-8'),
             user.is_active,
-            user.gender,
-            user.family_status,
-            address,
-            user.postcode,
-            user.city,
-            user.country
-        ]
-
-        # Otherwise writerow throws UnicodeEncodeError
-        rows.append(
-            [x.encode('utf-8') for x in row if isinstance(x, unicode)])
+            user.gender.encode('utf-8'),
+            user.family_status.encode('utf-8'),
+            address.encode('utf-8'),
+            user.postcode.encode('utf-8'),
+            user.city.encode('utf-8'),
+            user.country.encode('utf-8'),
+            user.birth_date,
+        ])
 
     pseudo_buffer = Echo()
     writer = csv.writer(pseudo_buffer)
