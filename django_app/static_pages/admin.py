@@ -13,6 +13,10 @@ from simple_comments.models import Comment
 
 class CommentInline(admin.StackedInline):
     model = Comment
+    raw_id_fields = ('creator', )
+    autocomplete_lookup_fields = {
+        'fk': ('creator', )
+    }
 
 
 class FlatPageAdmin(admin.ModelAdmin):
