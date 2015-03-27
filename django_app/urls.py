@@ -40,4 +40,4 @@ if settings.DEBUG:
     #     '',
     #     url(r'^__debug__/', include(debug_toolbar.urls)),
     # )
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns.insert(0, *static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))
