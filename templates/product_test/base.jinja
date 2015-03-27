@@ -8,21 +8,25 @@
 
   <div id="ptw" class="container">
 
-    <div class="row">
-      <img class="img-responsive" alt="{{ product_test.title }}" src="{{ product_test.hero_image.url }}">
-    </div>
+    {% if product_test.hero_image %}
+      <div class="row">
+        <img class="img-responsive" alt="{{ product_test.title }}" src="{{ product_test.hero_image.url }}">
+      </div>
+    {% endif %}
 
     <div class="row">
       <div class="col-md-24">
 
         <nav class="page-nav">
-          <h2>
-            <a href="{{ url('product_test:info', slug=product_test.slug) }}">
-              <img
-                  alt="{{ product_test.title }}"
-                  src="{{ thumbnail(product_test.logo, size=(232, 52)) }}">
-            </a>
-          </h2>
+          {% if product_test.logo %}
+            <h2>
+              <a href="{{ url('product_test:info', slug=product_test.slug) }}">
+                <img
+                    alt="{{ product_test.title }}"
+                    src="{{ thumbnail(product_test.logo, size=(232, 52)) }}">
+              </a>
+            </h2>
+          {% endif %}
 
           <ul>
             <li class="page-nav-info{% if request.path == url('product_test:info', slug=product_test.slug) %} active{% endif %}">
