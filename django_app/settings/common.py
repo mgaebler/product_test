@@ -128,6 +128,7 @@ INSTALLED_APPS = (
     'simple_comments',
     'static_pages',
     'raffles',
+    'forms_builder.forms',
 )
 
 MIDDLEWARE_CLASSES = (
