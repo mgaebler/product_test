@@ -3,6 +3,7 @@ from __future__ import absolute_import
 from __future__ import unicode_literals
 
 from django.contrib import admin
+from django.contrib.contenttypes.generic import GenericStackedInline
 from django.utils.translation import ugettext_lazy as _
 from django.templatetags.static import static
 from static_pages.models import FlatPage
@@ -11,7 +12,7 @@ from senseo.admin import SEODataInline
 from simple_comments.models import Comment
 
 
-class CommentInline(admin.StackedInline):
+class CommentInline(GenericStackedInline):
     model = Comment
     raw_id_fields = ('creator', )
     autocomplete_lookup_fields = {
@@ -19,6 +20,7 @@ class CommentInline(admin.StackedInline):
     }
 
 
+@admin.register(FlatPage)
 class FlatPageAdmin(admin.ModelAdmin):
     form = FlatpageForm
     fieldsets = (
@@ -35,5 +37,3 @@ class FlatPageAdmin(admin.ModelAdmin):
             static('grappelli/tinymce/jscripts/tiny_mce/tiny_mce.js'),
             static('static_pages/tinymce_setup/tinymce_setup.js'),
         ]
-
-admin.site.register(FlatPage, FlatPageAdmin)
