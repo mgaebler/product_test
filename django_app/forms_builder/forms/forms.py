@@ -119,7 +119,7 @@ class FormForForm(forms.ModelForm):
 
     class Meta:
         model = FormEntry
-        exclude = ("form", "entry_time")
+        exclude = ("form", "entry_time", "user")
 
     def __init__(self, form, context, *args, **kwargs):
         """

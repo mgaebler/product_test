@@ -54,6 +54,11 @@ class FormDetail(TemplateView):
                 f.seek(0)
                 attachments.append((f.name, f.read()))
             entry = form_for_form.save()
+
+            # Add user
+            entry.user = request.user
+            entry.save()
+
             form_valid.send(sender=request, form=form_for_form, entry=entry)
             self.send_emails(request, form_for_form, form, entry, attachments)
             if not self.request.is_ajax():

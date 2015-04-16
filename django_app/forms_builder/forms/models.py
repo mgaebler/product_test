@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 
+from django.conf import settings as django_settings
 from django.contrib.sites.models import Site
 from django.core.exceptions import ValidationError
 from django.core.urlresolvers import reverse
@@ -261,6 +262,7 @@ class AbstractFieldEntry(models.Model):
 ###################################################
 
 class FormEntry(AbstractFormEntry):
+    user = models.ForeignKey(django_settings.AUTH_USER_MODEL, related_name="forms", null=True)
     form = models.ForeignKey("Form", related_name="entries")
 
 
