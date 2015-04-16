@@ -21,7 +21,7 @@ urlpatterns = patterns('',
 
     url(r'forum/', include('django_simple_forum.urls')),
     url(r'', include('simple_comments.urls', namespace='comments')),
-    url(r'formulare', include('forms_builder.forms.urls')),
+    url(r'formulare/', include('forms_builder.forms.urls')),
 
     url(r'^export/csv/all-users', all_users_csv_view),
     url(r'^export/csv/confirmed-users', streaming_csv_view),
