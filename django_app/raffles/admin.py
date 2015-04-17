@@ -25,10 +25,10 @@ class RaffleAdmin(admin.ModelAdmin):
         (_('Advanced options'), {'classes': ('collapse',), 'fields': ('enable_comments', )}),
     )
 
-    inlines = (CommentInline, SEODataInline,)
-    list_display = ('url', 'title')
-    list_filter = ('enable_comments', )
-    search_fields = ('url', 'title')
+    inlines = (CommentInline, SEODataInline)
+    list_display = ('url', 'title', "starts_at", "ends_at")
+    list_filter = ('enable_comments', "starts_at", "ends_at")
+    search_fields = ('url', 'title', 'content')
 
     class Media:
         js = [
