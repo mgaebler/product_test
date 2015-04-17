@@ -31,4 +31,8 @@ class Migration(migrations.Migration):
             name='raffle',
             options={'ordering': ('url',), 'verbose_name': 'raffle', 'verbose_name_plural': 'raffles'},
         ),
+        migrations.AlterModelOptions(
+            name='raffle',
+            options={'ordering': ('starts_at', 'ends_at'), 'verbose_name': 'raffle', 'verbose_name_plural': 'raffles'},
+        ),
     ]
