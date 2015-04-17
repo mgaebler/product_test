@@ -6,6 +6,7 @@ from django.template.loader import get_template
 
 from forms_builder.forms.forms import FormForForm
 from forms_builder.forms.models import Form
+from forms_builder.forms.models import FormEntry
 
 
 register = template.Library()
@@ -35,7 +36,13 @@ class BuiltFormNode(template.Node):
         t = get_template("forms/includes/built_form.html")
         context["form"] = form
         form_args = (form, context, post or None, files or None)
-        context["form_for_form"] = FormForForm(*form_args)
+
+        try:
+            instance = FormEntry.objects.get(form=form, user=user)
+        except FormEntry.DoesNotExist:
+            instance = None
+
+        context["form_for_form"] = FormForForm(*form_args, instance=instance)
         return t.render(context)
 
 
