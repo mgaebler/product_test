@@ -68,19 +68,27 @@
         <h2>Gewinnspiele</h2>
         <div class="col-md-24">
           {% for raffle in raffles %}
-              <div class="test-tile" style="display: inline-block">
-                <h3 class="test-title"
-                    {% if raffle.logo %}style="background-image: url({{ raffle.logo.url }}); background-repeat: no-repeat; background-position: 15px 15px;{% endif %}">
+              <div class="raffle-tile" style="display: inline-block">
+                <div class="raffle-logo">
                   <a href="{{ url('raffles:detail', url=raffle.url) }}">
-                    {{ raffle.title }}
+                    {% if raffle.logo %}
+                      <img src="{{ raffle.logo.url }}" />
+                    {% endif %}
                   </a>
-                </h3>
-                <div class="test-link">
-                  <a class="btn btn-inverted" href="{{ url('raffles:detail', url=raffle.url) }}">
+                </div>
+                <div class="raffle-button">
+                  <a class="btn btn-red" href="{{ url('raffles:detail', url=raffle.url) }}">
                     {% if raffle.is_expired() %}
-                      Beendet
+                      Gewinnspiel beendet
                     {% else %}
-                      Jetzt mitmachen
+                      Gewinnspiel ansehen
+                    {% endif %}
+                  </a>
+                </div>
+                <div class="raffle-image">
+                  <a href="{{ url('raffles:detail', url=raffle.url) }}">
+                    {% if raffle.list_image %}>
+                      <img src="{{ thumbnail(raffle.list_image, size=(230, 400)) }}" />
                     {% endif %}
                   </a>
                 </div>
