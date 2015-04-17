@@ -30,7 +30,7 @@ urlpatterns = patterns('',
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
 
-    url(r'raffles', include('raffles.urls', namespace='raffles')),
+    url(r'gewinspiele', include('raffles.urls', namespace='raffles')),
     url(r'', include('social.apps.django_app.urls', namespace='social')),
     url(r'', include('static_pages.urls')),
 )
