@@ -72,7 +72,7 @@
                 <div class="raffle-logo">
                   <a href="{{ url('raffles:detail', url=raffle.url) }}">
                     {% if raffle.logo %}
-                      <img src="{{ raffle.logo.url }}" />
+                      <img src="{{ thumbnail(raffle.logo, size=(200, 75)) }}"/>
                     {% endif %}
                   </a>
                 </div>
