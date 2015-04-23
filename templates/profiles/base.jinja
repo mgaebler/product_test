@@ -18,6 +18,9 @@
         <li class="page-nav-info{% if request.path == url('user:invite_friends') %} active{% endif %}">
           <a href="{{ url('user:invite_friends') }}">Freunde einladen</a>
         </li>
+        <li class="page-nav-info{% if request.path == url('user:extended_profile') %} active{% endif %}">
+          <a href="{{ url('user:extended_profile') }}">Erweitertes Profil</a>
+        </li>
       </nav>
     </div>
   </div>
