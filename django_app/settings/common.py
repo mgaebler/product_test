@@ -127,6 +127,7 @@ INSTALLED_APPS = (
     'simple_shop',
     'simple_comments',
     'static_pages',
+    'raffles',
 )
 
 MIDDLEWARE_CLASSES = (

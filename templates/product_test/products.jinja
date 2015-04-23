@@ -33,7 +33,7 @@
     </div>
 
     <div class="row">
-      <h2>Abgeschlossene Projekte</h2>
+      <h2>Abgeschlossene Produkttests</h2>
 
       <div class="col-md-24">
         {% for test in product_test_list %}
@@ -62,6 +62,41 @@
       </div>
 
     </div>
+
+    {% if raffles %}
+      <div class="row">
+        <h2>Gewinnspiele</h2>
+        <div class="col-md-24">
+          {% for raffle in raffles %}
+              <div class="raffle-tile" style="display: inline-block">
+                <div class="raffle-logo">
+                  <a href="{{ url('raffles:detail', url=raffle.url) }}">
+                    {% if raffle.logo %}
+                      <img src="{{ thumbnail(raffle.logo, size=(200, 75)) }}"/>
+                    {% endif %}
+                  </a>
+                </div>
+                <div class="raffle-button">
+                  <a class="btn btn-red" href="{{ url('raffles:detail', url=raffle.url) }}">
+                    {% if raffle.is_expired() %}
+                      Gewinnspiel beendet
+                    {% else %}
+                      Gewinnspiel ansehen
+                    {% endif %}
+                  </a>
+                </div>
+                <div class="raffle-image">
+                  <a href="{{ url('raffles:detail', url=raffle.url) }}">
+                    {% if raffle.list_image %}>
+                      <img src="{{ thumbnail(raffle.list_image, size=(230, 400)) }}" />
+                    {% endif %}
+                  </a>
+                </div>
+              </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
 
     <div class="row">
       <div class="col-md-24">

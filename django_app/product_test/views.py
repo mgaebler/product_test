@@ -4,10 +4,13 @@ from django.views.generic import DetailView, ListView, TemplateView
 from django.utils import timezone
 from product_test.models import ProductTest, Brand
 from gallery.forms import ImageUploadForm, VideoLinkUploadForm
+from raffles.models import Raffle
+
 
 class ProductTestList(ListView):
     model = ProductTest
     context_object_name = "product_test_list"
+
     def get_queryset(self):
         queryset = super(ProductTestList, self).get_queryset()
         if not self.request.user.is_staff:
@@ -18,8 +21,9 @@ class ProductTestList(ListView):
         return queryset.exclude(state='draft')
 
     def get_context_data(self, **kwargs):
-        context =  super(ProductTestList, self).get_context_data(**kwargs)
+        context = super(ProductTestList, self).get_context_data(**kwargs)
         context['timezone_now'] = timezone.now()
+        context["raffles"] = Raffle.objects.started()
         return context
 
 
