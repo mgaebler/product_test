@@ -8,9 +8,4 @@ from .models import Comment
 class PostForm(forms.ModelForm):
     class Meta():
         model = Comment
-        exclude = ('flatpage', 'creator', 'updated', 'created','topic', 'user_ip',)
-
-    def clean_body(self):
-        body = self.cleaned_data["body"]
-
-        return body
+        exclude = ('flatpage', 'creator', 'updated', 'created', 'topic', 'user_ip', "content_type", "object_id")
