@@ -1,5 +1,5 @@
 from __future__ import unicode_literals
-from future.builtins import int, range, str
+# from future.builtins import int, range, str
 
 from datetime import date, datetime
 from os.path import join, split
@@ -172,7 +172,7 @@ class FormForForm(forms.ModelForm):
                 try:
                     initial_val = initial[field_key]
                 except KeyError:
-                    initial_val = Template(field.default).render(context)
+                    initial_val = None
             if initial_val:
                 if field.is_a(*fields.MULTIPLE):
                     initial_val = split_choices(initial_val)

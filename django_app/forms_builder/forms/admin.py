@@ -1,5 +1,5 @@
 from __future__ import unicode_literals
-from future.builtins import bytes, open
+# from future.builtins import bytes, open
 
 from csv import writer
 from mimetypes import guess_type
@@ -34,15 +34,12 @@ except ImportError:
 fs = FileSystemStorage(location=UPLOAD_ROOT)
 form_admin_filter_horizontal = ()
 form_admin_fieldsets = [
-    (None, {"fields": ("title", ("status", "login_required",),
+    (None, {"fields": ("title", "slug", ("status", "login_required",),
         ("publish_date", "expiry_date",),
         "intro", "button_text", "response", "redirect_url")}),
     (_("Email"), {"fields": ("send_email", "email_from", "email_copies",
         "email_subject", "email_message")}),]
 
-if EDITABLE_SLUGS:
-    form_admin_fieldsets.append(
-            (_("Slug"), {"fields": ("slug",), "classes": ("collapse",)}))
 
 if USE_SITES:
     form_admin_fieldsets.append((_("Sites"), {"fields": ("sites",),

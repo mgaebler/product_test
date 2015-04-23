@@ -8,7 +8,7 @@ from django.db import models
 from django.db.models import Q
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext, ugettext_lazy as _
-from future.builtins import str
+# from future.builtins import str
 
 from forms_builder.forms import fields
 from forms_builder.forms import settings
@@ -57,8 +57,7 @@ class AbstractForm(models.Model):
     sites = models.ManyToManyField(Site, editable=settings.USE_SITES,
         default=[settings.SITE_ID], related_name="%(app_label)s_%(class)s_forms")
     title = models.CharField(_("Title"), max_length=50)
-    slug = models.SlugField(_("Slug"), editable=settings.EDITABLE_SLUGS,
-        max_length=100, unique=True)
+    slug = models.SlugField(_("Slug"), max_length=100, unique=True)
     intro = models.TextField(_("Intro"), blank=True)
     button_text = models.CharField(_("Button text"), max_length=50,
         default=_("Submit"))
