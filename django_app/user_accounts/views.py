@@ -15,11 +15,12 @@ from django.template import Context
 from django.template.loader import get_template
 from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
-from django.views.generic import FormView, UpdateView, ListView
+from django.views.generic import FormView, UpdateView, ListView, TemplateView
 from django.shortcuts import redirect, get_object_or_404
 
 
 from braces.views import LoginRequiredMixin
+from forms_builder.forms.views import FormDetail
 from simple_bank.models import create_transfer, Account, Transfer
 
 from .models import UserAccount
@@ -325,3 +326,11 @@ class TransferListView(ListView):
     def get_queryset(self):
         current_user_account = self.request.user.bank_account.all().first()
         return Transfer.objects.filter(Q(sender=current_user_account)|Q(receiver=current_user_account))
+
+
+class ExtendedProfileView(FormDetail):
+    template_name = 'profiles/my_site/extended_profile.jinja'
+
+    def get(self, request, *args, **kwargs):
+        kwargs["slug"] = "erweitertes-profil"
+        return super(ExtendedProfileView, self).get(request, *args, **kwargs)
