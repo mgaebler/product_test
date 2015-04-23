@@ -10,7 +10,7 @@ from django.shortcuts import get_object_or_404, redirect, render_to_response
 from django.template import RequestContext
 from django.utils.http import urlquote
 from django.views.generic.base import TemplateView
-from email_extras.utils import send_mail_template
+# from email_extras.utils import send_mail_template
 
 from forms_builder.forms.forms import FormForForm
 from forms_builder.forms.models import Form
@@ -37,6 +37,24 @@ class FormDetail(TemplateView):
             path = urlquote(request.get_full_path())
             bits = (settings.LOGIN_URL, REDIRECT_FIELD_NAME, path)
             return redirect("%s?%s=%s" % bits)
+
+        user = getattr(request, "user", None)
+        post = getattr(request, "POST", None)
+        files = getattr(request, "FILES", None)
+
+        published = Form.objects.published(for_user=request.user)
+        form = get_object_or_404(published, slug=kwargs["slug"])
+
+        context["form"] = form
+        form_args = (form, context, post or None, files or None)
+
+        try:
+            instance = FormEntry.objects.get(form=form, user=user)
+        except FormEntry.DoesNotExist:
+            instance = None
+
+        context["form_for_form"] = FormForForm(*form_args, instance=instance)
+
         return self.render_to_response(context)
 
     def post(self, request, *args, **kwargs):
