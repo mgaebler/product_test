@@ -129,9 +129,11 @@ class AbstractForm(models.Model):
         return self.total_entries
     total_entries.admin_order_field = "total_entries"
 
-    @models.permalink
     def get_absolute_url(self):
-        return ("form_detail", (), {"slug": self.slug})
+        return "/my/umfrage/%s" % self.slug
+        # TODO: Why is this not working?
+        from django.core.urlresolvers import reverse
+        return reverse("my_form_detail", kwargs={"slug": self.slug})
 
     def admin_links(self):
         kw = {"args": (self.id,)}

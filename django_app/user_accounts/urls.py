@@ -4,6 +4,8 @@ from django.views.generic import TemplateView
 from simple_shop.views import ShopItemsListView, shop_buy_item_view
 from . import views
 
+from forms_builder.forms.views import FormDetail
+
 urlpatterns = patterns(
     '',
     url(r'^site$', TemplateView.as_view(template_name='profiles/my_site/product_tests.jinja'), name='index'),
@@ -16,7 +18,7 @@ urlpatterns = patterns(
     url(r'^freunde-einladen$', views.InviteFriendsView.as_view(), name='invite_friends'),
 
     url(r'^umfragen$', views.SurveysView.as_view(), name='surveys'),
-    url(r'^erweitertes-profil$', views.ExtendedProfileView.as_view(), name='extended_profile'),
+    url(r"^umfrage/(?P<slug>.*)$", FormDetail.as_view(template_name='profiles/my_site/survey.jinja'), name="form_detail"),
 
     url(r'^register$', views.AccountCreateView.as_view(), name='register'),
     url(r'^register-success$', TemplateView.as_view(template_name='registration/register_form_success.jinja'), name='register-success'),

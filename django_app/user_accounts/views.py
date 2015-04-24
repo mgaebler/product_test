@@ -328,12 +328,8 @@ class TransferListView(ListView):
         return Transfer.objects.filter(Q(sender=current_user_account)|Q(receiver=current_user_account))
 
 
-class ExtendedProfileView(FormDetail):
-    template_name = 'profiles/my_site/extended_profile.jinja'
-
-    def get(self, request, *args, **kwargs):
-        kwargs["slug"] = "erweitertes-profil"
-        return super(ExtendedProfileView, self).get(request, *args, **kwargs)
+class SurveyView(FormDetail):
+    template_name = 'profiles/my_site/survey.jinja'
 
 
 class SurveysView(ListView):
