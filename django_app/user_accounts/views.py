@@ -334,3 +334,36 @@ class ExtendedProfileView(FormDetail):
     def get(self, request, *args, **kwargs):
         kwargs["slug"] = "erweitertes-profil"
         return super(ExtendedProfileView, self).get(request, *args, **kwargs)
+
+
+class SurveysView(ListView):
+    template_name = 'profiles/my_site/surveys.jinja'
+
+    def get_queryset(self):
+        from forms_builder.forms.models import Form
+        from forms_builder.forms.models import FormEntry
+        from forms_builder.forms.forms import FormForForm
+
+        user = getattr(self.request, "user", None)
+        post = getattr(self.request, "POST", None)
+        files = getattr(self.request, "FILES", None)
+
+        objects = []
+        for form in Form.objects.all().order_by("title"):
+            try:
+                instance = FormEntry.objects.get(form=form, user=user)
+            except FormEntry.DoesNotExist:
+                instance = None
+
+            context = {
+                "form": form
+            }
+
+            form_args = (form, context, post or None, files or None)
+
+            objects.append({
+                "form": form,
+                "form_for_form": FormForForm(*form_args, instance=instance)
+            })
+
+        return objects
