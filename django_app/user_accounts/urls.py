@@ -16,7 +16,6 @@ urlpatterns = patterns(
     url(r'^freunde-einladen$', views.InviteFriendsView.as_view(), name='invite_friends'),
 
     url(r'^umfragen$', views.SurveysView.as_view(), name='surveys'),
-    url(r'^erweitertes-profil$', views.ExtendedProfileView.as_view(), name='extended_profile'),
 
     url(r'^register$', views.AccountCreateView.as_view(), name='register'),
     url(r'^register-success$', TemplateView.as_view(template_name='registration/register_form_success.jinja'), name='register-success'),
