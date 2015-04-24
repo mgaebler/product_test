@@ -1,0 +1,58 @@
+{% extends 'profiles/base.jinja' %}
+
+{% block profile_content %}
+  <style>
+    input, select {
+      padding: 6px 12px;
+      width: 100%;
+    }
+
+    input[type="checkbox"], input[type="radio"] {
+      width: 24px;
+    }
+
+    div.avatar a {
+      display: block;
+    }
+  </style>
+  {% for object in object_list %}
+    <div class="row">
+      <div class="col-md-18 col-md-offset-6">
+        <div class="user-profile">
+          <h1>{{ object.form.title }}</h1>
+          {% if object.form.intro %}
+              <p>{{ object.form.intro }}</p>
+          {% endif %}
+          {{ object.form_for_form.media }}
+          <form action="{{ object.form.get_absolute_url() }}" method="post"
+              {% if object.form_for_form.is_multipart %}enctype="multipart/form-data"{% endif %}>
+              {% csrf_token %}
+              {% for field in object.form_for_form %}
+                <div class="form-group {% if field.errors %} has-error{% endif %}">
+                  <label class="control-label col-sm-8" for="{{ field.id }}">
+                    {{ field.label }}
+                  </label>
+
+                  <div class="col-sm-10">
+                    {{ field }}
+                    <div class="help-block">
+                      Pflichtfeld.
+                      {{ field.errors }}
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+
+            <div class="form-group">
+              <label class="control-label col-sm-8"></label>
+              <div class="col-sm-10">
+                <input class="btn btn-primary btn-block" name="commit" type="submit" value="{{ object.form.button_text }}">
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  {% endblock profile_content %}
