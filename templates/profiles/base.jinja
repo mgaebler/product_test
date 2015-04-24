@@ -6,6 +6,9 @@
   <div class="dash-nav-wrapper">
     <div class="inner">
       <nav class="dash-nav">
+        <li class="page-nav-info{% if request.path == url('user:surveys') %} active{% endif %}">
+          <a href="{{ url('user:surveys') }}">Meine Umfragen</a>
+        </li>
         <li class="page-nav-info{% if request.path == url('user:tests') %} active{% endif %}">
           <a href="{{ url('user:tests') }}">Meine Produkttests</a>
         </li>
@@ -17,9 +20,6 @@
         </li>
         <li class="page-nav-info{% if request.path == url('user:invite_friends') %} active{% endif %}">
           <a href="{{ url('user:invite_friends') }}">Freunde einladen</a>
-        </li>
-        <li class="page-nav-info{% if request.path == url('user:extended_profile') %} active{% endif %}">
-          <a href="{{ url('user:extended_profile') }}">Erweitertes Profil</a>
         </li>
       </nav>
     </div>
