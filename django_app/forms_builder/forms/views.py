@@ -88,8 +88,10 @@ class FormDetail(TemplateView):
             form_valid.send(sender=request, form=form_for_form, entry=entry)
             self.send_emails(request, form_for_form, form, entry, attachments)
             if not self.request.is_ajax():
+                return redirect(form.redirect_url or "/my/umfrage/%s" % form.slug)
+                # TODO: Why is reverse not working?
                 return redirect(form.redirect_url or
-                    reverse("form_sent", kwargs={"slug": form.slug}))
+                    reverse("form_detail", kwargs={"slug": form.slug}))
         context = {"form": form, "form_for_form": form_for_form}
         return self.render_to_response(context)
 

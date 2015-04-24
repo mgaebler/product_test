@@ -6,7 +6,7 @@
   <div class="dash-nav-wrapper">
     <div class="inner">
       <nav class="dash-nav">
-        <li class="page-nav-info{% if request.path == url('user:surveys') %} active{% endif %}">
+        <li class="page-nav-info{% if request.path.startswith('/my/umfrage') %} active{% endif %}">
           <a href="{{ url('user:surveys') }}">Meine Umfragen</a>
         </li>
         <li class="page-nav-info{% if request.path == url('user:tests') %} active{% endif %}">
