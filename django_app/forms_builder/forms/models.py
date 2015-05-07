@@ -158,7 +158,6 @@ class FieldManager(models.Manager):
         return self.filter(visible=True)
 
 
-@python_2_unicode_compatible
 class AbstractField(models.Model):
     """
     A field for a user-built form.
@@ -188,8 +187,8 @@ class AbstractField(models.Model):
         verbose_name_plural = _("Fields")
         abstract = True
 
-    def __str__(self):
-        return str(self.label)
+    def __unicode__(self):
+        return self.label
 
     def get_choices(self):
         """

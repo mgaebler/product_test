@@ -6,6 +6,7 @@ from django.conf import settings
 from django.contrib.auth import REDIRECT_FIELD_NAME
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render_to_response
 from django.template import RequestContext
 from django.utils.http import urlquote
@@ -151,3 +152,17 @@ def form_sent(request, slug, template="forms/form_sent.html"):
     published = Form.objects.published(for_user=request.user)
     context = {"form": get_object_or_404(published, slug=slug)}
     return render_to_response(template, context, RequestContext(request))
+
+
+def delete_form(request, slug):
+    """
+    Deletes the form with the passed id:
+    """
+    try:
+        form_entry = FormEntry.objects.get(user=request.user, form__slug=slug)
+    except:
+        pass
+    else:
+        form_entry.fields.all().delete()
+
+    return HttpResponseRedirect(reverse("user:form_detail", kwargs={"slug": slug}))
