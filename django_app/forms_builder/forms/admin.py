@@ -36,7 +36,7 @@ form_admin_filter_horizontal = ()
 form_admin_fieldsets = [
     (None, {"fields": ("title", "slug", ("status", "login_required",),
         ("publish_date", "expiry_date",),
-        "intro", "button_text", "response", "redirect_url")}),
+        "intro", "button_text", "response", "redirect_url", "position")}),
     (_("Email"), {"fields": ("send_email", "email_from", "email_copies",
         "email_subject", "email_message")}),]
 
@@ -58,7 +58,7 @@ class FormAdmin(admin.ModelAdmin):
 
     inlines = (FieldAdmin,)
     list_display = ("title", "status", "email_copies", "publish_date",
-                    "expiry_date", "total_entries", "admin_links")
+                    "expiry_date", "total_entries", "position", "admin_links")
     list_display_links = ("title",)
     list_editable = ("status", "email_copies", "publish_date", "expiry_date")
     list_filter = ("status",)

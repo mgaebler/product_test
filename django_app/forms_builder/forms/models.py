@@ -84,12 +84,14 @@ class AbstractForm(models.Model):
         max_length=200)
     email_subject = models.CharField(_("Subject"), max_length=200, blank=True)
     email_message = models.TextField(_("Message"), blank=True)
+    position = models.IntegerField(_("Position"), default=10)
 
     objects = FormManager()
 
     class Meta:
         verbose_name = _("Form")
         verbose_name_plural = _("Forms")
+        ordering = ("position", )
         abstract = True
 
     def __str__(self):
