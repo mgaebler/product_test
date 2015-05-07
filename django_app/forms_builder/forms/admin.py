@@ -1,4 +1,4 @@
-from __future__ import unicode_literals
+# from __future__ import unicode_literals
 # from future.builtins import bytes, open
 
 from csv import writer
@@ -124,12 +124,12 @@ class FormAdmin(admin.ModelAdmin):
                 response["Content-Disposition"] = attachment
                 queue = StringIO()
                 try:
-                    csv = writer(queue, delimiter=CSV_DELIMITER)
+                    csv = writer(queue, delimiter=u";")
                     writerow = csv.writerow
                 except TypeError:
                     queue = BytesIO()
-                    delimiter = bytes(CSV_DELIMITER, encoding="utf-8")
-                    csv = writer(queue, delimiter=delimiter)
+                    delimiter = CSV_DELIMITER
+                    csv = writer(queue, delimiter=";")
                     writerow = lambda row: csv.writerow([c.encode("utf-8")
                         if hasattr(c, "encode") else c for c in row])
                 writerow(entries_form.columns())

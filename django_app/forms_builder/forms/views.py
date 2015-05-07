@@ -20,6 +20,10 @@ from forms_builder.forms.signals import form_invalid, form_valid
 from forms_builder.forms.utils import split_choices
 
 
+def export(request):
+    return HttpResponse("Hurz")
+
+
 class FormDetail(TemplateView):
 
     template_name = "forms/form_detail.html"
