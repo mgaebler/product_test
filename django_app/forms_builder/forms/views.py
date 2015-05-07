@@ -110,7 +110,7 @@ class FormDetail(TemplateView):
                         sender_account=sender,
                         receiver_account=receiver,
                         amount=10,
-                        message="Umfrage '{}' ausgefuellt".format(form.title),
+                        message="Umfrage '{}' ausgefüllt".format(form.title),
                     )
                     messages.info(request, u"Du hast 10 Trendsetter-Punkte verdient!")
 
