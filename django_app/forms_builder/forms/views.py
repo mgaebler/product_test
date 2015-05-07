@@ -192,7 +192,7 @@ def form_sent(request, slug, template="forms/form_sent.html"):
 
 def delete_form(request, slug):
     """
-    Deletes the form with the passed id:
+    Deletes the form with the passed slug:
     """
     try:
         form_entry = FormEntry.objects.get(user=request.user, form__slug=slug)
@@ -200,5 +200,6 @@ def delete_form(request, slug):
         pass
     else:
         form_entry.fields.all().delete()
+        messages.info(request, "Deine Daten der Umfrage '{}'' wurden gelöscht.".format(form_entry.form.title))
 
-    return HttpResponseRedirect(reverse("user:form_detail", kwargs={"slug": slug}))
+    return HttpResponseRedirect(reverse("user:surveys"))
