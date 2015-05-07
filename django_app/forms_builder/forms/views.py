@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 import json
+import logging
 
 from django.conf import settings
 from django.contrib.auth import REDIRECT_FIELD_NAME
@@ -13,12 +14,17 @@ from django.utils.http import urlquote
 from django.views.generic.base import TemplateView
 # from email_extras.utils import send_mail_template
 
+from simple_bank.models import Account
+from simple_bank.models import create_transfer
+
 from forms_builder.forms.forms import FormForForm
 from forms_builder.forms.models import Form
 from forms_builder.forms.models import FormEntry
 from forms_builder.forms.settings import EMAIL_FAIL_SILENTLY
 from forms_builder.forms.signals import form_invalid, form_valid
 from forms_builder.forms.utils import split_choices
+
+logger = logging.getLogger(__name__)
 
 
 def export(request):
@@ -78,6 +84,30 @@ class FormDetail(TemplateView):
         if not form_for_form.is_valid():
             form_invalid.send(sender=request, form=form_for_form)
         else:
+            if instance is None:
+                try:
+                    sender = Account.objects.get(name="trendsetter")
+                except Account.DoesNotExist:
+                    sender = None
+                    logger.critical("Trendsetter bank account does not exist!")
+
+                try:
+                    receiver = Account.objects.get(customer__email=request.user.email)
+                except Account.DoesNotExist:
+                    receiver = None
+
+                logger.info(
+                    "Couldn't add trendsetter points for {} for extended user profile '{}' because there is no bank account.".format(request.user.email, form.title)
+                )
+
+                if sender and receiver:
+                    create_transfer(
+                        sender_account=sender,
+                        receiver_account=receiver,
+                        amount=10,
+                        message="Erweitertes Profil '{}' ausgefuellt".format(form.title),
+                    )
+
             # Attachments read must occur before model save,
             # or seek() will fail on large uploads.
             attachments = []
