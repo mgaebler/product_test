@@ -1,9 +1,12 @@
+# coding=utf-8
+
 from __future__ import unicode_literals
 
 import json
 import logging
 
 from django.conf import settings
+from django.contrib import messages
 from django.contrib.auth import REDIRECT_FIELD_NAME
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse
@@ -84,6 +87,8 @@ class FormDetail(TemplateView):
         if not form_for_form.is_valid():
             form_invalid.send(sender=request, form=form_for_form)
         else:
+            messages.info(request, u"Du hast die Umfrage '{}' ausgefüllt".format(form.title))
+
             if instance is None:
                 try:
                     sender = Account.objects.get(name="trendsetter")
@@ -105,8 +110,9 @@ class FormDetail(TemplateView):
                         sender_account=sender,
                         receiver_account=receiver,
                         amount=10,
-                        message="Erweitertes Profil '{}' ausgefuellt".format(form.title),
+                        message="Umfrage '{}' ausgefuellt".format(form.title),
                     )
+                    messages.info(request, u"Du hast 10 Trendsetter-Punkte verdient!")
 
             # Attachments read must occur before model save,
             # or seek() will fail on large uploads.
@@ -123,7 +129,7 @@ class FormDetail(TemplateView):
             form_valid.send(sender=request, form=form_for_form, entry=entry)
             self.send_emails(request, form_for_form, form, entry, attachments)
             if not self.request.is_ajax():
-                return redirect(form.redirect_url or "/my/umfrage/%s" % form.slug)
+                return redirect(form.redirect_url or reverse("user:surveys"))
                 # TODO: Why is reverse not working?
                 return redirect(form.redirect_url or
                     reverse("form_detail", kwargs={"slug": form.slug}))
