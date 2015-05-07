@@ -17,12 +17,12 @@ from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
 from django.views.generic import FormView, UpdateView, ListView, TemplateView
 from django.shortcuts import redirect, get_object_or_404
-
-
 from braces.views import LoginRequiredMixin
 from forms_builder.forms.views import FormDetail
+from forms_builder.forms.models import Form
+from forms_builder.forms.models import FormEntry
+from forms_builder.forms.forms import FormForForm
 from simple_bank.models import create_transfer, Account, Transfer
-
 from .models import UserAccount
 from . import forms
 
@@ -336,16 +336,12 @@ class SurveysView(ListView):
     template_name = 'profiles/my_site/surveys.jinja'
 
     def get_queryset(self):
-        from forms_builder.forms.models import Form
-        from forms_builder.forms.models import FormEntry
-        from forms_builder.forms.forms import FormForForm
-
         user = getattr(self.request, "user", None)
         post = getattr(self.request, "POST", None)
         files = getattr(self.request, "FILES", None)
 
         objects = []
-        for form in Form.objects.all().order_by("title"):
+        for form in Form.objects.all():
             try:
                 instance = FormEntry.objects.get(form=form, user=user)
             except FormEntry.DoesNotExist:
