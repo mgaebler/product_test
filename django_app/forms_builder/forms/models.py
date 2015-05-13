@@ -141,8 +141,6 @@ class AbstractForm(models.Model):
         kw = {"args": (self.id,)}
         links = [
             (_("View form on site"), self.get_absolute_url()),
-            (_("Filter entries"), reverse("admin:form_entries", **kw)),
-            (_("View all entries"), reverse("admin:form_entries_show", **kw)),
             (_("Export all entries"), reverse("admin:form_entries_export", **kw)),
         ]
         for i, (text, url) in enumerate(links):
