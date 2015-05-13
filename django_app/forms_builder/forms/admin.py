@@ -1,7 +1,7 @@
 # from __future__ import unicode_literals
 # from future.builtins import bytes, open
 
-from csv import writer
+import csv
 from mimetypes import guess_type
 from os.path import join
 from datetime import datetime
@@ -20,7 +20,7 @@ from django.utils.translation import ungettext, ugettext_lazy as _
 from forms_builder.forms.forms import EntriesForm
 from forms_builder.forms.models import Form, Field, FormEntry, FieldEntry
 from forms_builder.forms.settings import CSV_DELIMITER, UPLOAD_ROOT
-from forms_builder.forms.settings import USE_SITES, EDITABLE_SLUGS
+from forms_builder.forms.settings import USE_SITES, EDITABLE_SLUGS, CHOICES_QUOTE
 from forms_builder.forms.utils import now, slugify
 
 try:
@@ -119,46 +119,49 @@ class FormAdmin(admin.ModelAdmin):
         if submitted:
             if export:
                 response = HttpResponse(content_type="text/csv")
-                fname = "%s-%s.csv" % (form.slug, slugify(now().ctime()))
-                attachment = "attachment; filename=%s" % fname
-                response["Content-Disposition"] = attachment
-                queue = StringIO()
-                try:
-                    csv = writer(queue, delimiter=u";")
-                    writerow = csv.writerow
-                except TypeError:
-                    queue = BytesIO()
-                    delimiter = CSV_DELIMITER
-                    csv = writer(queue, delimiter=";")
-                    writerow = lambda row: csv.writerow([c.encode("utf-8")
-                        if hasattr(c, "encode") else c for c in row])
-                writerow(entries_form.columns())
-                for row in entries_form.rows(csv=True):
-                    writerow(row)
-                data = queue.getvalue()
-                response.write(data)
-                return response
-            elif XLWT_INSTALLED and export_xls:
-                response = HttpResponse(content_type="application/vnd.ms-excel")
-                fname = "%s-%s.xls" % (form.slug, slugify(now().ctime()))
-                attachment = "attachment; filename=%s" % fname
-                response["Content-Disposition"] = attachment
-                queue = BytesIO()
-                workbook = xlwt.Workbook(encoding='utf8')
-                sheet = workbook.add_sheet(form.title[:31])
-                for c, col in enumerate(entries_form.columns()):
-                    sheet.write(0, c, col)
-                for r, row in enumerate(entries_form.rows(csv=True)):
-                    for c, item in enumerate(row):
-                        if isinstance(item, datetime):
-                            item = item.replace(tzinfo=None)
-                            sheet.write(r + 2, c, item, XLWT_DATETIME_STYLE)
+                response["Content-Disposition"] = "attachment; filename=kategorie.csv"
+                writer = csv.writer(response, delimiter=";", quotechar='"', quoting=csv.QUOTE_ALL)
+
+                title_row = ["Name", "E-Mail"]
+                for field in form.fields.all():
+                    title_row.append(field.label.encode("utf-8"))
+                    choices = field.get_choices()
+                    if choices:
+                        for choice in tuple(choices)[0:-1]:
+                            title_row.append("")
+                writer.writerow(title_row)
+
+                add_title_row_2 = False
+                title_row_2 = ["", ""]
+                for field in form.fields.all():
+                    if field.choices:
+                        add_title_row_2 = True
+                        for choice in field.get_choices():
+                            title_row_2.append(choice[0].encode("utf-8"))
+                    else:
+                        title_row_2.append("")
+
+                if add_title_row_2:
+                    writer.writerow(title_row_2)
+
+                for form_entry in form.entries.all():
+                    row = [form_entry.user.full_name, form_entry.user.email]
+                    if form_entry.fields.count() == 0:  # user has deleted her entries
+                        continue
+                    for field in form.fields.all():
+                        field_entry = FieldEntry.objects.get(entry=form_entry, field_id=field.id)
+                        if field.choices:
+                            values = [v.strip() for v in field_entry.value.split(",")]
+                            for choice in field.get_choices():
+                                if choice[0] in values:
+                                    row.append(choice[0].encode("utf-8"))
+                                else:
+                                    row.append("")
                         else:
-                            sheet.write(r + 2, c, item)
-                workbook.save(queue)
-                data = queue.getvalue()
-                response.write(data)
+                            row.append(field_entry.value)
+                    writer.writerow(row)
                 return response
+
             elif request.POST.get("delete") and can_delete_entries:
                 selected = request.POST.getlist("selected")
                 if selected:
