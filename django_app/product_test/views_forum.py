@@ -53,7 +53,7 @@ class TopicView(ForumBaseView):
         except EmptyPage:
             # If page is out of range (e.g. 9999), deliver last page of results.
             context['posts'] = posts_paginator.page(posts_paginator.num_pages)
-
+        context["display_page_range"] = len(posts_paginator.page_range) > 1
         context['topic'] = Topic.objects.get(pk=topic_id)
         context['post_form'] = PostForm()
 
