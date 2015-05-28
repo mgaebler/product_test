@@ -1,0 +1,19 @@
+<div style="text-align: center">
+<nav class="pagination" >
+    <span class="page">
+        {% if objects.has_previous() %}
+            <a class="btn btn-default" href="?page={{ objects.previous_page_number() }}">< zurück</a>
+        {% endif %}
+
+        {% if display_page_range %}
+            {% for page in objects.paginator.page_range %}
+                <a class="btn {% if objects.number == page %}btn-primary{% else %}btn-default {% endif %}" href="?page={{ page }}">{{ page }}</a>
+            {% endfor %}
+        {% endif %}
+
+        {% if objects.has_next() %}
+            <a class="btn btn-default" href="?page={{ objects.next_page_number() }}">weiter ></a>
+        {% endif %}
+    </span>
+</nav>
+</div>

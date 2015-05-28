@@ -21,7 +21,7 @@
 {% endif %}
 
 {% with objects=posts %}
-    {% include 'product_test/snippets/pagination.jinja' %}
+    {% include 'product_test/snippets/pagination_range.jinja' %}
 {% endwith %}
 
 <div class="forum-entries-holder">
@@ -78,7 +78,7 @@
 </div>
 
 {% with objects=posts %}
-    {% include 'product_test/snippets/pagination.jinja' %}
+    {% include 'product_test/snippets/pagination_range.jinja' %}
 {% endwith %}
 
 {% if not user.is_authenticated() %}
