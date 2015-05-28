@@ -9,27 +9,41 @@ from django_simple_forum.models import Forum, Topic, Post
 from django_simple_forum.forms import TopicForm, PostForm
 
 
+class ForumBaseView(ProductTestDetail):
+    """Common stuff for forum views.
+    """
+    def get_post_paginator(self, topic_id):
+        """
+        Returns the post pagintor for topic with passed id.
+        """
+        posts_list = Post.objects.filter(topic=topic_id).order_by("created")
+        return Paginator(posts_list, 10)
+
+
 # forum view
-class ForumDetailView(ProductTestDetail):
+class ForumDetailView(ForumBaseView):
     template_name = 'product_test/forum/forum.jinja'
 
     def get_context_data(self, **kwargs):
         context = super(ForumDetailView, self).get_context_data(**kwargs)
         forum = self.get_object().forum
         context['forum'] = forum
-        context['topics'] = forum.topic_set.all().order_by("-created")
+        context['topics'] = []
+        for topic in forum.topic_set.all().order_by("-created"):
+            posts_paginator = self.get_post_paginator(topic.id)
+            topic.last_page = posts_paginator.num_pages
+            context['topics'].append(topic)
 
         return context
 
 
-class TopicView(ProductTestDetail):
+class TopicView(ForumBaseView):
     template_name = 'product_test/forum/topic.jinja'
 
     def get_context_data(self, **kwargs):
         context = super(TopicView, self).get_context_data(**kwargs)
         topic_id = self.kwargs['topic_id']
-        posts_list = Post.objects.filter(topic=topic_id).order_by("created")
-        posts_paginator = Paginator(posts_list, 10) # show 10 posts per page
+        posts_paginator = self.get_post_paginator(topic_id)
         page = self.request.GET.get('page')
         try:
             context['posts'] = posts_paginator.page(page)

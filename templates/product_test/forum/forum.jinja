@@ -31,7 +31,7 @@
           </td>
           <td>
             {% if topic.last_post() %}
-              <a href="{{ url('product_test:forum:topic-detail', slug=product_test.slug, topic_id=topic.pk) }}">
+              <a href="{{ url('product_test:forum:topic-detail', slug=product_test.slug, topic_id=topic.pk) }}?page={{ topic.last_page }}#last-post">
               <strong>{{ topic.last_post().title }}</strong>  {{ topic.last_post().created|localtime|time }} - {{ topic.last_post().created|localtime|date }}
               </a>
               <p>
