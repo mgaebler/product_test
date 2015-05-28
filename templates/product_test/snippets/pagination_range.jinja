@@ -1,19 +1,25 @@
 <div style="text-align: center">
-<nav class="pagination" >
-    <span class="page">
-        {% if objects.has_previous() %}
-            <a class="btn btn-default" href="?page={{ objects.previous_page_number() }}">< zurück</a>
-        {% endif %}
+    <nav class="pagination" >
+        <span class="page">
+            {% if objects.has_previous() %}
+                <a class="btn btn-default" href="?page=1"><< erste</a>
+                <a class="btn btn-default" href="?page={{ objects.previous_page_number() }}">< zurück</a>
+            {% endif %}
 
-        {% if display_page_range %}
-            {% for page in objects.paginator.page_range %}
-                <a class="btn {% if objects.number == page %}btn-primary{% else %}btn-default {% endif %}" href="?page={{ page }}">{{ page }}</a>
-            {% endfor %}
-        {% endif %}
+            {% if display_page_range %}
+                {% for page in page_range %}
+                    {% if page is number %}
+                        <a class="btn {% if objects.number == page %}btn-primary{% else %}btn-default {% endif %}" href="?page={{ page }}">{{ page }}</a>
+                    {% else %}
+                        <span class="btn-default">{{ page }}</span>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
 
-        {% if objects.has_next() %}
-            <a class="btn btn-default" href="?page={{ objects.next_page_number() }}">weiter ></a>
-        {% endif %}
-    </span>
-</nav>
+            {% if objects.has_next() %}
+                <a class="btn btn-default" href="?page={{ objects.next_page_number() }}">weiter ></a>
+                <a class="btn btn-default" href="?page={{ objects.paginator.num_pages }}">letzte >></a>
+            {% endif %}
+        </span>
+    </nav>
 </div>
