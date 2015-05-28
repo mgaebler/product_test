@@ -119,7 +119,7 @@ class FormAdmin(admin.ModelAdmin):
         if submitted:
             if export:
                 response = HttpResponse(content_type="text/csv")
-                response["Content-Disposition"] = "attachment; filename=kategorie.csv"
+                response["Content-Disposition"] = "attachment; filename={}.csv".format(form.slug)
                 writer = csv.writer(response, delimiter=";", quotechar='"', quoting=csv.QUOTE_ALL)
 
                 title_row = ["Name", "E-Mail"]
@@ -149,16 +149,20 @@ class FormAdmin(admin.ModelAdmin):
                     if form_entry.fields.count() == 0:  # user has deleted her entries
                         continue
                     for field in form.fields.all():
-                        field_entry = FieldEntry.objects.get(entry=form_entry, field_id=field.id)
-                        if field.choices:
-                            values = [v.strip() for v in field_entry.value.split(",")]
-                            for choice in field.get_choices():
-                                if choice[0] in values:
-                                    row.append(choice[0].encode("utf-8"))
-                                else:
-                                    row.append("")
+                        try:
+                            field_entry = FieldEntry.objects.get(entry=form_entry, field_id=field.id)
+                        except FieldEntry.DoesNotExist:
+                            row.append("")
                         else:
-                            row.append(field_entry.value)
+                            if field.choices:
+                                values = [v.strip() for v in field_entry.value.split(",")]
+                                for choice in field.get_choices():
+                                    if choice[0] in values:
+                                        row.append(choice[0].encode("utf-8"))
+                                    else:
+                                        row.append("")
+                            else:
+                                row.append(field_entry.value.encode("utf-8"))
                     writer.writerow(row)
                 return response
 
