@@ -11,7 +11,7 @@
                     {% if page is number %}
                         <a class="btn btn-default{% if objects.number == page %} active{% endif %}" href="?page={{ page }}">{{ page }}</a>
                     {% else %}
-                        <span class="btn-default">{{ page }}</span>
+                        <span class="ellipsis">{{ page }}</span>
                     {% endif %}
                 {% endfor %}
             {% endif %}
