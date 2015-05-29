@@ -739,11 +739,34 @@ ul.gallery-entries
     display: block
     height: 210px
 
+.survey-tile
+  margin-left: 6px
+  +border-radius(6px)
+  +inverse
+  +inverse-text-fix
+  overflow: hidden
+  color: $inverse-text-color
+  background: $primary none no-repeat 50% 100%
+  width: 220px
+  height: 220px
+  .survey-button
+    padding: 8px 0px
+    height: 58px
+    text-align: center
+  .survey-image
+    +hide-text
+    display: block
+    height: 160px
+
 .btn-red
   font-size: 16px
   background: #fd7263
   width: 88%
   color: #fff
+
+.btn-red-large
+  width: 220px
+  line-height: 40px
 
 .btn-red:hover, .btn-red:focus
   background: #ee4d3c
