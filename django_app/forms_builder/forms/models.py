@@ -75,8 +75,8 @@ class AbstractForm(models.Model):
         blank=True, null=True)
     login_required = models.BooleanField(_("Login required"), default=False,
         help_text=_("If checked, only logged in users can view the form"))
-    send_email = models.BooleanField(_("Send email"), default=True, help_text=
-        _("If checked, the person entering the form will be sent an email"))
+    send_email = models.BooleanField(_("Send email"), default=True,
+        help_text=_("If checked, the person entering the form will be sent an email"))
     email_from = models.EmailField(_("From address"), blank=True,
         help_text=_("The address the email will be sent from"))
     email_copies = models.CharField(_("Send copies to"), blank=True,
