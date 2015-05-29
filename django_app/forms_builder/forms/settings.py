@@ -25,7 +25,7 @@ EXTRA_WIDGETS = getattr(settings, "FORMS_BUILDER_EXTRA_WIDGETS", ())
 UPLOAD_ROOT = getattr(settings, "FORMS_BUILDER_UPLOAD_ROOT", None)
 
 # Boolean controlling whether HTML5 form fields are used.
-USE_HTML5 = getattr(settings, "FORMS_BUILDER_USE_HTML5", True)
+USE_HTML5 = getattr(settings, "FORMS_BUILDER_USE_HTML5", False)
 
 # Boolean controlling whether forms are associated to Django's Sites framework.
 USE_SITES = getattr(settings, "FORMS_BUILDER_USE_SITES", False)
