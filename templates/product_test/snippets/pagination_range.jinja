@@ -9,7 +9,7 @@
             {% if display_page_range %}
                 {% for page in page_range %}
                     {% if page is number %}
-                        <a class="btn {% if objects.number == page %}btn-primary{% else %}btn-default {% endif %}" href="?page={{ page }}">{{ page }}</a>
+                        <a class="btn btn-default{% if objects.number == page %} active{% endif %}" href="?page={{ page }}">{{ page }}</a>
                     {% else %}
                         <span class="btn-default">{{ page }}</span>
                     {% endif %}
