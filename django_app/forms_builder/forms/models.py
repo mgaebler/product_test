@@ -85,6 +85,8 @@ class AbstractForm(models.Model):
     email_subject = models.CharField(_("Subject"), max_length=200, blank=True)
     email_message = models.TextField(_("Message"), blank=True)
     position = models.IntegerField(_("Position"), default=10)
+    trendpoints = models.IntegerField("Trendpoints", default=10)
+    image = models.ImageField("Image", null=True, blank=True)
 
     objects = FormManager()
 

@@ -30,10 +30,6 @@ from forms_builder.forms.utils import split_choices
 logger = logging.getLogger(__name__)
 
 
-def export(request):
-    return HttpResponse("Hurz")
-
-
 class FormDetail(TemplateView):
 
     template_name = "forms/form_detail.html"
@@ -89,7 +85,7 @@ class FormDetail(TemplateView):
         else:
             messages.info(request, u"Du hast die Umfrage '{}' ausgefüllt".format(form.title))
 
-            if instance is None:
+            if instance is None:  # user hasn't completed form before.
                 try:
                     sender = Account.objects.get(name="trendsetter")
                 except Account.DoesNotExist:
@@ -109,10 +105,10 @@ class FormDetail(TemplateView):
                     create_transfer(
                         sender_account=sender,
                         receiver_account=receiver,
-                        amount=10,
+                        amount=form.trendpoints,
                         message="Umfrage '{}' ausgefüllt".format(form.title),
                     )
-                    messages.info(request, u"Du hast 10 Trendsetter-Punkte verdient!")
+                    messages.info(request, u"Du hast {} Trendsetter-Punkte verdient!".format(form.trendpoints))
 
             # Attachments read must occur before model save,
             # or seek() will fail on large uploads.
