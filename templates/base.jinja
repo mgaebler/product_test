@@ -150,7 +150,8 @@
 
   {% block logo %}
     <div class='inner'>
-      <div id='logo'>
+      <div id='logo'
+           {% if product_test and product_test.brand and product_test.brand.logo_top %}style="background: url({{ thumbnail(product_test.brand.logo_top, size=(280, 280)) }}) no-repeat 0 18px"{% endif %}>
         <h1><a href="{{ url('home') }}">Trendsetter</a></h1>
       </div>
     </div>
