@@ -97,9 +97,9 @@ class FormDetail(TemplateView):
                 except Account.DoesNotExist:
                     receiver = None
 
-                logger.info(
-                    "Couldn't add trendsetter points for {} for extended user profile '{}' because there is no bank account.".format(request.user.email, form.title)
-                )
+                    logger.info(
+                        "Couldn't add trendsetter points for {} for extended user profile '{}' because there is no bank account.".format(request.user.email, form.title)
+                    )
 
                 if sender and receiver:
                     create_transfer(
