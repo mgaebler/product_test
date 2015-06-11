@@ -23,6 +23,7 @@ class Brand(models.Model):
     slug = models.SlugField(max_length=254, db_index=True)
     url = models.URLField()
     logo = models.ImageField()
+    logo_top = models.ImageField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
