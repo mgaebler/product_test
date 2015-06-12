@@ -21,6 +21,11 @@ class Tests(TestCase):
     def setUp(self):
         self._site = Site.objects.get_current()
 
+    def test_defaults_after_creation(self):
+        form = Form.objects.create(title="Test")
+        self.assertEqual(form.login_required, True)
+        self.assertEqual(form.status, STATUS_DRAFT)
+
     def test_form_fields(self):
         """
         Simple 200 status check against rendering and posting to forms with
