@@ -1,7 +1,9 @@
 import factory
 from django.test import TestCase
 from django.contrib.auth import get_user_model
+from django.core.urlresolvers import reverse
 from simple_bank.models import create_transfer, Account
+from user_accounts.models import UserAccount
 
 
 class CustomerFactory(factory.django.DjangoModelFactory):
@@ -16,6 +18,7 @@ class CustomerAccountTestCase(TestCase):
         # todo: Create user and bank accounts
         self.user1 = CustomerFactory.create()
         self.user2 = CustomerFactory.create()
+        self.user3 = UserAccount.objects.create_user('test@example.com', 'secret')
 
         self.house_account = Account.objects.create(
             name='HouseAccount',
@@ -84,3 +87,29 @@ class CustomerAccountTestCase(TestCase):
         )
 
         self.assertEqual(account2.balance, transfer_amount)
+
+    def test_debit_transfer_should_have_a_minus(self):
+        account1 = self.house_account
+        account2 = self.user3.bank_account.all().first()
+
+        create_transfer(
+            sender_account=account1,
+            receiver_account=account2,
+            amount=20,
+            message='test message'
+        )
+
+        self.client.login(username="test@example.com", password="secret")
+
+        response = self.client.get(reverse("user:trendpoints"))
+        self.assertNotContains(response, "&ndash;")
+
+        create_transfer(
+            sender_account=account2,
+            receiver_account=account1,
+            amount=10,
+            message='test message'
+        )
+
+        response = self.client.get(reverse("user:trendpoints"))
+        self.assertContains(response, "&ndash;")
