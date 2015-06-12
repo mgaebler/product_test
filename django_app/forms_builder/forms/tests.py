@@ -9,6 +9,8 @@ from django.http import HttpResponseRedirect
 from django.template import Context, RequestContext, Template
 from django.test import TestCase
 
+from user_accounts.models import UserAccount
+
 from forms_builder.forms.fields import NAMES, FILE
 from forms_builder.forms.forms import FormForForm
 from forms_builder.forms.models import (Form, Field,
@@ -66,7 +68,9 @@ class Tests(TestCase):
         settings.DEBUG = True # Don't depend on having a 404 template.
         username = "test"
         password = "test"
-        User.objects.create_superuser(username, "", password)
+        ua = UserAccount.objects.create_user(username, password)
+        ua.is_staff = True
+        ua.save()
         self.client.logout()
         draft = Form.objects.create(title="Draft", status=STATUS_DRAFT)
         if USE_SITES:
