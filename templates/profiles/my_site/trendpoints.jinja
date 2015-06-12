@@ -28,9 +28,13 @@
           {% for transfer in object_list %}
             <tr>
               <td>{{ transfer.reference }}</td>
-              <td class="reward-points">
-                  <span class="reward-points">{{ transfer.amount }}</span>
-              </td>
+                <td class="reward-points">
+                    {% if transfer.sender.type == 'ca' %}
+                      &ndash; <span class="reward-points debit">{{ transfer.amount }}</span>
+                    {% else %}
+                      <span class="reward-points">{{ transfer.amount }}</span>
+                    {% endif %}
+                </td>
             </tr>
           {% endfor %}
           </tbody>
