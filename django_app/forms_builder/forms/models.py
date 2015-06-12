@@ -1,14 +1,9 @@
-from __future__ import unicode_literals
-
 from django.conf import settings as django_settings
 from django.contrib.sites.models import Site
-from django.core.exceptions import ValidationError
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.db.models import Q
-from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext, ugettext_lazy as _
-# from future.builtins import str
 
 from forms_builder.forms import fields
 from forms_builder.forms import settings
@@ -48,7 +43,7 @@ class FormManager(models.Manager):
 #                                                                    #
 ######################################################################
 
-@python_2_unicode_compatible
+
 class AbstractForm(models.Model):
     """
     A user-built form.
@@ -95,9 +90,6 @@ class AbstractForm(models.Model):
         verbose_name_plural = _("Forms")
         ordering = ("position", )
         abstract = True
-
-    def __str__(self):
-        return str(self.title)
 
     def save(self, *args, **kwargs):
         """
