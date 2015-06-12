@@ -341,7 +341,7 @@ class SurveysView(ListView):
         files = getattr(self.request, "FILES", None)
 
         objects = []
-        for form in Form.objects.all():
+        for form in Form.objects.published():
             try:
                 instance = FormEntry.objects.get(form=form, user=user)
             except FormEntry.DoesNotExist:
