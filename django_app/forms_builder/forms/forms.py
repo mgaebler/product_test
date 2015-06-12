@@ -150,7 +150,7 @@ class FormForForm(forms.ModelForm):
                 choices = list(field.get_choices())
                 if (field.field_type == fields.SELECT and
                         field.default not in [c[0] for c in choices]):
-                    choices.insert(0, ("", field.placeholder_text))
+                    choices.insert(0, ("", (field.placeholder_text or settings.DEFAULT_PLACEHOLDER_TEXT)))
                 field_args["choices"] = choices
             if field_widget is not None:
                 field_args["widget"] = field_widget

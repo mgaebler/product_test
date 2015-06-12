@@ -1,3 +1,5 @@
+# coding=utf-8
+
 from __future__ import unicode_literals
 
 from django.conf import settings
@@ -51,6 +53,8 @@ CHOICES_MAX_LENGTH = getattr(settings, "FORMS_BUILDER_CHOICES_MAX_LENGTH", 2000)
 # Does sending emails fail silently or raise an exception.
 EMAIL_FAIL_SILENTLY = getattr(settings, "FORMS_BUILDER_EMAIL_FAIL_SILENTLY",
                               settings.DEBUG)
+
+DEFAULT_PLACEHOLDER_TEXT = "Bitte auswählen"
 
 # Django SITE_ID - need a default since no longer provided in settings.py.
 SITE_ID = getattr(settings, "SITE_ID", 1)
