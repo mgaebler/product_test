@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 from django.conf import settings
 from django.contrib.auth.models import User, AnonymousUser
 from django.contrib.sites.models import Site
+from django.core.urlresolvers import reverse
 from django.db import IntegrityError
 from django.http import HttpResponseRedirect
 from django.template import Context, RequestContext, Template
@@ -22,9 +23,21 @@ class Tests(TestCase):
         self._site = Site.objects.get_current()
 
     def test_defaults_after_creation(self):
-        form = Form.objects.create(title="Test")
+        form = Form.objects.create(title="Test", slug="test")
         self.assertEqual(form.login_required, True)
         self.assertEqual(form.status, STATUS_DRAFT)
+
+    def test_access_to_draft(self):
+        form = Form.objects.create(title="Test", slug="test")
+        url = reverse("user:form_detail", kwargs={"slug": form.slug})
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 404)
+
+    def test_access_as_anonymous(self):
+        form = Form.objects.create(title="Test", slug="test", status=STATUS_PUBLISHED)
+        url = reverse("user:form_detail", kwargs={"slug": form.slug})
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 302)
 
     def test_form_fields(self):
         """
