@@ -66,7 +66,7 @@ class AbstractForm(models.Model):
         null=True, blank=True,
         help_text=_("An alternate URL to redirect to after form submission"))
     status = models.IntegerField(_("Status"), choices=STATUS_CHOICES,
-        default=STATUS_PUBLISHED)
+        default=STATUS_DRAFT)
     publish_date = models.DateTimeField(_("Published from"),
         help_text=_("With published selected, won't be shown until this time"),
         blank=True, null=True)
