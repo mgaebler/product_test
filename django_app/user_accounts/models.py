@@ -33,21 +33,22 @@ class UserAccount(AbstractEmailUser):
     )
 
     # profile
-    full_name = models.CharField(_('full name'), max_length=255, blank=True)
-    preferred_name = models.CharField(_('preferred name'), max_length=255, blank=True)
+    # TODO: Fix null=True on char fields
+    full_name = models.CharField(_('full name'), max_length=255)
+    preferred_name = models.CharField(_('preferred name'), max_length=255)
 
     gender = models.CharField(_('gender'), choices=GENDER_CHOICES, max_length=1)
     avatar = ThumbnailerImageField(_('avatar'), upload_to=get_avatar_upload_path, blank=True, null=True)
     avatar_url = models.URLField(max_length=254, null=True, blank=True)
     # todo: mindestalter validieren?
-    birth_date = models.DateField(_('birth date'), blank=True, null=True)
+    birth_date = models.DateField(_('birth date'), null=True)
     #address
     city = models.CharField(_('city'), max_length=254)
     country = models.CharField(_('country'),max_length=254)
     address1 = models.CharField(_('address1'),max_length=254)
     address2 = models.CharField(_('address2'), max_length=254, blank=True, null=True)
     address3 = models.CharField(_('address3'), max_length=254, blank=True, null=True)
-    postcode = models.CharField(_('postcode'), max_length=12, blank=True, null=True)
+    postcode = models.CharField(_('postcode'), max_length=12, null=True)
     family_status = models.CharField(_('family status'),choices=FAMILY_STATUS_CHOICES, max_length=2)
 
     invited_by = models.ForeignKey("self", blank=True, null=True)
