@@ -111,7 +111,7 @@ class FormDetail(TemplateView):
                         amount=form.trendpoints,
                         message="Umfrage '{}' ausgefüllt".format(form.title),
                     )
-                    messages.info(request, u"Du hast {} Trendsetter-Punkte verdient!".format(form.trendpoints))
+                    messages.info(request, u"Du hast {} Trendpoints verdient!".format(form.trendpoints))
 
             # Attachments read must occur before model save,
             # or seek() will fail on large uploads.
