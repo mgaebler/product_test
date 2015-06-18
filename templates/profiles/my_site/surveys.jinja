@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col-md-24">
           {% for object in object_list %}
-              <div class="survey-tile" style="display: inline-block">
+              <div class="survey-tile {% if object.is_done %}done{% endif %}" style="display: inline-block">
                 <div class="survey-image">
                   <a href="{{ object.form.get_absolute_url() }}">
                     {% if object.form.image %}>
@@ -17,7 +17,7 @@
                 </div>
                 <div class="survey-button">
                   <a class="btn btn-red btn-red-large" href="{{ object.form.get_absolute_url() }}">
-                      {{ object.form.title }}
+                      {{ object.form.title }} {% if object.is_done %}(done){% endif %}
                   </a>
                 </div>
               </div>

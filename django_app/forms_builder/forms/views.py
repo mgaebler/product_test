@@ -65,6 +65,9 @@ class FormDetail(TemplateView):
 
         context["form_for_form"] = FormForForm(*form_args, instance=instance)
 
+        if instance:
+            messages.info(request, "Du hast diese Umfrage schon einmal ausgefüllt.")
+
         return self.render_to_response(context)
 
     def post(self, request, *args, **kwargs):
