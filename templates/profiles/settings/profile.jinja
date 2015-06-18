@@ -31,7 +31,7 @@
 
   <h3>Benutzerdaten</h3>
 
-  <div class="form-group {% if form.avatar.preferred_name %}has-error{% endif %}">
+  <div class="form-group {% if form.preferred_name.errors %}has-error{% endif %}">
     <label class="control-label col-sm-6" for="{{ form.preferred_name.id }}">
       {{ form.preferred_name.label }}
     </label>
