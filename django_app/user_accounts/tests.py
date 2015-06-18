@@ -5,8 +5,10 @@ from django.core.urlresolvers import reverse
 from django.test import TestCase
 
 from forms_builder.forms import fields
-from forms_builder.forms.models import Form
 from forms_builder.forms.models import Field
+from forms_builder.forms.models import Form
+from forms_builder.forms.models import STATUS_PUBLISHED
+
 from user_accounts.models import UserAccount
 from simple_bank.models import Account
 from simple_bank.models import Transfer
@@ -47,6 +49,7 @@ class UserSurveysTest(TestCase):
         self.form = Form.objects.create(
             title="Kategorie 1",
             slug="kategorie-1",
+            status=STATUS_PUBLISHED,
         )
 
         self.field = Field.objects.create(

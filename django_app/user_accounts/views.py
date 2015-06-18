@@ -328,10 +328,6 @@ class TransferListView(ListView):
         return Transfer.objects.filter(Q(sender=current_user_account)|Q(receiver=current_user_account))
 
 
-class SurveyView(FormDetail):
-    template_name = 'profiles/my_site/survey.jinja'
-
-
 class SurveysView(ListView):
     template_name = 'profiles/my_site/surveys.jinja'
 
@@ -355,6 +351,7 @@ class SurveysView(ListView):
 
             objects.append({
                 "form": form,
+                "is_done": instance and instance.fields.count() > 0,
                 "form_for_form": FormForForm(*form_args, instance=instance)
             })
 
