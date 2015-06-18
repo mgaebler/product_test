@@ -7,6 +7,7 @@
     <div class="inner">
       <nav class="dash-nav">
         <li class="page-nav-info{% if request.path.startswith('/my/umfrage') %} active{% endif %}">
+          <span class="my-surveys-new">Neu!</span>
           <a href="{{ url('user:surveys') }}">Meine Umfragen</a>
         </li>
         <li class="page-nav-info{% if request.path == url('user:tests') %} active{% endif %}">
