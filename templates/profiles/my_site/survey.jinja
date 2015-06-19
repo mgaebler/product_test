@@ -4,7 +4,8 @@
   <div class="surveys">
     <div style="padding-top:20px">
       <a href="/my/umfragen">Zurück zur &Uuml;bersicht</a> |
-      <a href="{{ url('surveys:form_delete', slug=form.slug) }}">Alle Antworten dieser Umfrage l&ouml;schen</a>
+      <a class="needs-confirmation"
+         href="{{ url('surveys:form_delete', slug=form.slug) }}">Alle Antworten dieser Umfrage l&ouml;schen</a>
     </div>
     <div class="row">
       <div class="col-md-24">
