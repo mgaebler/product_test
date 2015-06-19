@@ -27,6 +27,7 @@ PIPELINE_JS = {
             'jquery/dist/jquery.js',
             'bootstrap-sass-3.3.2/assets/javascripts/bootstrap.js',
             'lightbox/dist/ekko-lightbox.js',
+            'app/app.js',
         ),
         'output_filename': 'js/common.js',
     }
