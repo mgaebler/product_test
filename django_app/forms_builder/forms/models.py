@@ -48,7 +48,6 @@ class AbstractForm(models.Model):
     """
     A user-built form.
     """
-
     sites = models.ManyToManyField(Site, editable=settings.USE_SITES,
         default=[settings.SITE_ID], related_name="%(app_label)s_%(class)s_forms")
     title = models.CharField(_("Title"), max_length=50)
@@ -79,7 +78,7 @@ class AbstractForm(models.Model):
         max_length=200)
     email_subject = models.CharField(_("Subject"), max_length=200, blank=True)
     email_message = models.TextField(_("Message"), blank=True)
-    position = models.IntegerField(_("Position"), default=10)
+    position = models.IntegerField(_("Position"), blank=True, null=True)
     trendpoints = models.IntegerField("Trendpoints", default=10)
     image = models.ImageField("Image", null=True, blank=True)
 
@@ -99,6 +98,10 @@ class AbstractForm(models.Model):
         if not self.slug:
             slug = slugify(self)
             self.slug = unique_slug(self.__class__.objects, "slug", slug)
+
+        if not self.position:
+            self.position = Form.objects.count()
+
         super(AbstractForm, self).save(*args, **kwargs)
 
     def published(self, for_user=None):
