@@ -550,10 +550,6 @@ body.s--users.p--trendpoints
         span
           background: image-url('trendpunkte_points_small.png') no-repeat 0 70%
           padding-left: image-width("trendpunkte_points_small.png") + 4px
-    .reward.emphazised
-      .reward-points, .reward-title a
-        font-size: 150%
-        font-weight: bold
 
 img.content-photo
   border: 2px solid black
@@ -820,9 +816,13 @@ ul.gallery-entries
         font-weight: normal
         font-size: 100%
 
-.my-surveys-new
+.my-surveys-new-inverse, .my-surveys-new
   background-color: $inverse-link-color
   color: $primary
   padding: 2px 4px
   margin-right: 4px
   font-weight: bold
+
+.my-surveys-new-inverse
+  background-color: $primary
+  color: $inverse-link-color
