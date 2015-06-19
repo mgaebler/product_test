@@ -99,7 +99,7 @@ class AbstractForm(models.Model):
             slug = slugify(self)
             self.slug = unique_slug(self.__class__.objects, "slug", slug)
 
-        if not self.position:
+        if self.position is None:
             self.position = Form.objects.count()
 
         super(AbstractForm, self).save(*args, **kwargs)
