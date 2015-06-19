@@ -196,13 +196,13 @@ footer
     span
       line-height: 42px
       +inline-block
-    .fuersie, .prinz, .petra
+    .fuersie, .prinz, .petra, .vital
       margin-left: 16px
       line-height: 20px
       a
         display: block
         height: 100%
-    @each $pubname in fuersie prinz petra
+    @each $pubname in fuersie prinz petra vital
       .#{$pubname}
         +retina-sprite-replace-text-with-dimensions($icons, $icons2x, "logo_#{$pubname}")
         &:hover
