@@ -199,6 +199,6 @@ def delete_form(request, slug):
         pass
     else:
         form_entry.fields.all().delete()
-        messages.info(request, "Deine Daten der Umfrage '{}'' wurden gelöscht.".format(form_entry.form.title))
+        messages.info(request, "Deine Daten der Umfrage '{}' wurden gelöscht.".format(form_entry.form.title))
 
     return HttpResponseRedirect(reverse("user:surveys"))
