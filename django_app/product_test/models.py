@@ -13,7 +13,7 @@ from django.utils.translation import ugettext_lazy as _
 from django_simple_forum.models import Forum
 from faq.models import FaqGroup
 from gallery.models import Gallery
-
+from surveys.models import Survey
 
 log = logging.getLogger('product_test')
 
@@ -92,6 +92,9 @@ class ProductTest(models.Model):
     test_result = models.OneToOneField(TestResult, null=True, blank=True)
 
     participants = models.ManyToManyField(settings.AUTH_USER_MODEL, through="Participation")
+
+    application_survey = models.ForeignKey(Survey, null=True, blank=True, related_name="application_survey")
+    completion_survey = models.ForeignKey(Survey, null=True, blank=True, related_name="completion_survey")
 
     def __unicode__(self):
         return self.title

@@ -28,6 +28,12 @@ class ProductTestAdmin(admin.ModelAdmin):
                 ('logo', 'logo_url',),
             )
         }),
+        ('Surveys', {
+            'fields': (
+                ('application_survey'),
+                ('completion_survey'),
+            )
+        }),
         ('Customization', {
             'fields': ('custom_html', 'custom_css',)
         }),

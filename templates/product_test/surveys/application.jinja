@@ -1,0 +1,5 @@
+{% extends 'product_test/base.jinja' %}
+
+{% block product_test_content %}
+    <iframe style="border:0" height="800px" width="100%" src="{{ survey.url }}&id={{ uid }}"></iframe>
+{% endblock %}

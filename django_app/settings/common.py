@@ -129,6 +129,7 @@ INSTALLED_APPS = (
     'static_pages',
     'raffles',
     'forms_builder.forms',
+    'surveys',
 )
 
 MIDDLEWARE_CLASSES = (

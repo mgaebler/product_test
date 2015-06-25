@@ -29,6 +29,12 @@
           {% endif %}
 
           <ul>
+            {% if product_test.application_survey %}
+              <li class="page-nav-info{% if request.path == url('product_test:surveys:application', slug=product_test.slug) %} active{% endif %}">
+                <a href="{{ url('product_test:surveys:application', slug=product_test.slug) }}">Bewerbung</a>
+              </li>
+            {% endif %}
+
             <li class="page-nav-info{% if request.path == url('product_test:info', slug=product_test.slug) %} active{% endif %}">
               <a href="{{ url('product_test:info', slug=product_test.slug) }}">Info</a>
             </li>
