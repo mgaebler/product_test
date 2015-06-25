@@ -15,6 +15,7 @@ from django.db.models import Count
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
+from django.templatetags.static import static
 from django.utils.translation import ungettext, ugettext_lazy as _
 
 from forms_builder.forms.forms import EntriesForm
@@ -70,7 +71,7 @@ class FormAdmin(admin.ModelAdmin):
 
     class Media:
         js = (
-            '/static/forms/admin_list_reorder.js',
+            static('/static/forms/admin_list_reorder.js'),
         )
 
     def get_queryset(self, request):
