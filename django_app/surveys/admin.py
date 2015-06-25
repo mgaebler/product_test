@@ -6,6 +6,10 @@ from . models import SurveyUser
 class SurveyUserInline(admin.TabularInline):
     model = SurveyUser
     extra = 3
+    raw_id_fields = ('user', )
+    autocomplete_lookup_fields = {
+        'fk': ('user', )
+    }
 
 
 class SurveyAdmin(admin.ModelAdmin):
