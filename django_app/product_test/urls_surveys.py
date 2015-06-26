@@ -5,4 +5,5 @@ from surveys import views
 
 urlpatterns = patterns('',
     url(r'^/bewerbung$', login_required(views.ApplicationView.as_view()), name='application'),
+    url(r'^/abschluss$', login_required(views.CompletionView.as_view()), name='completion'),
 )
