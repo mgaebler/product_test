@@ -35,4 +35,22 @@ class SurveyUser(models.Model):
     """
     user = models.ForeignKey(UserAccount)
     survey = models.ForeignKey(Survey)
-    uid = models.CharField(_(u"Eindeutige ID"), max_length=50, blank=True, unique=True)
+    uid = models.CharField(_(u"Eindeutige ID"), max_length=50, blank=True)
+
+    def save(self, *args, **kwargs):
+        """
+        Every user gets an uid *per survey* automatically.
+
+        - If an user would have just one uid he could participate in surveys
+          he is not allowed to.
+        """
+        from . views import create_unique_id
+        if not self.uid:
+            while 1:
+                uid = create_unique_id()
+                try:
+                    SurveyUser.objects.get(uid=uid)
+                except SurveyUser.DoesNotExist:
+                    self.uid = uid
+                    break
+        super(SurveyUser, self).save(*args, **kwargs)
