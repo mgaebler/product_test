@@ -6,7 +6,6 @@ from . models import SurveyUser
 class SurveyUserInline(admin.TabularInline):
     model = SurveyUser
     extra = 3
-    readonly_fields = ("uid", )
     raw_id_fields = ('user', )
     autocomplete_lookup_fields = {
         'fk': ('user', )

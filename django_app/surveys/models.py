@@ -35,4 +35,4 @@ class SurveyUser(models.Model):
     """
     user = models.ForeignKey(UserAccount)
     survey = models.ForeignKey(Survey)
-    uid = models.CharField(_(u"Eindeutige ID"), max_length=50)
+    uid = models.CharField(_(u"Eindeutige ID"), max_length=50, blank=True, unique=True)
