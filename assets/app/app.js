@@ -1,5 +1,6 @@
-$(document).ready(function() {
-    (function() {
+(function($) {
+    $(document).ready(function() {
+
         "use strict";
         var survey_button_title;
 
@@ -21,5 +22,6 @@ $(document).ready(function() {
                 $(this).html(survey_button_title);
             };
         });
-    })();
-})
+    
+    })
+})(window.jQuery);
