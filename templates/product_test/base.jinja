@@ -29,16 +29,24 @@
           {% endif %}
 
           <ul>
-            {% if product_test.completion_survey and product_test.completion_survey.takes_part_in(request.user) %}
-              <li class="page-nav-info{% if request.path == url('product_test:surveys:completion', slug=product_test.slug) %} active{% endif %}">
-                <a href="{{ url('product_test:surveys:completion', slug=product_test.slug) }}">Abschlussumfrage</a>
-              </li>
+            {# TODO: Add criteria to display completion survey #}
+            {% if 0 %}
+              {% if product_test.completion_survey and product_test.completion_survey.takes_part_in(request.user) %}
+                <li class="page-nav-info{% if request.path == url('product_test:surveys:completion', slug=product_test.slug) %} active{% endif %}">
+                  <a href="{{ url('product_test:surveys:completion', slug=product_test.slug) }}">Abschlussumfrage</a>
+                </li>
+              {% endif %}
+            {% else %}
             {% endif %}
 
-            {% if product_test.application_survey %}
-              <li class="page-nav-info{% if request.path == url('product_test:surveys:application', slug=product_test.slug) %} active{% endif %}">
-                <a href="{{ url('product_test:surveys:application', slug=product_test.slug) }}">Bewerbung</a>
-              </li>
+            {% if request.user.is_authenticated() %}
+              {% if product_test.application_survey %}
+                <li class="page-nav-info{% if request.path == url('product_test:surveys:application', slug=product_test.slug) %} active{% endif %}">
+                  <a href="{{ url('product_test:surveys:application', slug=product_test.slug) }}">Bewerbung</a>
+                </li>
+              {% endif %}
+            {% else %}
+              <a href="{{ url('user:login_form') }}">Log Dich ein</a>, um Dich für den Produkttest zu bewerben.
             {% endif %}
 
             <li class="page-nav-info{% if request.path == url('product_test:info', slug=product_test.slug) %} active{% endif %}">
