@@ -128,37 +128,37 @@ class FormAdmin(admin.ModelAdmin):
                 response["Content-Disposition"] = "attachment; filename={}.csv".format(form.slug)
                 writer = csv.writer(response, delimiter=";", quotechar='"', quoting=csv.QUOTE_ALL)
 
-                title_row = ["Name", "E-Mail"]
+                title_row = [u"Name", u"E-Mail"]
                 for field in form.fields.all():
                     title_row.append(field.label.encode("utf-8"))
                     choices = field.get_choices()
                     if choices:
                         for choice in tuple(choices)[0:-1]:
-                            title_row.append("")
+                            title_row.append(u"")
                 writer.writerow(title_row)
 
                 add_title_row_2 = False
-                title_row_2 = ["", ""]
+                title_row_2 = [u"", u""]
                 for field in form.fields.all():
                     if field.choices:
                         add_title_row_2 = True
                         for choice in field.get_choices():
                             title_row_2.append(choice[0].encode("utf-8"))
                     else:
-                        title_row_2.append("")
+                        title_row_2.append(u"")
 
                 if add_title_row_2:
                     writer.writerow(title_row_2)
 
                 for form_entry in form.entries.all():
-                    row = [form_entry.user.full_name, form_entry.user.email]
+                    row = [form_entry.user.full_name.encode("utf-8"), form_entry.user.email.encode("utf-8")]
                     if form_entry.fields.count() == 0:  # user has deleted her entries
                         continue
                     for field in form.fields.all():
                         try:
                             field_entry = FieldEntry.objects.get(entry=form_entry, field_id=field.id)
                         except FieldEntry.DoesNotExist:
-                            row.append("")
+                            row.append(u"")
                         else:
                             if field.choices:
                                 values = [v.strip() for v in field_entry.value.split(",")]
@@ -166,7 +166,7 @@ class FormAdmin(admin.ModelAdmin):
                                     if choice[0] in values:
                                         row.append(choice[0].encode("utf-8"))
                                     else:
-                                        row.append("")
+                                        row.append(u"")
                             else:
                                 row.append(field_entry.value.encode("utf-8"))
                     writer.writerow(row)
