@@ -39,6 +39,8 @@ def login_view(request):
             login(request, user)
             messages.add_message(request, messages.INFO, _(u'Login successful'))
             logger.info("Successful login")
+            if request.POST.get("came_from"):
+                return redirect(request.POST.get("came_from"))
             if not user.profile_complete:
                 messages.add_message(request, messages.INFO, _(u'Please complete your profile.'))
                 return redirect('user:settings')
