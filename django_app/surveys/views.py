@@ -1,5 +1,6 @@
 from uuid import uuid4
 from django.http import Http404
+from django.shortcuts import redirect
 from product_test.views import ProductTestDetail
 from . models import SurveyUser
 
@@ -11,11 +12,21 @@ def create_unique_id():
     return uuid4()
 
 
+class LoginView(ProductTestDetail):
+    template_name = "product_test/surveys/login_form.jinja"
+
+
 class ApplicationView(ProductTestDetail):
     """
     Displays the application survey.
     """
     template_name = "product_test/surveys/survey.jinja"
+
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated():
+            return super(ApplicationView, self).get(request, *args, **kwargs)
+        else:
+            return redirect("product_test:surveys:login_form", slug=self.get_object().slug)
 
     def get_context_data(self, **kwargs):
         context = super(ApplicationView, self).get_context_data(**kwargs)
