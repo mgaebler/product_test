@@ -160,10 +160,11 @@ class FormAdmin(admin.ModelAdmin):
                         except FieldEntry.DoesNotExist:
                             row.append(u"")
                         else:
+
                             if field.choices:
-                                values = [v.strip() for v in field_entry.value.split(",")]
+                                value = field_entry.value.strip()
                                 for choice in field.get_choices():
-                                    if choice[0] in values:
+                                    if value.find(choice[0]) != -1:
                                         row.append(choice[0].encode("utf-8"))
                                     else:
                                         row.append(u"")
