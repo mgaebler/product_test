@@ -175,10 +175,13 @@ class FormForForm(forms.ModelForm):
                     initial_val = None
             if initial_val:
                 if field.is_a(*fields.MULTIPLE):
-                    initial_val = split_choices(initial_val)
+                    initial_vals = []
+                    for choice in field.get_choices():
+                        if initial_val.find(choice[0]) != -1:
+                            initial_vals.append(choice[0])
                 if field.field_type == fields.CHECKBOX:
                     initial_val = initial_val != "False"
-                self.initial[field_key] = initial_val
+                self.initial[field_key] = initial_vals
             self.fields[field_key] = field_class(**field_args)
 
             if field.field_type == fields.DOB:
