@@ -1,6 +1,7 @@
 # coding: utf-8
 from __future__ import unicode_literals
 
+import datetime
 import logging
 
 from django.conf import settings
@@ -94,7 +95,11 @@ class ProductTest(models.Model):
     participants = models.ManyToManyField(settings.AUTH_USER_MODEL, through="Participation")
 
     application_survey = models.ForeignKey(Survey, null=True, blank=True, related_name="application_survey")
+    application_survey_start = models.DateTimeField(null=True, blank=True)
+    application_survey_end = models.DateTimeField(null=True, blank=True)
     completion_survey = models.ForeignKey(Survey, null=True, blank=True, related_name="completion_survey")
+    completion_survey_start = models.DateTimeField(null=True, blank=True)
+    completion_survey_end = models.DateTimeField(null=True, blank=True)
 
     def __unicode__(self):
         return self.title
@@ -102,6 +107,35 @@ class ProductTest(models.Model):
     def get_absolute_url(self):
         return reverse('product_test:info', kwargs={'slug': self.slug})
 
+    def display_application_survey(self, user):
+        if self.application_survey and user.is_superuser:
+            return True
+
+        now = datetime.now()
+        if self.application_survey and \
+           self.application_survey_start and \
+           self.application_survey_end and \
+           (self.application_survey_start > now) and \
+           (self.application_survey_end < now) and \
+           self.application_survey.takes_part_in(user):
+            return True
+
+        return False
+            
+    def display_completion_survey(self, user):
+        if self.completion_survey and user.is_superuser:
+            return True
+        
+        now = datetime.now()
+        if self.completion_survey and \
+           self.completion_survey_start and \
+           self.completion_survey_end and \
+           (self.completion_survey_start > now) and \
+           (self.completion_survey_end < now) and \
+           self.completion_survey.takes_part_in(user):
+            return True
+
+        return False
 
 class Participation(models.Model):
     users = models.ForeignKey(settings.AUTH_USER_MODEL)

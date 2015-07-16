@@ -37,8 +37,8 @@ class ProductTestAdmin(admin.ModelAdmin):
         }),
         ('Surveys', {
             'fields': (
-                ('application_survey'),
-                ('completion_survey'),
+                ('application_survey', 'application_survey_start', 'application_survey_end'),
+                ('completion_survey', 'completion_survey_start', 'completion_survey_end'),
             )
         }),
         ('Customization', {
