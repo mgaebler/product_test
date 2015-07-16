@@ -12,3 +12,5 @@ reset.sh
 log/*
 htmlcov/*
 import/
+*.swp
+tags
