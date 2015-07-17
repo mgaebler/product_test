@@ -2,17 +2,28 @@
 {% load i18n admin_urls %}
 {% block object-tools-items %}
 <li>
+    <form action='{% url "admin:upload_trendpoints" object_id %}'
+          method="post"
+          enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="reference">Referenz:</label> <input type="text" name="reference" />
+        <label for="trendpoints">Trendpoints:</label> <input type="text" name="trendpoints" />
+        <input type="file" name="trendpoints_file" value="add trendpoints" />
+        <input type="submit" value="trendpoints vergeben" />
+    </form>
+</li>
+<li>
     <form action='{% url "admin:upload_particpations" object_id %}'
           method="post"
           enctype="multipart/form-data">
         {% csrf_token %}
-        <input type="file" name="participations" value="Add Participations" />
-        <input type="submit" value="hochladen" />
+        <input type="file" name="participations" value="add participations" />
+        <input type="submit" value="teilnehmer hochladen" />
     </form>
 </li>
 <li>
     {% url opts|admin_urlname:'history' original.pk|admin_urlquote as history_url %}
-    <a href="{% add_preserved_filters history_url %}" class="historylink">{% trans "History" %}</a>
+    <a href="{% add_preserved_filters history_url %}" class="historylink">{% trans "history" %}</a>
 </li>
 {% if has_absolute_url %}<li><a href="{{ absolute_url }}" class="viewsitelink">{% trans "View on site" %}</a></li>{% endif%}
 {% endblock %}
