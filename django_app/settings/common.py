@@ -141,6 +141,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'pipeline.middleware.MinifyHTMLMiddleware',
     'static_pages.middleware.FlatpageFallbackMiddleware',
+    'core.middleware.LogoutMiddleware',
 )
 
 ROOT_URLCONF = 'django_app.urls'
