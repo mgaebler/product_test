@@ -67,21 +67,17 @@ class SurveysTest(TestCase):
         self.product_test.application_survey_end = end
         self.product_test.save()
         result = self.client.get(reverse('product_test:info', kwargs={"slug": self.product_test.slug}))
-        self.assertNotContains(result, "Bewerbung")
-
-        SurveyUser.objects.create(user=self.user, survey=self.survey, uid=1) 
-        result = self.client.get(reverse('product_test:info', kwargs={"slug": self.product_test.slug}))
         self.assertContains(result, "Bewerbung")
 
     def test_display_completion_survey(self):
         self.client.login(username=self.user.email, password="secret")
         result = self.client.get(reverse('product_test:info', kwargs={"slug": self.product_test.slug}))
-        self.assertNotContains(result, "Bewerbung")
+        self.assertNotContains(result, "Abschlussfragebogen")
 
         self.product_test.completion_survey = self.survey
         self.product_test.save()
         result = self.client.get(reverse('product_test:info', kwargs={"slug": self.product_test.slug}))
-        self.assertNotContains(result, "Bewerbung")
+        self.assertNotContains(result, "Abschlussfragebogen")
 
         now = datetime.datetime.now(pytz.UTC)
         start = now - datetime.timedelta(days=-1)
@@ -91,7 +87,7 @@ class SurveysTest(TestCase):
         self.product_test.completion_survey_end = end
         self.product_test.save()
         result = self.client.get(reverse('product_test:info', kwargs={"slug": self.product_test.slug}))
-        self.assertNotContains(result, "Bewerbung")
+        self.assertNotContains(result, "Abschlussfragebogen")
 
         SurveyUser.objects.create(user=self.user, survey=self.survey, uid=1) 
         result = self.client.get(reverse('product_test:info', kwargs={"slug": self.product_test.slug}))

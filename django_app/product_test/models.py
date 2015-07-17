@@ -117,8 +117,7 @@ class ProductTest(models.Model):
            self.application_survey_start and \
            self.application_survey_end and \
            (self.application_survey_start > now) and \
-           (self.application_survey_end < now) and \
-           self.application_survey.takes_part_in(user):
+           (self.application_survey_end < now):
             return True
 
         return False
