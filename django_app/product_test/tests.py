@@ -1,7 +1,16 @@
+import datetime
+import pytz
+
 from django.test import TestCase
 from django.core.urlresolvers import reverse
-from product_test.factories import ProductTestFactory
+
 from faq.factories import FaqEntryFactory
+from product_test.factories import ProductTestFactory
+from product_test.models import ProductTest
+from surveys.models import Survey
+from surveys.models import SurveyUser
+from user_accounts.models import UserAccount
+
 
 class ProductListPageTestCase(TestCase):
     def setUp(self):
@@ -32,3 +41,58 @@ class ProductTestPageTestCase(TestCase):
         response = self.client.get(faq_url)
         self.assertContains(response, entry.question)
         self.assertContains(response, entry.answer)
+
+
+class SurveysTest(TestCase):
+    def setUp(self):
+        self.user = UserAccount.objects.create_user('test@example.com', 'secret')
+        self.survey = Survey.objects.create(title="Title 1", url="http://www.test.de")
+        self.product_test = ProductTestFactory()
+
+    def test_display_application_survey(self):
+        self.client.login(username=self.user.email, password="secret")
+        result = self.client.get(reverse('product_test:info', kwargs={"slug": self.product_test.slug}))
+        self.assertNotContains(result, "Bewerbung")
+
+        self.product_test.application_survey = self.survey
+        self.product_test.save()
+        result = self.client.get(reverse('product_test:info', kwargs={"slug": self.product_test.slug}))
+        self.assertNotContains(result, "Bewerbung")
+
+        now = datetime.datetime.now(pytz.UTC)
+        start = now - datetime.timedelta(days=-1)
+        end = now - datetime.timedelta(days=1)
+        
+        self.product_test.application_survey_start = start
+        self.product_test.application_survey_end = end
+        self.product_test.save()
+        result = self.client.get(reverse('product_test:info', kwargs={"slug": self.product_test.slug}))
+        self.assertNotContains(result, "Bewerbung")
+
+        SurveyUser.objects.create(user=self.user, survey=self.survey, uid=1) 
+        result = self.client.get(reverse('product_test:info', kwargs={"slug": self.product_test.slug}))
+        self.assertContains(result, "Bewerbung")
+
+    def test_display_completion_survey(self):
+        self.client.login(username=self.user.email, password="secret")
+        result = self.client.get(reverse('product_test:info', kwargs={"slug": self.product_test.slug}))
+        self.assertNotContains(result, "Bewerbung")
+
+        self.product_test.completion_survey = self.survey
+        self.product_test.save()
+        result = self.client.get(reverse('product_test:info', kwargs={"slug": self.product_test.slug}))
+        self.assertNotContains(result, "Bewerbung")
+
+        now = datetime.datetime.now(pytz.UTC)
+        start = now - datetime.timedelta(days=-1)
+        end = now - datetime.timedelta(days=1)
+        
+        self.product_test.completion_survey_start = start
+        self.product_test.completion_survey_end = end
+        self.product_test.save()
+        result = self.client.get(reverse('product_test:info', kwargs={"slug": self.product_test.slug}))
+        self.assertNotContains(result, "Bewerbung")
+
+        SurveyUser.objects.create(user=self.user, survey=self.survey, uid=1) 
+        result = self.client.get(reverse('product_test:info', kwargs={"slug": self.product_test.slug}))
+        self.assertContains(result, "Abschlussumfrage")
