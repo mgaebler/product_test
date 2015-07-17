@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 import datetime
 import logging
+import pytz
 
 from django.conf import settings
 from django.core.urlresolvers import reverse
@@ -111,7 +112,7 @@ class ProductTest(models.Model):
         if self.application_survey and user.is_superuser:
             return True
 
-        now = datetime.now()
+        now = datetime.datetime.now(pytz.UTC)
         if self.application_survey and \
            self.application_survey_start and \
            self.application_survey_end and \
@@ -126,7 +127,7 @@ class ProductTest(models.Model):
         if self.completion_survey and user.is_superuser:
             return True
         
-        now = datetime.now()
+        now = datetime.datetime.now(pytz.UTC)
         if self.completion_survey and \
            self.completion_survey_start and \
            self.completion_survey_end and \
