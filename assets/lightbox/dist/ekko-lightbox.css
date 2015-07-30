@@ -61,3 +61,11 @@
 .ekko-lightbox .modal-footer {
   text-align: left;
 }
+
+.ekko-lightbox .modal-body {
+  text-align: center;
+}
+
+.ekko-lightbox .modal-body .img-responsive {
+  display: inline;
+}
