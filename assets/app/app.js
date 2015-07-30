@@ -56,5 +56,16 @@
             return false;
         })
 
+        $(".delete-gallery-image").on("click", function(e) {
+            var link = $(this);
+            var answer = window.confirm("Möchtest Du das Bild wirklich löschen?")
+            if (answer) {
+                $.get(link.attr("href"), function(data) {
+                    link.parents(".image-wrapper").remove();
+                });
+                return false;
+            }
+            return false;
+        });
     })
 })(window.jQuery);

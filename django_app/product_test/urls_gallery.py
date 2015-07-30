@@ -7,5 +7,6 @@ from product_test import views_gallery
 urlpatterns = patterns('',
     url(r'^/$', views_gallery.GalleryView.as_view(), name='index'),
     url(r'^/image/upload$', views_gallery.image_upload_view, name='image_upload'),
+    url(r'^/image/delete/(?P<image_id>\d+)$', views_gallery.delete_image, name='delete_image'),
     url(r'^/video/upload$', views_gallery.video_upload_view, name='video_upload'),
 )
