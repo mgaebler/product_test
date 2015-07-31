@@ -7,8 +7,10 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render, get_object_or_404
 from product_test.models import ProductTest
 from product_test.views import ProductTestDetail
+from django.core.exceptions import PermissionDenied
 from django_simple_forum.models import Forum, Topic, Post
 from django_simple_forum.forms import TopicForm, PostForm
+from django.views.generic import UpdateView
 
 
 class ForumBaseView(ProductTestDetail):
@@ -22,7 +24,22 @@ class ForumBaseView(ProductTestDetail):
         return Paginator(posts_list, 10)
 
 
-# forum view
+# forum views
+class PostUpdateView(UpdateView):
+    fields = ["title", "body"]
+    model = Post
+    success_url = "."
+    template_name = 'product_test/forum/post.jinja'
+
+    def get_context_data(self, **kwargs):
+        context = super(PostUpdateView, self).get_context_data(**kwargs)
+        if (not self.request.user.is_superuser) and \
+           (context.get("post").creator.id != self.request.user.id):
+            raise PermissionDenied
+        context["slug"] = self.kwargs.get("slug")
+        return context
+
+
 class ForumDetailView(ForumBaseView):
     template_name = 'product_test/forum/forum.jinja'
 

@@ -58,6 +58,11 @@
 
           {# date #}
           <div class="forum-entry-timestamp col-md-6">
+            {% if request.user.is_superuser or (request.user.id == post.creator.id) %}
+              <div>
+                <a class="edit-post-link" href="{{ url('product_test:forum:update', slug=product_test.slug, pk=post.pk) }}">Bearbeiten</a>
+              </div>
+            {% endif %}
             <span class="link-camo">
               <span class="date">{{ post.created|localtime|date }}</span>,
               <time>{{ post.created|localtime|time }}</time>
@@ -99,5 +104,10 @@
 {#   href="{{ url('product_test:forum:reply', slug=product_test.slug, topic_id=topic.pk) }}">Beitrag verfassen</a>#}
 {% endif %}
 
+<div id="edit-post-modal" class="modal bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content"></div>
+  </div>
+</div>
 
 {% endblock %}
