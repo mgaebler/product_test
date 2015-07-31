@@ -87,6 +87,7 @@ class TopicView(ForumBaseView):
             context['posts'] = posts_paginator.page(page)
         except PageNotAnInteger:
             # If page is not an integer, deliver first page.
+            page = 1
             context['posts'] = posts_paginator.page(1)
         except EmptyPage:
             # If page is out of range (e.g. 9999), deliver last page of results.
