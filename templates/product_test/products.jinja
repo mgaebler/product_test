@@ -3,9 +3,8 @@
 {% block content %}
   <div class="container product-test-overview">
     <div class="row">
-      <h2>Unsere Produkttests auf einen Blick</h2>
-
       <div class="col-md-24">
+        <h2>Unsere Produkttests auf einen Blick</h2>
         {% for test in product_test_list %}
           {% if test.ends_at and not (test.ends_at < timezone_now) %}
             <div class="test-tile" style="display: inline-block">
@@ -33,9 +32,8 @@
     </div>
 
     <div class="row">
-      <h2>Abgeschlossene Produkttests</h2>
-
       <div class="col-md-24">
+        <h2>Abgeschlossene Produkttests</h2>
         {% for test in product_test_list %}
           {% if test.ends_at and test.ends_at < timezone_now %}
             <div class="test-tile" style="display: inline-block">
@@ -65,8 +63,8 @@
 
     {% if raffles %}
       <div class="row">
-        <h2>Gewinnspiele</h2>
         <div class="col-md-24">
+          <h2>Gewinnspiele</h2>
           {% for raffle in raffles %}
               <div class="raffle-tile" style="display: inline-block">
                 <div class="raffle-logo">
