@@ -64,8 +64,18 @@
 
 .ekko-lightbox .modal-body {
   text-align: center;
+  vertical-align: middle;
+  height: 900px;
 }
 
 .ekko-lightbox .modal-body .img-responsive {
   display: inline;
+}
+
+.glyphicon:focus {
+  outline:none !important;
+}
+
+.glyphicon::-moz-focus-inner {
+  border:0 !important;
 }
