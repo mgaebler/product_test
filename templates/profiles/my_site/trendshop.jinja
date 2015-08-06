@@ -26,10 +26,11 @@
                 <img alt="Trendpunkte praemie {{ product.name }}" src="{{ thumbnail(product.image, size=(64, 64)) }}">
               </a>
             </div>
-            <div class="goodie-name">
+            <div class="goodie-name" style="vertical-align: top">
               {{ product.name }}
+              {{ product.description|linebreaks }}
             </div>
-            <div class="goodie-cost">
+            <div class="goodie-cost" style="padding-top:8px">
               <span>{{ product.value }}</span>
             </div>
             <div class="goodie-action">
