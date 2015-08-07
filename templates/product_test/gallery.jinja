@@ -37,8 +37,8 @@
   <hr/>
   <div class="row">
     {% for image in product_test.gallery.images.all() %}
-      <div class="image-wrapper col-md-4 col-sm-6" align="center">
-        <a class="thumbnail" datatype="image" data-toggle="lightbox" data-gallery="test"
+      <div class="col-md-4 col-sm-6" align="center">
+        <a class="thumbnail" datatype="image" data-toggle="lightbox" data-gallery="multiimages" data-parent="document.body" data-title="{{ image.title }}" data-footer="{{ image.description|linebreaks }}"
            href="{{ thumbnail(image.file, size=(800, 800)) }}">
           <img class="img-responsive" src="{{ thumbnail(image.file, size=(165, 165), crop=True) }}"/>
           <small>
