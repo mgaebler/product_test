@@ -34,6 +34,8 @@ def image_upload_view(request, slug):
         if image_upload_form.is_valid():
             image = GalleryImage()
             image.file = image_upload_form.cleaned_data['image']
+            image.title = image_upload_form.cleaned_data["title"]
+            image.description = image_upload_form.cleaned_data["description"]
             image.owner = request.user
             image.gallery = gallery
             image.save()

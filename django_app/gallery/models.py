@@ -49,6 +49,8 @@ class Gallery(models.Model):
 
 
 class GalleryImage(models.Model):
+    title = models.CharField(_("Title"), max_length=100, blank=True)
+    description = models.TextField(_("Description"), blank=True)
     gallery = models.ForeignKey(Gallery, related_name='images')
     file = models.ImageField(
         verbose_name=_('image file'),

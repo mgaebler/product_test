@@ -341,9 +341,14 @@ License: https://github.com/ashleydw/lightbox/blob/master/LICENSE
     resize: function(width) {
       var width_total;
       width_total = width + this.border.left + this.padding.left + this.padding.right + this.border.right;
-      this.modal_dialog.css('width', 'auto').css('max-width', width_total);
-      this.lightbox_container.find('a').css('padding-top', function() {
-        return $(this).parent().height() / 2;
+      this.modal_dialog.css('width', '800px');
+      // this.lightbox_container.find('a').css('padding-top', function() {
+      //   return $(this).parent().height() / 2;
+      // });
+      var img = this.lightbox_container.find('img')[0];
+      $(img).css('padding-top', function() {
+        console.log((800 - img.clientHeight) / 2)
+        return (800 - img.clientHeight) / 2
       });
       return this;
     },
