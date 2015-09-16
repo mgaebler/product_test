@@ -1,0 +1,19 @@
+{% extends 'profiles/base.jinja' %}
+
+{% block head_title %}Registrierung{% endblock %}
+
+{% block profile_content %}
+    <h1>Registrierung</h1>
+
+<p>You are about to use your {{ account.get_provider().name }} account to login. As a final step, please complete the following form:</p>
+
+<form class="signup" id="signup_form" method="post" action="{{ url('socialaccount_signup') }}">
+  {% csrf_token %}
+  {{ form.as_p() }}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <button type="submit">Registrieren</button>
+</form>
+
+{% endblock %}

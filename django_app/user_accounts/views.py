@@ -17,6 +17,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
 from django.views.generic import FormView, UpdateView, ListView, TemplateView
 from django.shortcuts import redirect, get_object_or_404
+from allauth.account.models import EmailAddress
 from braces.views import LoginRequiredMixin
 from forms_builder.forms.views import FormDetail
 from forms_builder.forms.models import Form
@@ -63,6 +64,12 @@ def register_verify(request, token):
     user.save()
     user.backend = 'django.contrib.auth.backends.ModelBackend'
     login(request, user)
+
+    # Create entry for allauth
+    EmailAddress.objects.create(
+        user=user,
+        email=user.email,
+    )
 
     return redirect(reverse('user:set_password'))
 

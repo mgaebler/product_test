@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html class='nodebug' itemscope itemtype='http://schema.org/Product' lang='de'>
+<head>
+  <meta charset='utf-8'>
+  <meta content='IE=edge' http-equiv='X-UA-Compatible'>
+
+  <meta content='width=1024' name='viewport'>
+
+  <title>Trendsetter{% if debug %} - DEBUG{% endif %}</title>
+
+  <link href="//fonts.googleapis.com/css?family=Oxygen:400,700,300" media="screen" rel="stylesheet"/>
+
+  <link href="{{ static('app/images/favicons/favicon.ico') }}" rel="shortcut icon" type="image/vnd.microsoft.icon"/>
+  <link href="{{ static('app/images/favicons/apple-touch-icon-57x57.png') }}" rel="apple-touch-icon" sizes="57x57"
+        type="image/png"/>
+  <link href="{{ static('app/images/favicons/apple-touch-icon-72x72.png') }}" rel="apple-touch-icon" sizes="72x72"
+        type="image/png"/>
+  <link href="{{ static('app/images/favicons/apple-touch-icon-114x114.png') }}" rel="apple-touch-icon" sizes="114x114"
+        type="image/png"/>
+  <link href="{{ static('app/images/favicons/apple-touch-icon-144x144.png') }}" rel="apple-touch-icon" sizes="144x144"
+        type="image/png"/>
+  <link href="{{ static('app/images/favicons/apple-touch-icon-60x60.png') }}" rel="apple-touch-icon" sizes="60x60"
+        type="image/png"/>
+  <link href="{{ static('app/images/favicons/apple-touch-icon-120x120.png') }}" rel="apple-touch-icon" sizes="120x120"
+        type="image/png"/>
+  <link href="{{ static('app/images/favicons/apple-touch-icon-76x76.png') }}" rel="apple-touch-icon" sizes="76x76"
+        type="image/png"/>
+  <link href="{{ static('app/images/favicons/apple-touch-icon-152x152.png') }}" rel="apple-touch-icon" sizes="152x152"
+        type="image/png"/>
+  <link href="{{ static('app/images/favicons/favicon-196x196.png') }}" rel="shortcut icon" sizes="196x196"
+        type="image/png"/>
+  <link href="{{ static('app/images/favicons/favicon-160x160.png') }}" rel="shortcut icon" sizes="160x160"
+        type="image/png"/>
+  <link href="{{ static('app/images/favicons/favicon-96x96.png') }}" rel="shortcut icon" sizes="96x96"
+        type="image/png"/>
+  <link href="{{ static('app/images/favicons/favicon-16x16.png') }}" rel="shortcut icon" sizes="16x16"
+        type="image/png"/>
+  <link href="{{ static('app/images/favicons/favicon-32x32.png') }}" rel="shortcut icon" sizes="32x32"
+        type="image/png"/>
+  <meta content='#000000' name='msapplication-TileColor'>
+  <meta content='{{ static('app/images/favicons/mstile-144x144.png') }}' name='msapplication-TileImage'>
+  <meta content='{{ static('app/images/favicons/browserconfig.xml') }}' name='msapplication-config'>
+
+  <link href='https://plus.google.com/104263993094810252271' rel='publisher'>
+
+  <meta content='Trendsetter' itemprop='name'>
+  <meta
+      content='Trendsetter, die neue Online Produkttest-Plattform ist da! Kostenlose Produkttests und Gewinnspiele! Sei dabei: www.trendsetter.eu'
+      itemprop='description'>
+  <meta content='https://www.trendsetter.eu/assets/trendsetter_sm_share-829f2d6bfd4fb457984bb5c5e7f10bdf.png'
+        itemprop='image'>
+
+  {# Facebook #}
+  <meta content='Trendsetter' property='og:title'>
+  <meta content='website' property='og:type'>
+  <meta content='de_DE' property='og:locale'>
+  <meta content='Trendsetter' property='og:site_name'>
+{#  <meta content='https://www.trendsetter.eu/{{ static('app/images/favicons/trendsetter_sm_share.png') }}' property='og:image'>#}
+  <meta
+      content='Trendsetter, die neue Online Produkttest-Plattform ist da! Kostenlose Produkttests und Gewinnspiele! Sei dabei: www.trendsetter.eu'
+      property='og:description'>
+  <meta content='100007765833987,100000081178215' property='fb:admins'>
+  <meta content='449686848467025' property='fb:app_id'>
+
+{#
+  {% stylesheet 'common' %}
+  {% stylesheet 'app' %}
+#}
+
+  <link href="/static/bootstrap-sass-3.3.2/bootstrap-theme.css" rel="stylesheet" type="text/css" media="screen,projection" />
+<link href="/static/lightbox/dist/ekko-lightbox.css" rel="stylesheet" type="text/css" media="screen,projection" />
+  <link href="/static/app/app.css" rel="stylesheet" type="text/css" media="screen,projection" />
+
+{% if not debug %}
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-50922453-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+{% endif %}
+{% javascript 'common' %}
+</head>
+
+<body class="{% block body_class %}{% endblock %}">
+
+{% if debug %}
+    <div style="background-color: red; color: white; text-align: center">Debug</div>
+{% endif %}
+<header class="main">
+  {% block user_panel %}
+    <div class='current-user logged-in'>
+      <div class='inner'>
+
+        {## python social auth is not available for now #}
+        {#      <div class="social">#}
+        {#        {% for sublist in available_backends|social_backends %}#}
+        {#          <div class="row">#}
+        {#            {% for name, backend in sublist %}#}
+        {#              {% associated backend %}#}
+        {#              {% if association %}#}
+        {#                <form class="disconnect-form col-md-2" action="{% url "social:disconnect_individual" backend=association.provider association_id=association.id %}" method="post">{% csrf_token %}#}
+        {#                  <a class="btn btn-danger" name="{{ backend|backend_class }}" href="#">#}
+        {#                    <i class="fa fa-{{ name|icon_name }}"></i>#}
+        {#                    Disconnect {{ backend|backend_name }}#}
+        {#                  </a>#}
+        {#                </form>#}
+        {#              {% else %}#}
+        {#                <a class="col-md-2 btn btn-default" name="{{ backend|backend_class }}" href="{% url "social:begin" backend=name %}">#}
+        {#                  <i class="fa fa-{{ name|icon_name }}"></i>#}
+        {#                  {{ backend|backend_name }}#}
+        {#                </a>#}
+        {#              {% endif %}#}
+        {#            {% endfor %}#}
+        {#          </div>#}
+        {#        {% endfor %}#}
+        {#      </div>#}
+
+        {% if not user.is_authenticated() %}
+          Schon Mitglied?
+          <a href="{{ url('user:login_form') }}">{{ _('Log in') }}</a>
+        {% else %}
+
+          <a href="{{ url('user:tests') }}">
+            {% if user.avatar %}
+              <img align="right"
+                   alt="Default avatar"
+                   class="user-avatar user-avatar-medium"
+                   src="{{ thumbnail(user.avatar, size=(32, 32)) }}"/>
+            {% else %}
+              <img align="right" alt="avatar"
+                   class="img-circle user-avatar user-avatar-medium"
+                   src="{{ static('app/images/default_avatar.jpg') }}"/>
+            {% endif %}
+          </a>
+          Hallo, {{ user.preferred_name }}
+          <br>
+
+          {% if user.is_staff %}
+            <a href="/admin/">Admin</a>
+            |
+          {% endif %}
+          <a href="{{ url('user:index') }}">Meine Seite</a>
+          |
+          <a href="{{ url('user:settings') }}">Einstellungen</a>
+          |
+          <a href="{{ url('user:logout') }}">Ausloggen</a>
+        {% endif %}
+      </div>
+    </div>
+  {% endblock user_panel %}
+
+  {% block logo %}
+    <div class='inner'>
+      <div id='logo'
+           {% if product_test and product_test.brand and product_test.brand.logo_top %}style="background: url({{ thumbnail(product_test.brand.logo_top, size=(280, 280)) }}) no-repeat 0 18px"{% endif %}>
+        <h1><a href="{{ url('home') }}">Trendsetter</a></h1>
+      </div>
+    </div>
+  {% endblock %}
+
+  {% block main_navigation %}
+    <div class='inner'>
+      <nav class='main-nav'>
+        <li {% if request.path == url('how_it_works') %}class="active"{% endif %}>
+          <a href="{{ url('how_it_works') }}">Wie funktioniert’s?</a>
+        </li>
+        <li {% if request.path == url('product_test:index') %}class="active"{% endif %}>
+          <a href="{{ url('product_test:index') }}">Produkttests</a>
+        </li>
+        <li {% if request.path == url('our_brands') %}class="active"{% endif %}>
+          <a href="{{ url('our_brands') }}">Unsere Marken</a>
+        </li>
+        <li {% if request.path == url('about_us') %}class="active"{% endif %}>
+          <a href="{{ url('about_us') }}">Über uns</a>
+        </li>
+      </nav>
+    </div>
+  {% endblock main_navigation %}
+
+  {% block dash_nav %}
+  {% endblock dash_nav %}
+
+</header>
+
+{# flash messages #}
+{% if messages %}
+  <div class="inner container">
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('.flash').click(function (e) {
+          $(this).hide('slow');
+        });
+        $('.flash').delay(3000).hide('slow');
+      });
+    </script>
+    <div id="flashes">
+      <div class="inner">
+        <ul class="messages">
+          {% for message in messages %}
+            <li class="flash {% if message.tags %}{{ message.tags }}{% endif %}">
+{#              {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}#}
+              {{ message }}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+<section role='content'>
+  {% block content %}{% endblock content %}
+</section>
+
+{% include 'footer.jinja' %}
+
+
+{% block javascript %}{% endblock %}
+
+</body>
+</html>

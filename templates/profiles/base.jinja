@@ -22,6 +22,9 @@
         <li class="page-nav-info{% if request.path == url('user:invite_friends') %} active{% endif %}">
           <a href="{{ url('user:invite_friends') }}">Freunde einladen</a>
         </li>
+        <li class="page-nav-info{% if request.path == url('socialaccount_connections') %} active{% endif %}">
+          <a href="{{ url('socialaccount_connections') }}">Soziale Netze</a>
+        </li>
       </nav>
     </div>
   </div>

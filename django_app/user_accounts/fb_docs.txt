@@ -1,0 +1,47 @@
+I. Erstes Anmelden mit E-Mail (bleibt bestehen wie bisher)
+===========================================================
+
+    1) System versendet Bestätigungslink
+    2) Benutzer klickt Bestätigungslink
+    3) System aktiviert Benutzer
+
+
+II. Anmelden mit FB
+===================
+
+    1) FB-Account ist bereits in Benutzung
+        1.1) System loggt verknüpften Benutzer ein
+
+    2) FB-Account ist noch nicht in Benutzung
+        2.1) Account mit E-Mail von FB besteht noch nicht
+            2.1.1) System weist Benutzer E-Mail von FB zu
+            2.1.2) System versendet *keine* Bestätigungsmail (zur Zeit)
+        2.2) Account mit E-Mail von FB besteht bereits
+            2.2.1) System fragt nach neuer E-Mail
+            2.2.2) Benutzer gibt neue E-Mail ein
+            2.2.3) System versendet Bestätigungslink (TBD)
+            2.2.4) System loggt Benutzer trotzdem ein (TBD)
+            2.2.4) TBD
+
+III. Verbinden mit FB
+=====================
+
+    1) Benutzer loggt sich ein
+    2) Benutzer klickt "Soziale Netze"
+    3) Benutzer verbindet mit FB
+    4) E-Mail von der Registrierung bleibt erhalten
+        4.1) Benutzer kann sich mit FB oder mit E-Mail anmelden
+
+
+IV. Trennen von FB
+==================
+
+    1) Benutzer hat bereits PW vergeben
+        2.1) System trennt Benutzer von FB
+
+    2) Benutzer hat noch kein PW vergeben
+        2.1) Benutzer vergibt PW
+        2.2) Benutzer meldet sich erneut an
+        2.3) Benutzer wiederholt Trennung von FB
+        2.4) System trennt Benutzer von FB
+
