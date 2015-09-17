@@ -15,20 +15,23 @@ II. Anmelden mit FB
     2) FB-Account ist noch nicht in Benutzung
         2.1) Account mit E-Mail von FB besteht noch nicht
             2.1.1) System weist Benutzer E-Mail von FB zu
-            2.1.2) System versendet *keine* Bestätigungsmail (zur Zeit)
+            2.1.2) System versendet Bestätigungsmail
+            2.1.3) Benutzer klick Bestätigungslink
+            2.1.4) System bestätigt E-Mail Adresse und loggt Benutzer ein
+
         2.2) Account mit E-Mail von FB besteht bereits
             2.2.1) System fragt nach neuer E-Mail
             2.2.2) Benutzer gibt neue E-Mail ein
-            2.2.3) System versendet Bestätigungslink (TBD)
-            2.2.4) System loggt Benutzer trotzdem ein (TBD)
-            2.2.4) TBD
+            2.2.3) System versendet Bestätigungslink
+            2.2.4) Benutzer klick Bestätigungslink
+            2.1.4) System bestätigt E-Mail Adresse und loggt Benutzer ein
 
 III. Verbinden mit FB
 =====================
 
     1) Benutzer loggt sich ein
     2) Benutzer klickt "Soziale Netze"
-    3) Benutzer verbindet mit FB
+    3) Benutzer verbindet Konto mit FB
     4) E-Mail von der Registrierung bleibt erhalten
         4.1) Benutzer kann sich mit FB oder mit E-Mail anmelden
 
@@ -44,4 +47,3 @@ IV. Trennen von FB
         2.2) Benutzer meldet sich erneut an
         2.3) Benutzer wiederholt Trennung von FB
         2.4) System trennt Benutzer von FB
-
