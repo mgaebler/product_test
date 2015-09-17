@@ -69,6 +69,7 @@ def register_verify(request, token):
     EmailAddress.objects.create(
         user=user,
         email=user.email,
+        verified=True,
     )
 
     return redirect(reverse('user:set_password'))
