@@ -1,0 +1,10 @@
+{% extends 'base.jinja' %}
+
+{% block content %}
+<div class="inner container">
+    <div class="box login col-md-12 col-md-offset-6">
+        <h1>Login abgebrochen</h1>
+        <p>Sie haben sich dazu entschieden, den Login mit einem Ihrer existierenden Konten abzubrechen. Falls dies unbeabsichtigt war, können Sie <a href="{{ url('user:login_form') }}">hier fortfahren</a>.</p>
+    </div>
+</div>
+{% endblock %}

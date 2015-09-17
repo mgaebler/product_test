@@ -16,8 +16,8 @@ urlpatterns = patterns('',
     url(r'^wie-funktioniert-es/$', TemplateView.as_view(template_name='static/wie_funktioniert_es.jinja'), name='how_it_works'),
 
     url(r'my/', include('user_accounts.urls', namespace='user')),
-    url(r'my/', include('allauth.urls')),
     url(r'my/', include('user_accounts.social_urls')),  # overwrites some urls of allauth.urls
+    url(r'my/', include('allauth.urls')),
     url(r'produkttests/', include('product_test.urls', namespace='product_test')),
 
     url(r'forum/', include('django_simple_forum.urls')),
