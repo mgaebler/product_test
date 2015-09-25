@@ -24,6 +24,8 @@ class ProductTestList(ListView):
         context = super(ProductTestList, self).get_context_data(**kwargs)
         context['timezone_now'] = timezone.now()
         context["raffles"] = Raffle.objects.started()
+        context["active_product_test_list"] = context.get("product_test_list").filter(ends_at__gte=context['timezone_now'])
+        context["expired_product_test_list"] = context.get("product_test_list").filter(ends_at__lt=context['timezone_now'])
         return context
 
 
