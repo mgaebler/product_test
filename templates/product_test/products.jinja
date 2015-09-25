@@ -2,11 +2,12 @@
 
 {% block content %}
   <div class="container product-test-overview">
-    <div class="row">
-      <div class="col-md-24">
-        <h2>Unsere Produkttests auf einen Blick</h2>
-        {% for test in product_test_list %}
-          {% if test.ends_at and not (test.ends_at < timezone_now) %}
+
+    {% if active_product_test_list %}
+      <div class="row">
+        <div class="col-md-24">
+          <h2>Unsere Produkttests auf einen Blick</h2>
+          {% for test in active_product_test_list %}
             <div class="test-tile" style="display: inline-block">
               <h3 class="test-title"
                   {% if test.brand %}style="background-image: url({{ test.brand.logo.url }}); background-repeat: no-repeat; background-position: 15px 15px;{% endif %}">
@@ -26,16 +27,16 @@
                 {{ test.title }}
               </a>
             </div>
-          {% endif %}
-        {% endfor %}
+          {% endfor %}
+        </div>
       </div>
-    </div>
+    {% endif %}
 
-    <div class="row">
-      <div class="col-md-24">
-        <h2>Abgeschlossene Produkttests</h2>
-        {% for test in product_test_list %}
-          {% if test.ends_at and test.ends_at < timezone_now %}
+    {% if expired_product_test_list %}
+      <div class="row">
+        <div class="col-md-24">
+          <h2>Abgeschlossene Produkttests</h2>
+          {% for test in expired_product_test_list %}
             <div class="test-tile" style="display: inline-block">
               <h3 class="test-title"
                   {% if test.brand %}style="background-image: url({{ test.brand.logo.url }}); background-repeat: no-repeat; background-position: 15px 15px;{% endif %}">
@@ -55,11 +56,10 @@
                 {{ test.title }}
               </a>
             </div>
-          {% endif %}
-        {% endfor %}
+          {% endfor %}
+        </div>
       </div>
-
-    </div>
+    {% endif %}
 
     {% if raffles %}
       <div class="row">
