@@ -51,4 +51,20 @@
 
   </div>
 </div>
+<script>
+  (function($) {
+    "use strict";
+    var toolbar = '<div id="toolbar">';
+    toolbar += '<a data-wysihtml5-command="bold">Fett</a>';
+    toolbar += ' | ';
+    toolbar += '<a data-wysihtml5-command="italic">Kursiv</a>';
+    toolbar += '</div>';
+    $("#id_body").before(toolbar);
+    var editor = new wysihtml5.Editor('id_body', {
+      toolbar: 'toolbar',
+      parserRules:  wysihtml5ParserRules
+    });
+  })(window.jQuery);
+</script>
+
 {% endblock content %}
