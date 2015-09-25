@@ -2,7 +2,9 @@
 from django.core.urlresolvers import reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import user_passes_test
+from django.http import Http404
 from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
 from django.shortcuts import redirect
 
 from product_test.models import ProductTest
@@ -51,10 +53,9 @@ def video_upload_view(request):
     pass
 
 
-@user_passes_test(lambda u: u.is_superuser)
 def delete_image(request, slug, image_id):
-    try:
-        GalleryImage.objects.get(id=image_id).delete()
-    except GalleryImage.DoesNotExist:
-        pass
-    return HttpResponse("ok")
+    image = get_object_or_404(GalleryImage, pk=image_id)
+    if request.user.is_superuser or (request.user == image.owner):
+        image.delete()
+        return HttpResponse("ok")
+    raise Http404()

@@ -37,14 +37,14 @@
   <hr/>
   <div class="row">
     {% for image in product_test.gallery.images.all() %}
-      <div class="col-md-4 col-sm-6" align="center">
+      <div class="col-md-4 col-sm-6 image-wrapper" align="center">
         <a class="thumbnail" datatype="image" data-toggle="lightbox" data-gallery="multiimages" data-parent="document.body" data-title="{{ image.title }}" data-footer="{{ image.description|linebreaks }}"
            href="{{ thumbnail(image.file, size=(800, 800)) }}">
           <img class="img-responsive" src="{{ thumbnail(image.file, size=(165, 165), crop=True) }}"/>
           <small>
             {{ image.owner.preferred_name }}
           </small>
-          {% if user.is_superuser %}
+          {% if user.is_superuser or user == image.owner %}
             <a class="delete-gallery-image" href="{{ url('product_test:gallery:delete_image', slug=product_test.slug, image_id=image.id) }}">X</a>
           {% endif %}
         </a>
