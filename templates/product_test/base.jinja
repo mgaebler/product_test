@@ -29,6 +29,12 @@
           {% endif %}
 
           <ul>
+            {% if test_result %}
+            <li class="page-nav-result{% if request.path == url('product_test:result', slug=product_test.slug) %} active{% endif %}">
+              <a href="{{ url('product_test:result', slug=product_test.slug) }}">Ergebnisse</a>
+            </li>
+            {% endif %}
+
             {% if product_test.display_completion_survey(request.user) %}
                 <li class="page-nav-info{% if request.path == url('product_test:surveys:completion', slug=product_test.slug) %} active{% endif %}">
                   <a href="{{ url('product_test:surveys:completion', slug=product_test.slug) }}">Abschlussumfrage</a>
@@ -59,12 +65,6 @@
             {% if product_test.faq.state == 'published' or (product_test.faq.state == 'preview' and request.user.is_staff) %}
             <li class="page-nav-faq{% if request.path == url('product_test:faq', slug=product_test.slug) %} active{% endif %}">
               <a href="{{ url('product_test:faq', slug=product_test.slug) }}">FAQ</a>
-            </li>
-            {% endif %}
-
-            {% if test_result %}
-            <li class="page-nav-result{% if request.path == url('product_test:result', slug=product_test.slug) %} active{% endif %}">
-              <a href="{{ url('product_test:result', slug=product_test.slug) }}">Ergebnisse</a>
             </li>
             {% endif %}
           </ul>

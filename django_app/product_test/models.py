@@ -138,6 +138,22 @@ class ProductTest(models.Model):
 
         return False
 
+    def get_detail_link(self, user):
+        """
+        Returns the detail link for a test for the test overview.
+        """
+        if self.display_completion_survey(user):
+            return reverse("product_test:surveys:completion", kwargs={'slug': self.slug})
+
+        if self.display_application_survey(user):
+            return reverse("product_test:surveys:application", kwargs={'slug': self.slug})
+
+        if self.test_result:
+            return reverse("product_test:result", kwargs={'slug': self.slug})
+
+        return reverse("product_test:info", kwargs={'slug': self.slug})
+
+
 class Participation(models.Model):
     users = models.ForeignKey(settings.AUTH_USER_MODEL)
     product_test = models.ForeignKey(ProductTest)
