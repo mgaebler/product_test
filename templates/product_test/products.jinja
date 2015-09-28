@@ -10,18 +10,18 @@
             <div class="test-tile" style="display: inline-block; background: #{{ test.brand.color }}">
               <h3 class="test-title"
                   {% if test.brand %}style="background-image: url({{ test.brand.logo.url }}); background-repeat: no-repeat; background-position: 15px 15px;{% endif %}">
-                <a href="{{ url('product_test:info', slug=test.slug) }}">
+                <a href="{{ test.get_detail_link(request.user) }}">
                   {{ test.title }}
                 </a>
               </h3>
 
               <div class="test-link">
-                <a class="btn btn-inverted" href="{{ url('product_test:info', slug=test.slug) }}">
+                <a class="btn btn-inverted" href="{{ test.get_detail_link(request.user) }}">
                   Jetzt mitmachen
                 </a>
               </div>
 
-              <a class="test-teaser" href="{{ url('product_test:info', slug=test.slug) }}"
+              <a class="test-teaser" href="{{ test.get_detail_link(request.user) }}"
                  {% if test.list_image %}style="background: url({{ thumbnail(test.list_image, size=(400, 400)) }}) no-repeat 50% 100%"{% endif %}>
                 {{ test.title }}
               </a>
@@ -39,18 +39,18 @@
             <div class="test-tile" style="display: inline-block; background: #{{ test.brand.color }}">
               <h3 class="test-title"
                   {% if test.brand %}style="background-image: url({{ test.brand.logo.url }}); background-repeat: no-repeat; background-position: 15px 15px;{% endif %}">
-                <a href="{{ url('product_test:info', slug=test.slug) }}">
+                <a href="{{ test.get_detail_link(request.user) }}">
                   {{ test.title }}
                 </a>
               </h3>
 
               <div class="test-link">
-                <a class="btn btn-inverted" href="{{ url('product_test:info', slug=test.slug) }}">
+                <a class="btn btn-inverted" href="{{ test.get_detail_link(request.user) }}">
                   Jetzt Ergebnisse lesen
                 </a>
               </div>
 
-              <a class="test-teaser" href="{{ url('product_test:info', slug=test.slug) }}"
+              <a class="test-teaser" href="{{ test.get_detail_link(request.user) }}"
                  style="background: url({{ thumbnail(test.list_image, size=(400, 400)) }}) no-repeat 50% 100%">
                 {{ test.title }}
               </a>
