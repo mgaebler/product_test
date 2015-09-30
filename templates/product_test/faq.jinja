@@ -4,13 +4,15 @@
 <div id="Faq">
   <div class="forum-header">
     <h4>FAQ</h4>
-    <p>{{ product_test.faq.text }}</p>
+    <p>{{ product_test.faq.text|safe }}</p>
   </div>
   <ol>
     {% for entry in product_test.faq.faqentry_set.all() %}
 
     <li class="faq-entry">
-      <h4>{{ entry.question }}</h4>
+      <h4>
+          {{ entry.question|safe }}
+      </h4>
 
       <p>{% autoescape off %}{{ entry.answer.replace('\n', '<br>') }}{% endautoescape %}</p>
     </li>
