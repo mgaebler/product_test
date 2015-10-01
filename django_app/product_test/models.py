@@ -31,6 +31,7 @@ class Brand(models.Model):
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    color = models.CharField(_(u"Color"), max_length=6, default="fd7263")
 
     def __unicode__(self):
         return self.name
@@ -121,11 +122,11 @@ class ProductTest(models.Model):
             return True
 
         return False
-            
+
     def display_completion_survey(self, user):
         if self.completion_survey and user.is_superuser:
             return True
-        
+
         now = datetime.datetime.now(pytz.UTC)
         if self.completion_survey and \
            self.completion_survey_start and \

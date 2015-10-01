@@ -2,13 +2,12 @@
 
 {% block content %}
   <div class="container product-test-overview">
-
     {% if active_product_test_list %}
       <div class="row">
         <div class="col-md-24">
           <h2>Unsere Produkttests auf einen Blick</h2>
           {% for test in active_product_test_list %}
-            <div class="test-tile" style="display: inline-block">
+            <div class="test-tile" style="display: inline-block; background: #{{ test.brand.color }}">
               <h3 class="test-title"
                   {% if test.brand %}style="background-image: url({{ test.brand.logo.url }}); background-repeat: no-repeat; background-position: 15px 15px;{% endif %}">
                 <a href="{{ url('product_test:info', slug=test.slug) }}">
@@ -37,7 +36,7 @@
         <div class="col-md-24">
           <h2>Abgeschlossene Produkttests</h2>
           {% for test in expired_product_test_list %}
-            <div class="test-tile" style="display: inline-block">
+            <div class="test-tile" style="display: inline-block; background: #{{ test.brand.color }}">
               <h3 class="test-title"
                   {% if test.brand %}style="background-image: url({{ test.brand.logo.url }}); background-repeat: no-repeat; background-position: 15px 15px;{% endif %}">
                 <a href="{{ url('product_test:info', slug=test.slug) }}">
