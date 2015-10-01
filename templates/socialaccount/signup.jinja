@@ -3,17 +3,12 @@
 {% block head_title %}Registrierung{% endblock %}
 
 {% block profile_content %}
-    <h1>Registrierung</h1>
+    <h1>Anmelden mit Facebook</h1>
 
-<p>You are about to use your {{ account.get_provider().name }} account to login. As a final step, please complete the following form:</p>
+    Die Email Adresse Deines Facebook-Accounts "{{ form.email.value() }}" ist
+    bei Trendsetter bereits vergeben. Falls du dich mit deinem Facebook-Konto
+    anmelden möchtest, logge dich ein und verbinde das Konto unter
+    <a href="{{ url('socialaccount_connections') }}">Soziale Netze</a>.
 
-<form class="signup" id="signup_form" method="post" action="{{ url('socialaccount_signup') }}">
-  {% csrf_token %}
-  {{ form.as_p() }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <button type="submit">Registrieren</button>
-</form>
 
 {% endblock %}
