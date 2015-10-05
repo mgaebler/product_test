@@ -1,290 +1,413 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
 "Project-Id-Version: django-forms-builder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-04 15:42+0200\n"
+"POT-Creation-Date: 2015-10-05 15:31+0000\n"
 "PO-Revision-Date: Wed Sep 04 2013 16:25:17 GMT+0200\n"
 "Last-Translator: Sven Rojek <sven@rojek.de>\n"
 "Language-Team: Sven Rojek <sven@rojek.de>\n"
 "Language: German\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
+#: django_app/forms_builder/forms/admin.py:41
+#: django_app/forms_builder/forms/fields.py:33
 msgid "Email"
 msgstr "E-Mail"
 
-#, fuzzy
-msgid "Slug"
-msgstr "Kurzform"
-
+#: django_app/forms_builder/forms/admin.py:46
 msgid "Sites"
 msgstr "Seiten"
 
+#: django_app/forms_builder/forms/admin.py:188
+#, python-format
 msgid "1 entry deleted"
 msgid_plural "%(count)s entries deleted"
 msgstr[0] "1 Eintrag gelöscht"
 msgstr[1] "%(count)s Einträge gelöscht"
 
+#: django_app/forms_builder/forms/admin.py:192
 msgid "View Entries"
 msgstr "Einträge anzeigen"
 
+#: django_app/forms_builder/forms/fields.py:31
 msgid "Single line text"
 msgstr "Einzeiliges Eingabefeld"
 
+#: django_app/forms_builder/forms/fields.py:32
 msgid "Multi line text"
 msgstr "Mehrzeiliger Eingabebereich"
 
+#: django_app/forms_builder/forms/fields.py:34
 msgid "Number"
 msgstr "Nummer"
 
+#: django_app/forms_builder/forms/fields.py:35
 msgid "URL"
 msgstr "URL"
 
+#: django_app/forms_builder/forms/fields.py:36
 msgid "Check box"
 msgstr "Checkbox"
 
+#: django_app/forms_builder/forms/fields.py:37
 msgid "Check boxes"
 msgstr "Checkboxen"
 
+#: django_app/forms_builder/forms/fields.py:38
 msgid "Drop down"
 msgstr "Dropdown"
 
+#: django_app/forms_builder/forms/fields.py:39
 msgid "Multi select"
 msgstr "Auswahllisten mit Mehrfachauswahl"
 
+#: django_app/forms_builder/forms/fields.py:40
 msgid "Radio buttons"
 msgstr "Radio-Buttons"
 
+#: django_app/forms_builder/forms/fields.py:41
 msgid "File upload"
 msgstr "Datei-Upload"
 
+#: django_app/forms_builder/forms/fields.py:42
 msgid "Date"
 msgstr "Datum"
 
+#: django_app/forms_builder/forms/fields.py:43
+#: django_app/forms_builder/forms/models.py:232
 msgid "Date/time"
 msgstr "Datum/Uhrzeit"
 
+#: django_app/forms_builder/forms/fields.py:44
 msgid "Date of birth"
 msgstr "Geburtsdatum"
 
+#: django_app/forms_builder/forms/fields.py:45
 msgid "Hidden"
 msgstr "Versteckt"
 
+#: django_app/forms_builder/forms/forms.py:52
+#: django_app/forms_builder/forms/forms.py:61
+#: django_app/forms_builder/forms/forms.py:68
+#: django_app/forms_builder/forms/forms.py:77
 msgid "Nothing"
 msgstr "Nichts"
 
+#: django_app/forms_builder/forms/forms.py:53
 msgid "Contains"
 msgstr "Enthält"
 
+#: django_app/forms_builder/forms/forms.py:54
 msgid "Doesn't contain"
 msgstr "Enthält nicht"
 
+#: django_app/forms_builder/forms/forms.py:55
 msgid "Equals"
 msgstr "Gleich"
 
+#: django_app/forms_builder/forms/forms.py:56
 msgid "Doesn't equal"
 msgstr "Ungleich"
 
+#: django_app/forms_builder/forms/forms.py:62
 msgid "Equals any"
 msgstr "Gleich"
 
+#: django_app/forms_builder/forms/forms.py:63
 msgid "Doesn't equal any"
 msgstr "Ungleich"
 
+#: django_app/forms_builder/forms/forms.py:69
 msgid "Contains any"
 msgstr "Enthält"
 
+#: django_app/forms_builder/forms/forms.py:70
 msgid "Contains all"
 msgstr "Enthält alle"
 
+#: django_app/forms_builder/forms/forms.py:71
 msgid "Doesn't contain any"
 msgstr "Enthält nicht"
 
+#: django_app/forms_builder/forms/forms.py:72
 msgid "Doesn't contain all"
 msgstr "Enthält keines"
 
+#: django_app/forms_builder/forms/forms.py:78
 msgid "Is between"
 msgstr "Zwischen"
 
+#: django_app/forms_builder/forms/forms.py:280
 msgid "Checked"
 msgstr "Ausgewählt"
 
+#: django_app/forms_builder/forms/forms.py:280
 msgid "Not checked"
 msgstr "Nicht ausgewählt"
 
+#: django_app/forms_builder/forms/forms.py:303
+#: django_app/forms_builder/forms/forms.py:318
 msgid "and"
 msgstr "und"
 
+#: django_app/forms_builder/forms/models.py:16
 msgid "Draft"
 msgstr "Entwurf"
 
+#: django_app/forms_builder/forms/models.py:17
 msgid "Published"
 msgstr "Veröffentlicht"
 
+#: django_app/forms_builder/forms/models.py:53
 msgid "Title"
 msgstr "Titel"
 
+#: django_app/forms_builder/forms/models.py:54
+#: django_app/forms_builder/forms/models.py:164
+#, fuzzy
+msgid "Slug"
+msgstr "Kurzform"
+
+#: django_app/forms_builder/forms/models.py:55
 msgid "Intro"
 msgstr "Einführung"
 
+#: django_app/forms_builder/forms/models.py:56
 msgid "Button text"
 msgstr "Button-Text"
 
+#: django_app/forms_builder/forms/models.py:57
 msgid "Submit"
 msgstr "Senden"
 
+#: django_app/forms_builder/forms/models.py:58
 msgid "Response"
 msgstr "Antwort"
 
+#: django_app/forms_builder/forms/models.py:59
+msgid "Redirect url"
+msgstr ""
+
+#: django_app/forms_builder/forms/models.py:61
+msgid "An alternate URL to redirect to after form submission"
+msgstr ""
+
+#: django_app/forms_builder/forms/models.py:62
 msgid "Status"
 msgstr "Status"
 
+#: django_app/forms_builder/forms/models.py:64
 msgid "Published from"
 msgstr "Veröffentlicht von"
 
+#: django_app/forms_builder/forms/models.py:65
 msgid "With published selected, won't be shown until this time"
-msgstr "Mit Veröffentlicht ausgewählt, wird bis zu diesem Zeitpunkt nicht angezeigt"
+msgstr ""
+"Mit Veröffentlicht ausgewählt, wird bis zu diesem Zeitpunkt nicht angezeigt"
 
+#: django_app/forms_builder/forms/models.py:67
 msgid "Expires on"
 msgstr "Gültig bis"
 
+#: django_app/forms_builder/forms/models.py:68
 msgid "With published selected, won't be shown after this time"
-msgstr "Mit Veröffentlicht ausgewählt, wird nach diesem Zeitpunkt nicht mehr angezeigt"
+msgstr ""
+"Mit Veröffentlicht ausgewählt, wird nach diesem Zeitpunkt nicht mehr "
+"angezeigt"
 
+#: django_app/forms_builder/forms/models.py:70
 msgid "Login required"
 msgstr "Anmeldung erforderlich"
 
+#: django_app/forms_builder/forms/models.py:71
 msgid "If checked, only logged in users can view the form"
 msgstr "Wenn ausgewählt, können nur eingeloggte Nutzer das Formular sehen."
 
+#: django_app/forms_builder/forms/models.py:72
 msgid "Send email"
 msgstr "E-Mail versenden"
 
+#: django_app/forms_builder/forms/models.py:73
 msgid "If checked, the person entering the form will be sent an email"
 msgstr "Wenn ausgewählt, wird an die ausfüllende Person eine E-Mail gesendet"
 
+#: django_app/forms_builder/forms/models.py:74
 msgid "From address"
 msgstr "Absenderadresse"
 
+#: django_app/forms_builder/forms/models.py:75
 msgid "The address the email will be sent from"
 msgstr "Die E-Mail-Adresse von welcher versendet wird"
 
+#: django_app/forms_builder/forms/models.py:76
 msgid "Send copies to"
 msgstr "Sende Kopien an"
 
+#: django_app/forms_builder/forms/models.py:77
 msgid "One or more email addresses, separated by commas"
 msgstr "Eine oder mehrere E-Mail Adressen, getrennt durch Kommata"
 
+#: django_app/forms_builder/forms/models.py:79
 msgid "Subject"
 msgstr "Betreff"
 
+#: django_app/forms_builder/forms/models.py:80
 msgid "Message"
 msgstr "Nachricht"
 
+#: django_app/forms_builder/forms/models.py:81
+msgid "Position"
+msgstr ""
+
+#: django_app/forms_builder/forms/models.py:88
 msgid "Form"
 msgstr "Formular"
 
+#: django_app/forms_builder/forms/models.py:89
 msgid "Forms"
 msgstr "Formulare"
 
+#: django_app/forms_builder/forms/models.py:140
 msgid "View form on site"
 msgstr "Formular auf der Seite anzeigen"
 
-msgid "Filter entries"
-msgstr "Filter Einträge"
-
-msgid "View all entries"
-msgstr "Zeige alle Einträge"
-
+#: django_app/forms_builder/forms/models.py:141
 msgid "Export all entries"
 msgstr "Alle Einträge exportieren"
 
-msgid "Placeholder Text"
-msgstr "Platzhaltertext"
-
+#: django_app/forms_builder/forms/models.py:163
 msgid "Label"
 msgstr "Beschriftung"
 
+#: django_app/forms_builder/forms/models.py:166
 msgid "Type"
 msgstr "Typ"
 
+#: django_app/forms_builder/forms/models.py:167
 msgid "Required"
 msgstr "Benötigt"
 
+#: django_app/forms_builder/forms/models.py:168
 msgid "Visible"
 msgstr "Sichtbar"
 
+#: django_app/forms_builder/forms/models.py:169
 msgid "Choices"
 msgstr "Auswahl"
 
+#: django_app/forms_builder/forms/models.py:174
 msgid "Default value"
 msgstr "Standardwert"
 
+#: django_app/forms_builder/forms/models.py:176
+msgid "Placeholder Text"
+msgstr "Platzhaltertext"
+
+#: django_app/forms_builder/forms/models.py:178
 msgid "Help text"
 msgstr "Hilfetext"
 
+#: django_app/forms_builder/forms/models.py:183
+#: django_app/forms_builder/forms/templates/admin/forms/entries.html:88
 msgid "Field"
 msgstr "Feld"
 
+#: django_app/forms_builder/forms/models.py:184
 msgid "Fields"
 msgstr "Felder"
 
+#: django_app/forms_builder/forms/models.py:235
 msgid "Form entry"
 msgstr "Formular Eintrag"
 
+#: django_app/forms_builder/forms/models.py:236
 msgid "Form entries"
 msgstr "Formular Einträge"
 
+#: django_app/forms_builder/forms/models.py:250
 msgid "Form field entry"
 msgstr "Formularfeld Eintrag"
 
+#: django_app/forms_builder/forms/models.py:251
 msgid "Form field entries"
 msgstr "Formularfeld Einträge"
 
+#: django_app/forms_builder/forms/models.py:280
 msgid "Order"
 msgstr "Reihenfolge"
 
+#: django_app/forms_builder/forms/templates/admin/forms/change_form.html:9
+#: django_app/forms_builder/forms/templates/admin/forms/entries.html:117
 msgid "View entries"
 msgstr "Zeige Einträge"
 
+#: django_app/forms_builder/forms/templates/admin/forms/change_form.html:12
 msgid "History"
 msgstr "Geschichte"
 
+#: django_app/forms_builder/forms/templates/admin/forms/change_form.html:16
 msgid "View on site"
 msgstr "Auf Seite anzeigen"
 
+#: django_app/forms_builder/forms/templates/admin/forms/entries.html:62
 msgid "No entries selected"
 msgstr "Keine Einträge ausgewählt"
 
+#: django_app/forms_builder/forms/templates/admin/forms/entries.html:65
 msgid "Delete selected entries?"
 msgstr "Ausgewählte Einträge löschen?"
 
+#: django_app/forms_builder/forms/templates/admin/forms/entries.html:74
 msgid "Home"
 msgstr "Home"
 
+#: django_app/forms_builder/forms/templates/admin/forms/entries.html:89
 msgid "Include"
 msgstr "Enthalten"
 
+#: django_app/forms_builder/forms/templates/admin/forms/entries.html:90
 msgid "Filter by"
 msgstr "Filter nach"
 
+#: django_app/forms_builder/forms/templates/admin/forms/entries.html:108
 msgid "All"
 msgstr "Alle"
 
+#: django_app/forms_builder/forms/templates/admin/forms/entries.html:116
+#: django_app/forms_builder/forms/templates/admin/forms/entries.html:157
 msgid "Back to form"
 msgstr "Zurück zum Formular"
 
+#: django_app/forms_builder/forms/templates/admin/forms/entries.html:118
 msgid "Export CSV"
 msgstr "Als CSV exportieren"
 
+#: django_app/forms_builder/forms/templates/admin/forms/entries.html:120
 msgid "Export XLS"
 msgstr "Als XLS exportieren"
 
+#: django_app/forms_builder/forms/templates/admin/forms/entries.html:124
 msgid "Entries"
 msgstr "Einträge"
 
+#: django_app/forms_builder/forms/templates/admin/forms/entries.html:158
 msgid "Delete selected"
 msgstr "Lösche ausgewählte"
 
+#: django_app/forms_builder/forms/templates/admin/forms/entries.html:162
 msgid "No entries to display"
 msgstr "Keine Einträge zum Anzeigen"
+
+#~ msgid "Filter entries"
+#~ msgstr "Filter Einträge"
+
+#~ msgid "View all entries"
+#~ msgstr "Zeige alle Einträge"
