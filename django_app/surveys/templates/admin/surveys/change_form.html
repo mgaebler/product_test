@@ -1,0 +1,13 @@
+{% extends "admin/change_form.html" %}
+{% load i18n admin_urls %}
+{% block object-tools-items %}
+  <li>
+      <form action='{% url "admin:add_email_addresses" object_id %}'
+            method="post"
+            enctype="multipart/form-data">
+          {% csrf_token %}
+          <label for="umfrage_online_file">Datei Umfrage: </label><input type="file" name="umfrage_online_file" />
+          <input type="submit" value="E-Mails hinzufügen" />
+      </form>
+  </li>
+{% endblock %}
