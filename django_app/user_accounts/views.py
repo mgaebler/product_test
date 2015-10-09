@@ -33,7 +33,7 @@ logger = logging.getLogger('user_account.view')
 def login_view(request):
     email = request.POST.get('user[email]', None)
     password = request.POST.get('user[password]', None)
-    user = authenticate(username=email, password=password)
+    user = authenticate(username=email.lower(), password=password)
     if user is not None:
         if user.is_active:
             login(request, user)
