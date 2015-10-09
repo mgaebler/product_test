@@ -28,9 +28,6 @@ PIPELINE_JS = {
             'bootstrap-sass-3.3.2/assets/javascripts/bootstrap.js',
             'lightbox/dist/ekko-lightbox.js',
             'app/app.js',
-            'wysihtml-0.4.17/dist/wysihtml5x-toolbar.js',
-            'wysihtml-0.4.17/parser_rules/advanced_and_extended.js',
-
         ),
         'output_filename': 'js/common.js',
     }
