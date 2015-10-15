@@ -45,6 +45,9 @@ def login_view(request):
             if not user.profile_complete:
                 messages.add_message(request, messages.INFO, _(u'Please complete your profile.'))
                 return redirect('user:settings')
+            # Adds next here to have one option, which has a minor priority than profile_complete
+            if request.POST.get("next"):
+                return redirect(request.POST.get("next"))
         else:
             messages.add_message(request, messages.ERROR, _(u'This account is not active.'))
             return redirect('user:login_form')
