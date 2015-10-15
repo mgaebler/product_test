@@ -9,9 +9,6 @@
     <h2>Anmelden</h2>
     <form accept-charset="UTF-8" action="{{ url('user:login') }}" class="new_user" id="new_user" method="post">
       {% csrf_token %}
-      {% if request.GET.get("next") %}
-        <input type="text" name="next" value="{{ request.GET.get("next") }}" />
-      {% endif %}
       <div class="form-group"><label class="sr-only control-label" for="user_email">Email</label>
         <input class="form-control" id="user_email" name="user[email]" placeholder="Deine E-Mail-Adresse" type="text">
       </div>
