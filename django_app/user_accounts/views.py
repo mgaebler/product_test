@@ -52,7 +52,7 @@ def login_view(request):
         messages.add_message(request, messages.ERROR, _(u'Wrong username or password.'))
         return redirect('user:login_form')
 
-    return redirect('home')
+    return redirect('user:index')
 
 
 def register_verify(request, token):
