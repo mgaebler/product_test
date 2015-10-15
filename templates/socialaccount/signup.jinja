@@ -1,14 +1,18 @@
-{% extends 'profiles/base.jinja' %}
+{% extends 'base.jinja' %}
 
 {% block head_title %}Registrierung{% endblock %}
 
-{% block profile_content %}
-    <h1>Anmelden mit Facebook</h1>
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-24">
+                <h1>Anmelden mit Facebook</h1>
 
-    Die Email Adresse Deines Facebook-Accounts "{{ form.email.value() }}" ist
-    bei Trendsetter bereits vergeben. Falls du dich mit deinem Facebook-Konto
-    anmelden möchtest, logge dich ein und verbinde das Konto unter
-    <a href="{{ url('socialaccount_connections') }}">Soziale Netze</a>.
-
-
+                Die Email Adresse Deines Facebook-Accounts "{{ form.email.value() }}" ist
+                bei Trendsetter bereits vergeben. Falls Du Dich mit Deinem Facebook-Konto
+                anmelden möchtest, <a href="{{ url('user:login_form') }}">logge</a> Dich
+                ein und verbinde das Konto unter Soziale Netze</a>.
+            </div>
+        </div>
+    </div>
 {% endblock %}
