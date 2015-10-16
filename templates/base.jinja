@@ -171,8 +171,8 @@
         <li {% if request.path == url('our_brands') %}class="active"{% endif %}>
           <a href="{{ url('our_brands') }}">Unsere Marken</a>
         </li>
-        <li {% if request.path == url('about_us') %}class="active"{% endif %}>
-          <a href="{{ url('about_us') }}">Über uns</a>
+        <li {% if request.path == url('static_page', url='ueber-uns') %}class="active"{% endif %}>
+          <a href="{{ url('static_page', url='ueber-uns') }}">Über uns</a>
         </li>
       </nav>
     </div>
