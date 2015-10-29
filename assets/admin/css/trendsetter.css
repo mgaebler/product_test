@@ -1,0 +1,11 @@
+li.trendsetter-upload-box {
+    background-color: #eee; border: 1px solid #ccc; -moz-border-radius: 3px; -webkit-border-radius: 3px;"
+}
+
+li.trendsetter-upload-box input {
+    margin-right: 10px;
+}
+
+li.trendsetter-upload-box label {
+    margin-right: 4px;
+}
