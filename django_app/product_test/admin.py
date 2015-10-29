@@ -9,7 +9,7 @@ from django.shortcuts import redirect
 from django.templatetags.static import static
 from .models import ProductTest, Brand, Participation, TestResult
 from simple_bank.models import Account
-from simple_bank.models import create_transfer 
+from simple_bank.models import create_transfer
 from surveys.models import SurveyUser
 
 logger = logging.getLogger(__name__)
@@ -66,6 +66,10 @@ class ProductTestAdmin(admin.ModelAdmin):
             static('product_test/tinymce_setup/tinymce_setup.js'),
         ]
 
+        css = {
+            'all': ('admin/css/trendsetter.css', )
+        }
+
     def upload_trendpoints(self, request, product_test_id):
         """
         View to add trendpoints via upload a csv file.
@@ -89,7 +93,7 @@ class ProductTestAdmin(admin.ModelAdmin):
         except (ValueError, TypeError):
             messages.add_message(request, messages.ERROR, "Trendpoints muss Zahl sein!")
             trendpoints = 0
-            
+
         reference = request.POST.get("reference")
         if not reference:
             messages.add_message(request, messages.ERROR, "Referenz ist erforderlich!")
