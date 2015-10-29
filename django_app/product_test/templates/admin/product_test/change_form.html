@@ -1,24 +1,24 @@
 {% extends "admin/change_form.html" %}
 {% load i18n admin_urls %}
 {% block object-tools-items %}
-<li>
-    <form action='{% url "admin:upload_trendpoints" object_id %}'
-          method="post"
-          enctype="multipart/form-data">
-        {% csrf_token %}
-        <label for="reference">Referenz:</label> <input type="text" name="reference" />
-        <label for="trendpoints">Trendpoints:</label> <input type="text" name="trendpoints" />
-        <input type="file" name="trendpoints_file" value="add trendpoints" />
-        <input type="submit" value="trendpoints vergeben" />
-    </form>
-</li>
-<li>
+<li class="trendsetter-upload-box" style="margin: 0 5px 10px 10px; padding: 10px 200px 10px 10px;">
     <form action='{% url "admin:upload_particpations" object_id %}'
           method="post"
           enctype="multipart/form-data">
         {% csrf_token %}
+        <input type="submit" value="Teilnehmer hochladen" />
         <input type="file" name="participations" value="add participations" />
-        <input type="submit" value="teilnehmer hochladen" />
+    </form>
+</li>
+<li class="trendsetter-upload-box" style="margin: 0 10px 10px 5px; padding: 10px">
+    <form action='{% url "admin:upload_trendpoints" object_id %}'
+          method="post"
+          enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="submit" value="Trendpoints vergeben" />
+        <label for="reference">Referenz:</label> <input type="text" name="reference" />
+        <label for="trendpoints">Trendpoints:</label> <input type="text" name="trendpoints" />
+        <input type="file" name="trendpoints_file" value="add trendpoints" />
     </form>
 </li>
 <li>

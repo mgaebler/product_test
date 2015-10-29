@@ -18,6 +18,11 @@ class SurveyUserInline(admin.TabularInline):
 class SurveyAdmin(admin.ModelAdmin):
     inlines = (SurveyUserInline,)
 
+    class Media:
+        css = {
+            'all': ('admin/css/trendsetter.css', )
+        }
+
     def add_email_addresses(self, request, survey_id):
         """
         Adds e-mail addresses to umfrage online file
