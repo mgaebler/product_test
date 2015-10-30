@@ -17,7 +17,7 @@
     <div class="forum-entry row" id="post-{{ post.pk }}">
       <section>
         {# avatar #}
-        <div class="forum-entry-user col-md-3">
+        <div class="forum-entry-user col-md-4">
           {% with creator=post.creator %}
             {% include 'product_test/forum/snippets/avatar.jinja' %}
           {% endwith %}
@@ -34,7 +34,7 @@
 
         <header>
           {# title #}
-          <div class="forum-entry-title col-md-15">
+          <div class="forum-entry-title col-md-14">
             <h3>{{ post.title }}</h3>
           </div>
 
