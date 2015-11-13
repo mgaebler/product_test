@@ -123,6 +123,23 @@ class ProductTest(models.Model):
 
         return False
 
+    def takes_part_in(self, user):
+        """
+        Returns True if passed user participates on the product test.
+        """
+        if user.is_anonymous():
+            return False
+        else:
+            try:
+                Participation.objects.get(
+                    users=user,
+                    product_test=self,
+                )
+            except Participation.DoesNotExist:
+                return False
+            else:
+                return True
+
     def display_completion_survey(self, user):
         if self.completion_survey and user.is_superuser:
             return True
@@ -133,7 +150,7 @@ class ProductTest(models.Model):
            self.completion_survey_end and \
            (self.completion_survey_start < now) and \
            (self.completion_survey_end > now) and \
-           self.completion_survey.takes_part_in(user):
+           self.takes_part_in(user):
             return True
 
         return False
