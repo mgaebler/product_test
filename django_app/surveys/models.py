@@ -22,12 +22,6 @@ class Survey(models.Model):
     def __unicode__(self):
         return "{} / {}".format(self.title, self.url)
 
-    def takes_part_in(self, user):
-        """
-        Returns True if the passed user takes part in this survey.
-        """
-        return user in self.users.all()
-
 
 class SurveyUser(models.Model):
     """

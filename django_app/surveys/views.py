@@ -1,6 +1,7 @@
 from uuid import uuid4
 from django.http import Http404
 from django.shortcuts import redirect
+from product_test.models import Participation
 from product_test.views import ProductTestDetail
 from . models import SurveyUser
 
@@ -61,21 +62,23 @@ class CompletionView(ProductTestDetail):
         product_test = self.get_object()
         survey = product_test.completion_survey
 
-        # The first time a permitted user views a survey he gets an unique id.
         if not survey:
             raise Http404()
         else:
-            try:
-                su = SurveyUser.objects.get(
+            # Only users which are participate on the product test are allowed
+            # to do the completion survey.
+            if not product_test.takes_part_in(self.request.user):
+                raise Http404()
+            else:
+                # The first time a permitted user views the survey he gets an
+                # unique id.
+                su, created = SurveyUser.objects.get_or_create(
                     user=self.request.user,
                     survey=survey,
                 )
-            except SurveyUser.DoesNotExist:
-                raise Http404()
-            else:
-                if not su.uid:
+                if created:
                     su.uid = create_unique_id()
                     su.save()
-            context["uid"] = su.uid
-            context["survey"] = survey
-            return context
+                context["uid"] = su.uid
+                context["survey"] = survey
+                return context
