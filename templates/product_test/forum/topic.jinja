@@ -62,10 +62,13 @@
 
           {# date #}
           <div class="forum-entry-timestamp col-md-6">
-            {% if request.user.is_superuser or (request.user.id == post.creator.id) %}
               <div>
-                <a class="edit-post-link" href="{{ url('product_test:forum:update', slug=product_test.slug, pk=post.pk) }}">Bearbeiten</a>
+                  {% if request.user.is_superuser or (request.user.id == post.creator.id) %}
+                    <a class="edit-post-link" href="{{ url('product_test:forum:update', slug=product_test.slug, pk=post.pk) }}">Bearbeiten</a>
+                    <span class="edit-post-separator">|</span>
+                    <a class="answer-post-link" href="{{ url('product_test:forum:answer', slug=product_test.slug, post_id=post.pk) }}">Antworten</a>
               </div>
+
             {% endif %}
             <span class="link-camo">
               <span class="date">{{ post.created|localtime|date }}</span>,
@@ -82,6 +85,52 @@
 
     </div>
 
+    {% for answer in post.answers.all() %}
+      <div class="forum-entry row" id="answer-{{ answer.pk }}">
+        <section>
+          {# avatar #}
+          <div class="forum-entry-user col-md-4">
+            {% with creator=answer.creator %}
+              {% include 'product_test/forum/snippets/avatar.jinja' %}
+            {% endwith %}
+
+            <div class="nickname">
+              {{ answer.creator.preferred_name }}
+            </div>
+            {% if answer.creator.is_staff %}
+              <div class="title">
+                Admin
+              </div>
+            {% endif %}
+          </div>
+
+          <header>
+            {# title #}
+            <div class="forum-entry-title col-md-14">
+              <h3>Re: {{ answer.post.title }}</h3>
+            </div>
+
+            {# date #}
+            <div class="forum-entry-timestamp col-md-6">
+              {% if request.user.is_superuser or (request.user.id == answer.creator.id) %}
+                <div>
+                  <a class="edit-post-link" href="{{ url('product_test:forum:edit-answer', slug=product_test.slug, pk=answer.pk) }}">Bearbeiten</a>
+                </div>
+              {% endif %}
+              <span class="link-camo">
+                <span class="date">{{ answer.created|localtime|date }}</span>,
+                <time>{{ answer.created|localtime|time }}</time>
+              </span>
+            </div>
+          </header>
+
+          <div class="forum-entry-body col-md-21">
+            {{ answer.body|linebreaks }}
+          </div>
+
+        </section>
+      </div>
+    {% endfor %}
   {% endfor %}
 
 </div>
