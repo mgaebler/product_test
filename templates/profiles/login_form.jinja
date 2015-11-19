@@ -23,6 +23,9 @@
       <div class="form-group">
         <a href="{{ url('user:password_reset') }}">Passwort vergessen?</a>
       </div>
+      {% if request.GET.next %}
+        <input type="hidden" name="came_from"  value="{{ request.GET.next }}" />
+      {% endif %}
 
     </form>
 
