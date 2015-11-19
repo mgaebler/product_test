@@ -9,6 +9,7 @@ PIPELINE_CSS = {
             # 'sass-bootstrap/dist/css/bootstrap.css',
             'bootstrap-sass-3.3.2/bootstrap-theme.css',
             'lightbox/dist/ekko-lightbox.css',
+            'css3-social-signin-buttons.css',
         ),
         'output_filename': 'css/common.css',
         'extra_context': {'media': 'screen,projection'},
