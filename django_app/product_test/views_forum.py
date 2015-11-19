@@ -8,8 +8,8 @@ from django.shortcuts import redirect, render, get_object_or_404
 from product_test.models import ProductTest
 from product_test.views import ProductTestDetail
 from django.core.exceptions import PermissionDenied
-from django_simple_forum.models import Forum, Topic, Post
-from django_simple_forum.forms import TopicForm, PostForm
+from django_simple_forum.models import Forum, Topic, Post, Answer
+from django_simple_forum.forms import TopicForm, PostForm, AnswerForm
 from django.views.generic import UpdateView
 
 
@@ -37,6 +37,22 @@ class PostUpdateView(UpdateView):
            (context.get("post").creator.id != self.request.user.id):
             raise PermissionDenied
         context["slug"] = self.kwargs.get("slug")
+        return context
+
+
+class AnswerUpdateView(UpdateView):
+    fields = ["body"]
+    model = Answer
+    success_url = "."
+    template_name = 'product_test/forum/edit_answer.jinja'
+
+    def get_context_data(self, **kwargs):
+        context = super(AnswerUpdateView, self).get_context_data(**kwargs)
+        if (not self.request.user.is_superuser) and \
+           (context.get("answer").creator.id != self.request.user.id):
+            raise PermissionDenied
+        context["slug"] = self.kwargs.get("slug")
+        context["post"] = context.get("answer").post
         return context
 
 
@@ -143,6 +159,32 @@ def post_reply(request, slug, topic_id):
         'form': form,
         'topic': topic,
         'product_test': product_test
+    })
+
+
+@login_required
+def answer(request, slug, post_id):
+    form = AnswerForm()
+    post = Post.objects.get(pk=post_id)
+    product_test = ProductTest.objects.get(slug=slug)
+    if request.method == 'POST':
+        form = AnswerForm(request.POST)
+
+        if form.is_valid():
+            answer = Answer()
+            answer.post = post
+            answer.body = form.cleaned_data['body']
+            answer.creator = request.user
+            answer.user_ip = request.META['REMOTE_ADDR']
+            answer.save()
+
+            url = reverse('product_test:forum:topic-detail', kwargs={'slug': slug, 'topic_id': post.topic_id})
+            return redirect(url + "#answer-{}".format(answer.id))
+
+    return render(request, 'product_test/forum/answer.jinja', {
+        'form': form,
+        'post': post,
+        'slug': product_test.slug
     })
 
 

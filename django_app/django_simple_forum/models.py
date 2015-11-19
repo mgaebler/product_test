@@ -16,7 +16,7 @@ class Forum(models.Model):
     description = models.TextField(_(u'description'), blank=True, default='')
     updated = models.DateTimeField(auto_now=True, editable=False)
     created = models.DateTimeField(auto_now_add=True, editable=False)
-    creator = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u'creator'),  blank=True, null=True)
+    creator = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u'creator'), blank=True, null=True)
 
     state = models.CharField(max_length=24, choices=STATES, default=u'published',
         help_text=u"""
@@ -24,7 +24,8 @@ class Forum(models.Model):
             Published: The Product test is visible if the 'published at' date is arrived.
             Preview: The Product is visible to every staff member independently of the 'publishing at' date.
         """
-    )
+)
+
     def __unicode__(self):
         return self.title
 
@@ -63,23 +64,35 @@ class Topic(models.Model):
         return u"{}".format(self.title)
 
 
-
-class Post(models.Model):
-    title = models.CharField(_(u'title'), max_length=255)
+class PostBase(models.Model):
     creator = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_(u'creator'), blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True, editable=False)
     updated = models.DateTimeField(auto_now=True, editable=False)
-    topic = models.ForeignKey(Topic, verbose_name=_(u'topic'))
     body = models.TextField(verbose_name=_(u'body'), max_length=10000)
     user_ip = models.GenericIPAddressField(blank=True, null=True)
 
-    def __unicode__(self):
-        return u"{}".format(self.title)
+    class Meta:
+        abstract = True
 
     def short(self):
         return u"%s - %s\n%s" % (self.creator, self.title, self.created.strftime("%b %d, %I:%M %p"))
 
     short.allow_tags = True
+
+
+class Post(PostBase):
+    title = models.CharField(_(u'title'), max_length=255)
+    topic = models.ForeignKey(Topic, verbose_name=_(u'topic'))
+
+    def __unicode__(self):
+        return u"{}".format(self.title)
+
+
+class Answer(PostBase):
+    post = models.ForeignKey(Post, verbose_name=_(u'post'), related_name="answers")
+
+    class Meta:
+        ordering = ("created", )
 
 
 class ProfaneWord(models.Model):
