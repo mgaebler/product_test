@@ -195,6 +195,8 @@ STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '.media')
 
+LOGIN_URL = "/my/login-form" 
+
 # CACHES = {
 # 'default': {
 # 'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
