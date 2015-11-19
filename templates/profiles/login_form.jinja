@@ -21,7 +21,7 @@
         <a class="btn" href="{{ url('user:register') }}">Noch nicht registriert?</a>
       </div>
       <div>
-        <a href="{{ provider_login_url(request, 'facebook', method='js_sdk', next=url('user:settings')) }}">
+        <a class="btn-auth btn-facebook large" href="{{ provider_login_url(request, 'facebook', method='js_sdk', next=url('user:settings')) }}">
           Mit Facebook anmelden
         </a>
       </div>
