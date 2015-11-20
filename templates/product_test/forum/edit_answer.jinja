@@ -1,6 +1,6 @@
 <h3 style="padding: 0 20px">Antworten auf: {{ post.title }}</h3>
 <div style="padding: 20px">
-  <form action="{{ url('product_test:forum:edit-answer', slug=slug, pk=answer.pk) }}" method="POST">
+  <form class="edit-answer" action="{{ url('product_test:forum:edit-answer', slug=slug, pk=answer.pk) }}" method="POST">
     {% csrf_token %}
     {% autoescape off %}
     {{ form|bootstrap }}
@@ -9,3 +9,8 @@
     <input class="update-answer-button btn-default" type="submit" value="Antwort bearbeiten"/>
   </form>
 </div>
+<script>
+  $(document).ready(function() {
+    add_wysiwyg_editor(".edit-answer #id_body");
+  });
+</script>
