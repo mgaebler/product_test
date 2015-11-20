@@ -148,25 +148,25 @@
 </div>
 
 {% with objects=posts %}
-    {% include 'product_test/snippets/pagination_range.jinja' %}
+  {% include 'product_test/snippets/pagination_range.jinja' %}
 {% endwith %}
 
 {% if not user.is_authenticated() %}
-<div class="forum-not-logged-in">
-  <p>
-    <a href="{{ url('user:login_form') }}">Log Dich ein</a>, um einen Beitrag zu verfassen.
-  </p>
-</div>
+  <div class="forum-not-logged-in">
+    <p>
+      <a href="{{ url('user:login_form') }}">Log Dich ein</a>, um einen Beitrag zu verfassen.
+    </p>
+  </div>
 {% else %}
-<form action="{{ url('product_test:forum:reply', slug=product_test.slug, topic_id=topic.pk) }}" method="POST">
-  {% csrf_token %}
-  {% autoescape off %}
-  {{ post_form|bootstrap }}
-  {% endautoescape %}
-  <input class="btn btn-default" type="submit" value="Beitrag senden">
-</form>
-{#<a class="btn btn-default"#}
-{#   href="{{ url('product_test:forum:reply', slug=product_test.slug, topic_id=topic.pk) }}">Beitrag verfassen</a>#}
+  <form action="{{ url('product_test:forum:reply', slug=product_test.slug, topic_id=topic.pk) }}" method="POST">
+    {% csrf_token %}
+    {% autoescape off %}
+    {{ post_form|bootstrap }}
+    {% endautoescape %}
+    <input class="btn btn-default" type="submit" value="Beitrag senden">
+  </form>
+  {#<a class="btn btn-default"#}
+  {#   href="{{ url('product_test:forum:reply', slug=product_test.slug, topic_id=topic.pk) }}">Beitrag verfassen</a>#}
 {% endif %}
 
 <div id="edit-post-modal" class="modal bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
@@ -179,6 +179,7 @@
     "use strict"
     var hash = $(location).attr('hash');
     $(hash).parents("div.answers").show();
+    add_wysiwyg_editor();
   });
 </script>
 {% endblock %}

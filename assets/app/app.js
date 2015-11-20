@@ -1,7 +1,26 @@
+"use strict";
+
+function add_wysiwyg_editor(selector) {
+    if (!selector) {
+        selector = "#id_body";
+    };
+
+    var random = (new Date).getTime();
+
+    var toolbar = '<div id="toolbar-' + random + '">';
+    toolbar += '<a data-wysihtml5-command="bold">Fett</a>';
+    toolbar += ' | ';
+    toolbar += '<a data-wysihtml5-command="italic">Kursiv</a>';
+    toolbar += '</div>';
+    $(selector).before(toolbar);
+    var editor = new wysihtml5.Editor($(selector)[0], {
+      toolbar: 'toolbar-' + random,
+      parserRules:  wysihtml5ParserRules
+    });
+};
+
 (function($) {
     $(document).ready(function() {
-
-        "use strict";
         var survey_button_title;
 
         $(".needs-confirmation").on("click", function(e) {
