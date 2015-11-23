@@ -79,7 +79,7 @@
         </header>
 
         <div class="forum-entry-body col-md-21">
-          {{ post.body|linebreaks }}
+          {{ post.body|linebreaks()|urlize() }}
         </div>
 
       </section>
@@ -135,7 +135,7 @@
               </header>
 
               <div class="forum-entry-body col-md-21">
-                {{ answer.body|linebreaks }}
+                {{ answer.body|linebreaks()|urlize() }}
               </div>
 
             </section>
