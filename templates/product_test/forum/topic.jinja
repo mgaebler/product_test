@@ -83,54 +83,65 @@
 
       </section>
 
-    </div>
+      {% if post.answers.count() %}
+        <div class="col-md-offset-21 col-md-3">
+          <a class="toogle-answers-link" style="position:relative; right: -13px; font-size: 120%; font-weight: bold; cursor: pointer"
+             data="{{ post.id }}">
+              {{ post.answers.count() }} Antworten
+          </a>
+        </div>
+      {% endif %}
 
-    {% for answer in post.answers.all() %}
-      <div class="forum-entry row" id="answer-{{ answer.pk }}">
-        <section>
-          {# avatar #}
-          <div class="forum-entry-user col-md-4">
-            {% with creator=answer.creator %}
-              {% include 'product_test/forum/snippets/avatar.jinja' %}
-            {% endwith %}
+      <div class="answers answers-{{ post.id }}" style="display:none">
+        {% for answer in post.answers.all() %}
+          <div class="col-md-4"></div>
+          <div class="answer-entry {% if loop.last %}last{% endif %} row col-md-20" id="answer-{{ answer.pk }}">
+            <section>
+              {# avatar #}
+              <div class="forum-entry-user col-md-4">
+                {% with creator=answer.creator %}
+                  {% include 'product_test/forum/snippets/avatar.jinja' %}
+                {% endwith %}
 
-            <div class="nickname">
-              {{ answer.creator.preferred_name }}
-            </div>
-            {% if answer.creator.is_staff %}
-              <div class="title">
-                Admin
-              </div>
-            {% endif %}
-          </div>
-
-          <header>
-            {# title #}
-            <div class="forum-entry-title col-md-14">
-              <h3>Re: {{ answer.post.title }}</h3>
-            </div>
-
-            {# date #}
-            <div class="forum-entry-timestamp col-md-6">
-              {% if request.user.is_superuser or (request.user.id == answer.creator.id) %}
-                <div>
-                  <a class="edit-post-link" href="{{ url('product_test:forum:edit-answer', slug=product_test.slug, pk=answer.pk) }}">Bearbeiten</a>
+                <div class="nickname">
+                  {{ answer.creator.preferred_name }}
                 </div>
-              {% endif %}
-              <span class="link-camo">
-                <span class="date">{{ answer.created|localtime|date }}</span>,
-                <time>{{ answer.created|localtime|time }}</time>
-              </span>
-            </div>
-          </header>
+                {% if answer.creator.is_staff %}
+                  <div class="title">
+                    Admin
+                  </div>
+                {% endif %}
+              </div>
 
-          <div class="forum-entry-body col-md-21">
-            {{ answer.body|linebreaks }}
+              <header>
+                {# title #}
+                <div class="forum-entry-title col-md-14">
+                  <h3>Re: {{ answer.post.title }}</h3>
+                </div>
+
+                {# date #}
+                <div class="forum-entry-timestamp col-md-6">
+                  {% if request.user.is_superuser or (request.user.id == answer.creator.id) %}
+                    <div>
+                      <a class="edit-post-link" href="{{ url('product_test:forum:edit-answer', slug=product_test.slug, pk=answer.pk) }}">Bearbeiten</a>
+                    </div>
+                  {% endif %}
+                  <span class="link-camo">
+                    <span class="date">{{ answer.created|localtime|date }}</span>,
+                    <time>{{ answer.created|localtime|time }}</time>
+                  </span>
+                </div>
+              </header>
+
+              <div class="forum-entry-body col-md-21">
+                {{ answer.body|linebreaks }}
+              </div>
+
+            </section>
           </div>
-
-        </section>
-      </div>
-    {% endfor %}
+        {% endfor %}
+        </div>
+    </div>
   {% endfor %}
 
 </div>
@@ -162,5 +173,11 @@
     <div class="modal-content"></div>
   </div>
 </div>
-
+<script>
+  $( document ).ready(function() {
+    "use strict"
+    var hash = $(location).attr('hash');
+    $(hash).parents("div.answers").show();
+  });
+</script>
 {% endblock %}

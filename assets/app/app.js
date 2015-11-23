@@ -39,6 +39,11 @@
             return false;
         });
 
+        $(".toogle-answers-link").on("click", function(e) {
+            var answers_id = $(this).attr("data");
+            $(".answers-" + answers_id).slideToggle();
+        });
+
         var answer_id, post_id, body, title;  // Makes it available in post below
         $(document).on("click", ".update-post-button", function(e) {
             var form = $(this).parent("form");
@@ -57,7 +62,7 @@
             $.post(action, data, function(content) {
                 var post = $("#post-" + post_id);
                 $(".forum-entry-title h3", post).html(title);
-                $(".forum-entry-body p", post).html(body);
+                $(".forum-entry-body", post).html(body);
                 $('#edit-post-modal').modal("hide");
             });
 
@@ -78,7 +83,7 @@
 
             $.post(action, data, function(content) {
                 var answer = $("#answer-" + answer_id);
-                $(".forum-entry-body p", answer).html(body);
+                $(".forum-entry-body", answer).html(body);
                 $('#edit-post-modal').modal("hide");
             });
 
