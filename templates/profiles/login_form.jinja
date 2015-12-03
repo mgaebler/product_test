@@ -21,7 +21,6 @@
             <form accept-charset="UTF-8" action="{{ url('user:login') }}" class="new_user" id="new_user" method="post">
                 {% csrf_token %}
 
-
                 <div class="form-group"><label class="sr-only control-label" for="user_email">Email</label>
                     <input class="form-control" id="user_email" name="user[email]" placeholder="Deine E-Mail-Adresse"
                            type="text">
@@ -37,9 +36,9 @@
                     <a class="btn btn-block col-md-12" href="{{ url('user:password_reset') }}">Passwort vergessen?</a>
                 </div>
 
-
             </form>
         </div>
 
     </div>
+
 {% endblock %}
