@@ -14,6 +14,8 @@ urlpatterns = patterns('',
     url(r'^$', IndexView.as_view(), name='home'),
     url(r'^unsere-marken/$', TemplateView.as_view(template_name='static/unsere_marken.jinja'), name='our_brands'),
     url(r'^wie-funktioniert-es/$', TemplateView.as_view(template_name='static/wie_funktioniert_es.jinja'), name='how_it_works'),
+    url(r'^robots\.txt$', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
+    url(r'^humans\.txt$', TemplateView.as_view(template_name='humans.txt', content_type='text/plain')),
 
     url(r'my/', include('user_accounts.urls', namespace='user')),
     url(r'produkttests/', include('product_test.urls', namespace='product_test')),
@@ -33,7 +35,9 @@ urlpatterns = patterns('',
 
     url(r'gewinnspiele', include('raffles.urls', namespace='raffles')),
     url(r'', include('social.apps.django_app.urls', namespace='social')),
+
     url(r'', include('static_pages.urls')),
+
 )
 
 if settings.DEBUG:
