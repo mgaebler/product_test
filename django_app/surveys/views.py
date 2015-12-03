@@ -68,13 +68,12 @@ class CompletionView(ProductTestDetail):
         if not survey:
             raise Http404()
         else:
-            # Only users which are participate on the product test are allowed
-            # to do the completion survey.
-            if not product_test.takes_part_in(self.request.user):
+            # Only users which are participate on the product test and super useers are allowed to do the completion survey.
+            if (not self.request.user.is_superuser) and (not product_test.takes_part_in(self.request.user)):
                 raise Http404()
             else:
-                # The first time a permitted user views the survey he gets an
-                # unique id.
+                # The first time a permitted user views the survey he gets an unique id.
+                # We also give super users and uid in the case he wanted to do the survey.
                 su, created = SurveyUser.objects.get_or_create(
                     user=self.request.user,
                     survey=survey,
@@ -83,5 +82,6 @@ class CompletionView(ProductTestDetail):
                     su.uid = create_unique_id()
                     su.save()
                 context["uid"] = su.uid
+
                 context["survey"] = survey
                 return context
