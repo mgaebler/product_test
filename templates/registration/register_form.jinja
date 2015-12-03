@@ -4,25 +4,31 @@
 
 {% block content %}
 
+  {{ providers_media_js(request)|safe }}
+
   <div class="inner container">
     <div class="box register col-md-12 col-md-offset-6">
       <h2>Registrierung bei Trendsetter</h2>
 
+      <div>
+        <a class="btn btn-auth btn-block btn-lg btn-facebook"
+           href="{{ provider_login_url(request, 'facebook', method='js_sdk', next=url('user:settings')) }}">
+            Mit Facebook <strong>verbinden</strong>
+        </a>
+      </div>
+      <div class="strike-container">
+        <span>oder</span>
+      </div>
       <div class="form-group">
         <form accept-charset="UTF-8" action="{{ url('user:register') }}{% if request.META.QUERY_STRING %}?{{ request.META.QUERY_STRING }}{% endif %}" class="new_user" id="new_user" method="post">
           {% csrf_token %}
           {% autoescape off %}
           {{ form|bootstrap }}
           {% endautoescape %}
-          <input class="btn btn-primary btn-block btn-block-big" name="commit" type="submit" value="Jetzt registrieren">
+          <input class="btn btn-primary btn-block btn-lg" name="commit" type="submit" value="Jetzt registrieren">
         </form>
 
       </div>
-
-{#      <p style="margin-top: 16px">#}
-{#        Vorregistriert?#}
-{#        <a href="{{ url('user:settings') }}">Profil vervollständigen</a>#}
-{#      </p>#}
 
       <p style="margin-top: 16px">
         Schon registriert?
