@@ -1,0 +1,66 @@
+.s--static.p--how section[role=content]
+  .step-1, .step-2, .step-3
+    +inverse-text-fix
+    +border-radius(4px)
+    width: 310px
+    height: 434px
+    padding: 16px 4px 16px 64px
+    background: $primary
+    color: $inverse-text-color
+    font-size: 14px
+    line-height: 18px
+    &::before
+      position: absolute
+      margin-left: -48px
+      display: block
+      border-radius: 100%
+      background-color: black
+      color: white
+      width: 36px
+      height: 36px
+      line-height: 32px
+      text-align: center
+      font-size: 20px
+      font-weight: bold
+  .step-1
+    background: $primary image-url('how/wiefunktionierts_bild1.jpg') no-repeat 0% 100%
+    &::before
+      content: '1'
+  .step-2
+    background: $primary image-url('how/wiefunktionierts_bild2.jpg') no-repeat 0% 100%
+    &::before
+      content: '2'
+  .step-3
+    background: $primary image-url('how/wiefunktionierts_bild3.jpg') no-repeat 0% 100%
+    &::before
+      content: '3'
+  .cta
+    margin-top: 22px
+    p
+      text-align: center
+    a
+      margin-left: 16px
+      font-size: 18px
+
+
+
+body.s--static.p--brands
+  .brand-prinz, .brand-fuersie, .brand-petra, .brand-vital
+    a
+      +hide-text
+      display: block
+      height: 110px
+      background: no-repeat 0 24px
+  .brand-prinz a
+    background: no-repeat 0 27px
+    background-image: image-url('marken_prinz.png')
+    background-size: 190px
+  .brand-fuersie a
+    background-image: image-url('marken_fuersie.png')
+    background-size: 190px
+  .brand-petra a
+    background-image: image-url('marken_petra.png')
+    background-size: 190px
+  .brand-vital a
+    background: no-repeat 0 14px
+    background-image: image-url('marken_vital.png')

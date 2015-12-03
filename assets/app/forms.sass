@@ -1,3 +1,26 @@
 .help-block .errorlist
   padding: 0
   list-style: none
+
+.form-group.required .control-label:after
+  content: "*"
+  color: red
+
+.form-horizontal .control-label
+  padding-left: 10px
+  text-align: left
+
+.flat-bottom
+  +border-bottom-radius(0)
+
+input, .form-control
+  border: none
+  background-color: #eaeaea
+  color: #5f5f5f
+  +box-shadow(none)
+
+form
+  small
+    line-height: 130%
+    input[type="checkbox"]
+      margin: 2px 0 0

@@ -1,0 +1,41 @@
+#overlay, #overlay-shade
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  z-index: 10000
+
+#overlay
+  display: none
+
+#overlay-shade
+  background-color: rgba(#000, 0.6)
+
+#overlay-content
+  position: absolute
+  top: 220px
+  left: 50%
+  margin-left: -300px
+  width: 600px
+  z-index: 10001
+  #{headings()}
+    margin-top: 0
+  .overlay-close
+    display: block
+    position: absolute
+    right: 10px
+    top: 10px
+    width: 24px
+    height: 24px
+    +replace-text-with-dimensions("overlay_close.png")
+  .overlay-wrapper
+    +border-radius(6px)
+    background: white
+  .overlay-padding
+    padding: 32px
+  .overlay-hide
+    display: none
+
+.js-overlay, .js-overlay-close
+  cursor: pointer

@@ -12,8 +12,32 @@ $icons2x: sprite-map("icons2x/*.png")
 @import "elements"
 @import "flashes"
 @import "environment"
-@import "forum"
 @import "forms"
+@import "overlay"
+
+
+=inverse
+  input, .form-control
+    background-color: #fff
+
+=placeholder
+  &:-moz-placeholder
+    @content
+  &::-moz-placeholder
+    @content
+  &:-ms-input-placeholder
+    @content
+  &::-webkit-input-placeholder
+    @content
+
+
+// components
+@import "footer"
+@import "forum"
+@import "survey"
+@import "raffle"
+@import "users"
+@import "static_pages"
 
 
 %inner-block
@@ -29,6 +53,7 @@ $icons2x: sprite-map("icons2x/*.png")
   span
     background: image-url('trendpunkte_points_small.png') no-repeat 0 50%
     padding-left: image-width("trendpunkte_points_small.png") + 4px
+
 
 ///////////////////////////////////////////////////////////////////
 // Specific page customization
@@ -149,18 +174,6 @@ body.reduced-header
           position: absolute
           width: 355px
           z-index: 13
-    &.brand-fuersie #logo
-      background: image-url("produkttest_logo_fuersie.png") no-repeat -60px 16px
-      h1 a
-        width: image-width("produkttest_logo_fuersie.png") - 2*60px
-    &.brand-prinz #logo
-      background: image-url("produkttest_logo_prinz.png") no-repeat -60px 16px
-      h1 a
-        width: image-width("produkttest_logo_prinz.png") - 2*60px
-    &.brand-petra #logo
-      background: image-url("produkttest_logo_petra.png") no-repeat -28px 16px
-      h1 a
-        width: image-width("produkttest_logo_petra.png") - 2*28px
     .inner
       @extend %inner-block
       position: relative
@@ -181,69 +194,6 @@ body.reduced-header
 .subdued
   color: $subdued-text-color
 
-footer
-  @extend %inner-block
-  font-family: $font-family-sans-serif-secondary
-  font-size: 11px
-  color: $footer-text-color
-  margin-top: 32px
-  margin-bottom: 32px
-  .coops
-    text-align: center
-    span
-      line-height: 42px
-      +inline-block
-    .fuersie, .prinz, .petra, .vital
-      margin-left: 16px
-      line-height: 20px
-      a
-        display: block
-        height: 100%
-    @each $pubname in fuersie prinz petra vital
-      .#{$pubname}
-        +retina-sprite-replace-text-with-dimensions($icons, $icons2x, "logo_#{$pubname}")
-        &:hover
-          +retina-sprite-replace-text-with-dimensions($icons, $icons2x, "logo_#{$pubname}_active")
-  .reference
-    text-align: center
-    span
-      line-height: 42px
-      +inline-block
-    a
-      padding-left: 16px
-
-  .legalese
-    margin-top: 16px
-    text-align: center
-  .social
-    margin-top: 16px
-    text-align: center
-    span
-      line-height: 15px
-      +inline-block
-    strong
-      margin-right: 30px
-    .facebook, .twitter, .gplus
-      a
-        margin-left: 12px
-        padding-left: 22px
-        line-height: 15px
-        display: block
-    @each $sn in facebook twitter gplus
-      .#{$sn} a
-        +retina-sprite($icons, $icons2x, "icon_#{$sn}")
-
-.user-avatar
-  width: 256px
-  height: 256px
-
-.user-avatar-medium
-  width: 32px
-  height: 32px
-
-.user-avatar-small
-  width: 16px
-  height: 16px
 
 ul.shares
   list-style: none
@@ -259,11 +209,7 @@ ul.shares
 .social-media
   margin-left: 40px
 
-input, .form-control
-  border: none
-  background-color: #eaeaea
-  color: #5f5f5f
-  +box-shadow(none)
+
 
 a.btn.btn-primary
   +inverse-text-fix
@@ -274,9 +220,7 @@ a.btn.btn-primary
   &.btn-block-big
     height: 35px
 
-=inverse
-  input, .form-control
-    background-color: #fff
+
 
 .bigger
   font-size: 18px
@@ -321,63 +265,10 @@ a.btn.btn-primary
   width: 720px
   height: 475px
 
-=placeholder
-  &:-moz-placeholder
-    @content
-  &::-moz-placeholder
-    @content
-  &:-ms-input-placeholder
-    @content
-  &::-webkit-input-placeholder
-    @content
 
 input[placeholder]
   +placeholder()
     line-height: normal
-
-.s--static.p--how section[role=content]
-  .step-1, .step-2, .step-3
-    +inverse-text-fix
-    +border-radius(4px)
-    width: 310px
-    height: 434px
-    padding: 16px 4px 16px 64px
-    background: $primary
-    color: $inverse-text-color
-    font-size: 14px
-    line-height: 18px
-    &::before
-      position: absolute
-      margin-left: -48px
-      display: block
-      border-radius: 100%
-      background-color: black
-      color: white
-      width: 36px
-      height: 36px
-      line-height: 32px
-      text-align: center
-      font-size: 20px
-      font-weight: bold
-  .step-1
-    background: $primary image-url('how/wiefunktionierts_bild1.jpg') no-repeat 0% 100%
-    &::before
-      content: '1'
-  .step-2
-    background: $primary image-url('how/wiefunktionierts_bild2.jpg') no-repeat 0% 100%
-    &::before
-      content: '2'
-  .step-3
-    background: $primary image-url('how/wiefunktionierts_bild3.jpg') no-repeat 0% 100%
-    &::before
-      content: '3'
-  .cta
-    margin-top: 22px
-    p
-      text-align: center
-    a
-      margin-left: 16px
-      font-size: 18px
 
 .s--tests
   #ptw
@@ -438,129 +329,12 @@ input[placeholder]
     display: block
     height: 210px
 
-body.s--static.p--brands
-  .brand-prinz, .brand-fuersie, .brand-petra, .brand-vital
-    a
-      +hide-text
-      display: block
-      height: 110px
-      background: no-repeat 0 24px
-  .brand-prinz a
-    background: no-repeat 0 27px
-    background-image: image-url('marken_prinz.png')
-    background-size: 190px
-  .brand-fuersie a
-    background-image: image-url('marken_fuersie.png')
-    background-size: 190px
-  .brand-petra a
-    background-image: image-url('marken_petra.png')
-    background-size: 190px
-  .brand-vital a
-    background: no-repeat 0 14px
-    background-image: image-url('marken_vital.png')
-//.sep
-//  background: image-url('marken_sep.png') repeat-y 50% 0
 
-body.s--users.p--trendpoints
-  .trendpoints
-    display: block
-    color: #000
-    height: 140px
-    margin: 0 auto
-    margin-top: 16px
-    text-align: center
-    font-size: 68px
-    font-weight: bold
-    border-bottom: 5px solid black
-    line-height: 100px
-    span
-      background: image-url('trendpunkte_points_large.png') no-repeat 0 60%
-      padding-left: image-width("trendpunkte_points_large.png") + 16px
-  .goodies-list
-    display: table
-    width: 100%
-    .goodie
-      display: table-row
-      height: 72px
-      .goodie-img, .goodie-name, .goodie-cost, .goodie-action
-        display: table-cell
-        vertical-align: top
-        padding-top: 3px
-        border-bottom: 1px solid black
-      .goodie-img
-        width: 70px
-        height: 70px
-        position: relative
-        a
-          display: block
-        img::after
-          position: absolute
-          display: block
-          z-index: 15
-          +replace-text("trendpunkte_loupe.png")
-          width: 70px
-          height: 70px
-          outline: 4px solid red
-      .goodie-name
-        padding: 0 16px
-      .goodie-cost
-        width: 75px
-        padding: 0 16px
-        text-align: right
-        font-weight: bold
-        font-size: 16px
-        span
-          background: image-url('trendpunkte_points_small.png') no-repeat 0 70%
-          padding-left: image-width("trendpunkte_points_small.png") + 4px
-      .goodie-action
-        width: 120px
-        a
-          width: 100%
-  .how-to-earn
-    display: block
-    text-align: left
-    border-bottom: 5px solid black
-    margin-top: 32px
-    h4
-      font-weight: bold
-      font-size: 13px
-      line-height: 42px
-      margin: 0
-  .reward-list
-    display: table
-    width: 100%
-    .reward
-      display: table-row
-      .reward-title, .reward-points
-        display: table-cell
-        vertical-align: middle
-        border-bottom: 1px solid black
-        padding: 16px 4px
-        font-size: 13px
-        line-height: 16px
-        small
-          font-size: 10px
-      .reward-points
-        width: 125px
-        padding: 16px
-        text-align: right
-        font-weight: bold
-        font-size: 16px
-        span
-          background: image-url('trendpunkte_points_small.png') no-repeat 0 70%
-          padding-left: image-width("trendpunkte_points_small.png") + 4px
 
 img.content-photo
   border: 2px solid black
 
-form
-  small
-    line-height: 130%
-    input[type="checkbox"]
-      margin: 2px 0 0
-  body.s--static.p--home &
-    .form-group
-      margin-bottom: 8px
+
 
 .btn-primary:hover
   background-color: #ee4d3c
@@ -568,77 +342,6 @@ form
 .user-account-data, .user-profile-data
   margin-bottom: 32px
 
-.form-group.required .control-label:after
-  content: "*"
-  color: red
-
-.form-horizontal .control-label
-  padding-left: 10px
-  text-align: left
-
-.flat-bottom
-  +border-bottom-radius(0)
-
-#overlay, #overlay-shade
-  position: fixed
-  top: 0
-  left: 0
-  width: 100%
-  height: 100%
-  z-index: 10000
-
-#overlay
-  display: none
-
-#overlay-shade
-  background-color: rgba(#000, 0.6)
-
-#overlay-content
-  position: absolute
-  top: 220px
-  left: 50%
-  margin-left: -300px
-  width: 600px
-  z-index: 10001
-  #{headings()}
-    margin-top: 0
-  .overlay-close
-    display: block
-    position: absolute
-    right: 10px
-    top: 10px
-    width: 24px
-    height: 24px
-    +replace-text-with-dimensions("overlay_close.png")
-  .overlay-wrapper
-    +border-radius(6px)
-    background: white
-  .overlay-padding
-    padding: 32px
-  .overlay-hide
-    display: none
-
-.register-raffle-content
-  h3
-    margin-bottom: 24px
-  p
-    padding-left: 12px
-  #overlay-content &.overlay-padding
-    padding-bottom: 16px
-
-.register-raffle-footer
-  background: $primary
-  +inverse
-  +inverse-text-fix
-  color: $inverse-text-color
-  font-weight: bold
-  text-align: center
-  font-size: 18px
-  .overlay-wrapper &
-    +border-bottom-radius(6px)
-
-.js-overlay, .js-overlay-close
-  cursor: pointer
 
 tr.odd
   background: #eee
@@ -721,107 +424,5 @@ ul.gallery-entries
         width: 150px
         height: 150px
 
-.raffle-tile
-  margin-right: 6px
-  +border-radius(6px)
-  border: 2px solid $primary
-  +inverse
-  +inverse-text-fix
-  overflow: hidden
-  color: $inverse-text-color
-  background: $body-bg none no-repeat 50% 100%
-  width: 231px
-  height: 220px
-  .raffle-logo
-    padding-top: 10px
-    text-align: center
-    height: 93px
-  .raffle-button
-    padding: 8px 0px
-    height: 58px
-    text-align: center
-  .raffle-image
-    +hide-text
-    display: block
-    height: 210px
 
-.survey-tile
-  margin-right: 6px
-  +border-radius(6px)
-  +inverse
-  +inverse-text-fix
-  overflow: hidden
-  color: $inverse-text-color
-  background: $primary none no-repeat 50% 100%
-  width: 220px
-  height: 220px
-  .survey-button
-    padding: 8px 0px
-    height: 58px
-    text-align: center
-  .survey-button .done:hover
-    background-color: #aaa
-  .survey-image
-    +hide-text
-    display: block
-    height: 160px
 
-.btn-red
-  font-size: 16px
-  background: #fd7263
-  width: 88%
-  color: #fff
-
-.btn-red-large
-  width: 220px
-  line-height: 40px
-
-.btn-red:hover, .btn-red:focus
-  background: #ee4d3c
-  color: #fff
-
-.btn-red:visited
-  color: #fff
-
-.product-test-overview
-  .row
-    padding-bottom: 30px
-
-.surveys
-  textarea
-    border: none
-    background-color: #eaeaea
-    color: #5f5f5f
-    +box-shadow(none)
-    width: 50%
-    resize: none
-  ul
-    list-style-type: none
-    padding: 0
-  input[type=checkbox]
-    margin-right: 10px
-  input[type=radio]
-    margin-right: 10px
-  select
-    width: 300px
-    background-color: #eaeaea
-    color: #5f5f5f
-  .survey-label
-    padding-top: 15px
-    font-weight: bold
-  ul
-    li
-      label
-        font-weight: normal
-        font-size: 100%
-
-.my-surveys-new-inverse, .my-surveys-new
-  background-color: $inverse-link-color
-  color: $primary
-  padding: 2px 4px
-  margin-right: 4px
-  font-weight: bold
-
-.my-surveys-new-inverse
-  background-color: $primary
-  color: $inverse-link-color
