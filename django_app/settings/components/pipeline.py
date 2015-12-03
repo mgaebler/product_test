@@ -34,10 +34,10 @@ PIPELINE_JS = {
     }
 }
 
-PIPELINE_SASS_ARGUMENTS = '--compass --trace'
+PIPELINE_SASS_ARGUMENTS = '--compass --update --trace'
 
 PIPELINE_COMPILERS = (
-    'pipeline.compilers.sass.SASSCompiler',
+    'core.contrib.pipeline.compilers.sass.SASSCompiler',
 )
 
 # PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'
