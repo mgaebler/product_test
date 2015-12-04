@@ -8,7 +8,7 @@ from django.contrib import messages
 from django.shortcuts import redirect
 from django.templatetags.static import static
 from .models import ProductTest, Brand, Participation, TestResult
-from simple_bank.models import Account
+from simple_bank.models import Account, Transfer
 from simple_bank.models import create_transfer
 from surveys.models import SurveyUser
 
@@ -25,7 +25,7 @@ class ParticipationInline(admin.TabularInline):
 class ProductTestAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
     readonly_fields = ('created_at', 'updated_at',)
-    inlines = (ParticipationInline,)
+    # inlines = (ParticipationInline,)
     fieldsets = (
         (None, {
             'fields': ('title', 'slug', 'brand')
@@ -102,6 +102,7 @@ class ProductTestAdmin(admin.ModelAdmin):
             return redirect(request.META.get("HTTP_REFERER"))
 
         created = False
+        skipped = False
         for row in csv.reader(trendpoints_file, delimiter=str(';'), quotechar=str('"')):
             try:
                 survey = product_test.completion_survey
@@ -117,16 +118,23 @@ class ProductTestAdmin(admin.ModelAdmin):
                 try:
                     receiver = Account.objects.get(customer__email=survey_user.user.email)
                 except Account.DoesNotExist:
-                    logger.info(u"User {} does not have a bank account".format(survey.user.email))
+                    logger.info(u"User {} / {} does not have a bank account".format(survey.user.email, row[0]))
                 else:
-                    created = True
-                    create_transfer(
-                        sender_account=sender,
-                        receiver_account=receiver,
-                        amount=trendpoints,
-                        message=reference,
-                    )
-                    logger.info(u"Added {} to account {} by upload".format(trendpoints, sender.name))
+                    if Transfer.objects.filter(sender=sender, receiver=receiver, reference=reference).exists():
+                        skipped = True
+                        logger.info(u"Reference {} for {} / {} already exists. Skipped.".format(reference, receiver.name, row[0]))
+                    else:
+                        created = True
+                        create_transfer(
+                            sender_account=sender,
+                            receiver_account=receiver,
+                            amount=trendpoints,
+                            message=reference,
+                        )
+                        logger.info(u"Added {} TP to account {} / {} by upload".format(trendpoints, sender.name, row[0]))
+        if skipped:
+            messages.add_message(request, messages.INFO, "Doppelte Referenz gefunden. Trendpoints wurden nicht vergeben")
+
         if created:
             messages.add_message(request, messages.INFO, "Trendpoints wurden hinzugefügt.")
         else:
