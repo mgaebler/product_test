@@ -231,14 +231,27 @@ CACHES = {
 
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': False,
+    'disable_existing_loggers': True,
+    'root': {
+        'level': 'WARNING',
+        'handlers': ['sentry'],
+    },
     'handlers': {
         'syslog': {
-            'level': 'DEBUG',
+            'level': 'ERROR',
             'class': 'logging.handlers.SysLogHandler',
             # 'formatter': 'verbose',
             'facility': SysLogHandler.LOG_LOCAL2,
             'address': '/dev/log',
+        },
+        'sentry': {
+            'level': 'ERROR',
+            'class': 'raven.contrib.django.raven_compat.handlers.SentryHandler'
+        },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
         },
     },
     'loggers': {
