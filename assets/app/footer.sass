@@ -1,0 +1,51 @@
+footer
+  @extend %inner-block
+  font-family: $font-family-sans-serif-secondary
+  font-size: 11px
+  color: $footer-text-color
+  margin-top: 32px
+  margin-bottom: 32px
+  .coops
+    text-align: center
+    span
+      line-height: 42px
+      +inline-block
+    .fuersie, .prinz, .petra, .vital
+      margin-left: 16px
+      line-height: 20px
+      a
+        display: block
+        height: 100%
+    @each $pubname in fuersie prinz petra vital
+      .#{$pubname}
+        +retina-sprite-replace-text-with-dimensions($icons, $icons2x, "logo_#{$pubname}")
+        &:hover
+          +retina-sprite-replace-text-with-dimensions($icons, $icons2x, "logo_#{$pubname}_active")
+  .reference
+    text-align: center
+    span
+      line-height: 42px
+      +inline-block
+    a
+      padding-left: 16px
+
+  .legalese
+    margin-top: 16px
+    text-align: center
+  .social
+    margin-top: 16px
+    text-align: center
+    span
+      line-height: 15px
+      +inline-block
+    strong
+      margin-right: 30px
+    .facebook, .twitter, .gplus
+      a
+        margin-left: 12px
+        padding-left: 22px
+        line-height: 15px
+        display: block
+    @each $sn in facebook twitter gplus
+      .#{$sn} a
+        +retina-sprite($icons, $icons2x, "icon_#{$sn}")

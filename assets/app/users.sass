@@ -1,0 +1,101 @@
+.user-avatar
+  width: 256px
+  height: 256px
+
+.user-avatar-medium
+  width: 32px
+  height: 32px
+
+.user-avatar-small
+  width: 16px
+  height: 16px
+
+
+body.s--users.p--trendpoints
+  .trendpoints
+    display: block
+    color: #000
+    height: 140px
+    margin: 0 auto
+    margin-top: 16px
+    text-align: center
+    font-size: 68px
+    font-weight: bold
+    border-bottom: 5px solid black
+    line-height: 100px
+    span
+      background: image-url('trendpunkte_points_large.png') no-repeat 0 60%
+      padding-left: image-width("trendpunkte_points_large.png") + 16px
+  .goodies-list
+    display: table
+    width: 100%
+    .goodie
+      display: table-row
+      height: 72px
+      .goodie-img, .goodie-name, .goodie-cost, .goodie-action
+        display: table-cell
+        vertical-align: top
+        padding-top: 3px
+        border-bottom: 1px solid black
+      .goodie-img
+        width: 70px
+        height: 70px
+        position: relative
+        a
+          display: block
+        img::after
+          position: absolute
+          display: block
+          z-index: 15
+          +replace-text("trendpunkte_loupe.png")
+          width: 70px
+          height: 70px
+          outline: 4px solid red
+      .goodie-name
+        padding: 0 16px
+      .goodie-cost
+        width: 75px
+        padding: 0 16px
+        text-align: right
+        font-weight: bold
+        font-size: 16px
+        span
+          background: image-url('trendpunkte_points_small.png') no-repeat 0 70%
+          padding-left: image-width("trendpunkte_points_small.png") + 4px
+      .goodie-action
+        width: 120px
+        a
+          width: 100%
+  .how-to-earn
+    display: block
+    text-align: left
+    border-bottom: 5px solid black
+    margin-top: 32px
+    h4
+      font-weight: bold
+      font-size: 13px
+      line-height: 42px
+      margin: 0
+  .reward-list
+    display: table
+    width: 100%
+    .reward
+      display: table-row
+      .reward-title, .reward-points
+        display: table-cell
+        vertical-align: middle
+        border-bottom: 1px solid black
+        padding: 16px 4px
+        font-size: 13px
+        line-height: 16px
+        small
+          font-size: 10px
+      .reward-points
+        width: 125px
+        padding: 16px
+        text-align: right
+        font-weight: bold
+        font-size: 16px
+        span
+          background: image-url('trendpunkte_points_small.png') no-repeat 0 70%
+          padding-left: image-width("trendpunkte_points_small.png") + 4px

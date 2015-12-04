@@ -1,0 +1,13 @@
+{% load socialaccount %}
+
+{% block content %}
+
+  {% load socialaccount %}
+  {% providers_media_js %}
+  <a href="{% provider_login_url "facebook" method="js_sdk" %}">Facebook Connect</a>
+
+  <div>
+      <a href="{% provider_login_url "facebook" method="js_sdk" process="connect" %}">Connect a facebook account</a>
+  </div>
+
+{% endblock %}
