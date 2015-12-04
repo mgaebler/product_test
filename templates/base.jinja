@@ -8,6 +8,8 @@
 
   <title>{% block title %}Trendsetter{% if debug %} - DEBUG{% endif %}{% endblock title %}</title>
 
+  <link hreflang="de-de,de-ch,de-at" rel="alternate" href="https://www.trendsetter.eu"/>
+
   <link href="//fonts.googleapis.com/css?family=Oxygen:400,700,300" media="screen" rel="stylesheet"/>
 
   <link href="{{ static('app/images/favicons/favicon.ico') }}" rel="shortcut icon" type="image/vnd.microsoft.icon"/>
@@ -67,10 +69,6 @@
   {% stylesheet 'app' %}
 
 
-{#  <link href="/static/bootstrap-sass-3.3.2/bootstrap-theme.css" rel="stylesheet" type="text/css" media="screen,projection" />#}
-{#<link href="/static/lightbox/dist/ekko-lightbox.css" rel="stylesheet" type="text/css" media="screen,projection" />#}
-{#  <link href="/static/app/app.css" rel="stylesheet" type="text/css" media="screen,projection" />#}
-
 {% if not debug %}
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -83,7 +81,9 @@
 
 </script>
 {% endif %}
+
 {% javascript 'common' %}
+{# todo: put scripts to pipeline #}
 <script src="{{ static('wysihtml-0.4.17/dist/wysihtml5x-toolbar.min.js') }}"></script>
 <script src="{{ static('wysihtml-0.4.17/parser_rules/advanced_and_extended.js') }}"></script>
 </head>
