@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import raven
 import sys
 
 from logging.handlers import SysLogHandler
@@ -103,22 +104,18 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     # 3rd party
-    # 'authtools',
-    # 'social.apps.django_app.default',
     'django_jinja',
     'django_jinja.contrib._humanize',
     'django_extensions',
+    'django_nose',
     'pipeline',
     'manifesto',
-    # 'django_jinja.contrib._pipeline',
     'easy_thumbnails',
     'django_jinja.contrib._easy_thumbnails',
     'core.django_jinja.contrib._bootstrapform',
     'core.django_jinja.contrib._common',
     'core.django_jinja.contrib._allauth',
-    'stickerz',
-    # 'bootstrapform',
-    'django_nose',
+    'raven.contrib.django.raven_compat',
 
     # our apps
     'core',
@@ -134,6 +131,7 @@ INSTALLED_APPS = (
     'static_pages',
     'raffles',
     'forms_builder.forms',
+    'stickerz',
     'surveys',
 )
 
@@ -269,7 +267,9 @@ AUTHENTICATION_BACKENDS = (
 )
 
 
-# nose
+#
+# NOSE
+#
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 # Tell nose to measure coverage on the 'foo' and 'bar' apps
 NOSE_ARGS = [
@@ -283,5 +283,19 @@ NOSE_ARGS = [
     # '--no-skip'
 ]
 
-# grappelli
+
+#
+# GRAPPELLI
+#
 GRAPPELLI_ADMIN_TITLE = 'Trendsetter Admin'
+
+
+#
+# SENTRY
+#
+RAVEN_CONFIG = {
+    'dsn': 'https://d8b2c9f2b7284318a3226ddd230f86cc:9ccd57b28f974fdabf2aa8f1d072084b@app.getsentry.com/27588',
+    # If you are using git, you can also automatically configure the
+    # release based on the git info.
+    'release': raven.fetch_git_sha(os.path.dirname(__file__)),
+}
