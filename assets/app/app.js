@@ -7,10 +7,9 @@ function add_wysiwyg_editor(selector) {
 
     var random = (new Date).getTime();
 
-    var toolbar = '<div id="toolbar-' + random + '">';
-    toolbar += '<a data-wysihtml5-command="bold">Fett</a>';
-    toolbar += ' | ';
-    toolbar += '<a data-wysihtml5-command="italic">Kursiv</a>';
+    var toolbar = '<div class="wysiwyg-toolbar btn-group" id="toolbar-' + random + '">';
+    toolbar += '<a class="btn btn-default glyphicon glyphicon-bold" data-wysihtml5-command="bold"></a>';
+    toolbar += '<a class="btn btn-default glyphicon glyphicon-italic" data-wysihtml5-command="italic"></a>';
     toolbar += '</div>';
     $(selector).before(toolbar);
     var editor = new wysihtml5.Editor($(selector)[0], {
