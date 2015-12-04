@@ -207,7 +207,7 @@ STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '.media')
 
-LOGIN_URL = "/my/login-form" 
+LOGIN_URL = "/my/login-form"
 
 # CACHES = {
 # 'default': {
@@ -241,9 +241,14 @@ LOGGING = {
             # 'formatter': 'verbose',
             'facility': SysLogHandler.LOG_LOCAL2,
             'address': '/dev/log',
-        }
+        },
     },
     'loggers': {
+        'product_test': {
+            'handlers': ['syslog'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
         'django.request': {
             'handlers': ['syslog'],
             'level': 'DEBUG',
