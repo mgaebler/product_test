@@ -1,5 +1,7 @@
 {% extends 'profiles/base.jinja' %}
 
+{{ providers_media_js(request)|safe }}
+
 {% block profile_content %}
   <div class="row">
   <div class="col-md-18 col-md-offset-6">

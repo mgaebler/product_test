@@ -1,0 +1,13 @@
+Lieber Trendsetter,
+-------------------
+
+wir freuen uns über Deine Registrierung bei Trendsetter!
+Um Deine Registrierung abzuschließen, klicke bitte auf Registrierung bestätigen oder gib die folgende Adresse in
+deinem Browser ein:
+
+{{ activate_url }}
+
+Viel Spaß!
+Dein Trendsetter Team
+
+PS: Dieser Registrierungslink ist einmalig für 7 Tage gültig, danach wird Deine Registrierung gelöscht.

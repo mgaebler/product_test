@@ -11,6 +11,7 @@
 
     </div>
 
+    {# right sidebar #}
     <div class='sidebar col-md-6'>
       <div class='box highlight inverse register-box'>
         {% if user.is_authenticated() %}
@@ -28,40 +29,19 @@
         {% else %}
         <p class="bigger">Produkte testen und Trends setzen.</p>
 
-        <p class="bigger">
-          <strong>Mach jetzt mit!</strong>
-        </p>
-
-        <form accept-charset="UTF-8"
-              action="{{ url('user:register') }}" class="new_user" id="new_user"
-              method="post">
-          {% csrf_token %}
-          <div class="form-group">
-            <input
-                class="form-control"
-                name="{{ register_form.email.name }}"
-                placeholder="{{ register_form.email.label }}"
-                maxlength="254"
-                type="email">
-          </div>
-          <div class="form-group">
-            <div class="">
-              <div class="checkbox">
-                <label>
-                  <input id="id_accept_terms_of_use" name="accept_terms_of_use" type="checkbox">
-                  <span>Ich akzeptiere die Nutzungs- und Teilnahmebedingungen</span>
-                </label>
-              </div>
-            </div>
-          </div>
-{#          @todo: put this css out of this file#}
-          <input class="btn btn-invert btn-block btn-block-big" name="commit" type="submit"
-                 value="Jetzt registrieren" style="background-color: #000000; color: whitesmoke; -webkit-font-smoothing: subpixel-antialiased"
+          {# @todo: put this css out of this file#}
+          <a
+            href="{{ url('user:register') }}"
+            class="btn btn-invert btn-lg btn-block"
+            style="background-color: #000000; color: whitesmoke; -webkit-font-smoothing: subpixel-antialiased"
           >
-        </form>
+              Mach jetzt mit
+          </a>
+
         {% endif %}
       </div>
 
+      {# stickerz #}
       <p class="register-raffle-teaser">
         {% autoescape off %}
         {{ stickers('raffle_teaser') }}
@@ -69,11 +49,24 @@
       </p>
 
       {% if not user.is_authenticated() %}
+        {{ providers_media_js(request)|safe }}
         <div class="box login-box">
-          <p class="big">
+
+            <p class="big">
             Schon Mitglied?
             <strong>Log Dich ein!</strong>
           </p>
+
+          <div>
+            <a class="btn btn-auth btn-block btn-lg btn-facebook"
+               href="{{ provider_login_url(request, 'facebook', method='js_sdk', next=url('user:settings')) }}">
+                Facebook <strong>Login</strong>
+            </a>
+          </div>
+
+          <div class="strike-container">
+            <span>oder</span>
+          </div>
 
           <form accept-charset="UTF-8" action="{{ url('user:login') }}" class="new_user" id="new_user"
                 method="post">
@@ -92,7 +85,7 @@
                      id="user_password" name="user[password]" placeholder="Passwort"
                      type="password">
             </div>
-            <input class="btn btn-primary btn-block" name="commit" type="submit" value="Log Dich ein">
+            <input class="btn btn-primary btn-lg btn-block" name="commit" type="submit" value="Log Dich ein">
           </form>
 
         </div>

@@ -7,8 +7,9 @@ PIPELINE_CSS = {
     'common': {
         'source_filenames': (
             # 'sass-bootstrap/dist/css/bootstrap.css',
-            'bootstrap-sass-3.3.2/bootstrap-theme.css',
+            # 'bootstrap-sass-3.3.2/bootstrap-theme.css',
             'lightbox/dist/ekko-lightbox.css',
+            'css3-social-signin-buttons.css',
         ),
         'output_filename': 'css/common.css',
         'extra_context': {'media': 'screen,projection'},
@@ -33,10 +34,10 @@ PIPELINE_JS = {
     }
 }
 
-PIPELINE_SASS_ARGUMENTS = '--compass --trace'
+PIPELINE_SASS_ARGUMENTS = '--compass --update --trace'
 
 PIPELINE_COMPILERS = (
-    'pipeline.compilers.sass.SASSCompiler',
+    'core.contrib.pipeline.compilers.sass.SASSCompiler',
 )
 
 # PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'

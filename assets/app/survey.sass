@@ -1,0 +1,80 @@
+.survey-tile
+  margin-right: 6px
+  +border-radius(6px)
+  +inverse
+  +inverse-text-fix
+  overflow: hidden
+  color: $inverse-text-color
+  background: $primary none no-repeat 50% 100%
+  width: 220px
+  height: 220px
+  .survey-button
+    padding: 8px 0px
+    height: 58px
+    text-align: center
+  .survey-button .done:hover
+    background-color: #aaa
+  .survey-image
+    +hide-text
+    display: block
+    height: 160px
+
+.btn-red
+  font-size: 16px
+  background: #fd7263
+  width: 88%
+  color: #fff
+
+.btn-red-large
+  width: 220px
+  line-height: 40px
+
+.btn-red:hover, .btn-red:focus
+  background: #ee4d3c
+  color: #fff
+
+.btn-red:visited
+  color: #fff
+
+.product-test-overview
+  .row
+    padding-bottom: 30px
+
+.surveys
+  textarea
+    border: none
+    background-color: #eaeaea
+    color: #5f5f5f
+    +box-shadow(none)
+    width: 50%
+    resize: none
+  ul
+    list-style-type: none
+    padding: 0
+  input[type=checkbox]
+    margin-right: 10px
+  input[type=radio]
+    margin-right: 10px
+  select
+    width: 300px
+    background-color: #eaeaea
+    color: #5f5f5f
+  .survey-label
+    padding-top: 15px
+    font-weight: bold
+  ul
+    li
+      label
+        font-weight: normal
+        font-size: 100%
+
+.my-surveys-new-inverse, .my-surveys-new
+  background-color: $inverse-link-color
+  color: $primary
+  padding: 2px 4px
+  margin-right: 4px
+  font-weight: bold
+
+.my-surveys-new-inverse
+  background-color: $primary
+  color: $inverse-link-color

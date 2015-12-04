@@ -18,6 +18,8 @@ urlpatterns = patterns('',
     url(r'^humans\.txt$', TemplateView.as_view(template_name='humans.txt', content_type='text/plain')),
 
     url(r'my/', include('user_accounts.urls', namespace='user')),
+    url(r'my/', include('user_accounts.social_urls')),  # overwrites some urls of allauth.urls
+    url(r'my/', include('allauth.urls')),
     url(r'produkttests/', include('product_test.urls', namespace='product_test')),
 
     url(r'forum/', include('django_simple_forum.urls')),

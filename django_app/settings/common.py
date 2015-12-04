@@ -59,15 +59,15 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.debug',
     'django.contrib.auth.context_processors.auth',
     'django.contrib.messages.context_processors.messages',
-    'social.apps.django_app.context_processors.backends',
-    'social.apps.django_app.context_processors.login_redirect',
+    # 'social.apps.django_app.context_processors.backends',
+    # 'social.apps.django_app.context_processors.login_redirect',
 )
 
 # jinja 2 settings
 # # http://niwibe.github.io/django-jinja/#_introduction
 TEMPLATE_LOADERS = (
-    'django_jinja.loaders.AppLoader',
     'django_jinja.loaders.FileSystemLoader',
+    'django_jinja.loaders.AppLoader',
 )
 
 TEMPLATE_DIRS = (
@@ -90,6 +90,10 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = (
     'grappelli',  # 3rd party
     'filebrowser',  # 3rd party
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -99,8 +103,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     # 3rd party
-    'authtools',
-    'social.apps.django_app.default',
+    # 'authtools',
+    # 'social.apps.django_app.default',
     'django_jinja',
     'django_jinja.contrib._humanize',
     'django_extensions',
@@ -111,6 +115,7 @@ INSTALLED_APPS = (
     'django_jinja.contrib._easy_thumbnails',
     'core.django_jinja.contrib._bootstrapform',
     'core.django_jinja.contrib._common',
+    'core.django_jinja.contrib._allauth',
     'stickerz',
     # 'bootstrapform',
     'django_nose',
@@ -150,6 +155,13 @@ ROOT_URLCONF = 'django_app.urls'
 WSGI_APPLICATION = 'django_app.wsgi.production.application'
 
 AUTH_USER_MODEL = 'user_accounts.UserAccount'
+
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "none"
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_USERNAME_REQUIRED = False
+SOCIALACCOUNT_QUERY_EMAIL = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -246,8 +258,9 @@ LOGGING = {
 }
 
 AUTHENTICATION_BACKENDS = (
-    'social.backends.google.GoogleOAuth2',
+#    'social.backends.google.GoogleOAuth2',
     'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 )
 
 

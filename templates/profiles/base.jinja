@@ -6,12 +6,15 @@
   <div class="dash-nav-wrapper">
     <div class="inner">
       <nav class="dash-nav">
-        <li class="page-nav-info{% if request.path.startswith('/my/umfrage') %} active{% endif %}">
+        <li class="page-nav-info{% if request.path == url('socialaccount_connections') %} active{% endif %}">
           <span class="my-surveys-new">Neu!</span>
-          <a href="{{ url('user:surveys') }}">Meine Umfragen</a>
+          <a href="{{ url('socialaccount_connections') }}">Soziale Netze</a>
         </li>
         <li class="page-nav-info{% if request.path == url('user:tests') %} active{% endif %}">
           <a href="{{ url('user:tests') }}">Meine Produkttests</a>
+        </li>
+        <li class="page-nav-info{% if request.path.startswith('/my/umfrage') %} active{% endif %}">
+          <a href="{{ url('user:surveys') }}">Meine Umfragen</a>
         </li>
         <li class="page-nav-info{% if request.path == url('user:trendpoints') %} active{% endif %}">
           <a href="{{ url('user:trendpoints') }}">Meine Trendpoints</a>
