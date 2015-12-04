@@ -4,3 +4,4 @@
 # TEAM
 
     Marian Gaebler -- Web Developer -- @ntzknecht
+    Kai Diefenbach -- Web Developer -- @diefenbach
