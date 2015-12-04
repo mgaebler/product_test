@@ -6,7 +6,7 @@
 
   <meta content='width=1024' name='viewport'>
 
-  <title>Trendsetter{% if debug %} - DEBUG{% endif %}</title>
+  <title>{% block title %}Trendsetter{% if debug %} - DEBUG{% endif %}{% endblock title %}</title>
 
   <link href="//fonts.googleapis.com/css?family=Oxygen:400,700,300" media="screen" rel="stylesheet"/>
 
