@@ -1,5 +1,6 @@
 {% extends 'product_test/base.jinja' %}
 
+{% block title %}{{ super() }} - Galerie{% endblock title %}
 
 {% block javascript %}
   <script type="text/javascript" src="{{ static('jquery-lazy/jquery.lazy.min.js') }}"></script>

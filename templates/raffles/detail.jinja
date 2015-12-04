@@ -1,7 +1,7 @@
 {% extends 'base.jinja' %}
 
 {% block body_class %}flatpage{% endblock %}
-{% block title %}{{ raffle.title }} | {{ block.super }}{% endblock title %}
+{% block title %}{{ raffle.title }}{% endblock title %}
 {% block navbar_image %}{% endblock %}
 
 
@@ -51,6 +51,7 @@
 
   </div>
 </div>
+{# todo: move script to script section #}
 <script>
   (function($) {
     "use strict";
