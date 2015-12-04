@@ -3,5 +3,7 @@
 
 # TEAM
 
-    Marian Gaebler -- Web Developer -- @ntzknecht
+    Olga Scheifele -- Art Director
+
     Kai Diefenbach -- Web Developer -- @diefenbach
+    Marian Gaebler -- Web Developer -- @ntzknecht
