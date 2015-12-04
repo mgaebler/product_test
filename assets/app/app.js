@@ -1,6 +1,6 @@
 "use strict";
 
-function add_wysiwyg_editor(selector) {
+window.add_wysiwyg_editor = function(selector) {
     if (!selector) {
         selector = "#id_body";
     };
