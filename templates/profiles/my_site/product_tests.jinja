@@ -7,6 +7,8 @@
 
   {% for participation in user.participation_set.all() %}
     <img src="{{ thumbnail(participation.product_test.logo, size=(232, 52)) }}" alt="{{ participation.product_test.name }}"/>
+    {% else %}
+    <p>Du nimmst derzeit an keinem Produkttest teil</p>
   {% endfor %}
 
 {% endblock profile_content %}
