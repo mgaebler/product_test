@@ -202,5 +202,20 @@
 
 {% block javascript %}{% endblock %}
 
+{# json ld #}
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "url": "https://www.trendsetter.eu",
+  "logo": "https://www.trendsetter.eu{{ static('app/images/favicons/favicon-196x196.png') }}",
+  "sameAs" : [
+    "https://www.facebook.com/trendsetter.eu",
+    "https://twitter.com/TRENDSETTER_eu",
+    "https://plus.google.com/+TrendsetterEu"
+  ]
+}
+</script>
+
 </body>
 </html>
