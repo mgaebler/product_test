@@ -293,7 +293,7 @@ class AccountCreateView(FormView):
         return token.hexdigest()
 
 
-class InviteFriendsView(FormView):
+class InviteFriendsView(LoginRequiredMixin, FormView):
     form_class = forms.InviteFriendsForm
     template_name = 'profiles/my_site/invite_friends_form.jinja'
 
@@ -350,7 +350,7 @@ class InviteFriendsView(FormView):
         return reverse('user:invite_friends')
 
 
-class TransferListView(ListView):
+class TransferListView(LoginRequiredMixin, ListView):
     template_name = 'profiles/my_site/trendpoints.jinja'
 
     def get_queryset(self):
@@ -358,7 +358,7 @@ class TransferListView(ListView):
         return Transfer.objects.filter(Q(sender=current_user_account)|Q(receiver=current_user_account))
 
 
-class SurveysView(ListView):
+class SurveysView(LoginRequiredMixin, ListView):
     template_name = 'profiles/my_site/surveys.jinja'
 
     def get_queryset(self):
@@ -387,3 +387,6 @@ class SurveysView(ListView):
 
         return objects
 
+
+class ProductTestsView(LoginRequiredMixin, TemplateView):
+    pass
