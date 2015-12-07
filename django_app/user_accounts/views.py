@@ -1,4 +1,6 @@
 #coding: utf-8
+
+from __future__ import unicode_literals
 import logging
 from datetime import datetime
 from hashlib import sha1
@@ -11,6 +13,7 @@ from django.contrib.auth.hashers import make_password
 from django.contrib.auth.forms import PasswordChangeForm, PasswordResetForm
 from django.contrib.auth.views import password_reset, password_reset_confirm
 from django.db.models import Q
+from django.shortcuts import render
 from django.template import Context
 from django.template.loader import get_template
 from django.utils.translation import ugettext_lazy as _
@@ -31,26 +34,42 @@ from . import forms
 logger = logging.getLogger('user_account.view')
 
 
+def login_form_view(request):
+    # in case the user is already logged in redirect him to the user index
+    if request.user.is_authenticated():
+        return redirect('user:index')
+
+    return render(request, 'profiles/login_form.jinja')
+
+
 def login_view(request):
+
     email = request.POST.get('user[email]', None)
     password = request.POST.get('user[password]', None)
-    user = authenticate(username=email.lower(), password=password)
-    if user is not None:
-        if user.is_active:
-            login(request, user)
-            messages.add_message(request, messages.INFO, _(u'Login successful'))
-            logger.info("Successful login")
-            if request.POST.get("came_from"):
-                return redirect(request.POST.get("came_from"))
-            if not user.profile_complete:
-                messages.add_message(request, messages.INFO, _(u'Please complete your profile.'))
-                return redirect('user:settings')
+    referrer = request.META.get('HTTP_REFERER', None)
+
+    if email and password:
+        user = authenticate(username=email.lower(), password=password)
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                messages.add_message(request, messages.INFO, _('Login successful'))
+                logger.info("Successful login")
+
+                # if the user profile is not complete redirect to the settings page and give a hint
+                if not user.profile_complete:
+                    messages.add_message(request, messages.INFO, _('Please complete your profile.'))
+                    return redirect('user:settings')
+            else:
+                messages.add_message(request, messages.ERROR, _('This account is not active.'))
+                return redirect('user:login_form')
         else:
-            messages.add_message(request, messages.ERROR, _(u'This account is not active.'))
+            messages.add_message(request, messages.ERROR, _('Wrong username or password.'))
             return redirect('user:login_form')
-    else:
-        messages.add_message(request, messages.ERROR, _(u'Wrong username or password.'))
-        return redirect('user:login_form')
+
+    # redirect the user where he comes from
+    if referrer:
+        return redirect(referrer)
 
     return redirect('user:index')
 
@@ -77,7 +96,7 @@ def register_verify(request, token):
 
 def logout_view(request):
     logout(request)
-    messages.info(request, _(u'Your logout was successfully.'))
+    messages.info(request, _('Your logout was successfully.'))
     return redirect('home')
 
 
@@ -138,7 +157,7 @@ class PasswordSetView(LoginRequiredMixin, FormView):
         return super(PasswordSetView, self).form_valid(form)
 
     def get_success_url(self):
-        messages.info(self.request, _(u'Your password was set successfully.'))
+        messages.info(self.request, _('Your password was set successfully.'))
         return reverse('user:login_form')
 
 
@@ -172,8 +191,8 @@ class UserProfileChangeView(LoginRequiredMixin, UpdateView):
     }
 
     help_texts = {
-        'avatar': _(u'Max. 10MB. Wird öffentlich angezeigt.'),
-        'password': _(u'Nur, wenn Du Dein Passwort ändern willst.'),
+        'avatar': _('Max. 10MB. Wird öffentlich angezeigt.'),
+        'password': _('Nur, wenn Du Dein Passwort ändern willst.'),
     }
 
     def get_success_url(self):
@@ -192,19 +211,19 @@ class UserProfileChangeView(LoginRequiredMixin, UpdateView):
                 sender_account=Account.objects.get(name='trendsetter'),
                 receiver_account=user.bank_account.all().first(),
                 amount=5,
-                message=_(u'Thank you for completing your profile.')
+                message=_('Thank you for completing your profile.')
             )
-            messages.add_message(self.request, messages.INFO, _(u'Du hast 5 Trendpoints verdient!'))
+            messages.add_message(self.request, messages.INFO, _('Du hast 5 Trendpoints verdient!'))
             if user.invited_by:
                 # if the user has an invited_by pay the invite 5 points
                 create_transfer(
                     sender_account=Account.objects.get(name='trendsetter'),
                     receiver_account=user.invited_by.bank_account.all().first(),
                     amount=5,
-                    message=_(u'Your invite was redeemed.')
+                    message=_('Your invite was redeemed.')
                 )
 
-        messages.add_message(self.request, messages.INFO, _(u'Your profile was saved successfully.'))
+        messages.add_message(self.request, messages.INFO, _('Your profile was saved successfully.'))
 
         return super(UserProfileChangeView, self).form_valid(form)
 
@@ -296,7 +315,7 @@ class InviteFriendsView(FormView):
         email_body = template.render(context)
 
         initial['message'] = email_body
-        initial['subject'] = _(u'Become a product tester for free.')
+        initial['subject'] = _('Become a product tester for free.')
 
         self.form_class.invite_link = invite_link
         return initial
@@ -324,7 +343,7 @@ class InviteFriendsView(FormView):
         # mails = ((data['subject'], data['message'], self.request.user.email, [recipient]) for recipient in data['recipients'])
         # send_mass_mail(mails, fail_silently=False)
 
-        messages.info(self.request, _(u'An invite was send to your friends.'))
+        messages.info(self.request, _('An invite was send to your friends.'))
         return super(InviteFriendsView, self).form_valid(form)
 
     def get_success_url(self):
@@ -332,7 +351,8 @@ class InviteFriendsView(FormView):
 
 
 class TransferListView(ListView):
-    template_name='profiles/my_site/trendpoints.jinja'
+    template_name = 'profiles/my_site/trendpoints.jinja'
+
     def get_queryset(self):
         current_user_account = self.request.user.bank_account.all().first()
         return Transfer.objects.filter(Q(sender=current_user_account)|Q(receiver=current_user_account))
@@ -366,3 +386,4 @@ class SurveysView(ListView):
             })
 
         return objects
+
