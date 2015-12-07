@@ -98,30 +98,6 @@
     <div class='current-user logged-in'>
       <div class='inner'>
 
-        {## python social auth is not available for now #}
-        {#      <div class="social">#}
-        {#        {% for sublist in available_backends|social_backends %}#}
-        {#          <div class="row">#}
-        {#            {% for name, backend in sublist %}#}
-        {#              {% associated backend %}#}
-        {#              {% if association %}#}
-        {#                <form class="disconnect-form col-md-2" action="{% url "social:disconnect_individual" backend=association.provider association_id=association.id %}" method="post">{% csrf_token %}#}
-        {#                  <a class="btn btn-danger" name="{{ backend|backend_class }}" href="#">#}
-        {#                    <i class="fa fa-{{ name|icon_name }}"></i>#}
-        {#                    Disconnect {{ backend|backend_name }}#}
-        {#                  </a>#}
-        {#                </form>#}
-        {#              {% else %}#}
-        {#                <a class="col-md-2 btn btn-default" name="{{ backend|backend_class }}" href="{% url "social:begin" backend=name %}">#}
-        {#                  <i class="fa fa-{{ name|icon_name }}"></i>#}
-        {#                  {{ backend|backend_name }}#}
-        {#                </a>#}
-        {#              {% endif %}#}
-        {#            {% endfor %}#}
-        {#          </div>#}
-        {#        {% endfor %}#}
-        {#      </div>#}
-
         {% if not user.is_authenticated() %}
           Schon Mitglied?
           <a href="{{ url('user:login_form') }}">{{ _('Log in') }}</a>
@@ -132,11 +108,13 @@
               <img align="right"
                    alt="Default avatar"
                    class="user-avatar user-avatar-medium"
-                   src="{{ thumbnail(user.avatar, size=(32, 32)) }}"/>
+                   src="{{ thumbnail(user.avatar, size=(32, 32)) }}"
+                   />
             {% else %}
               <img align="right" alt="avatar"
                    class="img-circle user-avatar user-avatar-medium"
-                   src="{{ static('app/images/default_avatar.jpg') }}"/>
+                   src="{{ static('app/images/default_avatar.jpg') }}"
+                   />
             {% endif %}
           </a>
           Hallo, {{ user.preferred_name }}
