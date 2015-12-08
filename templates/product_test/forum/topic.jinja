@@ -1,5 +1,9 @@
 {% extends 'product_test/base.jinja' %}
 
+
+{% block title %}{{ super() }} - {{ topic.title }}{% endblock title %}
+
+
 {% block product_test_content %}
 
 <div class="forum-topic">
