@@ -44,12 +44,12 @@ class UserAccount(AbstractEmailUser):
     birth_date = models.DateField(_('birth date'), null=True)
     #address
     city = models.CharField(_('city'), max_length=254)
-    country = models.CharField(_('country'),max_length=254)
-    address1 = models.CharField(_('address1'),max_length=254)
+    country = models.CharField(_('country'), max_length=254)
+    address1 = models.CharField(_('address1'), max_length=254)
     address2 = models.CharField(_('address2'), max_length=254, blank=True, null=True)
     address3 = models.CharField(_('address3'), max_length=254, blank=True, null=True)
     postcode = models.CharField(_('postcode'), max_length=12, null=True)
-    family_status = models.CharField(_('family status'),choices=FAMILY_STATUS_CHOICES, max_length=2)
+    family_status = models.CharField(_('family status'), choices=FAMILY_STATUS_CHOICES, max_length=2)
 
     invited_by = models.ForeignKey("self", blank=True, null=True)
 
