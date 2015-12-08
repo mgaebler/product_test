@@ -62,12 +62,20 @@ class ProductTestAdmin(admin.ModelAdmin):
 
     class Media:
         js = [
+            # libs
             static('grappelli/tinymce/jscripts/tiny_mce/tiny_mce.js'),
+            static('product_test/codemirror/lib/codemirror.js'),
+            static('product_test/codemirror/mode/css/css.js'),
+            # config
             static('product_test/tinymce_setup/tinymce_setup.js'),
+            static('product_test/codemirror/product_test_config.js'),
         ]
 
         css = {
-            'all': ('admin/css/trendsetter.css', )
+            'all': (
+                'admin/css/trendsetter.css',
+                static('product_test/codemirror/lib/codemirror.css'),
+            )
         }
 
     def upload_trendpoints(self, request, product_test_id):
