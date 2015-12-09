@@ -1,9 +1,10 @@
+@import "compass"
 @import "//fonts.googleapis.com/css?family=Oxygen:400,700,300"
 // @import "normalize"
-@import "bootstrap/variables"
+//@import "bootstrap/variables"
 @import "base_variables"
 
-@import "compass"
+
 
 $icons: sprite-map("icons/*.png")
 $icons2x: sprite-map("icons2x/*.png")
@@ -42,10 +43,6 @@ $icons2x: sprite-map("icons2x/*.png")
 @import "static_pages"
 
 
-%inner-block
-  margin: 0 auto
-  width: 960px
-
 .bigger
   font-size: 18px
 
@@ -57,30 +54,19 @@ $icons2x: sprite-map("icons2x/*.png")
 ///////////////////////////////////////////////////////////////////
 
 header.main
-  width: 100%
-  height: 200px
-  border-bottom: 5px solid $primary
-  margin-bottom: 25px
   .current-user
-    position: relative
-
-    .inner
-      @extend %inner-block
-      position: absolute
-      padding-top: 12px
-      padding-right: 4px
-      text-align: right
-      font-family: $font-family-sans-serif-secondary
-      font-size: 12px
-      line-height: 18px
-      z-index: 10
-      a
-        font-weight: normal
-      .user-avatar
-        float: right
-        margin: 0px 0px 0px 8px
+    padding-top: 12px
+    padding-right: 4px
+    text-align: right
+    font-family: $font-family-sans-serif-secondary
+    font-size: 12px
+    line-height: 18px
+    a
+      font-weight: normal
+    .user-avatar
+      float: right
+      margin: 0px 0px 0px 8px
   #logo
-    @extend %inner-block
     background: image-url("shared/logo.png") no-repeat 50% 0px
     padding-top: 36px
     h1
@@ -91,10 +77,12 @@ header.main
         margin: 0 auto
         line-height: 120px
         height: 120px
-        width: 500px
-  nav.main-nav
+
+  .main-nav
+    border-bottom: 5px solid $primary
     text-align: center
     margin: 0 auto
+    height: 45px
     li
       +inline-block
       font-size: 16px
@@ -170,11 +158,6 @@ body.reduced-header
           position: absolute
           width: 355px
           z-index: 13
-    .inner
-      @extend %inner-block
-      position: relative
-    .current-user .inner
-      position: absolute
     nav.main-nav
       position: absolute
       right: 0
@@ -189,19 +172,6 @@ body.reduced-header
 
 .subdued
   color: $subdued-text-color
-
-ul.shares
-  list-style: none
-  padding: 0
-  margin: 0
-  margin: 16px 0
-  display: inline-block
-  li
-    display: inline-block
-    vertical-align: top
-    margin-right: 12px
-
-
 
 a.btn.btn-primary
   +inverse-text-fix
@@ -291,12 +261,7 @@ input[placeholder]
       display: block
       height: 100%
       overflow: hidden
-  &.brand-prinz .test-title
-    background: $primary image-url('produkttests_logo_prinz.png') no-repeat 15px 15px
-  &.brand-fuersie .test-title
-    background: $primary image-url('produkttests_logo_fuersie.png') no-repeat 15px 15px
-  &.brand-petra .test-title
-    background: $primary image-url('produkttests_logo_petra.png') no-repeat 15px 15px
+
   .test-link
     padding: 8px 16px
     height: 58px
@@ -319,38 +284,6 @@ img.content-photo
 tr.odd
   background: #eee
 
-.team-trendsetter
-  .avatar
-    margin-right: 4px
-    &::before
-      content: 'T'
-      position: absolute
-      margin-top: 24px
-      margin-left: 24px
-      width: 12px
-      height: 12px
-      font-size: 9px
-      font-weight: normal
-      color: #f0f0f0
-      background: #000
-      line-height: 12px
-      text-align: center
-      padding: 0 1px
-
-  .xnickname
-    margin-right: 24px
-    &::after
-      content: 'T'
-      position: absolute
-      font-size: 8px
-      color: #fff
-      background: #000
-      line-height: 10px
-      padding: 1px
-      margin: 0 2px
-      width: 24px
-      font-weight: bold
-
 .faq-entry
   margin-bottom: 32px
   .faq-entry-meta
@@ -362,7 +295,6 @@ a.link-camo, #ptw a.link-camo, #ptw a:link.link-camo, #ptw a:visited.link-camo, 
   border-bottom: lighten($text-color, 50%) dotted 1px
 
 .btn-delete-inline, #ptw .btn-delete-inline
-  +inline-block
   +border-radius(100%)
   +all-link-colors(white)
   color: white

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html class='nodebug' itemscope itemtype='http://schema.org/Product' lang='de'>
+<html class="nodebug" itemscope itemtype="http://schema.org/Product" lang="de">
 <head>
-  <meta charset='utf-8'>
-  <meta content='IE=edge' http-equiv='X-UA-Compatible'>
+  <meta charset="utf-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
 
-  <meta content='width=1024' name='viewport'>
+  <meta content="width=1024" name="viewport">
 
   <title>{% block title %}Trendsetter{% if debug %} - DEBUG{% endif %}{% endblock title %}</title>
 
@@ -39,30 +39,30 @@
   <link href="{{ static('app/images/favicons/favicon-32x32.png') }}" rel="shortcut icon" sizes="32x32"
         type="image/png"/>
 
-  <meta content='#000000' name='msapplication-TileColor'>
-  <meta content='{{ static('app/images/favicons/mstile-144x144.png') }}' name='msapplication-TileImage'>
-  <meta content='{{ static('app/images/favicons/browserconfig.xml') }}' name='msapplication-config'>
+  <meta content="#000000" name="msapplication-TileColor">
+  <meta content="{{ static('app/images/favicons/mstile-144x144.png') }}" name="msapplication-TileImage">
+  <meta content="{{ static('app/images/favicons/browserconfig.xml') }}" name="msapplication-config">
 
-  <link href='https://plus.google.com/104263993094810252271' rel='publisher'>
+  <link href="https://plus.google.com/104263993094810252271" rel="publisher">
 
-  <meta content='Trendsetter' itemprop='name'>
+  <meta content="Trendsetter" itemprop="name">
   <meta
-      content='Trendsetter, die neue Online Produkttest-Plattform ist da! Kostenlose Produkttests und Gewinnspiele! Sei dabei: www.trendsetter.eu'
-      itemprop='description'>
-  <meta content='https://www.trendsetter.eu/assets/trendsetter_sm_share-829f2d6bfd4fb457984bb5c5e7f10bdf.png'
-        itemprop='image'>
+      content="Trendsetter, die neue Online Produkttest-Plattform ist da! Kostenlose Produkttests und Gewinnspiele! Sei dabei: www.trendsetter.eu"
+      itemprop="description">
+  <meta content="https://www.trendsetter.eu/assets/trendsetter_sm_share-829f2d6bfd4fb457984bb5c5e7f10bdf.png"
+        itemprop="image">
 
   {# Facebook #}
-  <meta content='Trendsetter' property='og:title'>
-  <meta content='website' property='og:type'>
-  <meta content='de_DE' property='og:locale'>
-  <meta content='Trendsetter' property='og:site_name'>
+  <meta content="Trendsetter" property="og:title">
+  <meta content="website" property="og:type">
+  <meta content="de_DE" property="og:locale">
+  <meta content="Trendsetter" property="og:site_name">
 {#  <meta content='https://www.trendsetter.eu/{{ static('app/images/favicons/trendsetter_sm_share.png') }}' property='og:image'>#}
   <meta
-      content='Trendsetter, die neue Online Produkttest-Plattform ist da! Kostenlose Produkttests und Gewinnspiele! Sei dabei: www.trendsetter.eu'
-      property='og:description'>
-  <meta content='100007765833987,100000081178215' property='fb:admins'>
-  <meta content='449686848467025' property='fb:app_id'>
+      content="Trendsetter, die neue Online Produkttest-Plattform ist da! Kostenlose Produkttests und Gewinnspiele! Sei dabei: www.trendsetter.eu"
+      property="og:description">
+  <meta content="100007765833987,100000081178215" property="fb:admins">
+  <meta content="449686848467025" property="fb:app_id">
 
 
   {% stylesheet 'common' %}
@@ -94,74 +94,86 @@
 
 
   {% block user_panel %}
-    <div class='current-user logged-in'>
-      <div class='inner'>
+    <div class="container">
+        <div class="row current-user">
+          <div class="col-md-24">
 
-        {% if not user.is_authenticated() %}
-          Schon Mitglied?
-          <a href="{{ url('user:login_form') }}">{{ _('Log in') }}</a>
-        {% else %}
-
-          <a href="{{ url('user:tests') }}">
-            {% if user.avatar %}
-              <img align="right"
-                   alt="Default avatar"
-                   class="user-avatar user-avatar-medium"
-                   src="{{ thumbnail(user.avatar, size=(32, 32)) }}"
-                   />
+            {% if not user.is_authenticated() %}
+              Schon Mitglied?
+              <a href="{{ url('user:login_form') }}">{{ _('Log in') }}</a>
             {% else %}
-              <img align="right" alt="avatar"
-                   class="img-circle user-avatar user-avatar-medium"
-                   src="{{ static('app/images/default_avatar.jpg') }}"
-                   />
+
+              <a href="{{ url('user:tests') }}">
+                {% if user.avatar %}
+                  <img align="right"
+                       alt="Default avatar"
+                       class="user-avatar user-avatar-medium"
+                       src="{{ thumbnail(user.avatar, size=(32, 32)) }}"
+                       />
+                {% else %}
+                  <img align="right" alt="avatar"
+                       class="img-circle user-avatar user-avatar-medium"
+                       src="{{ static('app/images/default_avatar.jpg') }}"
+                       />
+                {% endif %}
+              </a>
+              Hallo, {{ user.preferred_name }}
+              <br>
+
+              {% if user.is_staff %}
+                <a href="/admin/">Admin</a>
+                |
+              {% endif %}
+              <a href="{{ url('user:index') }}">Meine Seite</a>
+              |
+              <a href="{{ url('user:settings') }}">Einstellungen</a>
+              |
+              <a href="{{ url('user:logout') }}">Ausloggen</a>
             {% endif %}
-          </a>
-          Hallo, {{ user.preferred_name }}
-          <br>
 
-          {% if user.is_staff %}
-            <a href="/admin/">Admin</a>
-            |
-          {% endif %}
-          <a href="{{ url('user:index') }}">Meine Seite</a>
-          |
-          <a href="{{ url('user:settings') }}">Einstellungen</a>
-          |
-          <a href="{{ url('user:logout') }}">Ausloggen</a>
-        {% endif %}
-
-      </div>
+          </div>
+        </div>
     </div>
   {% endblock user_panel %}
 
 
   {% block logo %}
-    <div class='inner'>
-      <div id='logo'
-           {% if product_test and product_test.brand and product_test.brand.logo_top %}style="background: url({{ thumbnail(product_test.brand.logo_top, size=(280, 280)) }}) no-repeat 0 18px"{% endif %}>
-        <h1><a href="{{ url('home') }}">Trendsetter</a></h1>
-      </div>
+    <div class="container">
+        <div class="row">
+          <div id="logo"
+               class="col-md-24"
+               {% if product_test and product_test.brand and product_test.brand.logo_top %}style="background: url({{ thumbnail(product_test.brand.logo_top, size=(280, 280)) }}) no-repeat 0 18px"{% endif %}
+               >
+            <h1><a href="{{ url('home') }}">Trendsetter</a></h1>
+          </div>
+        </div>
     </div>
   {% endblock %}
 
 
   {% block main_navigation %}
-    <div class='inner'>
-      <nav class='main-nav'>
-        <li {% if request.path == url('product_test:index') %}class="active"{% endif %}>
-          <a href="{{ url('product_test:index') }}">Produkttests</a>
-        </li>
-        <li {% if request.path == url('how_it_works') %}class="active"{% endif %}>
-          <a href="{{ url('how_it_works') }}">Wie funktioniert’s?</a>
-        </li>
-        <li {% if request.path == url('our_brands') %}class="active"{% endif %}>
-          <a href="{{ url('our_brands') }}">Unsere Marken</a>
-        </li>
-        <li {% if request.path == url('static_page', url='ueber-uns') %}class="active"{% endif %}>
-          <a href="{{ url('static_page', url='ueber-uns') }}">Über uns</a>
-        </li>
+      <div class="main-nav">
+    <div class="container">
+        <div class="row">
+      <nav>
+          <ul class="col-md-24">
+            <li {% if request.path == url('product_test:index') %}class="active"{% endif %}>
+              <a href="{{ url('product_test:index') }}">Produkttests</a>
+            </li>
+            <li {% if request.path == url('how_it_works') %}class="active"{% endif %}>
+              <a href="{{ url('how_it_works') }}">Wie funktioniert’s?</a>
+            </li>
+            <li {% if request.path == url('our_brands') %}class="active"{% endif %}>
+              <a href="{{ url('our_brands') }}">Unsere Marken</a>
+            </li>
+            <li {% if request.path == url('static_page', url='ueber-uns') %}class="active"{% endif %}>
+              <a href="{{ url('static_page', url='ueber-uns') }}">Über uns</a>
+            </li>
+          </ul>
       </nav>
+        </div>
     </div>
+      </div>
   {% endblock main_navigation %}
 
 
@@ -172,7 +184,7 @@
 
 {# flash messages #}
 {% if messages %}
-  <div class="inner container">
+  <div class="container">
     <div id="flashes">
       <div class="inner">
         <ul class="messages">
@@ -188,9 +200,12 @@
   </div>
 {% endif %}
 
-<section role='content'>
+<div class="container">
+<section role="content">
   {% block content %}{% endblock content %}
 </section>
+</div>
+
 
 {% include 'footer.jinja' %}
 
