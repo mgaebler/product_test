@@ -10,7 +10,6 @@
 
   <link hreflang="de-de,de-ch,de-at" rel="alternate" href="https://www.trendsetter.eu"/>
 
-  <link href="//fonts.googleapis.com/css?family=Oxygen:400,700,300" media="screen" rel="stylesheet"/>
 
   <link href="{{ static('app/images/favicons/favicon.ico') }}" rel="shortcut icon" type="image/vnd.microsoft.icon"/>
   <link href="{{ static('app/images/favicons/apple-touch-icon-57x57.png') }}" rel="apple-touch-icon" sizes="57x57"
@@ -90,7 +89,10 @@
 {% if debug %}
     <div style="background-color: red; color: white; text-align: center">Debug</div>
 {% endif %}
+
 <header class="main">
+
+
   {% block user_panel %}
     <div class='current-user logged-in'>
       <div class='inner'>
@@ -127,9 +129,11 @@
           |
           <a href="{{ url('user:logout') }}">Ausloggen</a>
         {% endif %}
+
       </div>
     </div>
   {% endblock user_panel %}
+
 
   {% block logo %}
     <div class='inner'>
@@ -140,14 +144,15 @@
     </div>
   {% endblock %}
 
+
   {% block main_navigation %}
     <div class='inner'>
       <nav class='main-nav'>
-        <li {% if request.path == url('how_it_works') %}class="active"{% endif %}>
-          <a href="{{ url('how_it_works') }}">Wie funktioniert’s?</a>
-        </li>
         <li {% if request.path == url('product_test:index') %}class="active"{% endif %}>
           <a href="{{ url('product_test:index') }}">Produkttests</a>
+        </li>
+        <li {% if request.path == url('how_it_works') %}class="active"{% endif %}>
+          <a href="{{ url('how_it_works') }}">Wie funktioniert’s?</a>
         </li>
         <li {% if request.path == url('our_brands') %}class="active"{% endif %}>
           <a href="{{ url('our_brands') }}">Unsere Marken</a>
@@ -158,6 +163,7 @@
       </nav>
     </div>
   {% endblock main_navigation %}
+
 
   {% block dash_nav %}
   {% endblock dash_nav %}
@@ -191,22 +197,29 @@
 
 {# javascript #}
 {% javascript 'common' %}
-{# todo: put scripts to pipeline #}
-<script src="{{ static('wysihtml-0.4.17/dist/wysihtml5x-toolbar.min.js') }}"></script>
-<script src="{{ static('wysihtml-0.4.17/parser_rules/advanced_and_extended.js') }}"></script>
 
 {% if messages %}
 <script type="text/javascript">
-  $(document).ready(function () {
-    $('.flash').click(function (e) {
-      $(this).hide('slow');
-    });
-    $('.flash').delay(3000).hide('slow');
-  });
+    (function($){
+      "strict";
+
+      $(document).ready(function () {
+
+        $('.flash').click(function () {
+          $(this).hide('slow');
+        });
+
+        $('.flash').delay(5000).hide('slow');
+
+      })
+    })(jQuery);
+
 </script>
 {% endif %}
 
+
 {% block javascript %}{% endblock %}
+
 
 {# json ld #}
 <script type="application/ld+json">

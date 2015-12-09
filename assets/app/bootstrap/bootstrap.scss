@@ -1,23 +1,6 @@
-$feedback-border-color: #dddddd;
-$success-color: #264409;
-$success-bg-color: #e6efc2;
-$success-border-color: #c6d880;
-$notice-color: #514721;
-$notice-bg-color: #fff6bf;
-$notice-border-color: #ffd324;
-$info-color: #205791;
-$info-bg-color: #d5edf8;
-$info-border-color: #92cae4;
-$error-color: #8a1f11;
-$error-bg-color: #fbe3e4;
-$error-border-color: #fbc2c4;
 
-$grid-columns: 24;
-$grid-column-width: 30px;
-$grid-gutter-width: 10px;
 
 // Core variables and mixins
-@import "variables";
 @import "mixins";
 
 // Reset
@@ -34,33 +17,33 @@ $grid-gutter-width: 10px;
 @import "buttons";
 
 // Components
-@import "component-animations";
-@import "glyphicons";
+//@import "component-animations";
+//@import "glyphicons";
 @import "dropdowns";
 @import "button-groups";
 @import "input-groups";
 @import "navs";
 @import "navbar";
-@import "breadcrumbs";
+//@import "breadcrumbs";
 @import "pagination";
-@import "pager";
+//@import "pager";
 @import "labels";
 @import "badges";
-@import "jumbotron";
-@import "thumbnails";
+//@import "jumbotron";
+//@import "thumbnails";
 @import "alerts";
-@import "progress-bars";
-@import "media";
+//@import "progress-bars";
+//@import "media";
 @import "list-group";
 @import "panels";
-@import "wells";
+//@import "wells";
 @import "close";
 
 // Components w/ JavaScript
-@import "modals";
-@import "tooltip";
-@import "popovers";
-@import "carousel";
+//@import "modals";
+//@import "tooltip";
+//@import "popovers";
+//@import "carousel";
 
 // Utility classes
 @import "utilities";

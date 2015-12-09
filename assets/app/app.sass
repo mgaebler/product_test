@@ -1,8 +1,9 @@
-@import "compass"
-
+@import "//fonts.googleapis.com/css?family=Oxygen:400,700,300"
 // @import "normalize"
-
+@import "bootstrap/variables"
 @import "base_variables"
+
+@import "compass"
 
 $icons: sprite-map("icons/*.png")
 $icons2x: sprite-map("icons2x/*.png")
@@ -45,16 +46,11 @@ $icons2x: sprite-map("icons2x/*.png")
   margin: 0 auto
   width: 960px
 
-.reward-points
-  width: 75px
-  padding: 16px
-  text-align: right
-  font-weight: bold
-  font-size: 16px
-  span
-    background: image-url('trendpunkte_points_small.png') no-repeat 0 50%
-    padding-left: image-width("trendpunkte_points_small.png") + 4px
+.bigger
+  font-size: 18px
 
+.big
+  font-size: 14px
 
 ///////////////////////////////////////////////////////////////////
 // Specific page customization
@@ -67,7 +63,7 @@ header.main
   margin-bottom: 25px
   .current-user
     position: relative
-    @extend %inner-block
+
     .inner
       @extend %inner-block
       position: absolute
@@ -161,7 +157,6 @@ body.reduced-header
   background: $body-bg
   header.main
     background: $body-bg image-url("shared/background.jpg") no-repeat 50% 0
-    // background-image: image-url("produkttest_dashboard_background.png")
     height: 135px
     margin-bottom: 0px
     #logo
@@ -206,18 +201,11 @@ ul.shares
     vertical-align: top
     margin-right: 12px
 
-.social-media
-  margin-left: 40px
+
 
 a.btn.btn-primary
   +inverse-text-fix
   +link-colors($inverse-link-color)
-
-.bigger
-  font-size: 18px
-
-.big
-  font-size: 14px
 
 .box
   padding: 20px 16px
@@ -241,6 +229,8 @@ a.btn.btn-primary
 .inverse
   .form-control
     background-color: #fff
+  a
+    color: #fff
 
 .hero
   +hide-text()

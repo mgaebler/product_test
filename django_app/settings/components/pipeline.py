@@ -6,8 +6,6 @@
 PIPELINE_CSS = {
     'common': {
         'source_filenames': (
-            # 'sass-bootstrap/dist/css/bootstrap.css',
-            # 'bootstrap-sass-3.3.2/bootstrap-theme.css',
             'lightbox/dist/ekko-lightbox.css',
             'css3-social-signin-buttons.css',
         ),
@@ -17,7 +15,6 @@ PIPELINE_CSS = {
     'app': {
         'source_filenames': ('app/app.sass',),
         'output_filename': 'app/app_out.css',
-        # 'variant': 'datauri',
         'extra_context': {'media': 'screen,projection'},
     }
 }
@@ -28,6 +25,8 @@ PIPELINE_JS = {
             'jquery/dist/jquery.js',
             'bootstrap-sass-3.3.2/assets/javascripts/bootstrap.js',
             'lightbox/dist/ekko-lightbox.js',
+            'wysihtml-0.4.17/dist/wysihtml5x-toolbar.min.js',
+            'wysihtml-0.4.17/parser_rules/advanced_and_extended.js',
             'app/app.js',
         ),
         'output_filename': 'js/common.js',
