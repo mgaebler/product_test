@@ -5,13 +5,20 @@
 {% block javascript %}
   <script type="text/javascript" src="{{ static('jquery-lazy/jquery.lazy.min.js') }}"></script>
   <script>
-    $(document).delegate('*[data-toggle="lightbox"]', 'click', function (event) {
-      event.preventDefault();
-      $(this).ekkoLightbox();
-    });
-    jQuery(document).ready(function() {
-        jQuery("a.thumbnail img").Lazy();
-    });
+    (function($){
+      "strict";
+
+      $(document).delegate('*[data-toggle="lightbox"]', 'click', function (event) {
+        event.preventDefault();
+          $(this).ekkoLightbox();
+      });
+
+      $(document).ready(function() {
+        $("a.thumbnail img").Lazy();
+      });
+
+    })(jQuery);
+
   </script>
 {% endblock javascript %}
 

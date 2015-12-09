@@ -39,6 +39,7 @@
         type="image/png"/>
   <link href="{{ static('app/images/favicons/favicon-32x32.png') }}" rel="shortcut icon" sizes="32x32"
         type="image/png"/>
+
   <meta content='#000000' name='msapplication-TileColor'>
   <meta content='{{ static('app/images/favicons/mstile-144x144.png') }}' name='msapplication-TileImage'>
   <meta content='{{ static('app/images/favicons/browserconfig.xml') }}' name='msapplication-config'>
@@ -82,10 +83,6 @@
 </script>
 {% endif %}
 
-{% javascript 'common' %}
-{# todo: put scripts to pipeline #}
-<script src="{{ static('wysihtml-0.4.17/dist/wysihtml5x-toolbar.min.js') }}"></script>
-<script src="{{ static('wysihtml-0.4.17/parser_rules/advanced_and_extended.js') }}"></script>
 </head>
 
 <body class="{% block body_class %}{% endblock %}">
@@ -170,14 +167,6 @@
 {# flash messages #}
 {% if messages %}
   <div class="inner container">
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $('.flash').click(function (e) {
-          $(this).hide('slow');
-        });
-        $('.flash').delay(3000).hide('slow');
-      });
-    </script>
     <div id="flashes">
       <div class="inner">
         <ul class="messages">
@@ -199,6 +188,23 @@
 
 {% include 'footer.jinja' %}
 
+
+{# javascript #}
+{% javascript 'common' %}
+{# todo: put scripts to pipeline #}
+<script src="{{ static('wysihtml-0.4.17/dist/wysihtml5x-toolbar.min.js') }}"></script>
+<script src="{{ static('wysihtml-0.4.17/parser_rules/advanced_and_extended.js') }}"></script>
+
+{% if messages %}
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('.flash').click(function (e) {
+      $(this).hide('slow');
+    });
+    $('.flash').delay(3000).hide('slow');
+  });
+</script>
+{% endif %}
 
 {% block javascript %}{% endblock %}
 
