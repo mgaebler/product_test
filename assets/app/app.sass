@@ -66,29 +66,29 @@ header.main
     .user-avatar
       float: right
       margin: 0px 0px 0px 8px
+
   #logo
-    background: image-url("shared/logo.png") no-repeat 50% 0px
-    padding-top: 36px
+    overflow: hidden
     h1
-      +hide-text
-      margin: 0
-      a
-        display: block
-        margin: 0 auto
-        line-height: 120px
-        height: 120px
+      text-align: center
+    a
+      display: block
+    img
+      margin: -50px 0 -50px
 
   .main-nav
     border-bottom: 5px solid $primary
     text-align: center
-    margin: 0 auto
-    height: 45px
+    ul
+      list-style: none
+      margin: 0 0 -12px 0
     li
       +inline-block
       font-size: 16px
       margin: 0 32px
       height: 52px
       position: relative
+
     .active
       ::before
         position: absolute
@@ -106,69 +106,43 @@ header.main
       a
         font-weight: bold
 
-  body.reduced-header.user-dashboard &
-    height: 174px
-    border-bottom: 40px solid $primary
-  /* XXX this needs refactoring, holy shmoly */
-  nav.dash-nav .inner
-    position: relative
-  nav.dash-nav
-    position: absolute
-    top: 142px
-    display: block
-    color: $inverse-text-color
-    +inverse-links
-    +inverse-text-fix
-    li
-      +inline-block
-      font-size: 14px
-      margin: 0 16px
-      height: 40px
-      position: relative
-      &.active
-        font-weight: bold
-        ::before
-          position: absolute
-          display: block
-          content: ''
-          left: 50%
-          top: 100%
-          margin-left: -8px
-          margin-top: -8px
-          width: 16px
-          height: 8px
-          border-left: 8px solid transparent
-          border-right: 8px solid transparent
-          border-top: 8px solid $primary
 
 body.reduced-header
   background: $body-bg
   header.main
     background: $body-bg image-url("shared/background.jpg") no-repeat 50% 0
-    height: 135px
     margin-bottom: 0px
     #logo
-      height: 130px
-      padding-top: 0
-      background: image-url("dashboard_logo_header.png") no-repeat -64px 8px
-      position: absolute
-      h1
-        float: left
-        a
-          position: absolute
-          width: 355px
-          z-index: 13
-    nav.main-nav
-      position: absolute
-      right: 0
-      top: 100px
-      z-index: 10
+      overflow: hidden
+      text-align: left
+      //height: 60px
+      img
+        margin: -70px -70px 0px -60px
+
+    .main-nav
+      border-bottom: none
+      ul
+        padding: 0px
+        margin: 40px 0 0 0
       li
         font-size: 14px
-        margin: 0 24px
-        height: 42px
-      li:last-child
-        margin-right: 15px
+        margin: 0 18px
+        height: auto
+
+.dash-nav
+  background-color: $primary
+  color: $inverse-text-color
+  +inverse-links
+  +inverse-text-fix
+
+  ul
+    padding: 0px
+    text-align: center
+    li
+      +inline-block
+      margin: 0 14px
+      font-size: 14px
+      padding-top: 9px
 
 .subdued
   color: $subdued-text-color
@@ -294,16 +268,6 @@ a.link-camo, #ptw a.link-camo, #ptw a:link.link-camo, #ptw a:visited.link-camo, 
   text-decoration: none
   border-bottom: lighten($text-color, 50%) dotted 1px
 
-.btn-delete-inline, #ptw .btn-delete-inline
-  +border-radius(100%)
-  +all-link-colors(white)
-  color: white
-  background-color: red
-  width: 20px
-  height: 20px
-  font-size: 11px
-  line-height: 20px
-  text-align: center
 
 nav.pagination
   .page, .next, .last

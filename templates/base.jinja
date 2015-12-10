@@ -137,43 +137,8 @@
   {% endblock user_panel %}
 
 
-  {% block logo %}
-    <div class="container">
-        <div class="row">
-          <div id="logo"
-               class="col-md-24"
-               {% if product_test and product_test.brand and product_test.brand.logo_top %}style="background: url({{ thumbnail(product_test.brand.logo_top, size=(280, 280)) }}) no-repeat 0 18px"{% endif %}
-               >
-            <h1><a href="{{ url('home') }}">Trendsetter</a></h1>
-          </div>
-        </div>
-    </div>
-  {% endblock %}
-
-
   {% block main_navigation %}
-      <div class="main-nav">
-    <div class="container">
-        <div class="row">
-      <nav>
-          <ul class="col-md-24">
-            <li {% if request.path == url('product_test:index') %}class="active"{% endif %}>
-              <a href="{{ url('product_test:index') }}">Produkttests</a>
-            </li>
-            <li {% if request.path == url('how_it_works') %}class="active"{% endif %}>
-              <a href="{{ url('how_it_works') }}">Wie funktioniert’s?</a>
-            </li>
-            <li {% if request.path == url('our_brands') %}class="active"{% endif %}>
-              <a href="{{ url('our_brands') }}">Unsere Marken</a>
-            </li>
-            <li {% if request.path == url('static_page', url='ueber-uns') %}class="active"{% endif %}>
-              <a href="{{ url('static_page', url='ueber-uns') }}">Über uns</a>
-            </li>
-          </ul>
-      </nav>
-        </div>
-    </div>
-      </div>
+    {% include 'navigation.jinja' %}
   {% endblock main_navigation %}
 
 

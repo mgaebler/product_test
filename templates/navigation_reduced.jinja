@@ -1,0 +1,35 @@
+<div class="container main-nav">
+    <div class="row">
+        <div id="logo" class="col-sm-12 col-md-10">
+            <h1>
+                <a href="{{ url('home') }}" alt="trendsetter">
+                {% if product_test and product_test.brand and product_test.brand.logo_top %}
+                    <img src="{{ thumbnail(product_test.brand.logo_top, size=(280, 280)) }}" alt="trendsetter"/>
+                {% else %}
+                    <img src="{{ static("app/images/dashboard_logo_header.png") }}" alt="trendsetter"/>
+                {% endif %}
+
+                </a>
+            </h1>
+        </div>
+        <div class="col-sm-12 col-md-14">
+            <nav>
+                <ul>
+                    <li {% if request.path == url('product_test:index') %}class="active"{% endif %}>
+                        <a href="{{ url('product_test:index') }}">Produkttests</a>
+                    </li>
+                    <li {% if request.path == url('how_it_works') %}class="active"{% endif %}>
+                        <a href="{{ url('how_it_works') }}">Wie funktioniert’s?</a>
+                    </li>
+                    <li {% if request.path == url('our_brands') %}class="active"{% endif %}>
+                        <a href="{{ url('our_brands') }}">Unsere Marken</a>
+                    </li>
+                    <li {% if request.path == url('static_page', url='ueber-uns') %}class="active"{% endif %}>
+                        <a href="{{ url('static_page', url='ueber-uns') }}">Über uns</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
