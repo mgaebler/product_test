@@ -11,6 +11,12 @@ window.add_wysiwyg_editor = function(selector) {
     toolbar += '<a class="btn btn-default glyphicon glyphicon-bold" data-wysihtml5-command="bold"></a>';
     toolbar += '<a class="btn btn-default glyphicon glyphicon-italic" data-wysihtml5-command="italic"></a>';
     toolbar += '</div>';
+
+    wysihtml5ParserRules.tags.a.set_attributes = {
+        "rel": "nofollow",
+        "target": "_blank"
+    };
+
     $(selector).before(toolbar);
     var editor = new wysihtml5.Editor($(selector)[0], {
       toolbar: 'toolbar-' + random,
