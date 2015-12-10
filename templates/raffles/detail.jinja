@@ -29,7 +29,7 @@
               parserRules:  wysihtml5ParserRules
             });
         });
-        
+
       })(window.jQuery);
     </script>
 {% endblock javascript %}
@@ -74,4 +74,10 @@
 
   </div>
 </div>
+<script>
+  $( document ).ready(function() {
+    "use strict"
+    add_wysiwyg_editor();
+  });
+</script>
 {% endblock content %}
