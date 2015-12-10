@@ -123,7 +123,10 @@ body.reduced-header
       border-bottom: none
       ul
         padding: 0px
-        margin: 40px 0 0 0
+        @media (min-width: $screen-md-min)
+          margin: 40px 0 0 0
+
+        margin: 0px
       li
         font-size: 14px
         margin: 0 18px
