@@ -4,6 +4,12 @@
 
 {% block body_class %}s--tests p--show reduced-header{% endblock %}
 
+
+{% block main_navigation %}
+    {% include 'navigation_reduced.jinja' %}
+{% endblock %}
+
+
 {% block content %}
 
   <style>{{ product_test.custom_css }}</style>
