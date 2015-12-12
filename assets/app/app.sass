@@ -72,12 +72,12 @@ header.main
 
   #logo
     overflow: hidden
+    margin: 12px 0
     h1
       text-align: center
     a
       display: block
-    img
-      margin: -50px 0 -50px
+
 
   .main-nav
     border-bottom: 5px solid $primary
@@ -119,17 +119,20 @@ body.reduced-header
       overflow: hidden
       text-align: left
       //height: 60px
-      img
-        margin: -70px -70px 0px -60px
+      //img
+      //  margin: -70px -70px 0px -60px
 
     .main-nav
       border-bottom: none
       ul
         padding: 0px
+        position: relative
+        bottom: 0px
+        
         @media (min-width: $screen-md-min)
           margin: 40px 0 0 0
 
-        margin: 0px
+
       li
         font-size: 14px
         margin: 0 18px
