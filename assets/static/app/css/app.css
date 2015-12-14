@@ -4284,6 +4284,52 @@ input[type="button"].btn-block {
   width: 100%;
 }
 
+/* line 10, ../../../src/app/bootstrap/_component-animations.scss */
+.fade {
+  opacity: 0;
+  -webkit-transition: opacity 0.15s linear;
+  -o-transition: opacity 0.15s linear;
+  transition: opacity 0.15s linear;
+}
+/* line 13, ../../../src/app/bootstrap/_component-animations.scss */
+.fade.in {
+  opacity: 1;
+}
+
+/* line 18, ../../../src/app/bootstrap/_component-animations.scss */
+.collapse {
+  display: none;
+  visibility: hidden;
+}
+/* line 22, ../../../src/app/bootstrap/_component-animations.scss */
+.collapse.in {
+  display: block;
+  visibility: visible;
+}
+
+/* line 27, ../../../src/app/bootstrap/_component-animations.scss */
+tr.collapse.in {
+  display: table-row;
+}
+
+/* line 29, ../../../src/app/bootstrap/_component-animations.scss */
+tbody.collapse.in {
+  display: table-row-group;
+}
+
+/* line 31, ../../../src/app/bootstrap/_component-animations.scss */
+.collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition-property: height, visibility;
+  transition-property: height, visibility;
+  -webkit-transition-duration: 0.35s;
+  transition-duration: 0.35s;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+}
+
 /* line 7, ../../../src/app/bootstrap/_dropdowns.scss */
 .caret {
   display: inline-block;
@@ -6667,6 +6713,319 @@ button.close {
   -webkit-appearance: none;
 }
 
+/* line 11, ../../../src/app/bootstrap/_modals.scss */
+.modal-open {
+  overflow: hidden;
+}
+
+/* line 16, ../../../src/app/bootstrap/_modals.scss */
+.modal {
+  display: none;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+}
+/* line 32, ../../../src/app/bootstrap/_modals.scss */
+.modal.fade .modal-dialog {
+  -webkit-transform: translate(0, -25%);
+  -ms-transform: translate(0, -25%);
+  -o-transform: translate(0, -25%);
+  transform: translate(0, -25%);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  -moz-transition: -moz-transform 0.3s ease-out;
+  -o-transition: -o-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+}
+/* line 36, ../../../src/app/bootstrap/_modals.scss */
+.modal.in .modal-dialog {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+/* line 38, ../../../src/app/bootstrap/_modals.scss */
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* line 44, ../../../src/app/bootstrap/_modals.scss */
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 10px;
+}
+
+/* line 51, ../../../src/app/bootstrap/_modals.scss */
+.modal-content {
+  position: relative;
+  background-color: white;
+  border: 1px solid #999999;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0px;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  background-clip: padding-box;
+  outline: 0;
+}
+
+/* line 64, ../../../src/app/bootstrap/_modals.scss */
+.modal-backdrop {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: black;
+}
+/* line 71, ../../../src/app/bootstrap/_modals.scss */
+.modal-backdrop.fade {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+/* line 72, ../../../src/app/bootstrap/_modals.scss */
+.modal-backdrop.in {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
+/* line 77, ../../../src/app/bootstrap/_modals.scss */
+.modal-header {
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+  min-height: 16.42857px;
+}
+
+/* line 83, ../../../src/app/bootstrap/_modals.scss */
+.modal-header .close {
+  margin-top: -2px;
+}
+
+/* line 88, ../../../src/app/bootstrap/_modals.scss */
+.modal-title {
+  margin: 0;
+  line-height: 1.42857;
+}
+
+/* line 95, ../../../src/app/bootstrap/_modals.scss */
+.modal-body {
+  position: relative;
+  padding: 15px;
+}
+
+/* line 101, ../../../src/app/bootstrap/_modals.scss */
+.modal-footer {
+  padding: 15px;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
+}
+/* line 14, ../../../src/app/bootstrap/mixins/_clearfix.scss */
+.modal-footer:before, .modal-footer:after {
+  content: " ";
+  display: table;
+}
+/* line 19, ../../../src/app/bootstrap/mixins/_clearfix.scss */
+.modal-footer:after {
+  clear: both;
+}
+/* line 108, ../../../src/app/bootstrap/_modals.scss */
+.modal-footer .btn + .btn {
+  margin-left: 5px;
+  margin-bottom: 0;
+}
+/* line 113, ../../../src/app/bootstrap/_modals.scss */
+.modal-footer .btn-group .btn + .btn {
+  margin-left: -1px;
+}
+/* line 117, ../../../src/app/bootstrap/_modals.scss */
+.modal-footer .btn-block + .btn-block {
+  margin-left: 0;
+}
+
+/* line 123, ../../../src/app/bootstrap/_modals.scss */
+.modal-scrollbar-measure {
+  position: absolute;
+  top: -9999px;
+  width: 50px;
+  height: 50px;
+  overflow: scroll;
+}
+
+@media (min-width: 768px) {
+  /* line 134, ../../../src/app/bootstrap/_modals.scss */
+  .modal-dialog {
+    width: 600px;
+    margin: 30px auto;
+  }
+
+  /* line 138, ../../../src/app/bootstrap/_modals.scss */
+  .modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  /* line 143, ../../../src/app/bootstrap/_modals.scss */
+  .modal-sm {
+    width: 300px;
+  }
+}
+@media (min-width: 992px) {
+  /* line 147, ../../../src/app/bootstrap/_modals.scss */
+  .modal-lg {
+    width: 900px;
+  }
+}
+/* line 6, ../../../src/app/bootstrap/_popovers.scss */
+.popover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1060;
+  display: none;
+  max-width: 276px;
+  padding: 1px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 1.42857;
+  text-align: left;
+  background-color: white;
+  background-clip: padding-box;
+  border: 1px solid #cccccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  white-space: normal;
+}
+/* line 31, ../../../src/app/bootstrap/_popovers.scss */
+.popover.top {
+  margin-top: -10px;
+}
+/* line 32, ../../../src/app/bootstrap/_popovers.scss */
+.popover.right {
+  margin-left: 10px;
+}
+/* line 33, ../../../src/app/bootstrap/_popovers.scss */
+.popover.bottom {
+  margin-top: 10px;
+}
+/* line 34, ../../../src/app/bootstrap/_popovers.scss */
+.popover.left {
+  margin-left: -10px;
+}
+
+/* line 37, ../../../src/app/bootstrap/_popovers.scss */
+.popover-title {
+  margin: 0;
+  padding: 8px 14px;
+  font-size: 13px;
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #ebebeb;
+  border-radius: -1px -1px 0 0;
+}
+
+/* line 46, ../../../src/app/bootstrap/_popovers.scss */
+.popover-content {
+  padding: 9px 14px;
+}
+
+/* line 55, ../../../src/app/bootstrap/_popovers.scss */
+.popover > .arrow, .popover > .arrow:after {
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+
+/* line 65, ../../../src/app/bootstrap/_popovers.scss */
+.popover > .arrow {
+  border-width: 11px;
+}
+
+/* line 68, ../../../src/app/bootstrap/_popovers.scss */
+.popover > .arrow:after {
+  border-width: 10px;
+  content: "";
+}
+
+/* line 74, ../../../src/app/bootstrap/_popovers.scss */
+.popover.top > .arrow {
+  left: 50%;
+  margin-left: -11px;
+  border-bottom-width: 0;
+  border-top-color: #999999;
+  border-top-color: rgba(0, 0, 0, 0.25);
+  bottom: -11px;
+}
+/* line 81, ../../../src/app/bootstrap/_popovers.scss */
+.popover.top > .arrow:after {
+  content: " ";
+  bottom: 1px;
+  margin-left: -10px;
+  border-bottom-width: 0;
+  border-top-color: white;
+}
+/* line 89, ../../../src/app/bootstrap/_popovers.scss */
+.popover.right > .arrow {
+  top: 50%;
+  left: -11px;
+  margin-top: -11px;
+  border-left-width: 0;
+  border-right-color: #999999;
+  border-right-color: rgba(0, 0, 0, 0.25);
+}
+/* line 96, ../../../src/app/bootstrap/_popovers.scss */
+.popover.right > .arrow:after {
+  content: " ";
+  left: 1px;
+  bottom: -10px;
+  border-left-width: 0;
+  border-right-color: white;
+}
+/* line 104, ../../../src/app/bootstrap/_popovers.scss */
+.popover.bottom > .arrow {
+  left: 50%;
+  margin-left: -11px;
+  border-top-width: 0;
+  border-bottom-color: #999999;
+  border-bottom-color: rgba(0, 0, 0, 0.25);
+  top: -11px;
+}
+/* line 111, ../../../src/app/bootstrap/_popovers.scss */
+.popover.bottom > .arrow:after {
+  content: " ";
+  top: 1px;
+  margin-left: -10px;
+  border-top-width: 0;
+  border-bottom-color: white;
+}
+/* line 120, ../../../src/app/bootstrap/_popovers.scss */
+.popover.left > .arrow {
+  top: 50%;
+  right: -11px;
+  margin-top: -11px;
+  border-right-width: 0;
+  border-left-color: #999999;
+  border-left-color: rgba(0, 0, 0, 0.25);
+}
+/* line 127, ../../../src/app/bootstrap/_popovers.scss */
+.popover.left > .arrow:after {
+  content: " ";
+  right: 1px;
+  border-right-width: 0;
+  border-left-color: white;
+  bottom: -10px;
+}
+
 /* line 14, ../../../src/app/bootstrap/mixins/_clearfix.scss */
 .clearfix:before, .clearfix:after {
   content: " ";
@@ -7051,7 +7410,7 @@ body {
   font-family: "Oxygen", sans-serif;
   font-size: 14px;
   line-height: 22px;
-  background: #fff url('/static/../static/app/images/shared/background.jpg?1450122095') no-repeat 50% 0;
+  background: #fff url('/static/../static/app/images/shared/background.jpg?1450127327') no-repeat 50% 0;
   color: #3c3c3c;
 }
 
@@ -7265,7 +7624,7 @@ form small input[type="checkbox"] {
   text-shadow: none;
   background-color: transparent;
   border: 0;
-  background-image: url('/static/../static/app/images/overlay_close.png?1450122095');
+  background-image: url('/static/../static/app/images/overlay_close.png?1450127327');
   background-repeat: no-repeat;
   background-position: 50% 50%;
   width: 16px;
@@ -7959,7 +8318,7 @@ body.s--users.p--trendpoints .trendpoints {
 }
 /* line 26, ../../../src/app/_users.sass */
 body.s--users.p--trendpoints .trendpoints span {
-  background: url('/static/../static/app/images/trendpunkte_points_large.png?1450122095') no-repeat 0 60%;
+  background: url('/static/../static/app/images/trendpunkte_points_large.png?1450127327') no-repeat 0 60%;
   padding-left: 85px;
 }
 /* line 29, ../../../src/app/_users.sass */
@@ -7999,7 +8358,7 @@ body.s--users.p--trendpoints .goodies-list .goodie .goodie-img img::after {
   text-shadow: none;
   background-color: transparent;
   border: 0;
-  background-image: url('/static/../static/app/images/trendpunkte_loupe.png?1450122095');
+  background-image: url('/static/../static/app/images/trendpunkte_loupe.png?1450127327');
   background-repeat: no-repeat;
   background-position: 50% 50%;
   width: 70px;
@@ -8020,7 +8379,7 @@ body.s--users.p--trendpoints .goodies-list .goodie .goodie-cost {
 }
 /* line 62, ../../../src/app/_users.sass */
 body.s--users.p--trendpoints .goodies-list .goodie .goodie-cost span {
-  background: url('/static/../static/app/images/trendpunkte_points_small.png?1450122095') no-repeat 0 70%;
+  background: url('/static/../static/app/images/trendpunkte_points_small.png?1450127327') no-repeat 0 70%;
   padding-left: 20px;
 }
 /* line 65, ../../../src/app/_users.sass */
@@ -8077,7 +8436,7 @@ body.s--users.p--trendpoints .reward-list .reward .reward-points {
 }
 /* line 99, ../../../src/app/_users.sass */
 body.s--users.p--trendpoints .reward-list .reward .reward-points span {
-  background: url('/static/../static/app/images/trendpunkte_points_small.png?1450122095') no-repeat 0 70%;
+  background: url('/static/../static/app/images/trendpunkte_points_small.png?1450127327') no-repeat 0 70%;
   padding-left: 20px;
 }
 
@@ -8091,7 +8450,7 @@ body.s--users.p--trendpoints .reward-list .reward .reward-points span {
 }
 /* line 110, ../../../src/app/_users.sass */
 .reward-points span {
-  background: url('/static/../static/app/images/trendpunkte_points_small.png?1450122095') no-repeat 0 50%;
+  background: url('/static/../static/app/images/trendpunkte_points_small.png?1450127327') no-repeat 0 50%;
   padding-left: 20px;
 }
 
@@ -8127,7 +8486,7 @@ body.s--users.p--trendpoints .reward-list .reward .reward-points span {
 }
 /* line 25, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .step-1 {
-  background: #fd7263 url('/static/../static/app/images/how/wiefunktionierts_bild1.jpg?1450122095') no-repeat 0% 100%;
+  background: #fd7263 url('/static/../static/app/images/how/wiefunktionierts_bild1.jpg?1450127327') no-repeat 0% 100%;
 }
 /* line 27, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .step-1::before {
@@ -8135,7 +8494,7 @@ body.s--users.p--trendpoints .reward-list .reward .reward-points span {
 }
 /* line 29, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .step-2 {
-  background: #fd7263 url('/static/../static/app/images/how/wiefunktionierts_bild2.jpg?1450122095') no-repeat 0% 100%;
+  background: #fd7263 url('/static/../static/app/images/how/wiefunktionierts_bild2.jpg?1450127327') no-repeat 0% 100%;
 }
 /* line 31, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .step-2::before {
@@ -8143,7 +8502,7 @@ body.s--users.p--trendpoints .reward-list .reward .reward-points span {
 }
 /* line 33, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .step-3 {
-  background: #fd7263 url('/static/../static/app/images/how/wiefunktionierts_bild3.jpg?1450122095') no-repeat 0% 100%;
+  background: #fd7263 url('/static/../static/app/images/how/wiefunktionierts_bild3.jpg?1450127327') no-repeat 0% 100%;
 }
 /* line 35, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .step-3::before {
@@ -8177,23 +8536,23 @@ body.s--static.p--brands .brand-prinz a, body.s--static.p--brands .brand-fuersie
 /* line 54, ../../../src/app/_static_pages.sass */
 body.s--static.p--brands .brand-prinz a {
   background: no-repeat 0 27px;
-  background-image: url('/static/../static/app/images/marken_prinz.png?1450122095');
+  background-image: url('/static/../static/app/images/marken_prinz.png?1450127327');
   background-size: 190px;
 }
 /* line 58, ../../../src/app/_static_pages.sass */
 body.s--static.p--brands .brand-fuersie a {
-  background-image: url('/static/../static/app/images/marken_fuersie.png?1450122095');
+  background-image: url('/static/../static/app/images/marken_fuersie.png?1450127327');
   background-size: 190px;
 }
 /* line 61, ../../../src/app/_static_pages.sass */
 body.s--static.p--brands .brand-petra a {
-  background-image: url('/static/../static/app/images/marken_petra.png?1450122095');
+  background-image: url('/static/../static/app/images/marken_petra.png?1450127327');
   background-size: 190px;
 }
 /* line 64, ../../../src/app/_static_pages.sass */
 body.s--static.p--brands .brand-vital a {
   background: no-repeat 0 14px;
-  background-image: url('/static/../static/app/images/marken_vital.png?1450122095');
+  background-image: url('/static/../static/app/images/marken_vital.png?1450127327');
 }
 
 /* line 47, ../../../src/app/app.sass */
@@ -8290,7 +8649,7 @@ body.reduced-header {
 }
 /* line 116, ../../../src/app/app.sass */
 body.reduced-header header.main {
-  background: #fff url('/static/../static/app/images/shared/background.jpg?1450122095') no-repeat 50% 0;
+  background: #fff url('/static/../static/app/images/shared/background.jpg?1450127327') no-repeat 50% 0;
   margin-bottom: 0px;
 }
 /* line 119, ../../../src/app/app.sass */
@@ -8310,7 +8669,7 @@ body.reduced-header header.main .main-nav ul {
 @media (min-width: 992px) {
   /* line 125, ../../../src/app/app.sass */
   body.reduced-header header.main .main-nav ul {
-    margin: 40px 0 0 0;
+    margin: 70px 0 0 0;
   }
 }
 /* line 130, ../../../src/app/app.sass */
