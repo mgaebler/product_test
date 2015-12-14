@@ -6,7 +6,7 @@
 PIPELINE_CSS = {
     'app': {
         'source_filenames': ('app/css/app.css',),
-        'output_filename': 'app_out.css',
+        'output_filename': 'common.css',
         'extra_context': {'media': 'screen,projection'},
     }
 }
@@ -25,12 +25,6 @@ PIPELINE_JS = {
     }
 }
 
-# PIPELINE_SASS_ARGUMENTS = '--compass --update --trace'
-PIPELINE_SASS_ARGUMENTS = '--compass --trace'
-
-PIPELINE_COMPILERS = (
-    'core.contrib.pipeline.compilers.sass.SASSCompiler',
-)
 
 # PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'
 # PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'
