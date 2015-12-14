@@ -150,8 +150,9 @@
 {# flash messages #}
 {% if messages %}
   <div class="container">
-    <div id="flashes">
-      <div class="inner">
+    <div class="row">
+    <div class="col-md-24" id="flashes">
+
         <ul class="messages">
           {% for message in messages %}
             <li class="flash {% if message.tags %}{{ message.tags }}{% endif %}">
@@ -160,7 +161,8 @@
             </li>
           {% endfor %}
         </ul>
-      </div>
+
+    </div>
     </div>
   </div>
 {% endif %}

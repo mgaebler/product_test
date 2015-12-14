@@ -188,19 +188,21 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, '.static')
 
 STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'assets', 'libs'),
     os.path.join(BASE_DIR, 'assets', 'static'),
 )
 
 STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    # 'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'django.contrib.staticfiles.finders.FileSystemFinder',
     # 'pipeline.finders.FileSystemFinder',
-    # 'pipeline.finders.AppDirectoriesFinder',
+    'pipeline.finders.AppDirectoriesFinder',
+    'pipeline.finders.CachedFileFinder',
     'pipeline.finders.PipelineFinder',
 )
 
-# STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
-STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
+STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
+# STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '.media')
