@@ -4,17 +4,9 @@
 # PIPELINE_ENABLED = False
 
 PIPELINE_CSS = {
-    'common': {
-        'source_filenames': (
-            'lightbox/dist/ekko-lightbox.css',
-            'css3-social-signin-buttons.css',
-        ),
-        'output_filename': 'css/common.css',
-        'extra_context': {'media': 'screen,projection'},
-    },
     'app': {
-        'source_filenames': ('app/app.sass',),
-        'output_filename': 'app/app_out.css',
+        'source_filenames': ('app/css/app.css',),
+        'output_filename': 'app_out.css',
         'extra_context': {'media': 'screen,projection'},
     }
 }

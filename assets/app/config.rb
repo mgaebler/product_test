@@ -1,5 +1,0 @@
-http_path = "/static/app/"
-css_dir = "stylesheets"
-sass_dir = "."
-images_dir = "images"
-javascripts_dir = "javascripts"
