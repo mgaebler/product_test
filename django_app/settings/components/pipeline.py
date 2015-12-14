@@ -4,17 +4,9 @@
 # PIPELINE_ENABLED = False
 
 PIPELINE_CSS = {
-    'common': {
-        'source_filenames': (
-            'lightbox/dist/ekko-lightbox.css',
-            'css3-social-signin-buttons.css',
-        ),
-        'output_filename': 'css/common.css',
-        'extra_context': {'media': 'screen,projection'},
-    },
     'app': {
-        'source_filenames': ('app/app.sass',),
-        'output_filename': 'app/app_out.css',
+        'source_filenames': ('app/css/app.css',),
+        'output_filename': 'common.css',
         'extra_context': {'media': 'screen,projection'},
     }
 }
@@ -33,12 +25,6 @@ PIPELINE_JS = {
     }
 }
 
-# PIPELINE_SASS_ARGUMENTS = '--compass --update --trace'
-PIPELINE_SASS_ARGUMENTS = '--compass --trace'
-
-PIPELINE_COMPILERS = (
-    'core.contrib.pipeline.compilers.sass.SASSCompiler',
-)
 
 # PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'
 # PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'

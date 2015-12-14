@@ -180,7 +180,7 @@ LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
 )
 
-# Static files (CSS, JavaScript, Images)
+# Static files (CSS, JavaScripts, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
@@ -188,7 +188,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, '.static')
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'assets'),
+    os.path.join(BASE_DIR, 'assets', 'static'),
 )
 
 STATICFILES_FINDERS = (
@@ -200,8 +200,8 @@ STATICFILES_FINDERS = (
     'pipeline.finders.PipelineFinder',
 )
 
-STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
-# STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
+# STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
+STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '.media')
@@ -219,6 +219,7 @@ LOGIN_URL = "/my/login-form"
 #     },
 # }
 
+
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
@@ -229,6 +230,7 @@ CACHES = {
         'LOCATION': 'local-memory',
     },
 }
+
 
 LOGGING = {
     'version': 1,

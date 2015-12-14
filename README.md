@@ -57,9 +57,15 @@ vagrant ssh
 ``192.168.105.11:8000/admin/``
 Suche eine Customer Email raus, oder lege eine Testemail an
 
+
+# Frontend Development
 ## How do I use bower in this project <a name='use-bower' />
 Change to your project directory in your vagrant box (this is really important) and use:
 ``bower install name-of-your-js-app``
+
+## Sass/Compass
+!! Pipeline übernimmt nicht mehr das compilieren der SASS Dateien!
+Wechsle nach ``assets/src/`` und führe ``compass watch`` aus.
 
 
 # Deployment
