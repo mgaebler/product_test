@@ -5,7 +5,10 @@
 
 PIPELINE_CSS = {
     'app': {
-        'source_filenames': ('app/css/app.css',),
+        'source_filenames': (
+            'lightbox/dist/ekko-lightbox.css',
+            'app/css/app.css',
+        ),
         'output_filename': 'common.css',
         'extra_context': {'media': 'screen,projection'},
     }
