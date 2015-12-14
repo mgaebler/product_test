@@ -7106,11 +7106,19 @@ h2 {
 /* line 7, ../../../src/app/_flashes.sass */
 #flashes .messages {
   list-style: none;
+<<<<<<< HEAD
   margin: 0;
 }
 /* line 10, ../../../src/app/_flashes.sass */
 #flashes .flash {
   width: 700px;
+=======
+  padding: 0px;
+  margin: 0;
+}
+/* line 11, ../../../src/app/_flashes.sass */
+#flashes .flash {
+>>>>>>> feature/assets_refactoring
   padding: 8px;
   margin: 16px auto;
   text-align: center;
