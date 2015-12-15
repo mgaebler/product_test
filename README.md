@@ -68,7 +68,7 @@ Change to your project directory in your vagrant box (this is really important) 
 Wechsle nach ``assets/src/`` und führe ``compass watch`` aus.
 
 
-# Deployment
+# Provisioning
 ## Vagrant
 ``vagrant up`` (``ansible-playbook ansible/vagrant.yml -i ansible/vagrant``)
 
@@ -106,7 +106,19 @@ Folgende Punkte werden im Deployment abgehandelt.
 * Ausführen von collectstatic
 
 
-## Übersetzungen
+# Deployment
+If you just want to deploy a specific branch, you can flag the provisioning command with ``--tags=deploy``.
+``ansible-playbook ansible/staging.yml -i ansible/staging --tags=deploy``
+This executes only the following tasks on the staging branch.
+
+* Clonen/Aktualisieren
+* Installation der Requirements (Python)
+* Ausführen der Datenbankmigrationen
+* Ausführen von collectstatic
+
+
+
+## Translations
 Zum erstellen der Dateien 
 ``./manage.py makemessages -e jinja -e html -e txt --all`` 
 ausführen. 

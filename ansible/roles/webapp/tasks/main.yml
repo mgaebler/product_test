@@ -44,7 +44,8 @@
 # clone the webapp
 - git: repo={{ app.repo }} dest="{{ user.home }}/{{ app.id }}" version="{{ app.version }}" accept_hostkey=yes
   when: app.environment != "development"
-
+  tags:
+    - deploy
 
 # add correct permissons
 - file: path="{{ item }}" owner="{{ user.name }}" group=www-data mode=0770 state=directory recurse=yes
@@ -54,12 +55,14 @@
     - "{{ app.media_path }}/uploads"
     - "{{ app.static_path }}"
   when: app.environment != "development"
-
+  tags:
+    - deploy
 
 # install app specific python packages
 # It is really important that the webapp is cloned before the requirements are installed.
 - pip: requirements={{ virtualenv.requirements }} virtualenv={{ virtualenv.path }}
-
+  tags:
+    - deploy
 
 # make developers love you
 # this depends on a ready installed virtualenv so I put it in here
@@ -72,9 +75,15 @@
 
 # do migrations
 - shell: "{{ virtualenv.path }}/bin/python {{ app.basedir }}/manage.py migrate --settings=django_app.settings.{{ app.environment }}"
+  tags:
+    - deploy
 
 # do collectstatic
 - shell: "{{ virtualenv.path }}/bin/python {{ app.basedir }}/manage.py collectstatic --settings=django_app.settings.{{ app.environment }} --noinput"
+  tags:
+    - deploy
 
 # do collectstatic
 - shell: "{{ virtualenv.path }}/bin/python {{ app.basedir }}/manage.py compilemessages --settings=django_app.settings.{{ app.environment }}"
+  tags:
+    - deploy
