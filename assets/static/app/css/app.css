@@ -391,11 +391,11 @@ html {
 
 /* line 27, ../../../src/app/bootstrap/_scaffolding.scss */
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 13px;
+  font-family: "Oxygen", sans-serif;
+  font-size: 14px;
   line-height: 1.42857;
   color: #3c3c3c;
-  background-color: #fff;
+  background-color: white;
 }
 
 /* line 36, ../../../src/app/bootstrap/_scaffolding.scss */
@@ -415,7 +415,7 @@ a {
 }
 /* line 52, ../../../src/app/bootstrap/_scaffolding.scss */
 a:hover, a:focus {
-  color: #23527c;
+  color: #fc2e17;
   text-decoration: underline;
 }
 /* line 58, ../../../src/app/bootstrap/_scaffolding.scss */
@@ -603,21 +603,21 @@ p {
 /* line 62, ../../../src/app/bootstrap/_type.scss */
 .lead {
   margin-bottom: 19px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 300;
   line-height: 1.4;
 }
 @media (min-width: 768px) {
   /* line 62, ../../../src/app/bootstrap/_type.scss */
   .lead {
-    font-size: 19.5px;
+    font-size: 21px;
   }
 }
 
 /* line 78, ../../../src/app/bootstrap/_type.scss */
 small,
 .small {
-  font-size: 92%;
+  font-size: 85%;
 }
 
 /* line 83, ../../../src/app/bootstrap/_type.scss */
@@ -981,7 +981,7 @@ pre {
   display: block;
   padding: 9px;
   margin: 0 0 9.5px;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.42857;
   word-break: break-all;
   word-wrap: break-word;
@@ -3140,7 +3140,7 @@ th {
 }
 /* line 62, ../../../src/app/bootstrap/_tables.scss */
 .table .table {
-  background-color: #fff;
+  background-color: white;
 }
 
 /* line 75, ../../../src/app/bootstrap/_tables.scss */
@@ -3369,7 +3369,7 @@ legend {
   width: 100%;
   padding: 0;
   margin-bottom: 19px;
-  font-size: 19.5px;
+  font-size: 21px;
   line-height: inherit;
   color: #333333;
   border: 0;
@@ -3429,7 +3429,7 @@ input[type="checkbox"]:focus {
 output {
   display: block;
   padding-top: 7px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.42857;
   color: #555555;
 }
@@ -3440,7 +3440,7 @@ output {
   width: 100%;
   height: 33px;
   padding: 6px 12px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.42857;
   color: #555555;
   background-color: white;
@@ -4016,7 +4016,7 @@ select[multiple].form-group-lg .form-control {
   border: 1px solid transparent;
   white-space: nowrap;
   padding: 6px 12px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.42857;
   border-radius: 0px;
   -webkit-user-select: none;
@@ -4082,14 +4082,14 @@ select[multiple].form-group-lg .form-control {
 /* line 63, ../../../src/app/bootstrap/_buttons.scss */
 .btn-primary {
   color: white;
-  background-color: #337ab7;
-  border-color: #2e6da4;
+  background-color: #fd7263;
+  border-color: #fd5b4a;
 }
 /* line 11, ../../../src/app/bootstrap/mixins/_buttons.scss */
 .btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle {
   color: white;
-  background-color: #286090;
-  border-color: #204d74;
+  background-color: #fc4431;
+  border-color: #fc250d;
 }
 /* line 21, ../../../src/app/bootstrap/mixins/_buttons.scss */
 .btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle {
@@ -4097,26 +4097,26 @@ select[multiple].form-group-lg .form-control {
 }
 /* line 29, ../../../src/app/bootstrap/mixins/_buttons.scss */
 .btn-primary.disabled, .btn-primary.disabled:hover, .btn-primary.disabled:focus, .btn-primary.disabled.focus, .btn-primary.disabled:active, .btn-primary.disabled.active, .btn-primary[disabled], .btn-primary[disabled]:hover, .btn-primary[disabled]:focus, .btn-primary[disabled].focus, .btn-primary[disabled]:active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary, fieldset[disabled] .btn-primary:hover, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary.focus, fieldset[disabled] .btn-primary:active, fieldset[disabled] .btn-primary.active {
-  background-color: #337ab7;
-  border-color: #2e6da4;
+  background-color: #fd7263;
+  border-color: #fd5b4a;
 }
 /* line 40, ../../../src/app/bootstrap/mixins/_buttons.scss */
 .btn-primary .badge {
-  color: #337ab7;
+  color: #fd7263;
   background-color: white;
 }
 
 /* line 67, ../../../src/app/bootstrap/_buttons.scss */
 .btn-success {
   color: white;
-  background-color: #5cb85c;
-  border-color: #4cae4c;
+  background-color: #264409;
+  border-color: #192d06;
 }
 /* line 11, ../../../src/app/bootstrap/mixins/_buttons.scss */
 .btn-success:hover, .btn-success:focus, .btn-success.focus, .btn-success:active, .btn-success.active, .open > .btn-success.dropdown-toggle {
   color: white;
-  background-color: #449d44;
-  border-color: #398439;
+  background-color: #0d1703;
+  border-color: black;
 }
 /* line 21, ../../../src/app/bootstrap/mixins/_buttons.scss */
 .btn-success:active, .btn-success.active, .open > .btn-success.dropdown-toggle {
@@ -4124,26 +4124,26 @@ select[multiple].form-group-lg .form-control {
 }
 /* line 29, ../../../src/app/bootstrap/mixins/_buttons.scss */
 .btn-success.disabled, .btn-success.disabled:hover, .btn-success.disabled:focus, .btn-success.disabled.focus, .btn-success.disabled:active, .btn-success.disabled.active, .btn-success[disabled], .btn-success[disabled]:hover, .btn-success[disabled]:focus, .btn-success[disabled].focus, .btn-success[disabled]:active, .btn-success[disabled].active, fieldset[disabled] .btn-success, fieldset[disabled] .btn-success:hover, fieldset[disabled] .btn-success:focus, fieldset[disabled] .btn-success.focus, fieldset[disabled] .btn-success:active, fieldset[disabled] .btn-success.active {
-  background-color: #5cb85c;
-  border-color: #4cae4c;
+  background-color: #264409;
+  border-color: #192d06;
 }
 /* line 40, ../../../src/app/bootstrap/mixins/_buttons.scss */
 .btn-success .badge {
-  color: #5cb85c;
+  color: #264409;
   background-color: white;
 }
 
 /* line 71, ../../../src/app/bootstrap/_buttons.scss */
 .btn-info {
   color: white;
-  background-color: #5bc0de;
-  border-color: #46b8da;
+  background-color: #205791;
+  border-color: #1b4a7c;
 }
 /* line 11, ../../../src/app/bootstrap/mixins/_buttons.scss */
 .btn-info:hover, .btn-info:focus, .btn-info.focus, .btn-info:active, .btn-info.active, .open > .btn-info.dropdown-toggle {
   color: white;
-  background-color: #31b0d5;
-  border-color: #269abc;
+  background-color: #173e67;
+  border-color: #102c4a;
 }
 /* line 21, ../../../src/app/bootstrap/mixins/_buttons.scss */
 .btn-info:active, .btn-info.active, .open > .btn-info.dropdown-toggle {
@@ -4151,12 +4151,12 @@ select[multiple].form-group-lg .form-control {
 }
 /* line 29, ../../../src/app/bootstrap/mixins/_buttons.scss */
 .btn-info.disabled, .btn-info.disabled:hover, .btn-info.disabled:focus, .btn-info.disabled.focus, .btn-info.disabled:active, .btn-info.disabled.active, .btn-info[disabled], .btn-info[disabled]:hover, .btn-info[disabled]:focus, .btn-info[disabled].focus, .btn-info[disabled]:active, .btn-info[disabled].active, fieldset[disabled] .btn-info, fieldset[disabled] .btn-info:hover, fieldset[disabled] .btn-info:focus, fieldset[disabled] .btn-info.focus, fieldset[disabled] .btn-info:active, fieldset[disabled] .btn-info.active {
-  background-color: #5bc0de;
-  border-color: #46b8da;
+  background-color: #205791;
+  border-color: #1b4a7c;
 }
 /* line 40, ../../../src/app/bootstrap/mixins/_buttons.scss */
 .btn-info .badge {
-  color: #5bc0de;
+  color: #205791;
   background-color: white;
 }
 
@@ -4190,14 +4190,14 @@ select[multiple].form-group-lg .form-control {
 /* line 79, ../../../src/app/bootstrap/_buttons.scss */
 .btn-danger {
   color: white;
-  background-color: #d9534f;
-  border-color: #d43f3a;
+  background-color: #8a1f11;
+  border-color: #731a0e;
 }
 /* line 11, ../../../src/app/bootstrap/mixins/_buttons.scss */
 .btn-danger:hover, .btn-danger:focus, .btn-danger.focus, .btn-danger:active, .btn-danger.active, .open > .btn-danger.dropdown-toggle {
   color: white;
-  background-color: #c9302c;
-  border-color: #ac2925;
+  background-color: #5d150b;
+  border-color: #3d0e07;
 }
 /* line 21, ../../../src/app/bootstrap/mixins/_buttons.scss */
 .btn-danger:active, .btn-danger.active, .open > .btn-danger.dropdown-toggle {
@@ -4205,12 +4205,12 @@ select[multiple].form-group-lg .form-control {
 }
 /* line 29, ../../../src/app/bootstrap/mixins/_buttons.scss */
 .btn-danger.disabled, .btn-danger.disabled:hover, .btn-danger.disabled:focus, .btn-danger.disabled.focus, .btn-danger.disabled:active, .btn-danger.disabled.active, .btn-danger[disabled], .btn-danger[disabled]:hover, .btn-danger[disabled]:focus, .btn-danger[disabled].focus, .btn-danger[disabled]:active, .btn-danger[disabled].active, fieldset[disabled] .btn-danger, fieldset[disabled] .btn-danger:hover, fieldset[disabled] .btn-danger:focus, fieldset[disabled] .btn-danger.focus, fieldset[disabled] .btn-danger:active, fieldset[disabled] .btn-danger.active {
-  background-color: #d9534f;
-  border-color: #d43f3a;
+  background-color: #8a1f11;
+  border-color: #731a0e;
 }
 /* line 40, ../../../src/app/bootstrap/mixins/_buttons.scss */
 .btn-danger .badge {
-  color: #d9534f;
+  color: #8a1f11;
   background-color: white;
 }
 
@@ -4232,7 +4232,7 @@ select[multiple].form-group-lg .form-control {
 }
 /* line 107, ../../../src/app/bootstrap/_buttons.scss */
 .btn-link:hover, .btn-link:focus {
-  color: #23527c;
+  color: #fc2e17;
   text-decoration: underline;
   background-color: transparent;
 }
@@ -4364,7 +4364,7 @@ tbody.collapse.in {
   padding: 5px 0;
   margin: 2px 0 0;
   list-style: none;
-  font-size: 13px;
+  font-size: 14px;
   text-align: left;
   background-color: white;
   border: 1px solid #cccccc;
@@ -4409,7 +4409,7 @@ tbody.collapse.in {
   color: white;
   text-decoration: none;
   outline: 0;
-  background-color: #337ab7;
+  background-color: #fd7263;
 }
 
 /* line 101, ../../../src/app/bootstrap/_dropdowns.scss */
@@ -4788,7 +4788,7 @@ tbody.collapse.in {
 /* line 73, ../../../src/app/bootstrap/_input-groups.scss */
 .input-group-addon {
   padding: 6px 12px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: normal;
   line-height: 1;
   color: #555555;
@@ -4985,7 +4985,7 @@ tbody.collapse.in {
 /* line 131, ../../../src/app/bootstrap/_navs.scss */
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
   color: white;
-  background-color: #337ab7;
+  background-color: #fd7263;
 }
 
 /* line 144, ../../../src/app/bootstrap/_navs.scss */
@@ -5736,7 +5736,7 @@ tbody.collapse.in {
   padding: 6px 12px;
   line-height: 1.42857;
   text-decoration: none;
-  color: #337ab7;
+  color: #fd7263;
   background-color: white;
   border: 1px solid #dddddd;
   margin-left: -1px;
@@ -5758,7 +5758,7 @@ tbody.collapse.in {
 .pagination > li > a:hover, .pagination > li > a:focus,
 .pagination > li > span:hover,
 .pagination > li > span:focus {
-  color: #23527c;
+  color: #fc2e17;
   background-color: #eeeeee;
   border-color: #dddddd;
 }
@@ -5769,8 +5769,8 @@ tbody.collapse.in {
 .pagination > .active > span:focus {
   z-index: 2;
   color: white;
-  background-color: #337ab7;
-  border-color: #337ab7;
+  background-color: #fd7263;
+  border-color: #fd7263;
   cursor: default;
 }
 /* line 63, ../../../src/app/bootstrap/_pagination.scss */
@@ -5865,29 +5865,29 @@ a.label:hover, a.label:focus {
 
 /* line 48, ../../../src/app/bootstrap/_labels.scss */
 .label-primary {
-  background-color: #337ab7;
+  background-color: #fd7263;
 }
 /* line 7, ../../../src/app/bootstrap/mixins/_labels.scss */
 .label-primary[href]:hover, .label-primary[href]:focus {
-  background-color: #286090;
+  background-color: #fc4431;
 }
 
 /* line 52, ../../../src/app/bootstrap/_labels.scss */
 .label-success {
-  background-color: #5cb85c;
+  background-color: #264409;
 }
 /* line 7, ../../../src/app/bootstrap/mixins/_labels.scss */
 .label-success[href]:hover, .label-success[href]:focus {
-  background-color: #449d44;
+  background-color: #0d1703;
 }
 
 /* line 56, ../../../src/app/bootstrap/_labels.scss */
 .label-info {
-  background-color: #5bc0de;
+  background-color: #205791;
 }
 /* line 7, ../../../src/app/bootstrap/mixins/_labels.scss */
 .label-info[href]:hover, .label-info[href]:focus {
-  background-color: #31b0d5;
+  background-color: #173e67;
 }
 
 /* line 60, ../../../src/app/bootstrap/_labels.scss */
@@ -5901,11 +5901,11 @@ a.label:hover, a.label:focus {
 
 /* line 64, ../../../src/app/bootstrap/_labels.scss */
 .label-danger {
-  background-color: #d9534f;
+  background-color: #8a1f11;
 }
 /* line 7, ../../../src/app/bootstrap/mixins/_labels.scss */
 .label-danger[href]:hover, .label-danger[href]:focus {
-  background-color: #c9302c;
+  background-color: #5d150b;
 }
 
 /* line 7, ../../../src/app/bootstrap/_badges.scss */
@@ -5939,7 +5939,7 @@ a.label:hover, a.label:focus {
 }
 /* line 39, ../../../src/app/bootstrap/_badges.scss */
 .list-group-item.active > .badge, .nav-pills > .active > a > .badge {
-  color: #337ab7;
+  color: #fd7263;
   background-color: white;
 }
 /* line 44, ../../../src/app/bootstrap/_badges.scss */
@@ -6122,8 +6122,8 @@ a.list-group-item:hover, a.list-group-item:focus {
 .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
   z-index: 2;
   color: white;
-  background-color: #337ab7;
-  border-color: #337ab7;
+  background-color: #fd7263;
+  border-color: #fd7263;
 }
 /* line 90, ../../../src/app/bootstrap/_list-group.scss */
 .list-group-item.active .list-group-item-heading,
@@ -6137,7 +6137,7 @@ a.list-group-item:hover, a.list-group-item:focus {
 }
 /* line 95, ../../../src/app/bootstrap/_list-group.scss */
 .list-group-item.active .list-group-item-text, .list-group-item.active:hover .list-group-item-text, .list-group-item.active:focus .list-group-item-text {
-  color: #c7ddef;
+  color: white;
 }
 
 /* line 4, ../../../src/app/bootstrap/mixins/_list-group.scss */
@@ -6296,7 +6296,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 .panel-title {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 15px;
+  font-size: 16px;
   color: inherit;
 }
 /* line 39, ../../../src/app/bootstrap/_panels.scss */
@@ -6566,26 +6566,26 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 
 /* line 247, ../../../src/app/bootstrap/_panels.scss */
 .panel-primary {
-  border-color: #337ab7;
+  border-color: #fd7263;
 }
 /* line 6, ../../../src/app/bootstrap/mixins/_panels.scss */
 .panel-primary > .panel-heading {
   color: white;
-  background-color: #337ab7;
-  border-color: #337ab7;
+  background-color: #fd7263;
+  border-color: #fd7263;
 }
 /* line 11, ../../../src/app/bootstrap/mixins/_panels.scss */
 .panel-primary > .panel-heading + .panel-collapse > .panel-body {
-  border-top-color: #337ab7;
+  border-top-color: #fd7263;
 }
 /* line 14, ../../../src/app/bootstrap/mixins/_panels.scss */
 .panel-primary > .panel-heading .badge {
-  color: #337ab7;
+  color: #fd7263;
   background-color: white;
 }
 /* line 20, ../../../src/app/bootstrap/mixins/_panels.scss */
 .panel-primary > .panel-footer + .panel-collapse > .panel-body {
-  border-bottom-color: #337ab7;
+  border-bottom-color: #fd7263;
 }
 
 /* line 250, ../../../src/app/bootstrap/_panels.scss */
@@ -6687,7 +6687,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 /* line 6, ../../../src/app/bootstrap/_close.scss */
 .close {
   float: right;
-  font-size: 19.5px;
+  font-size: 21px;
   font-weight: bold;
   line-height: 1;
   color: black;
@@ -6890,8 +6890,8 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 13px;
+  font-family: "Oxygen", sans-serif;
+  font-size: 14px;
   font-weight: normal;
   line-height: 1.42857;
   text-align: left;
@@ -6925,7 +6925,7 @@ button.close {
 .popover-title {
   margin: 0;
   padding: 8px 14px;
-  font-size: 13px;
+  font-size: 14px;
   background-color: #f7f7f7;
   border-bottom: 1px solid #ebebeb;
   border-radius: -1px -1px 0 0;
@@ -7410,7 +7410,7 @@ body {
   font-family: "Oxygen", sans-serif;
   font-size: 14px;
   line-height: 22px;
-  background: #fff url('/static/../static/app/images/shared/background.jpg?1450127327') no-repeat 50% 0;
+  background: white url('/static/../static/app/images/shared/background.jpg?1450145078') no-repeat 50% 0;
   color: #3c3c3c;
 }
 
@@ -7624,7 +7624,7 @@ form small input[type="checkbox"] {
   text-shadow: none;
   background-color: transparent;
   border: 0;
-  background-image: url('/static/../static/app/images/overlay_close.png?1450127327');
+  background-image: url('/static/../static/app/images/overlay_close.png?1450145078');
   background-repeat: no-repeat;
   background-position: 50% 50%;
   width: 16px;
@@ -8221,7 +8221,7 @@ img.team.crown {
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
   color: #fff;
-  background: #fff none no-repeat 50% 100%;
+  background: white none no-repeat 50% 100%;
   width: 231px;
   height: 220px;
 }
@@ -8318,7 +8318,7 @@ body.s--users.p--trendpoints .trendpoints {
 }
 /* line 26, ../../../src/app/_users.sass */
 body.s--users.p--trendpoints .trendpoints span {
-  background: url('/static/../static/app/images/trendpunkte_points_large.png?1450127327') no-repeat 0 60%;
+  background: url('/static/../static/app/images/trendpunkte_points_large.png?1450145078') no-repeat 0 60%;
   padding-left: 85px;
 }
 /* line 29, ../../../src/app/_users.sass */
@@ -8358,7 +8358,7 @@ body.s--users.p--trendpoints .goodies-list .goodie .goodie-img img::after {
   text-shadow: none;
   background-color: transparent;
   border: 0;
-  background-image: url('/static/../static/app/images/trendpunkte_loupe.png?1450127327');
+  background-image: url('/static/../static/app/images/trendpunkte_loupe.png?1450145078');
   background-repeat: no-repeat;
   background-position: 50% 50%;
   width: 70px;
@@ -8379,7 +8379,7 @@ body.s--users.p--trendpoints .goodies-list .goodie .goodie-cost {
 }
 /* line 62, ../../../src/app/_users.sass */
 body.s--users.p--trendpoints .goodies-list .goodie .goodie-cost span {
-  background: url('/static/../static/app/images/trendpunkte_points_small.png?1450127327') no-repeat 0 70%;
+  background: url('/static/../static/app/images/trendpunkte_points_small.png?1450145078') no-repeat 0 70%;
   padding-left: 20px;
 }
 /* line 65, ../../../src/app/_users.sass */
@@ -8436,7 +8436,7 @@ body.s--users.p--trendpoints .reward-list .reward .reward-points {
 }
 /* line 99, ../../../src/app/_users.sass */
 body.s--users.p--trendpoints .reward-list .reward .reward-points span {
-  background: url('/static/../static/app/images/trendpunkte_points_small.png?1450127327') no-repeat 0 70%;
+  background: url('/static/../static/app/images/trendpunkte_points_small.png?1450145078') no-repeat 0 70%;
   padding-left: 20px;
 }
 
@@ -8450,7 +8450,7 @@ body.s--users.p--trendpoints .reward-list .reward .reward-points span {
 }
 /* line 110, ../../../src/app/_users.sass */
 .reward-points span {
-  background: url('/static/../static/app/images/trendpunkte_points_small.png?1450127327') no-repeat 0 50%;
+  background: url('/static/../static/app/images/trendpunkte_points_small.png?1450145078') no-repeat 0 50%;
   padding-left: 20px;
 }
 
@@ -8486,7 +8486,7 @@ body.s--users.p--trendpoints .reward-list .reward .reward-points span {
 }
 /* line 25, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .step-1 {
-  background: #fd7263 url('/static/../static/app/images/how/wiefunktionierts_bild1.jpg?1450127327') no-repeat 0% 100%;
+  background: #fd7263 url('/static/../static/app/images/how/wiefunktionierts_bild1.jpg?1450145078') no-repeat 0% 100%;
 }
 /* line 27, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .step-1::before {
@@ -8494,7 +8494,7 @@ body.s--users.p--trendpoints .reward-list .reward .reward-points span {
 }
 /* line 29, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .step-2 {
-  background: #fd7263 url('/static/../static/app/images/how/wiefunktionierts_bild2.jpg?1450127327') no-repeat 0% 100%;
+  background: #fd7263 url('/static/../static/app/images/how/wiefunktionierts_bild2.jpg?1450145078') no-repeat 0% 100%;
 }
 /* line 31, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .step-2::before {
@@ -8502,7 +8502,7 @@ body.s--users.p--trendpoints .reward-list .reward .reward-points span {
 }
 /* line 33, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .step-3 {
-  background: #fd7263 url('/static/../static/app/images/how/wiefunktionierts_bild3.jpg?1450127327') no-repeat 0% 100%;
+  background: #fd7263 url('/static/../static/app/images/how/wiefunktionierts_bild3.jpg?1450145078') no-repeat 0% 100%;
 }
 /* line 35, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .step-3::before {
@@ -8536,23 +8536,23 @@ body.s--static.p--brands .brand-prinz a, body.s--static.p--brands .brand-fuersie
 /* line 54, ../../../src/app/_static_pages.sass */
 body.s--static.p--brands .brand-prinz a {
   background: no-repeat 0 27px;
-  background-image: url('/static/../static/app/images/marken_prinz.png?1450127327');
+  background-image: url('/static/../static/app/images/marken_prinz.png?1450145078');
   background-size: 190px;
 }
 /* line 58, ../../../src/app/_static_pages.sass */
 body.s--static.p--brands .brand-fuersie a {
-  background-image: url('/static/../static/app/images/marken_fuersie.png?1450127327');
+  background-image: url('/static/../static/app/images/marken_fuersie.png?1450145078');
   background-size: 190px;
 }
 /* line 61, ../../../src/app/_static_pages.sass */
 body.s--static.p--brands .brand-petra a {
-  background-image: url('/static/../static/app/images/marken_petra.png?1450127327');
+  background-image: url('/static/../static/app/images/marken_petra.png?1450145078');
   background-size: 190px;
 }
 /* line 64, ../../../src/app/_static_pages.sass */
 body.s--static.p--brands .brand-vital a {
   background: no-repeat 0 14px;
-  background-image: url('/static/../static/app/images/marken_vital.png?1450127327');
+  background-image: url('/static/../static/app/images/marken_vital.png?1450145078');
 }
 
 /* line 47, ../../../src/app/app.sass */
@@ -8645,11 +8645,11 @@ header.main .main-nav .active a {
 
 /* line 114, ../../../src/app/app.sass */
 body.reduced-header {
-  background: #fff;
+  background: white;
 }
 /* line 116, ../../../src/app/app.sass */
 body.reduced-header header.main {
-  background: #fff url('/static/../static/app/images/shared/background.jpg?1450127327') no-repeat 50% 0;
+  background: white url('/static/../static/app/images/shared/background.jpg?1450145078') no-repeat 50% 0;
   margin-bottom: 0px;
 }
 /* line 119, ../../../src/app/app.sass */
