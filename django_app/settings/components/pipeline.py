@@ -32,10 +32,19 @@ PIPELINE_JS = {
 
 
 # PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'
-# PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'
 PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.yuglify.YuglifyCompressor'
-PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.yuglify.YuglifyCompressor'
+
+#
+# I choose the noop compressor for js since the other fail in different ways
+#
+# JSMIN compiles, but fails by loosing script code at the end.
+#
+# Yuglify fails with parse error.
+# JS_Parse_Error (/usr/lib/node_modules/yuglify/node_modules/uglify-js/lib/parse-js.js:263:18)
+
+# PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.yuglify.YuglifyCompressor'
 # PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.jsmin.JSMinCompressor'
+PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'
 
 # MANIFESTO_EXCLUDED_MANIFESTS = (
         # 'randomapp.manifest.WrongManifest',
