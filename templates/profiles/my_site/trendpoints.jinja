@@ -6,16 +6,10 @@
 
     <!-- %h2 Meine Trendpoints -->
     <div class="row">
-      <div class="col-md-14 col-md-offset-5">
+      <div class="col-md-14 col-md-offset-5 col-sm-16 col-sm-offset-4">
         <div class="trendpoints">
           <span>{{ user.bank_account.all().first().balance or 0 }}</span>
         </div>
-      </div>
-    </div>
-
-
-    <div class="row">
-      <div class="col-md-14 col-md-offset-5">
 
         <table class="table">
           <thead>
@@ -39,12 +33,7 @@
           {% endfor %}
           </tbody>
         </table>
-      </div>
-    </div>
 
-
-    <div class="row">
-      <div class="col-md-14 col-md-offset-5">
 
         <div class="how-to-earn">
           <h4>Wie verdiene ich Trendpoints?</h4>

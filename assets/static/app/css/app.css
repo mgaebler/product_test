@@ -391,11 +391,11 @@ html {
 
 /* line 27, ../../../src/app/bootstrap/_scaffolding.scss */
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 13px;
+  font-family: "Oxygen", sans-serif;
+  font-size: 14px;
   line-height: 1.42857;
   color: #3c3c3c;
-  background-color: #fff;
+  background-color: white;
 }
 
 /* line 36, ../../../src/app/bootstrap/_scaffolding.scss */
@@ -415,7 +415,7 @@ a {
 }
 /* line 52, ../../../src/app/bootstrap/_scaffolding.scss */
 a:hover, a:focus {
-  color: #23527c;
+  color: #fc2e17;
   text-decoration: underline;
 }
 /* line 58, ../../../src/app/bootstrap/_scaffolding.scss */
@@ -603,21 +603,21 @@ p {
 /* line 62, ../../../src/app/bootstrap/_type.scss */
 .lead {
   margin-bottom: 19px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 300;
   line-height: 1.4;
 }
 @media (min-width: 768px) {
   /* line 62, ../../../src/app/bootstrap/_type.scss */
   .lead {
-    font-size: 19.5px;
+    font-size: 21px;
   }
 }
 
 /* line 78, ../../../src/app/bootstrap/_type.scss */
 small,
 .small {
-  font-size: 92%;
+  font-size: 85%;
 }
 
 /* line 83, ../../../src/app/bootstrap/_type.scss */
@@ -981,7 +981,7 @@ pre {
   display: block;
   padding: 9px;
   margin: 0 0 9.5px;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.42857;
   word-break: break-all;
   word-wrap: break-word;
@@ -3140,7 +3140,7 @@ th {
 }
 /* line 62, ../../../src/app/bootstrap/_tables.scss */
 .table .table {
-  background-color: #fff;
+  background-color: white;
 }
 
 /* line 75, ../../../src/app/bootstrap/_tables.scss */
@@ -3369,7 +3369,7 @@ legend {
   width: 100%;
   padding: 0;
   margin-bottom: 19px;
-  font-size: 19.5px;
+  font-size: 21px;
   line-height: inherit;
   color: #333333;
   border: 0;
@@ -3429,7 +3429,7 @@ input[type="checkbox"]:focus {
 output {
   display: block;
   padding-top: 7px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.42857;
   color: #555555;
 }
@@ -3440,7 +3440,7 @@ output {
   width: 100%;
   height: 33px;
   padding: 6px 12px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.42857;
   color: #555555;
   background-color: white;
@@ -4016,7 +4016,7 @@ select[multiple].form-group-lg .form-control {
   border: 1px solid transparent;
   white-space: nowrap;
   padding: 6px 12px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.42857;
   border-radius: 0px;
   -webkit-user-select: none;
@@ -4082,14 +4082,14 @@ select[multiple].form-group-lg .form-control {
 /* line 63, ../../../src/app/bootstrap/_buttons.scss */
 .btn-primary {
   color: white;
-  background-color: #337ab7;
-  border-color: #2e6da4;
+  background-color: #fd7263;
+  border-color: #fd5b4a;
 }
 /* line 11, ../../../src/app/bootstrap/mixins/_buttons.scss */
 .btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle {
   color: white;
-  background-color: #286090;
-  border-color: #204d74;
+  background-color: #fc4431;
+  border-color: #fc250d;
 }
 /* line 21, ../../../src/app/bootstrap/mixins/_buttons.scss */
 .btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle {
@@ -4097,26 +4097,26 @@ select[multiple].form-group-lg .form-control {
 }
 /* line 29, ../../../src/app/bootstrap/mixins/_buttons.scss */
 .btn-primary.disabled, .btn-primary.disabled:hover, .btn-primary.disabled:focus, .btn-primary.disabled.focus, .btn-primary.disabled:active, .btn-primary.disabled.active, .btn-primary[disabled], .btn-primary[disabled]:hover, .btn-primary[disabled]:focus, .btn-primary[disabled].focus, .btn-primary[disabled]:active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary, fieldset[disabled] .btn-primary:hover, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary.focus, fieldset[disabled] .btn-primary:active, fieldset[disabled] .btn-primary.active {
-  background-color: #337ab7;
-  border-color: #2e6da4;
+  background-color: #fd7263;
+  border-color: #fd5b4a;
 }
 /* line 40, ../../../src/app/bootstrap/mixins/_buttons.scss */
 .btn-primary .badge {
-  color: #337ab7;
+  color: #fd7263;
   background-color: white;
 }
 
 /* line 67, ../../../src/app/bootstrap/_buttons.scss */
 .btn-success {
   color: white;
-  background-color: #5cb85c;
-  border-color: #4cae4c;
+  background-color: #264409;
+  border-color: #192d06;
 }
 /* line 11, ../../../src/app/bootstrap/mixins/_buttons.scss */
 .btn-success:hover, .btn-success:focus, .btn-success.focus, .btn-success:active, .btn-success.active, .open > .btn-success.dropdown-toggle {
   color: white;
-  background-color: #449d44;
-  border-color: #398439;
+  background-color: #0d1703;
+  border-color: black;
 }
 /* line 21, ../../../src/app/bootstrap/mixins/_buttons.scss */
 .btn-success:active, .btn-success.active, .open > .btn-success.dropdown-toggle {
@@ -4124,26 +4124,26 @@ select[multiple].form-group-lg .form-control {
 }
 /* line 29, ../../../src/app/bootstrap/mixins/_buttons.scss */
 .btn-success.disabled, .btn-success.disabled:hover, .btn-success.disabled:focus, .btn-success.disabled.focus, .btn-success.disabled:active, .btn-success.disabled.active, .btn-success[disabled], .btn-success[disabled]:hover, .btn-success[disabled]:focus, .btn-success[disabled].focus, .btn-success[disabled]:active, .btn-success[disabled].active, fieldset[disabled] .btn-success, fieldset[disabled] .btn-success:hover, fieldset[disabled] .btn-success:focus, fieldset[disabled] .btn-success.focus, fieldset[disabled] .btn-success:active, fieldset[disabled] .btn-success.active {
-  background-color: #5cb85c;
-  border-color: #4cae4c;
+  background-color: #264409;
+  border-color: #192d06;
 }
 /* line 40, ../../../src/app/bootstrap/mixins/_buttons.scss */
 .btn-success .badge {
-  color: #5cb85c;
+  color: #264409;
   background-color: white;
 }
 
 /* line 71, ../../../src/app/bootstrap/_buttons.scss */
 .btn-info {
   color: white;
-  background-color: #5bc0de;
-  border-color: #46b8da;
+  background-color: #205791;
+  border-color: #1b4a7c;
 }
 /* line 11, ../../../src/app/bootstrap/mixins/_buttons.scss */
 .btn-info:hover, .btn-info:focus, .btn-info.focus, .btn-info:active, .btn-info.active, .open > .btn-info.dropdown-toggle {
   color: white;
-  background-color: #31b0d5;
-  border-color: #269abc;
+  background-color: #173e67;
+  border-color: #102c4a;
 }
 /* line 21, ../../../src/app/bootstrap/mixins/_buttons.scss */
 .btn-info:active, .btn-info.active, .open > .btn-info.dropdown-toggle {
@@ -4151,12 +4151,12 @@ select[multiple].form-group-lg .form-control {
 }
 /* line 29, ../../../src/app/bootstrap/mixins/_buttons.scss */
 .btn-info.disabled, .btn-info.disabled:hover, .btn-info.disabled:focus, .btn-info.disabled.focus, .btn-info.disabled:active, .btn-info.disabled.active, .btn-info[disabled], .btn-info[disabled]:hover, .btn-info[disabled]:focus, .btn-info[disabled].focus, .btn-info[disabled]:active, .btn-info[disabled].active, fieldset[disabled] .btn-info, fieldset[disabled] .btn-info:hover, fieldset[disabled] .btn-info:focus, fieldset[disabled] .btn-info.focus, fieldset[disabled] .btn-info:active, fieldset[disabled] .btn-info.active {
-  background-color: #5bc0de;
-  border-color: #46b8da;
+  background-color: #205791;
+  border-color: #1b4a7c;
 }
 /* line 40, ../../../src/app/bootstrap/mixins/_buttons.scss */
 .btn-info .badge {
-  color: #5bc0de;
+  color: #205791;
   background-color: white;
 }
 
@@ -4190,14 +4190,14 @@ select[multiple].form-group-lg .form-control {
 /* line 79, ../../../src/app/bootstrap/_buttons.scss */
 .btn-danger {
   color: white;
-  background-color: #d9534f;
-  border-color: #d43f3a;
+  background-color: #8a1f11;
+  border-color: #731a0e;
 }
 /* line 11, ../../../src/app/bootstrap/mixins/_buttons.scss */
 .btn-danger:hover, .btn-danger:focus, .btn-danger.focus, .btn-danger:active, .btn-danger.active, .open > .btn-danger.dropdown-toggle {
   color: white;
-  background-color: #c9302c;
-  border-color: #ac2925;
+  background-color: #5d150b;
+  border-color: #3d0e07;
 }
 /* line 21, ../../../src/app/bootstrap/mixins/_buttons.scss */
 .btn-danger:active, .btn-danger.active, .open > .btn-danger.dropdown-toggle {
@@ -4205,12 +4205,12 @@ select[multiple].form-group-lg .form-control {
 }
 /* line 29, ../../../src/app/bootstrap/mixins/_buttons.scss */
 .btn-danger.disabled, .btn-danger.disabled:hover, .btn-danger.disabled:focus, .btn-danger.disabled.focus, .btn-danger.disabled:active, .btn-danger.disabled.active, .btn-danger[disabled], .btn-danger[disabled]:hover, .btn-danger[disabled]:focus, .btn-danger[disabled].focus, .btn-danger[disabled]:active, .btn-danger[disabled].active, fieldset[disabled] .btn-danger, fieldset[disabled] .btn-danger:hover, fieldset[disabled] .btn-danger:focus, fieldset[disabled] .btn-danger.focus, fieldset[disabled] .btn-danger:active, fieldset[disabled] .btn-danger.active {
-  background-color: #d9534f;
-  border-color: #d43f3a;
+  background-color: #8a1f11;
+  border-color: #731a0e;
 }
 /* line 40, ../../../src/app/bootstrap/mixins/_buttons.scss */
 .btn-danger .badge {
-  color: #d9534f;
+  color: #8a1f11;
   background-color: white;
 }
 
@@ -4232,7 +4232,7 @@ select[multiple].form-group-lg .form-control {
 }
 /* line 107, ../../../src/app/bootstrap/_buttons.scss */
 .btn-link:hover, .btn-link:focus {
-  color: #23527c;
+  color: #fc2e17;
   text-decoration: underline;
   background-color: transparent;
 }
@@ -4284,6 +4284,1071 @@ input[type="button"].btn-block {
   width: 100%;
 }
 
+/* line 10, ../../../src/app/bootstrap/_component-animations.scss */
+.fade {
+  opacity: 0;
+  -webkit-transition: opacity 0.15s linear;
+  -o-transition: opacity 0.15s linear;
+  transition: opacity 0.15s linear;
+}
+/* line 13, ../../../src/app/bootstrap/_component-animations.scss */
+.fade.in {
+  opacity: 1;
+}
+
+/* line 18, ../../../src/app/bootstrap/_component-animations.scss */
+.collapse {
+  display: none;
+  visibility: hidden;
+}
+/* line 22, ../../../src/app/bootstrap/_component-animations.scss */
+.collapse.in {
+  display: block;
+  visibility: visible;
+}
+
+/* line 27, ../../../src/app/bootstrap/_component-animations.scss */
+tr.collapse.in {
+  display: table-row;
+}
+
+/* line 29, ../../../src/app/bootstrap/_component-animations.scss */
+tbody.collapse.in {
+  display: table-row-group;
+}
+
+/* line 31, ../../../src/app/bootstrap/_component-animations.scss */
+.collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition-property: height, visibility;
+  transition-property: height, visibility;
+  -webkit-transition-duration: 0.35s;
+  transition-duration: 0.35s;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+}
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url("../fonts/bootstrap/glyphicons-halflings-regular.eot");
+  src: url("../fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/bootstrap/glyphicons-halflings-regular.woff") format("woff"), url("../fonts/bootstrap/glyphicons-halflings-regular.ttf") format("truetype"), url("../fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
+}
+/* line 21, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* line 34, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-asterisk:before {
+  content: "\2a";
+}
+
+/* line 35, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-plus:before {
+  content: "\2b";
+}
+
+/* line 37, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-euro:before,
+.glyphicon-eur:before {
+  content: "\20ac";
+}
+
+/* line 38, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-minus:before {
+  content: "\2212";
+}
+
+/* line 39, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-cloud:before {
+  content: "\2601";
+}
+
+/* line 40, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-envelope:before {
+  content: "\2709";
+}
+
+/* line 41, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-pencil:before {
+  content: "\270f";
+}
+
+/* line 42, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-glass:before {
+  content: "\e001";
+}
+
+/* line 43, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-music:before {
+  content: "\e002";
+}
+
+/* line 44, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-search:before {
+  content: "\e003";
+}
+
+/* line 45, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-heart:before {
+  content: "\e005";
+}
+
+/* line 46, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-star:before {
+  content: "\e006";
+}
+
+/* line 47, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-star-empty:before {
+  content: "\e007";
+}
+
+/* line 48, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-user:before {
+  content: "\e008";
+}
+
+/* line 49, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-film:before {
+  content: "\e009";
+}
+
+/* line 50, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-th-large:before {
+  content: "\e010";
+}
+
+/* line 51, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-th:before {
+  content: "\e011";
+}
+
+/* line 52, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-th-list:before {
+  content: "\e012";
+}
+
+/* line 53, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-ok:before {
+  content: "\e013";
+}
+
+/* line 54, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-remove:before {
+  content: "\e014";
+}
+
+/* line 55, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-zoom-in:before {
+  content: "\e015";
+}
+
+/* line 56, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-zoom-out:before {
+  content: "\e016";
+}
+
+/* line 57, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-off:before {
+  content: "\e017";
+}
+
+/* line 58, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-signal:before {
+  content: "\e018";
+}
+
+/* line 59, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-cog:before {
+  content: "\e019";
+}
+
+/* line 60, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-trash:before {
+  content: "\e020";
+}
+
+/* line 61, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-home:before {
+  content: "\e021";
+}
+
+/* line 62, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-file:before {
+  content: "\e022";
+}
+
+/* line 63, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-time:before {
+  content: "\e023";
+}
+
+/* line 64, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-road:before {
+  content: "\e024";
+}
+
+/* line 65, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-download-alt:before {
+  content: "\e025";
+}
+
+/* line 66, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-download:before {
+  content: "\e026";
+}
+
+/* line 67, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-upload:before {
+  content: "\e027";
+}
+
+/* line 68, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-inbox:before {
+  content: "\e028";
+}
+
+/* line 69, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-play-circle:before {
+  content: "\e029";
+}
+
+/* line 70, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-repeat:before {
+  content: "\e030";
+}
+
+/* line 71, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-refresh:before {
+  content: "\e031";
+}
+
+/* line 72, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-list-alt:before {
+  content: "\e032";
+}
+
+/* line 73, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-lock:before {
+  content: "\e033";
+}
+
+/* line 74, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-flag:before {
+  content: "\e034";
+}
+
+/* line 75, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-headphones:before {
+  content: "\e035";
+}
+
+/* line 76, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-volume-off:before {
+  content: "\e036";
+}
+
+/* line 77, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-volume-down:before {
+  content: "\e037";
+}
+
+/* line 78, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-volume-up:before {
+  content: "\e038";
+}
+
+/* line 79, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-qrcode:before {
+  content: "\e039";
+}
+
+/* line 80, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-barcode:before {
+  content: "\e040";
+}
+
+/* line 81, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-tag:before {
+  content: "\e041";
+}
+
+/* line 82, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-tags:before {
+  content: "\e042";
+}
+
+/* line 83, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-book:before {
+  content: "\e043";
+}
+
+/* line 84, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-bookmark:before {
+  content: "\e044";
+}
+
+/* line 85, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-print:before {
+  content: "\e045";
+}
+
+/* line 86, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-camera:before {
+  content: "\e046";
+}
+
+/* line 87, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-font:before {
+  content: "\e047";
+}
+
+/* line 88, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-bold:before {
+  content: "\e048";
+}
+
+/* line 89, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-italic:before {
+  content: "\e049";
+}
+
+/* line 90, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-text-height:before {
+  content: "\e050";
+}
+
+/* line 91, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-text-width:before {
+  content: "\e051";
+}
+
+/* line 92, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-align-left:before {
+  content: "\e052";
+}
+
+/* line 93, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-align-center:before {
+  content: "\e053";
+}
+
+/* line 94, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-align-right:before {
+  content: "\e054";
+}
+
+/* line 95, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-align-justify:before {
+  content: "\e055";
+}
+
+/* line 96, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-list:before {
+  content: "\e056";
+}
+
+/* line 97, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-indent-left:before {
+  content: "\e057";
+}
+
+/* line 98, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-indent-right:before {
+  content: "\e058";
+}
+
+/* line 99, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-facetime-video:before {
+  content: "\e059";
+}
+
+/* line 100, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-picture:before {
+  content: "\e060";
+}
+
+/* line 101, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-map-marker:before {
+  content: "\e062";
+}
+
+/* line 102, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-adjust:before {
+  content: "\e063";
+}
+
+/* line 103, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-tint:before {
+  content: "\e064";
+}
+
+/* line 104, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-edit:before {
+  content: "\e065";
+}
+
+/* line 105, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-share:before {
+  content: "\e066";
+}
+
+/* line 106, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-check:before {
+  content: "\e067";
+}
+
+/* line 107, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-move:before {
+  content: "\e068";
+}
+
+/* line 108, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-step-backward:before {
+  content: "\e069";
+}
+
+/* line 109, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-fast-backward:before {
+  content: "\e070";
+}
+
+/* line 110, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-backward:before {
+  content: "\e071";
+}
+
+/* line 111, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-play:before {
+  content: "\e072";
+}
+
+/* line 112, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-pause:before {
+  content: "\e073";
+}
+
+/* line 113, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-stop:before {
+  content: "\e074";
+}
+
+/* line 114, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-forward:before {
+  content: "\e075";
+}
+
+/* line 115, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-fast-forward:before {
+  content: "\e076";
+}
+
+/* line 116, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-step-forward:before {
+  content: "\e077";
+}
+
+/* line 117, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-eject:before {
+  content: "\e078";
+}
+
+/* line 118, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-chevron-left:before {
+  content: "\e079";
+}
+
+/* line 119, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-chevron-right:before {
+  content: "\e080";
+}
+
+/* line 120, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-plus-sign:before {
+  content: "\e081";
+}
+
+/* line 121, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-minus-sign:before {
+  content: "\e082";
+}
+
+/* line 122, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-remove-sign:before {
+  content: "\e083";
+}
+
+/* line 123, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-ok-sign:before {
+  content: "\e084";
+}
+
+/* line 124, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-question-sign:before {
+  content: "\e085";
+}
+
+/* line 125, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-info-sign:before {
+  content: "\e086";
+}
+
+/* line 126, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-screenshot:before {
+  content: "\e087";
+}
+
+/* line 127, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-remove-circle:before {
+  content: "\e088";
+}
+
+/* line 128, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-ok-circle:before {
+  content: "\e089";
+}
+
+/* line 129, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-ban-circle:before {
+  content: "\e090";
+}
+
+/* line 130, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-arrow-left:before {
+  content: "\e091";
+}
+
+/* line 131, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-arrow-right:before {
+  content: "\e092";
+}
+
+/* line 132, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-arrow-up:before {
+  content: "\e093";
+}
+
+/* line 133, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-arrow-down:before {
+  content: "\e094";
+}
+
+/* line 134, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-share-alt:before {
+  content: "\e095";
+}
+
+/* line 135, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-resize-full:before {
+  content: "\e096";
+}
+
+/* line 136, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-resize-small:before {
+  content: "\e097";
+}
+
+/* line 137, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-exclamation-sign:before {
+  content: "\e101";
+}
+
+/* line 138, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-gift:before {
+  content: "\e102";
+}
+
+/* line 139, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-leaf:before {
+  content: "\e103";
+}
+
+/* line 140, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-fire:before {
+  content: "\e104";
+}
+
+/* line 141, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-eye-open:before {
+  content: "\e105";
+}
+
+/* line 142, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-eye-close:before {
+  content: "\e106";
+}
+
+/* line 143, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-warning-sign:before {
+  content: "\e107";
+}
+
+/* line 144, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-plane:before {
+  content: "\e108";
+}
+
+/* line 145, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-calendar:before {
+  content: "\e109";
+}
+
+/* line 146, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-random:before {
+  content: "\e110";
+}
+
+/* line 147, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-comment:before {
+  content: "\e111";
+}
+
+/* line 148, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-magnet:before {
+  content: "\e112";
+}
+
+/* line 149, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-chevron-up:before {
+  content: "\e113";
+}
+
+/* line 150, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-chevron-down:before {
+  content: "\e114";
+}
+
+/* line 151, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-retweet:before {
+  content: "\e115";
+}
+
+/* line 152, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-shopping-cart:before {
+  content: "\e116";
+}
+
+/* line 153, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-folder-close:before {
+  content: "\e117";
+}
+
+/* line 154, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-folder-open:before {
+  content: "\e118";
+}
+
+/* line 155, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-resize-vertical:before {
+  content: "\e119";
+}
+
+/* line 156, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-resize-horizontal:before {
+  content: "\e120";
+}
+
+/* line 157, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-hdd:before {
+  content: "\e121";
+}
+
+/* line 158, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-bullhorn:before {
+  content: "\e122";
+}
+
+/* line 159, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-bell:before {
+  content: "\e123";
+}
+
+/* line 160, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-certificate:before {
+  content: "\e124";
+}
+
+/* line 161, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-thumbs-up:before {
+  content: "\e125";
+}
+
+/* line 162, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-thumbs-down:before {
+  content: "\e126";
+}
+
+/* line 163, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-hand-right:before {
+  content: "\e127";
+}
+
+/* line 164, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-hand-left:before {
+  content: "\e128";
+}
+
+/* line 165, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-hand-up:before {
+  content: "\e129";
+}
+
+/* line 166, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-hand-down:before {
+  content: "\e130";
+}
+
+/* line 167, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-circle-arrow-right:before {
+  content: "\e131";
+}
+
+/* line 168, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-circle-arrow-left:before {
+  content: "\e132";
+}
+
+/* line 169, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-circle-arrow-up:before {
+  content: "\e133";
+}
+
+/* line 170, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-circle-arrow-down:before {
+  content: "\e134";
+}
+
+/* line 171, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-globe:before {
+  content: "\e135";
+}
+
+/* line 172, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-wrench:before {
+  content: "\e136";
+}
+
+/* line 173, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-tasks:before {
+  content: "\e137";
+}
+
+/* line 174, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-filter:before {
+  content: "\e138";
+}
+
+/* line 175, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-briefcase:before {
+  content: "\e139";
+}
+
+/* line 176, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-fullscreen:before {
+  content: "\e140";
+}
+
+/* line 177, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-dashboard:before {
+  content: "\e141";
+}
+
+/* line 178, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-paperclip:before {
+  content: "\e142";
+}
+
+/* line 179, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-heart-empty:before {
+  content: "\e143";
+}
+
+/* line 180, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-link:before {
+  content: "\e144";
+}
+
+/* line 181, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-phone:before {
+  content: "\e145";
+}
+
+/* line 182, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-pushpin:before {
+  content: "\e146";
+}
+
+/* line 183, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-usd:before {
+  content: "\e148";
+}
+
+/* line 184, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-gbp:before {
+  content: "\e149";
+}
+
+/* line 185, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-sort:before {
+  content: "\e150";
+}
+
+/* line 186, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-sort-by-alphabet:before {
+  content: "\e151";
+}
+
+/* line 187, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-sort-by-alphabet-alt:before {
+  content: "\e152";
+}
+
+/* line 188, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-sort-by-order:before {
+  content: "\e153";
+}
+
+/* line 189, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-sort-by-order-alt:before {
+  content: "\e154";
+}
+
+/* line 190, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-sort-by-attributes:before {
+  content: "\e155";
+}
+
+/* line 191, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-sort-by-attributes-alt:before {
+  content: "\e156";
+}
+
+/* line 192, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-unchecked:before {
+  content: "\e157";
+}
+
+/* line 193, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-expand:before {
+  content: "\e158";
+}
+
+/* line 194, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-collapse-down:before {
+  content: "\e159";
+}
+
+/* line 195, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-collapse-up:before {
+  content: "\e160";
+}
+
+/* line 196, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-log-in:before {
+  content: "\e161";
+}
+
+/* line 197, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-flash:before {
+  content: "\e162";
+}
+
+/* line 198, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-log-out:before {
+  content: "\e163";
+}
+
+/* line 199, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-new-window:before {
+  content: "\e164";
+}
+
+/* line 200, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-record:before {
+  content: "\e165";
+}
+
+/* line 201, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-save:before {
+  content: "\e166";
+}
+
+/* line 202, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-open:before {
+  content: "\e167";
+}
+
+/* line 203, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-saved:before {
+  content: "\e168";
+}
+
+/* line 204, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-import:before {
+  content: "\e169";
+}
+
+/* line 205, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-export:before {
+  content: "\e170";
+}
+
+/* line 206, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-send:before {
+  content: "\e171";
+}
+
+/* line 207, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-floppy-disk:before {
+  content: "\e172";
+}
+
+/* line 208, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-floppy-saved:before {
+  content: "\e173";
+}
+
+/* line 209, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-floppy-remove:before {
+  content: "\e174";
+}
+
+/* line 210, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-floppy-save:before {
+  content: "\e175";
+}
+
+/* line 211, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-floppy-open:before {
+  content: "\e176";
+}
+
+/* line 212, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-credit-card:before {
+  content: "\e177";
+}
+
+/* line 213, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-transfer:before {
+  content: "\e178";
+}
+
+/* line 214, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-cutlery:before {
+  content: "\e179";
+}
+
+/* line 215, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-header:before {
+  content: "\e180";
+}
+
+/* line 216, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-compressed:before {
+  content: "\e181";
+}
+
+/* line 217, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-earphone:before {
+  content: "\e182";
+}
+
+/* line 218, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-phone-alt:before {
+  content: "\e183";
+}
+
+/* line 219, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-tower:before {
+  content: "\e184";
+}
+
+/* line 220, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-stats:before {
+  content: "\e185";
+}
+
+/* line 221, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-sd-video:before {
+  content: "\e186";
+}
+
+/* line 222, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-hd-video:before {
+  content: "\e187";
+}
+
+/* line 223, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-subtitles:before {
+  content: "\e188";
+}
+
+/* line 224, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-sound-stereo:before {
+  content: "\e189";
+}
+
+/* line 225, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-sound-dolby:before {
+  content: "\e190";
+}
+
+/* line 226, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-sound-5-1:before {
+  content: "\e191";
+}
+
+/* line 227, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-sound-6-1:before {
+  content: "\e192";
+}
+
+/* line 228, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-sound-7-1:before {
+  content: "\e193";
+}
+
+/* line 229, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-copyright-mark:before {
+  content: "\e194";
+}
+
+/* line 230, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-registration-mark:before {
+  content: "\e195";
+}
+
+/* line 231, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-cloud-download:before {
+  content: "\e197";
+}
+
+/* line 232, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-cloud-upload:before {
+  content: "\e198";
+}
+
+/* line 233, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-tree-conifer:before {
+  content: "\e199";
+}
+
+/* line 234, ../../../src/app/bootstrap/_glyphicons.scss */
+.glyphicon-tree-deciduous:before {
+  content: "\e200";
+}
+
 /* line 7, ../../../src/app/bootstrap/_dropdowns.scss */
 .caret {
   display: inline-block;
@@ -4318,7 +5383,7 @@ input[type="button"].btn-block {
   padding: 5px 0;
   margin: 2px 0 0;
   list-style: none;
-  font-size: 13px;
+  font-size: 14px;
   text-align: left;
   background-color: white;
   border: 1px solid #cccccc;
@@ -4363,7 +5428,7 @@ input[type="button"].btn-block {
   color: white;
   text-decoration: none;
   outline: 0;
-  background-color: #337ab7;
+  background-color: #fd7263;
 }
 
 /* line 101, ../../../src/app/bootstrap/_dropdowns.scss */
@@ -4742,7 +5807,7 @@ input[type="button"].btn-block {
 /* line 73, ../../../src/app/bootstrap/_input-groups.scss */
 .input-group-addon {
   padding: 6px 12px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: normal;
   line-height: 1;
   color: #555555;
@@ -4939,7 +6004,7 @@ input[type="button"].btn-block {
 /* line 131, ../../../src/app/bootstrap/_navs.scss */
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
   color: white;
-  background-color: #337ab7;
+  background-color: #fd7263;
 }
 
 /* line 144, ../../../src/app/bootstrap/_navs.scss */
@@ -5690,7 +6755,7 @@ input[type="button"].btn-block {
   padding: 6px 12px;
   line-height: 1.42857;
   text-decoration: none;
-  color: #337ab7;
+  color: #fd7263;
   background-color: white;
   border: 1px solid #dddddd;
   margin-left: -1px;
@@ -5712,7 +6777,7 @@ input[type="button"].btn-block {
 .pagination > li > a:hover, .pagination > li > a:focus,
 .pagination > li > span:hover,
 .pagination > li > span:focus {
-  color: #23527c;
+  color: #fc2e17;
   background-color: #eeeeee;
   border-color: #dddddd;
 }
@@ -5723,8 +6788,8 @@ input[type="button"].btn-block {
 .pagination > .active > span:focus {
   z-index: 2;
   color: white;
-  background-color: #337ab7;
-  border-color: #337ab7;
+  background-color: #fd7263;
+  border-color: #fd7263;
   cursor: default;
 }
 /* line 63, ../../../src/app/bootstrap/_pagination.scss */
@@ -5819,29 +6884,29 @@ a.label:hover, a.label:focus {
 
 /* line 48, ../../../src/app/bootstrap/_labels.scss */
 .label-primary {
-  background-color: #337ab7;
+  background-color: #fd7263;
 }
 /* line 7, ../../../src/app/bootstrap/mixins/_labels.scss */
 .label-primary[href]:hover, .label-primary[href]:focus {
-  background-color: #286090;
+  background-color: #fc4431;
 }
 
 /* line 52, ../../../src/app/bootstrap/_labels.scss */
 .label-success {
-  background-color: #5cb85c;
+  background-color: #264409;
 }
 /* line 7, ../../../src/app/bootstrap/mixins/_labels.scss */
 .label-success[href]:hover, .label-success[href]:focus {
-  background-color: #449d44;
+  background-color: #0d1703;
 }
 
 /* line 56, ../../../src/app/bootstrap/_labels.scss */
 .label-info {
-  background-color: #5bc0de;
+  background-color: #205791;
 }
 /* line 7, ../../../src/app/bootstrap/mixins/_labels.scss */
 .label-info[href]:hover, .label-info[href]:focus {
-  background-color: #31b0d5;
+  background-color: #173e67;
 }
 
 /* line 60, ../../../src/app/bootstrap/_labels.scss */
@@ -5855,11 +6920,11 @@ a.label:hover, a.label:focus {
 
 /* line 64, ../../../src/app/bootstrap/_labels.scss */
 .label-danger {
-  background-color: #d9534f;
+  background-color: #8a1f11;
 }
 /* line 7, ../../../src/app/bootstrap/mixins/_labels.scss */
 .label-danger[href]:hover, .label-danger[href]:focus {
-  background-color: #c9302c;
+  background-color: #5d150b;
 }
 
 /* line 7, ../../../src/app/bootstrap/_badges.scss */
@@ -5893,7 +6958,7 @@ a.label:hover, a.label:focus {
 }
 /* line 39, ../../../src/app/bootstrap/_badges.scss */
 .list-group-item.active > .badge, .nav-pills > .active > a > .badge {
-  color: #337ab7;
+  color: #fd7263;
   background-color: white;
 }
 /* line 44, ../../../src/app/bootstrap/_badges.scss */
@@ -5914,6 +6979,41 @@ a.badge:hover, a.badge:focus {
   color: white;
   text-decoration: none;
   cursor: pointer;
+}
+
+/* line 7, ../../../src/app/bootstrap/_thumbnails.scss */
+.thumbnail {
+  display: block;
+  padding: 4px;
+  margin-bottom: 19px;
+  line-height: 1.42857;
+  background-color: white;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  -webkit-transition: border 0.2s ease-in-out;
+  -o-transition: border 0.2s ease-in-out;
+  transition: border 0.2s ease-in-out;
+}
+/* line 17, ../../../src/app/bootstrap/_thumbnails.scss */
+.thumbnail > img,
+.thumbnail a > img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 27, ../../../src/app/bootstrap/_thumbnails.scss */
+.thumbnail .caption {
+  padding: 9px;
+  color: #3c3c3c;
+}
+
+/* line 34, ../../../src/app/bootstrap/_thumbnails.scss */
+a.thumbnail:hover,
+a.thumbnail:focus,
+a.thumbnail.active {
+  border-color: #fd7263;
 }
 
 /* line 9, ../../../src/app/bootstrap/_alerts.scss */
@@ -6016,6 +7116,57 @@ a.badge:hover, a.badge:focus {
   color: #843534;
 }
 
+/* line 1, ../../../src/app/bootstrap/_media.scss */
+.media {
+  margin-top: 15px;
+}
+/* line 5, ../../../src/app/bootstrap/_media.scss */
+.media:first-child {
+  margin-top: 0;
+}
+
+/* line 10, ../../../src/app/bootstrap/_media.scss */
+.media-right,
+.media > .pull-right {
+  padding-left: 10px;
+}
+
+/* line 15, ../../../src/app/bootstrap/_media.scss */
+.media-left,
+.media > .pull-left {
+  padding-right: 10px;
+}
+
+/* line 20, ../../../src/app/bootstrap/_media.scss */
+.media-left,
+.media-right,
+.media-body {
+  display: table-cell;
+  vertical-align: top;
+}
+
+/* line 27, ../../../src/app/bootstrap/_media.scss */
+.media-middle {
+  vertical-align: middle;
+}
+
+/* line 31, ../../../src/app/bootstrap/_media.scss */
+.media-bottom {
+  vertical-align: bottom;
+}
+
+/* line 36, ../../../src/app/bootstrap/_media.scss */
+.media-heading {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+/* line 44, ../../../src/app/bootstrap/_media.scss */
+.media-list {
+  padding-left: 0;
+  list-style: none;
+}
+
 /* line 10, ../../../src/app/bootstrap/_list-group.scss */
 .list-group {
   margin-bottom: 20px;
@@ -6076,8 +7227,8 @@ a.list-group-item:hover, a.list-group-item:focus {
 .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
   z-index: 2;
   color: white;
-  background-color: #337ab7;
-  border-color: #337ab7;
+  background-color: #fd7263;
+  border-color: #fd7263;
 }
 /* line 90, ../../../src/app/bootstrap/_list-group.scss */
 .list-group-item.active .list-group-item-heading,
@@ -6091,7 +7242,7 @@ a.list-group-item:hover, a.list-group-item:focus {
 }
 /* line 95, ../../../src/app/bootstrap/_list-group.scss */
 .list-group-item.active .list-group-item-text, .list-group-item.active:hover .list-group-item-text, .list-group-item.active:focus .list-group-item-text {
-  color: #c7ddef;
+  color: white;
 }
 
 /* line 4, ../../../src/app/bootstrap/mixins/_list-group.scss */
@@ -6250,7 +7401,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 .panel-title {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 15px;
+  font-size: 16px;
   color: inherit;
 }
 /* line 39, ../../../src/app/bootstrap/_panels.scss */
@@ -6520,26 +7671,26 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 
 /* line 247, ../../../src/app/bootstrap/_panels.scss */
 .panel-primary {
-  border-color: #337ab7;
+  border-color: #fd7263;
 }
 /* line 6, ../../../src/app/bootstrap/mixins/_panels.scss */
 .panel-primary > .panel-heading {
   color: white;
-  background-color: #337ab7;
-  border-color: #337ab7;
+  background-color: #fd7263;
+  border-color: #fd7263;
 }
 /* line 11, ../../../src/app/bootstrap/mixins/_panels.scss */
 .panel-primary > .panel-heading + .panel-collapse > .panel-body {
-  border-top-color: #337ab7;
+  border-top-color: #fd7263;
 }
 /* line 14, ../../../src/app/bootstrap/mixins/_panels.scss */
 .panel-primary > .panel-heading .badge {
-  color: #337ab7;
+  color: #fd7263;
   background-color: white;
 }
 /* line 20, ../../../src/app/bootstrap/mixins/_panels.scss */
 .panel-primary > .panel-footer + .panel-collapse > .panel-body {
-  border-bottom-color: #337ab7;
+  border-bottom-color: #fd7263;
 }
 
 /* line 250, ../../../src/app/bootstrap/_panels.scss */
@@ -6641,7 +7792,7 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:hover, a.list-g
 /* line 6, ../../../src/app/bootstrap/_close.scss */
 .close {
   float: right;
-  font-size: 19.5px;
+  font-size: 21px;
   font-weight: bold;
   line-height: 1;
   color: black;
@@ -6667,6 +7818,696 @@ button.close {
   -webkit-appearance: none;
 }
 
+/* line 11, ../../../src/app/bootstrap/_modals.scss */
+.modal-open {
+  overflow: hidden;
+}
+
+/* line 16, ../../../src/app/bootstrap/_modals.scss */
+.modal {
+  display: none;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+}
+/* line 32, ../../../src/app/bootstrap/_modals.scss */
+.modal.fade .modal-dialog {
+  -webkit-transform: translate(0, -25%);
+  -ms-transform: translate(0, -25%);
+  -o-transform: translate(0, -25%);
+  transform: translate(0, -25%);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  -moz-transition: -moz-transform 0.3s ease-out;
+  -o-transition: -o-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+}
+/* line 36, ../../../src/app/bootstrap/_modals.scss */
+.modal.in .modal-dialog {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+/* line 38, ../../../src/app/bootstrap/_modals.scss */
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* line 44, ../../../src/app/bootstrap/_modals.scss */
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 10px;
+}
+
+/* line 51, ../../../src/app/bootstrap/_modals.scss */
+.modal-content {
+  position: relative;
+  background-color: white;
+  border: 1px solid #999999;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0px;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  background-clip: padding-box;
+  outline: 0;
+}
+
+/* line 64, ../../../src/app/bootstrap/_modals.scss */
+.modal-backdrop {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: black;
+}
+/* line 71, ../../../src/app/bootstrap/_modals.scss */
+.modal-backdrop.fade {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+/* line 72, ../../../src/app/bootstrap/_modals.scss */
+.modal-backdrop.in {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
+/* line 77, ../../../src/app/bootstrap/_modals.scss */
+.modal-header {
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+  min-height: 16.42857px;
+}
+
+/* line 83, ../../../src/app/bootstrap/_modals.scss */
+.modal-header .close {
+  margin-top: -2px;
+}
+
+/* line 88, ../../../src/app/bootstrap/_modals.scss */
+.modal-title {
+  margin: 0;
+  line-height: 1.42857;
+}
+
+/* line 95, ../../../src/app/bootstrap/_modals.scss */
+.modal-body {
+  position: relative;
+  padding: 15px;
+}
+
+/* line 101, ../../../src/app/bootstrap/_modals.scss */
+.modal-footer {
+  padding: 15px;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
+}
+/* line 14, ../../../src/app/bootstrap/mixins/_clearfix.scss */
+.modal-footer:before, .modal-footer:after {
+  content: " ";
+  display: table;
+}
+/* line 19, ../../../src/app/bootstrap/mixins/_clearfix.scss */
+.modal-footer:after {
+  clear: both;
+}
+/* line 108, ../../../src/app/bootstrap/_modals.scss */
+.modal-footer .btn + .btn {
+  margin-left: 5px;
+  margin-bottom: 0;
+}
+/* line 113, ../../../src/app/bootstrap/_modals.scss */
+.modal-footer .btn-group .btn + .btn {
+  margin-left: -1px;
+}
+/* line 117, ../../../src/app/bootstrap/_modals.scss */
+.modal-footer .btn-block + .btn-block {
+  margin-left: 0;
+}
+
+/* line 123, ../../../src/app/bootstrap/_modals.scss */
+.modal-scrollbar-measure {
+  position: absolute;
+  top: -9999px;
+  width: 50px;
+  height: 50px;
+  overflow: scroll;
+}
+
+@media (min-width: 768px) {
+  /* line 134, ../../../src/app/bootstrap/_modals.scss */
+  .modal-dialog {
+    width: 600px;
+    margin: 30px auto;
+  }
+
+  /* line 138, ../../../src/app/bootstrap/_modals.scss */
+  .modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  /* line 143, ../../../src/app/bootstrap/_modals.scss */
+  .modal-sm {
+    width: 300px;
+  }
+}
+@media (min-width: 992px) {
+  /* line 147, ../../../src/app/bootstrap/_modals.scss */
+  .modal-lg {
+    width: 900px;
+  }
+}
+/* line 7, ../../../src/app/bootstrap/_tooltip.scss */
+.tooltip {
+  position: absolute;
+  z-index: 1070;
+  display: block;
+  visibility: visible;
+  font-family: "Oxygen", sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 1.4;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+/* line 19, ../../../src/app/bootstrap/_tooltip.scss */
+.tooltip.in {
+  opacity: 0.9;
+  filter: alpha(opacity=90);
+}
+/* line 20, ../../../src/app/bootstrap/_tooltip.scss */
+.tooltip.top {
+  margin-top: -3px;
+  padding: 5px 0;
+}
+/* line 21, ../../../src/app/bootstrap/_tooltip.scss */
+.tooltip.right {
+  margin-left: 3px;
+  padding: 0 5px;
+}
+/* line 22, ../../../src/app/bootstrap/_tooltip.scss */
+.tooltip.bottom {
+  margin-top: 3px;
+  padding: 5px 0;
+}
+/* line 23, ../../../src/app/bootstrap/_tooltip.scss */
+.tooltip.left {
+  margin-left: -3px;
+  padding: 0 5px;
+}
+
+/* line 27, ../../../src/app/bootstrap/_tooltip.scss */
+.tooltip-inner {
+  max-width: 200px;
+  padding: 3px 8px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  background-color: black;
+  border-radius: 0px;
+}
+
+/* line 38, ../../../src/app/bootstrap/_tooltip.scss */
+.tooltip-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+
+/* line 47, ../../../src/app/bootstrap/_tooltip.scss */
+.tooltip.top .tooltip-arrow {
+  bottom: 0;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px 5px 0;
+  border-top-color: black;
+}
+/* line 54, ../../../src/app/bootstrap/_tooltip.scss */
+.tooltip.top-left .tooltip-arrow {
+  bottom: 0;
+  right: 5px;
+  margin-bottom: -5px;
+  border-width: 5px 5px 0;
+  border-top-color: black;
+}
+/* line 61, ../../../src/app/bootstrap/_tooltip.scss */
+.tooltip.top-right .tooltip-arrow {
+  bottom: 0;
+  left: 5px;
+  margin-bottom: -5px;
+  border-width: 5px 5px 0;
+  border-top-color: black;
+}
+/* line 68, ../../../src/app/bootstrap/_tooltip.scss */
+.tooltip.right .tooltip-arrow {
+  top: 50%;
+  left: 0;
+  margin-top: -5px;
+  border-width: 5px 5px 5px 0;
+  border-right-color: black;
+}
+/* line 75, ../../../src/app/bootstrap/_tooltip.scss */
+.tooltip.left .tooltip-arrow {
+  top: 50%;
+  right: 0;
+  margin-top: -5px;
+  border-width: 5px 0 5px 5px;
+  border-left-color: black;
+}
+/* line 82, ../../../src/app/bootstrap/_tooltip.scss */
+.tooltip.bottom .tooltip-arrow {
+  top: 0;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 0 5px 5px;
+  border-bottom-color: black;
+}
+/* line 89, ../../../src/app/bootstrap/_tooltip.scss */
+.tooltip.bottom-left .tooltip-arrow {
+  top: 0;
+  right: 5px;
+  margin-top: -5px;
+  border-width: 0 5px 5px;
+  border-bottom-color: black;
+}
+/* line 96, ../../../src/app/bootstrap/_tooltip.scss */
+.tooltip.bottom-right .tooltip-arrow {
+  top: 0;
+  left: 5px;
+  margin-top: -5px;
+  border-width: 0 5px 5px;
+  border-bottom-color: black;
+}
+
+/* line 6, ../../../src/app/bootstrap/_popovers.scss */
+.popover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1060;
+  display: none;
+  max-width: 276px;
+  padding: 1px;
+  font-family: "Oxygen", sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857;
+  text-align: left;
+  background-color: white;
+  background-clip: padding-box;
+  border: 1px solid #cccccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  white-space: normal;
+}
+/* line 31, ../../../src/app/bootstrap/_popovers.scss */
+.popover.top {
+  margin-top: -10px;
+}
+/* line 32, ../../../src/app/bootstrap/_popovers.scss */
+.popover.right {
+  margin-left: 10px;
+}
+/* line 33, ../../../src/app/bootstrap/_popovers.scss */
+.popover.bottom {
+  margin-top: 10px;
+}
+/* line 34, ../../../src/app/bootstrap/_popovers.scss */
+.popover.left {
+  margin-left: -10px;
+}
+
+/* line 37, ../../../src/app/bootstrap/_popovers.scss */
+.popover-title {
+  margin: 0;
+  padding: 8px 14px;
+  font-size: 14px;
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #ebebeb;
+  border-radius: -1px -1px 0 0;
+}
+
+/* line 46, ../../../src/app/bootstrap/_popovers.scss */
+.popover-content {
+  padding: 9px 14px;
+}
+
+/* line 55, ../../../src/app/bootstrap/_popovers.scss */
+.popover > .arrow, .popover > .arrow:after {
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+
+/* line 65, ../../../src/app/bootstrap/_popovers.scss */
+.popover > .arrow {
+  border-width: 11px;
+}
+
+/* line 68, ../../../src/app/bootstrap/_popovers.scss */
+.popover > .arrow:after {
+  border-width: 10px;
+  content: "";
+}
+
+/* line 74, ../../../src/app/bootstrap/_popovers.scss */
+.popover.top > .arrow {
+  left: 50%;
+  margin-left: -11px;
+  border-bottom-width: 0;
+  border-top-color: #999999;
+  border-top-color: rgba(0, 0, 0, 0.25);
+  bottom: -11px;
+}
+/* line 81, ../../../src/app/bootstrap/_popovers.scss */
+.popover.top > .arrow:after {
+  content: " ";
+  bottom: 1px;
+  margin-left: -10px;
+  border-bottom-width: 0;
+  border-top-color: white;
+}
+/* line 89, ../../../src/app/bootstrap/_popovers.scss */
+.popover.right > .arrow {
+  top: 50%;
+  left: -11px;
+  margin-top: -11px;
+  border-left-width: 0;
+  border-right-color: #999999;
+  border-right-color: rgba(0, 0, 0, 0.25);
+}
+/* line 96, ../../../src/app/bootstrap/_popovers.scss */
+.popover.right > .arrow:after {
+  content: " ";
+  left: 1px;
+  bottom: -10px;
+  border-left-width: 0;
+  border-right-color: white;
+}
+/* line 104, ../../../src/app/bootstrap/_popovers.scss */
+.popover.bottom > .arrow {
+  left: 50%;
+  margin-left: -11px;
+  border-top-width: 0;
+  border-bottom-color: #999999;
+  border-bottom-color: rgba(0, 0, 0, 0.25);
+  top: -11px;
+}
+/* line 111, ../../../src/app/bootstrap/_popovers.scss */
+.popover.bottom > .arrow:after {
+  content: " ";
+  top: 1px;
+  margin-left: -10px;
+  border-top-width: 0;
+  border-bottom-color: white;
+}
+/* line 120, ../../../src/app/bootstrap/_popovers.scss */
+.popover.left > .arrow {
+  top: 50%;
+  right: -11px;
+  margin-top: -11px;
+  border-right-width: 0;
+  border-left-color: #999999;
+  border-left-color: rgba(0, 0, 0, 0.25);
+}
+/* line 127, ../../../src/app/bootstrap/_popovers.scss */
+.popover.left > .arrow:after {
+  content: " ";
+  right: 1px;
+  border-right-width: 0;
+  border-left-color: white;
+  bottom: -10px;
+}
+
+/* line 7, ../../../src/app/bootstrap/_carousel.scss */
+.carousel {
+  position: relative;
+}
+
+/* line 11, ../../../src/app/bootstrap/_carousel.scss */
+.carousel-inner {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+/* line 16, ../../../src/app/bootstrap/_carousel.scss */
+.carousel-inner > .item {
+  display: none;
+  position: relative;
+  -webkit-transition: 0.6s ease-in-out left;
+  -o-transition: 0.6s ease-in-out left;
+  transition: 0.6s ease-in-out left;
+}
+/* line 22, ../../../src/app/bootstrap/_carousel.scss */
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  line-height: 1;
+}
+@media all and (transform-3d), (-webkit-transform-3d) {
+  /* line 16, ../../../src/app/bootstrap/_carousel.scss */
+  .carousel-inner > .item {
+    transition: transform .6s ease-in-out;
+    backface-visibility: hidden;
+    perspective: 1000;
+  }
+  /* line 34, ../../../src/app/bootstrap/_carousel.scss */
+  .carousel-inner > .item.next, .carousel-inner > .item.active.right {
+    transform: translate3d(100%, 0, 0);
+    left: 0;
+  }
+  /* line 39, ../../../src/app/bootstrap/_carousel.scss */
+  .carousel-inner > .item.prev, .carousel-inner > .item.active.left {
+    transform: translate3d(-100%, 0, 0);
+    left: 0;
+  }
+  /* line 44, ../../../src/app/bootstrap/_carousel.scss */
+  .carousel-inner > .item.next.left, .carousel-inner > .item.prev.right, .carousel-inner > .item.active {
+    transform: translate3d(0, 0, 0);
+    left: 0;
+  }
+}
+/* line 53, ../../../src/app/bootstrap/_carousel.scss */
+.carousel-inner > .active,
+.carousel-inner > .next,
+.carousel-inner > .prev {
+  display: block;
+}
+/* line 59, ../../../src/app/bootstrap/_carousel.scss */
+.carousel-inner > .active {
+  left: 0;
+}
+/* line 63, ../../../src/app/bootstrap/_carousel.scss */
+.carousel-inner > .next,
+.carousel-inner > .prev {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+/* line 70, ../../../src/app/bootstrap/_carousel.scss */
+.carousel-inner > .next {
+  left: 100%;
+}
+/* line 73, ../../../src/app/bootstrap/_carousel.scss */
+.carousel-inner > .prev {
+  left: -100%;
+}
+/* line 76, ../../../src/app/bootstrap/_carousel.scss */
+.carousel-inner > .next.left,
+.carousel-inner > .prev.right {
+  left: 0;
+}
+/* line 81, ../../../src/app/bootstrap/_carousel.scss */
+.carousel-inner > .active.left {
+  left: -100%;
+}
+/* line 84, ../../../src/app/bootstrap/_carousel.scss */
+.carousel-inner > .active.right {
+  left: 100%;
+}
+
+/* line 93, ../../../src/app/bootstrap/_carousel.scss */
+.carousel-control {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 15%;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+/* line 108, ../../../src/app/bootstrap/_carousel.scss */
+.carousel-control.left {
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
+  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+}
+/* line 111, ../../../src/app/bootstrap/_carousel.scss */
+.carousel-control.right {
+  left: auto;
+  right: 0;
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+}
+/* line 118, ../../../src/app/bootstrap/_carousel.scss */
+.carousel-control:hover, .carousel-control:focus {
+  outline: 0;
+  color: white;
+  text-decoration: none;
+  opacity: 0.9;
+  filter: alpha(opacity=90);
+}
+/* line 127, ../../../src/app/bootstrap/_carousel.scss */
+.carousel-control .icon-prev,
+.carousel-control .icon-next,
+.carousel-control .glyphicon-chevron-left,
+.carousel-control .glyphicon-chevron-right {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  display: inline-block;
+}
+/* line 136, ../../../src/app/bootstrap/_carousel.scss */
+.carousel-control .icon-prev,
+.carousel-control .glyphicon-chevron-left {
+  left: 50%;
+  margin-left: -10px;
+}
+/* line 141, ../../../src/app/bootstrap/_carousel.scss */
+.carousel-control .icon-next,
+.carousel-control .glyphicon-chevron-right {
+  right: 50%;
+  margin-right: -10px;
+}
+/* line 146, ../../../src/app/bootstrap/_carousel.scss */
+.carousel-control .icon-prev,
+.carousel-control .icon-next {
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  font-family: serif;
+}
+/* line 156, ../../../src/app/bootstrap/_carousel.scss */
+.carousel-control .icon-prev:before {
+  content: '\2039';
+}
+/* line 161, ../../../src/app/bootstrap/_carousel.scss */
+.carousel-control .icon-next:before {
+  content: '\203a';
+}
+
+/* line 172, ../../../src/app/bootstrap/_carousel.scss */
+.carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  z-index: 15;
+  width: 60%;
+  margin-left: -30%;
+  padding-left: 0;
+  list-style: none;
+  text-align: center;
+}
+/* line 183, ../../../src/app/bootstrap/_carousel.scss */
+.carousel-indicators li {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 1px;
+  text-indent: -999px;
+  border: 1px solid white;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #000 \9;
+  background-color: transparent;
+}
+/* line 204, ../../../src/app/bootstrap/_carousel.scss */
+.carousel-indicators .active {
+  margin: 0;
+  width: 12px;
+  height: 12px;
+  background-color: white;
+}
+
+/* line 215, ../../../src/app/bootstrap/_carousel.scss */
+.carousel-caption {
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  bottom: 20px;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+/* line 226, ../../../src/app/bootstrap/_carousel.scss */
+.carousel-caption .btn {
+  text-shadow: none;
+}
+
+@media screen and (min-width: 768px) {
+  /* line 237, ../../../src/app/bootstrap/_carousel.scss */
+  .carousel-control .glyphicon-chevron-left,
+  .carousel-control .glyphicon-chevron-right,
+  .carousel-control .icon-prev,
+  .carousel-control .icon-next {
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    font-size: 30px;
+  }
+  /* line 246, ../../../src/app/bootstrap/_carousel.scss */
+  .carousel-control .glyphicon-chevron-left,
+  .carousel-control .icon-prev {
+    margin-left: -15px;
+  }
+  /* line 250, ../../../src/app/bootstrap/_carousel.scss */
+  .carousel-control .glyphicon-chevron-right,
+  .carousel-control .icon-next {
+    margin-right: -15px;
+  }
+
+  /* line 257, ../../../src/app/bootstrap/_carousel.scss */
+  .carousel-caption {
+    left: 20%;
+    right: 20%;
+    padding-bottom: 30px;
+  }
+
+  /* line 264, ../../../src/app/bootstrap/_carousel.scss */
+  .carousel-indicators {
+    bottom: 20px;
+  }
+}
 /* line 14, ../../../src/app/bootstrap/mixins/_clearfix.scss */
 .clearfix:before, .clearfix:after {
   content: " ";
@@ -7051,7 +8892,7 @@ body {
   font-family: "Oxygen", sans-serif;
   font-size: 14px;
   line-height: 22px;
-  background: #fff url('/static/../static/app/images/shared/background.jpg?1450122095') no-repeat 50% 0;
+  background: white url('/static/../static/app/images/shared/background.jpg?1450145078') no-repeat 50% 0;
   color: #3c3c3c;
 }
 
@@ -7273,7 +9114,7 @@ form small input[type="checkbox"] {
   text-shadow: none;
   background-color: transparent;
   border: 0;
-  background-image: url('/static/../static/app/images/overlay_close.png?1450122095');
+  background-image: url('/static/../static/app/images/overlay_close.png?1450145078');
   background-repeat: no-repeat;
   background-position: 50% 50%;
   width: 16px;
@@ -7870,7 +9711,7 @@ img.team.crown {
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
   color: #fff;
-  background: #fff none no-repeat 50% 100%;
+  background: white none no-repeat 50% 100%;
   width: 231px;
   height: 220px;
 }
@@ -7967,7 +9808,7 @@ body.s--users.p--trendpoints .trendpoints {
 }
 /* line 26, ../../../src/app/_users.sass */
 body.s--users.p--trendpoints .trendpoints span {
-  background: url('/static/../static/app/images/trendpunkte_points_large.png?1450122095') no-repeat 0 60%;
+  background: url('/static/../static/app/images/trendpunkte_points_large.png?1450145078') no-repeat 0 60%;
   padding-left: 85px;
 }
 /* line 29, ../../../src/app/_users.sass */
@@ -8007,7 +9848,7 @@ body.s--users.p--trendpoints .goodies-list .goodie .goodie-img img::after {
   text-shadow: none;
   background-color: transparent;
   border: 0;
-  background-image: url('/static/../static/app/images/trendpunkte_loupe.png?1450122095');
+  background-image: url('/static/../static/app/images/trendpunkte_loupe.png?1450145078');
   background-repeat: no-repeat;
   background-position: 50% 50%;
   width: 70px;
@@ -8028,7 +9869,7 @@ body.s--users.p--trendpoints .goodies-list .goodie .goodie-cost {
 }
 /* line 62, ../../../src/app/_users.sass */
 body.s--users.p--trendpoints .goodies-list .goodie .goodie-cost span {
-  background: url('/static/../static/app/images/trendpunkte_points_small.png?1450122095') no-repeat 0 70%;
+  background: url('/static/../static/app/images/trendpunkte_points_small.png?1450145078') no-repeat 0 70%;
   padding-left: 20px;
 }
 /* line 65, ../../../src/app/_users.sass */
@@ -8085,7 +9926,7 @@ body.s--users.p--trendpoints .reward-list .reward .reward-points {
 }
 /* line 99, ../../../src/app/_users.sass */
 body.s--users.p--trendpoints .reward-list .reward .reward-points span {
-  background: url('/static/../static/app/images/trendpunkte_points_small.png?1450122095') no-repeat 0 70%;
+  background: url('/static/../static/app/images/trendpunkte_points_small.png?1450145078') no-repeat 0 70%;
   padding-left: 20px;
 }
 
@@ -8099,7 +9940,7 @@ body.s--users.p--trendpoints .reward-list .reward .reward-points span {
 }
 /* line 110, ../../../src/app/_users.sass */
 .reward-points span {
-  background: url('/static/../static/app/images/trendpunkte_points_small.png?1450122095') no-repeat 0 50%;
+  background: url('/static/../static/app/images/trendpunkte_points_small.png?1450145078') no-repeat 0 50%;
   padding-left: 20px;
 }
 
@@ -8135,7 +9976,7 @@ body.s--users.p--trendpoints .reward-list .reward .reward-points span {
 }
 /* line 25, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .step-1 {
-  background: #fd7263 url('/static/../static/app/images/how/wiefunktionierts_bild1.jpg?1450122095') no-repeat 0% 100%;
+  background: #fd7263 url('/static/../static/app/images/how/wiefunktionierts_bild1.jpg?1450145078') no-repeat 0% 100%;
 }
 /* line 27, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .step-1::before {
@@ -8143,7 +9984,7 @@ body.s--users.p--trendpoints .reward-list .reward .reward-points span {
 }
 /* line 29, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .step-2 {
-  background: #fd7263 url('/static/../static/app/images/how/wiefunktionierts_bild2.jpg?1450122095') no-repeat 0% 100%;
+  background: #fd7263 url('/static/../static/app/images/how/wiefunktionierts_bild2.jpg?1450145078') no-repeat 0% 100%;
 }
 /* line 31, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .step-2::before {
@@ -8151,7 +9992,7 @@ body.s--users.p--trendpoints .reward-list .reward .reward-points span {
 }
 /* line 33, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .step-3 {
-  background: #fd7263 url('/static/../static/app/images/how/wiefunktionierts_bild3.jpg?1450122095') no-repeat 0% 100%;
+  background: #fd7263 url('/static/../static/app/images/how/wiefunktionierts_bild3.jpg?1450145078') no-repeat 0% 100%;
 }
 /* line 35, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .step-3::before {
@@ -8185,23 +10026,23 @@ body.s--static.p--brands .brand-prinz a, body.s--static.p--brands .brand-fuersie
 /* line 54, ../../../src/app/_static_pages.sass */
 body.s--static.p--brands .brand-prinz a {
   background: no-repeat 0 27px;
-  background-image: url('/static/../static/app/images/marken_prinz.png?1450122095');
+  background-image: url('/static/../static/app/images/marken_prinz.png?1450145078');
   background-size: 190px;
 }
 /* line 58, ../../../src/app/_static_pages.sass */
 body.s--static.p--brands .brand-fuersie a {
-  background-image: url('/static/../static/app/images/marken_fuersie.png?1450122095');
+  background-image: url('/static/../static/app/images/marken_fuersie.png?1450145078');
   background-size: 190px;
 }
 /* line 61, ../../../src/app/_static_pages.sass */
 body.s--static.p--brands .brand-petra a {
-  background-image: url('/static/../static/app/images/marken_petra.png?1450122095');
+  background-image: url('/static/../static/app/images/marken_petra.png?1450145078');
   background-size: 190px;
 }
 /* line 64, ../../../src/app/_static_pages.sass */
 body.s--static.p--brands .brand-vital a {
   background: no-repeat 0 14px;
-  background-image: url('/static/../static/app/images/marken_vital.png?1450122095');
+  background-image: url('/static/../static/app/images/marken_vital.png?1450145078');
 }
 
 /* line 47, ../../../src/app/app.sass */
@@ -8294,11 +10135,11 @@ header.main .main-nav .active a {
 
 /* line 114, ../../../src/app/app.sass */
 body.reduced-header {
-  background: #fff;
+  background: white;
 }
 /* line 116, ../../../src/app/app.sass */
 body.reduced-header header.main {
-  background: #fff url('/static/../static/app/images/shared/background.jpg?1450122095') no-repeat 50% 0;
+  background: white url('/static/../static/app/images/shared/background.jpg?1450145078') no-repeat 50% 0;
   margin-bottom: 0px;
 }
 /* line 119, ../../../src/app/app.sass */
@@ -8318,7 +10159,7 @@ body.reduced-header header.main .main-nav ul {
 @media (min-width: 992px) {
   /* line 125, ../../../src/app/app.sass */
   body.reduced-header header.main .main-nav ul {
-    margin: 40px 0 0 0;
+    margin: 70px 0 0 0;
   }
 }
 /* line 130, ../../../src/app/app.sass */

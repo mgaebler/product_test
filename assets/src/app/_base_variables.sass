@@ -28,11 +28,44 @@ $gray-lighter: lighten($gray-base, 93.5%) !default
 
 // #eee
 
-$brand-primary: darken(#428bca, 6.5%) !default
-$brand-success: #5cb85c !default
-$brand-info: #5bc0de !default
+// trendsetter
+$primary: #fd7263
+$brand-primary: $primary
+$text-color: #3c3c3c
+$subdued-text-color: #858585
+$footer-text-color: #4c4c4c
+$link-color: $primary
+$inverse-link-color: #fff
+$inverse-text-color: #fff
+$inverse-background-color: #000
+
+
+$success-color: #264409
+$success-bg-color: #e6efc2
+$success-border-color: #c6d880
+
+$notice-color: #514721
+$notice-bg-color: #fff6bf
+$notice-border-color: #ffd324
+
+$info-color: #205791
+$info-bg-color: #d5edf8
+$info-border-color: #92cae4
+
+$error-color: #8a1f11
+$error-bg-color: #fbe3e4
+$error-border-color: #fbc2c4
+
+
+$brand-success: $success-color !default
+$brand-info: $info-color !default
 $brand-warning: #f0ad4e !default
-$brand-danger: #d9534f !default
+$brand-danger: $error-color !default
+
+//$brand-success: #5cb85c !default
+//$brand-info: #5bc0de !default
+//$brand-warning: #f0ad4e !default
+//$brand-danger: #d9534f !default
 
 //== Scaffolding
 //
@@ -57,7 +90,10 @@ $link-hover-decoration: underline !default
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-$font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif !default
+// trendsetter
+$font-family-sans-serif: 'Oxygen', sans-serif
+$font-family-sans-serif-secondary: 'Helvetica', 'Arial', sans-serif
+
 $font-family-serif: Georgia, "Times New Roman", Times, serif !default
 
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
@@ -944,36 +980,8 @@ $dl-horizontal-offset: $component-offset-horizontal !default
 $hr-border: $gray-lighter !default
 
 
-// trendsetter
-$body-bg: #fff
-$primary: #fd7263
-$brand-primary: $primary
-$text-color: #3c3c3c
-$subdued-text-color: #858585
-$footer-text-color: #4c4c4c
-$link-color: $primary
-$inverse-link-color: #fff
-$inverse-text-color: #fff
-$inverse-background-color: #000
 
 
-$feedback-border-color: #dddddd
-$success-color: #264409
-$success-bg-color: #e6efc2
-$success-border-color: #c6d880
-$notice-color: #514721
-$notice-bg-color: #fff6bf
-$notice-border-color: #ffd324
-$info-color: #205791
-$info-bg-color: #d5edf8
-$info-border-color: #92cae4
-$error-color: #8a1f11
-$error-bg-color: #fbe3e4
-$error-border-color: #fbc2c4
-
-$font-family-sans-serif: 'Oxygen', sans-serif
-$font-family-sans-serif-secondary: 'Helvetica', 'Arial', sans-serif
-$font-size-base: 13px
 
 $border-radius-base: 0px
 $border-radius-large: 0px
