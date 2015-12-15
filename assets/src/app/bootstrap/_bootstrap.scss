@@ -16,7 +16,7 @@
 
 // Components
 @import "component-animations";
-//@import "glyphicons";
+@import "glyphicons";
 @import "dropdowns";
 @import "button-groups";
 @import "input-groups";
@@ -28,10 +28,10 @@
 @import "labels";
 @import "badges";
 //@import "jumbotron";
-//@import "thumbnails";
+@import "thumbnails";
 @import "alerts";
 //@import "progress-bars";
-//@import "media";
+@import "media";
 @import "list-group";
 @import "panels";
 //@import "wells";
@@ -39,9 +39,9 @@
 
 // Components w/ JavaScript
 @import "modals";
-//@import "tooltip";
+@import "tooltip";
 @import "popovers";
-//@import "carousel";
+@import "carousel";
 
 // Utility classes
 @import "utilities";
