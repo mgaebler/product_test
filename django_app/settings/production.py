@@ -15,10 +15,6 @@ THUMBNAIL_DEBUG = False
 TEMPLATE_DEBUG = False
 DEBUG_TOOLBAR = False
 
-# https://django-pipeline.readthedocs.org/en/latest/storages.html
-# STATICFILES_STORAGE = 'pipeline.storage.NonPackagingPipelineCachedStorage'
-PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'mail00.exor'
 DEFAULT_FROM_EMAIL = 'info@trendsetter.eu'
