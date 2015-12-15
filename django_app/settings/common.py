@@ -79,7 +79,7 @@ DEFAULT_JINJA2_TEMPLATE_EXTENSION = '.jinja'
 DEFAULT_FROM_EMAIL = 'info@trendsetter.eu'
 
 JINJA2_EXTENSIONS = (
-    'pipeline.jinja2.ext.PipelineExtension',
+    'pipeline.templatetags.ext.PipelineExtension',
 )
 
 
