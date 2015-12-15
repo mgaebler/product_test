@@ -18,6 +18,7 @@ PIPELINE_JS = {
     'common': {
         'source_filenames': (
             'jquery/dist/jquery.js',
+            'jquery-lazy/jquery.lazy.js',
             'bootstrap-sass-3.3.2/assets/javascripts/bootstrap.js',
             'lightbox/dist/ekko-lightbox.js',
             'wysihtml-0.4.17/dist/wysihtml5x-toolbar.min.js',
