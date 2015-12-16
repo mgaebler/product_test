@@ -2,12 +2,9 @@
 
 {% block body_class %}s--users p--trendpoints reduced-header user-dashboard{% endblock %}
 
-{% block user_panel %}{% endblock %}
-
-
-{% block dash_nav %}
-    {% include 'profiles/navigation.jinja' %}
-{% endblock dash_nav %}
+{% block main_navigation %}
+{% include 'profiles/navigation.jinja' %}
+{% endblock main_navigation %}
 
 
 {% block content %}
