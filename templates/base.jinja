@@ -92,7 +92,7 @@
 
 
 {% block top_navbar %}
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -106,13 +106,7 @@
 
             {% block top_navbar_brand %}
             <a class="navbar-brand" href="{{ url('home') }}" alt="trendsetter">
-                {% if product_test and product_test.brand and product_test.brand.logo_top %}
-                    {% set img = thumbnail(product_test.brand.logo_top, size=(190)) %}
-                    <img width="{{ img.width }}" src="{{ img.src }}" alt="trendsetter"/>
-                {% else %}
-                    <img width="190" src="{{ static("app/images/dashboard_logo_header.png") }}" alt="trendsetter"/>
-                {% endif %}
-
+                <img width="190" src="{{ static("app/images/dashboard_logo_header.png") }}" alt="trendsetter"/>
             </a>
             {% endblock %}
 

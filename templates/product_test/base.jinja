@@ -5,12 +5,21 @@
 {% block body_class %}s--tests p--show reduced-header{% endblock %}
 
 
+{% block top_navbar_brand %}
+<a class="navbar-brand" href="{{ url('home') }}" alt="trendsetter">
+    {% if product_test and product_test.brand and product_test.brand.logo_top %}
+        <img src="{{ thumbnail(product_test.brand.logo_top, size=(0, 40)) }}" alt="trendsetter"/>
+    {% else %}
+        <img width="190" src="{{ static("app/images/dashboard_logo_header.png") }}" alt="trendsetter"/>
+    {% endif %}
 
+</a>
+{% endblock %}
 
 
 {% block main_navigation %}
-    {% include 'navigation_reduced.jinja' %}
-{% endblock %}
+{# empty #}
+{% endblock main_navigation %}
 
 
 {% block content %}
