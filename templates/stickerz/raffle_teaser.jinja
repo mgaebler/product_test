@@ -1,6 +1,13 @@
 {% with sticker = stickers.get(position=0) %}
   <a target="_blank" href="{{ sticker.target_url }}">
-    <img src="{{ thumbnail(sticker.image, size=(720, 0)) }}" alt="{{ sticker.name }}" style="width: 100%"/>
+    <img
+      width="720"
+      srcset="
+        {{ thumbnail(sticker.image, size=(720, 0)) }}" alt="{{ sticker.name }} 1x,
+        {{ thumbnail(sticker.image, size=(1440, 0)) }}" alt="{{ sticker.name }} 2x
+      "
+      style="width: 100%"
+    />
   </a>
 {% endwith %}
 

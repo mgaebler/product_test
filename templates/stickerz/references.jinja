@@ -1,6 +1,12 @@
 
 {% for sticker in stickers %}
   <a href="{{ sticker.target_url }}" target="_blank">
-    <img src="{{ thumbnail(sticker.image, size=(0, 75)) }}" alt="{{ sticker.name }}"/>
+    <img
+      height="75px"
+      srcset="
+        {{ thumbnail(sticker.image, size=(0, 75)) }} 1x,
+        {{ thumbnail(sticker.image, size=(0, 150)) }} 2x
+        "
+      alt="{{ sticker.name }}"/>
   </a>
 {% endfor %}

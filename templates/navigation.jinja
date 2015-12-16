@@ -1,14 +1,15 @@
 <div class="container">
     <div class="row">
-        <div id="logo"
-             class="col-md-24"
-             {% if product_test and product_test.brand and product_test.brand.logo_top %}style="background: url({{ thumbnail(product_test.brand.logo_top, size=(280, 280)) }}) no-repeat 0 18px"{% endif %}
-            >
+        <div id="logo" class="col-md-24">
             <a href="{{ url('home') }}">
                 <h1>
-
-                    <img src="{{ static("app/images/shared/logo.png") }}" alt="trendsetter"/>
-
+                    <img
+                        srcset="
+                            {{ static("app/images/shared/logo.png") }} 1x,
+                            {{ static("app/images/shared/logo@2x.png") }} 2x
+                        "
+                        alt="trendsetter"
+                        />
                 </h1>
             </a>
         </div>

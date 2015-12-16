@@ -105,9 +105,11 @@
 
 
             {% block top_navbar_brand %}
-            <a class="navbar-brand" href="{{ url('home') }}" alt="trendsetter">
-                <img width="190" src="{{ static("app/images/dashboard_logo_header.png") }}" alt="trendsetter"/>
-            </a>
+            <img
+                height="40" srcset="
+                {{ static("app/images/dashboard_logo_header.png") }} 1x,
+                {{ static("app/images/dashboard_logo_header@2x.png") }} 2x"
+                alt="trendsetter"/>
             {% endblock %}
 
 
@@ -170,8 +172,13 @@
                                 <img
                                      alt="Default avatar"
                                      class="user-avatar user-avatar-medium"
-                                     src="{{ thumbnail(user.avatar, size=(32, 32)) }}"
-                                        />
+                                     width="32"
+                                     height="32"
+                                     srcset="
+                                        {{ thumbnail(user.avatar, size=(32, 32)) }} 1x,
+                                        {{ thumbnail(user.avatar, size=(64, 64)) }} 2x
+                                     "
+                                     />
                             {% else %}
                                 <img
                                      class="img-circle user-avatar user-avatar-medium"

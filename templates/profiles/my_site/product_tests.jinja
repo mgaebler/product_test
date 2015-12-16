@@ -2,13 +2,19 @@
 
 {% block profile_content %}
 
-  <h1>Meine Produkttests</h1>
-  <h2>Aktuell laufende Produkttests</h2>
+    <h1>Meine Produkttests</h1>
+    <h2>Aktuell laufende Produkttests</h2>
 
-  {% for participation in user.participation_set.all() %}
-    <img src="{{ thumbnail(participation.product_test.logo, size=(232, 52)) }}" alt="{{ participation.product_test.name }}"/>
+    {% for participation in user.participation_set.all() %}
+        <img
+            srcset="
+                {{ thumbnail(participation.product_test.logo, size=(232, 52)) }} 1x,
+                {{ thumbnail(participation.product_test.logo, size=(464, 104)) }} 2x
+            "
+            alt="{{ participation.product_test.name }}"
+        />
     {% else %}
-    <p>Du nimmst derzeit an keinem Produkttest teil</p>
-  {% endfor %}
+        <p>Du nimmst derzeit an keinem Produkttest teil</p>
+    {% endfor %}
 
 {% endblock profile_content %}
