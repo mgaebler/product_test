@@ -12,6 +12,8 @@
                   <a href="{{ object.form.get_absolute_url() }}">
                     {% if object.form.image %}>
                       <img
+                        width="400"
+                        height="400"
                         srcset="
                           {{ thumbnail(object.form.image, size=(400, 400)) }} 1x,
                           {{ thumbnail(object.form.image, size=(800, 800)) }} 2x

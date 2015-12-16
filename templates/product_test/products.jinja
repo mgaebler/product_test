@@ -77,10 +77,14 @@
                 <div class="raffle-logo">
                   <a href="{{ url('raffles:detail', url=raffle.url) }}">
                     {% if raffle.logo %}
-                      <img srcset="
-                        {{ thumbnail(raffle.logo, size=(200, 75)) }} 1x,
-                        {{ thumbnail(raffle.logo, size=(400, 150)) }} 2x
-                      "/>
+                      <img
+                        width="200"
+                        height="75"
+                        srcset="
+                          {{ thumbnail(raffle.logo, size=(200, 75)) }} 1x,
+                          {{ thumbnail(raffle.logo, size=(400, 150)) }} 2x
+                        "
+                      />
                     {% endif %}
                   </a>
                 </div>
@@ -96,10 +100,14 @@
                 <div class="raffle-image">
                   <a href="{{ url('raffles:detail', url=raffle.url) }}">
                     {% if raffle.list_image %}>
-                      <img srcset="
-                        {{ thumbnail(raffle.list_image, size=(230, 400)) }} 1x,
-                        {{ thumbnail(raffle.list_image, size=(460, 800)) }} 2x
-                      " />
+                      <img
+                        width="230px"
+                        height="400px"
+                        srcset="
+                          {{ thumbnail(raffle.list_image, size=(230, 400)) }} 1x,
+                          {{ thumbnail(raffle.list_image, size=(460, 800)) }} 2x
+                        "
+                      />
                     {% endif %}
                   </a>
                 </div>
