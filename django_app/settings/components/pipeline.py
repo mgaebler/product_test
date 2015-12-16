@@ -10,10 +10,6 @@ PIPELINE_CSS = {
             'app/css/app.css',
         ),
         'output_filename': 'common.css',
-        'extra_context': {
-            'media': 'screen,projection',
-            'async': True
-        },
     }
 }
 
@@ -24,6 +20,7 @@ PIPELINE_JS = {
             'jquery-lazy/jquery.lazy.js',
             'bootstrap-sass-3.3.2/assets/javascripts/bootstrap.js',
             'lightbox/dist/ekko-lightbox.js',
+            'picturefill/dist/picturefill.js',
             'wysihtml-0.4.17/dist/wysihtml5x.js',
             'wysihtml-0.4.17/dist/wysihtml5x-toolbar.js',
             'wysihtml-0.4.17/parser_rules/advanced_and_extended.js',
