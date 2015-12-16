@@ -1,10 +1,7 @@
 @import "compass"
 @import "//fonts.googleapis.com/css?family=Oxygen:400,700,300"
 // @import "normalize"
-//@import "bootstrap/variables"
 @import "base_variables"
-
-
 
 
 $icons: sprite-map("icons/*.png")
@@ -18,6 +15,7 @@ $icons2x: sprite-map("icons2x/*.png")
 @import "forms"
 @import "overlay"
 @import "social_media"
+@import "navigation"
 
 
 =inverse
@@ -56,6 +54,9 @@ $icons2x: sprite-map("icons2x/*.png")
 
 #content
   margin-top: 18px
+
+body
+  background: $body-bg image-url("shared/background.jpg") no-repeat 50% 0
 
 header.main
   .current-user
@@ -112,9 +113,8 @@ header.main
 
 
 body.reduced-header
-  background: $body-bg
   header.main
-    background: $body-bg image-url("shared/background.jpg") no-repeat 50% 0
+
     margin-bottom: 0px
     #logo
       overflow: hidden

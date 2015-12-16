@@ -45,9 +45,10 @@
             </button>
             <a class="navbar-brand" href="{{ url('home') }}" alt="trendsetter">
                 {% if product_test and product_test.brand and product_test.brand.logo_top %}
-                    <img width="200px" src="{{ thumbnail(product_test.brand.logo_top, size=(280, 280)) }}" alt="trendsetter"/>
+                    {% set img = thumbnail(product_test.brand.logo_top, size=(190)) %}
+                    <img width="{{ img.width }}" src="{{ img.src }}" alt="trendsetter"/>
                 {% else %}
-                    <img width="200px" src="{{ static("app/images/dashboard_logo_header.png") }}" alt="trendsetter"/>
+                    <img width="190" src="{{ static("app/images/dashboard_logo_header.png") }}" alt="trendsetter"/>
                 {% endif %}
 
             </a>
@@ -61,12 +62,12 @@
                 <li {% if request.path == url('how_it_works') %}class="active"{% endif %}>
                     <a href="{{ url('how_it_works') }}">Wie funktioniert’s?</a>
                 </li>
-                <li {% if request.path == url('our_brands') %}class="active"{% endif %}>
-                    <a href="{{ url('our_brands') }}">Unsere Marken</a>
-                </li>
-                <li {% if request.path == url('static_page', url='ueber-uns') %}class="active"{% endif %}>
-                    <a href="{{ url('static_page', url='ueber-uns') }}">Über uns</a>
-                </li>
+{#                <li {% if request.path == url('our_brands') %}class="active"{% endif %}>#}
+{#                    <a href="{{ url('our_brands') }}">Unsere Marken</a>#}
+{#                </li>#}
+{#                <li {% if request.path == url('static_page', url='ueber-uns') %}class="active"{% endif %}>#}
+{#                    <a href="{{ url('static_page', url='ueber-uns') }}">Über uns</a>#}
+{#                </li>#}
             </ul>
 
             {# user #}
@@ -82,19 +83,21 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">
+                            {{ user.preferred_name }}
                             {% if user.avatar %}
-                                <img align="right"
+                                <img
                                      alt="Default avatar"
                                      class="user-avatar user-avatar-medium"
                                      src="{{ thumbnail(user.avatar, size=(32, 32)) }}"
                                         />
                             {% else %}
-                                <img align="right" alt="avatar"
+                                <img
                                      class="img-circle user-avatar user-avatar-medium"
                                      src="{{ static('app/images/default_avatar.jpg') }}"
                                         />
                             {% endif %}
-                            {{ user.preferred_name }}<span class="caret"></span>
+                            <span class="caret"></span>
+
                         </a>
                         <ul class="dropdown-menu">
 

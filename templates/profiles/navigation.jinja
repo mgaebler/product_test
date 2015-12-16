@@ -2,10 +2,8 @@
     <div class="row">
         <div class="col-md-24">
             <nav>
-                <ul class="nav nav-tabs nav-justified">
-                    <li class="{% if request.path == url('socialaccount_connections') %} active{% endif %}">
-                        <a href="{{ url('socialaccount_connections') }}">Soziale Netze</a>
-                    </li>
+                <ul class="nav nav-pills nav-justified">
+
                     <li class="{% if request.path == url('user:tests') %} active{% endif %}">
                         <a href="{{ url('user:tests') }}">Meine Produkttests</a>
                     </li>
@@ -21,6 +19,11 @@
                     <li class="{% if request.path == url('user:invite_friends') %} active{% endif %}">
                         <a href="{{ url('user:invite_friends') }}">Freunde einladen</a>
                     </li>
+
+                    <li class="{% if request.path == url('socialaccount_connections') %} active{% endif %}">
+                        <a href="{{ url('socialaccount_connections') }}">Soziale Netze</a>
+                    </li>
+
                 </ul>
             </nav>
         </div>
