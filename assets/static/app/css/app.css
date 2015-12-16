@@ -9201,6 +9201,11 @@ form small input[type="checkbox"] {
   min-width: 310px;
 }
 
+/* line 12, ../../../src/app/_navigation.sass */
+header {
+  margin-top: 52px;
+}
+
 /* line 1, ../../../src/app/_footer.sass */
 footer {
   font-family: "Helvetica", "Arial", sans-serif;
