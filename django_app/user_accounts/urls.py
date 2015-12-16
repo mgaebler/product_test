@@ -8,10 +8,11 @@ from forms_builder.forms.views import FormDetail
 
 urlpatterns = patterns(
     '',
-    url(r'^site$', views.ProductTestsView.as_view(template_name='profiles/my_site/product_tests.jinja'), name='index'),
+    url(r'^site$', views.IndexView.as_view(), name='index'),
     url(r'^profil$', views.UserProfileChangeView.as_view(), name='settings'),
     url(r'^tests$', views.ProductTestsView.as_view(template_name='profiles/my_site/product_tests.jinja'), name='tests'),
     url(r'^trendpoints$', views.TransferListView.as_view(), name='trendpoints'),
+
     url(r'^trendshop/buy/(?P<pk>\d+)/$', shop_buy_item_view, name='trendshop_buy_item'),
     url(r'^trendshop$', ShopItemsListView.as_view(template_name='profiles/my_site/trendshop.jinja'), name='trendshop'),
 

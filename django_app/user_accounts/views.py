@@ -18,7 +18,7 @@ from django.template import Context
 from django.template.loader import get_template
 from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
-from django.views.generic import FormView, UpdateView, ListView, TemplateView
+from django.views.generic import FormView, UpdateView, ListView, TemplateView, RedirectView
 from django.shortcuts import redirect, get_object_or_404
 from allauth.account.models import EmailAddress
 from braces.views import LoginRequiredMixin
@@ -390,3 +390,9 @@ class SurveysView(LoginRequiredMixin, ListView):
 
 class ProductTestsView(LoginRequiredMixin, TemplateView):
     pass
+
+
+class IndexView(LoginRequiredMixin, RedirectView):
+    # use this to redirect to a default user site entry point
+    pattern_name = 'user:tests'
+    permanent = True
