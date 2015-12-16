@@ -9196,6 +9196,10 @@ form small input[type="checkbox"] {
 .navbar-nav .dropdown img {
   margin: -6px 0;
 }
+/* line 8, ../../../src/app/_navigation.sass */
+.navbar-nav .dropdown-menu .login {
+  min-width: 310px;
+}
 
 /* line 1, ../../../src/app/_footer.sass */
 footer {
