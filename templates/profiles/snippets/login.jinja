@@ -1,0 +1,30 @@
+<div>
+    <a class="btn btn-auth btn-block btn-lg btn-facebook"
+       href="{{ provider_login_url(request, 'facebook', method='js_sdk', next=url('user:settings')) }}">
+        Facebook <strong>Login</strong>
+    </a>
+</div>
+
+<div class="strike-container">
+    <span>oder</span>
+</div>
+
+<form accept-charset="UTF-8" action="{{ url('user:login') }}" class="new_user" id="new_user"
+      method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label class="sr-only control-label" for="user_email">Email</label>
+        <input class="form-control"
+               id="user_email"
+               name="user[email]"
+               placeholder="E-Mail-Adresse"
+               type="text">
+    </div>
+    <div class="form-group">
+        <label class="sr-only control-label" for="password">Password</label>
+        <input class="form-control"
+               id="user_password" name="user[password]" placeholder="Passwort"
+               type="password">
+    </div>
+    <input class="btn btn-primary btn-lg btn-block" name="commit" type="submit" value="Log Dich ein">
+</form>

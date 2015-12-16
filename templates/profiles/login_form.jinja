@@ -8,37 +8,8 @@
         <div class="box login col-md-12 col-md-offset-6">
             <h2>Anmelden</h2>
 
-            <div>
-                <a class="btn btn-auth btn-block btn-lg btn-facebook"
-                   href="{{ provider_login_url(request, 'facebook', method='js_sdk', next=url('user:settings')) }}">
-                    Facebook <strong>Login</strong>
-                </a>
-            </div>
-            <div class="strike-container">
-                <span>oder</span>
-            </div>
+            {% include 'profiles/snippets/login.jinja' %}
 
-            <form accept-charset="UTF-8" action="{{ url('user:login') }}" class="new_user" id="new_user" method="post">
-                {% csrf_token %}
-
-                <div class="form-group"><label class="sr-only control-label" for="user_email">Email</label>
-                    <input class="form-control" id="user_email" name="user[email]" placeholder="Deine E-Mail-Adresse"
-                           type="text">
-                </div>
-                <div class="form-group">
-                    <label class="sr-only control-label" for="user_password">Password</label>
-                    <input class="form-control" id="user_password" name="user[password]" placeholder="Dein Passwort"
-                           type="password">
-                </div>
-                <div class="form-group">
-                    <input class="btn btn-primary btn-block btn-lg" inline="true" name="commit" type="submit" value="Anmelden">
-                    <a class="btn btn-block col-md-12" href="{{ url('user:register') }}">Noch nicht registriert?</a>
-                    <a class="btn btn-block col-md-12" href="{{ url('user:password_reset') }}">Passwort vergessen?</a>
-                </div>
-                {% if request.GET.next %}
-                    <input type="hidden" name="came_from"  value="{{ request.GET.next }}" />
-                {% endif %}
-            </form>
         </div>
 
     </div>
