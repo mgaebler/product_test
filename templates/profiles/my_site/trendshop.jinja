@@ -23,7 +23,11 @@
           <div class="goodie">
             <div class="goodie-img">
               <a class="js-open-in-overlay" href="{{ product.image.url }}">
-                <img alt="Trendpunkte praemie {{ product.name }}" src="{{ thumbnail(product.image, size=(64, 64)) }}">
+                <img alt="Trendpunkte praemie {{ product.name }}"
+                     srcset="
+                        {{ thumbnail(product.image, size=(64, 64)) }} 1x,
+                        {{ thumbnail(product.image, size=(128, 128)) }} 2x
+                     ">
               </a>
             </div>
             <div class="goodie-name" style="vertical-align: top">

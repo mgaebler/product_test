@@ -6,7 +6,11 @@
 {% endif %}
 {% if creator.avatar %}
   <img class="img-circle" alt="Default avatar"
-       src="{{ thumbnail(creator.avatar, size=(42, 42), crop=True) }}"/>
+       srcset="
+            {{ thumbnail(creator.avatar, size=(42, 42), crop=True) }} 1x,
+            {{ thumbnail(creator.avatar, size=(42, 42), crop=True) }} 2x
+       "
+  />
 {% else %}
   <img alt="avatar" class="img-circle user-avatar user-avatar-medium"
        src="{{ static('app/images/default_avatar.jpg') }}"/>
