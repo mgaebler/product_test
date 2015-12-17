@@ -10,27 +10,28 @@
 {% block body_class %}s--static p--how{% endblock %}
 
 {% block content %}
-
+  {% set layout = 'col-md-8 col-sm-12' %}
   <div class="inner container">
     <h2>Wie funktioniert Trendsetter?</h2>
 
     <div class="row">
-      <div class="col-md-8">
+      <div class="{{ layout }}">
         <div class="step-1">
           <p>Einfach registrieren, einloggen und für spannende Produkttests bewerben.</p>
         </div>
       </div>
-      <div class="col-md-8">
+      <div class="{{ layout }}">
         <div class="step-2">
           <p>Zusage per Mail erhalten und Artikel per Post zugesendet bekommen.</p>
         </div>
       </div>
-      <div class="col-md-8">
+      <div class="{{ layout }}">
         <div class="step-3">
           <p>Artikel ausgiebig testen, bewerten und Meinung mit Freunden teilen.</p>
         </div>
       </div>
     </div>
+
     {% if not user.is_authenticated() %}
       <div class="bigger cta">
         <p>

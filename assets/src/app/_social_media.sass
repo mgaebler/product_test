@@ -1,9 +1,10 @@
 /*Facebook Connect Button*/
 .btn-facebook
   @include button-variant($btn-primary-color, #3B5998, #2d4373)
+  &:visited
+    color: #f5f5f5
 
-
-
+// this is used in the login window to separate social login from classical
 .strike-container
   position: relative
   text-align: center

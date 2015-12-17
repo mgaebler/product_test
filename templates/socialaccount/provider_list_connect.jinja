@@ -4,12 +4,19 @@
             <li>
               <a title="{{ brand.name }}"
                  class="socialaccount_provider {{ provider.id }} {{ brand.id }}"
-                 href="{{ provider_login_url(provider.id, openid=brand.openid_url, process=connect) }}">{{ brand.name }}</a>
+                 href="{{ provider_login_url(provider.id, openid=brand.openid_url, process=connect) }}"
+                 >
+                  {{ brand.name }}
+              </a>
             </li>
         {% endfor %}
     {% endif %}
     <li>
-      <a title="{{ provider.name }}" class="socialaccount_provider {{ provider.id }}"
-         href="{{ provider_login_url(request, provider.id, process='connect') }}">{{ provider.name }}</a>
+      <a title="{{ provider.name }}"
+         class="socialaccount_provider  btn btn-auth btn-lg btn-{{ provider.id }}"
+         href="{{ provider_login_url(request, provider.id, process='connect') }}"
+         >
+          {{ provider.name }}
+      </a>
     </li>
 {% endfor %}

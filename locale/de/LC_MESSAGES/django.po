@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Trendsetter\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-05 15:31+0000\n"
+"POT-Creation-Date: 2015-12-17 10:15+0100\n"
 "PO-Revision-Date: 2014-11-27 14:09+0100\n"
 "Last-Translator: Claudia <Claudia_Thiede@intosite.de>\n"
 "Language-Team:  <info@trendsetter.eu>\n"
@@ -21,12 +21,12 @@ msgstr ""
 
 #: django_app/django_simple_forum/models.py:11 django_app/faq/models.py:11
 #: django_app/gallery/models.py:22 django_app/gallery/models.py:40
-#: django_app/product_test/models.py:58
+#: django_app/product_test/models.py:59
 msgid "published"
 msgstr "veröffentlicht"
 
 #: django_app/django_simple_forum/models.py:12 django_app/faq/models.py:12
-#: django_app/gallery/models.py:23 django_app/product_test/models.py:59
+#: django_app/gallery/models.py:23 django_app/product_test/models.py:60
 msgid "preview"
 msgstr ""
 
@@ -100,7 +100,11 @@ msgstr "Video-Eigentümer"
 msgid "Logo overview"
 msgstr ""
 
-#: django_app/product_test/models.py:57
+#: django_app/product_test/models.py:34
+msgid "Color"
+msgstr ""
+
+#: django_app/product_test/models.py:58
 msgid "draft"
 msgstr ""
 
@@ -164,7 +168,7 @@ msgstr "Grund für Trendpoint-Vergabe"
 
 #: django_app/simple_bank/models.py:73
 msgid "Balance limit of {} is reached. Limit is:"
-msgstr "Das Volumen ist überschritten. Das maximale Volumen beträgt:"
+msgstr "Das Volumen von {} ist überschritten. Das maximale Volumen beträgt:"
 
 #: django_app/static_pages/forms.py:9
 msgid ""
@@ -247,7 +251,7 @@ msgstr ""
 msgid "Gültige Benutzer für diese Umfrage"
 msgstr ""
 
-#: django_app/surveys/models.py:38
+#: django_app/surveys/models.py:32
 msgid "Eindeutige ID"
 msgstr ""
 
@@ -355,59 +359,59 @@ msgstr "Postleitzahl"
 msgid "family status"
 msgstr "Familienstand"
 
-#: django_app/user_accounts/views.py:40
+#: django_app/user_accounts/views.py:56
 msgid "Login successful"
 msgstr "Login erfolgreich"
 
-#: django_app/user_accounts/views.py:45
+#: django_app/user_accounts/views.py:61
 msgid "Please complete your profile."
 msgstr "Bitte überprüfe Deine Angaben."
 
-#: django_app/user_accounts/views.py:48
+#: django_app/user_accounts/views.py:64
 msgid "This account is not active."
 msgstr "Dieser Account ist nicht aktiviert."
 
-#: django_app/user_accounts/views.py:51
+#: django_app/user_accounts/views.py:67
 msgid "Wrong username or password."
 msgstr "Falscher Benutzername oder Passwort"
 
-#: django_app/user_accounts/views.py:72
+#: django_app/user_accounts/views.py:99
 msgid "Your logout was successfully."
 msgstr "Du hast Dich erfolgreich abgemeldet."
 
-#: django_app/user_accounts/views.py:133
+#: django_app/user_accounts/views.py:160
 msgid "Your password was set successfully."
 msgstr "Dein Passwort wurde geändert."
 
-#: django_app/user_accounts/views.py:167
+#: django_app/user_accounts/views.py:194
 msgid "Max. 10MB. Wird öffentlich angezeigt."
 msgstr "Max. 10MB. Wird öffentlich angezeigt."
 
-#: django_app/user_accounts/views.py:168
+#: django_app/user_accounts/views.py:195
 msgid "Nur, wenn Du Dein Passwort ändern willst."
 msgstr "Nur, wenn Du Dein Passwort ändern willst."
 
-#: django_app/user_accounts/views.py:187
+#: django_app/user_accounts/views.py:214
 msgid "Thank you for completing your profile."
 msgstr "Vervollständigung Deines Profils"
 
-#: django_app/user_accounts/views.py:189
+#: django_app/user_accounts/views.py:216
 msgid "Du hast 5 Trendpoints verdient!"
 msgstr "Du hast 5 Trendpoints verdient!"
 
-#: django_app/user_accounts/views.py:196
+#: django_app/user_accounts/views.py:223
 msgid "Your invite was redeemed."
 msgstr "Deine Einladung wurde eingelöst."
 
-#: django_app/user_accounts/views.py:199
+#: django_app/user_accounts/views.py:226
 msgid "Your profile was saved successfully."
 msgstr "Dein Profil wurde erfolgreich gespeichert."
 
-#: django_app/user_accounts/views.py:291
+#: django_app/user_accounts/views.py:318
 msgid "Become a product tester for free."
 msgstr "Werde kostenlos Produkttester"
 
-#: django_app/user_accounts/views.py:319
+#: django_app/user_accounts/views.py:346
 msgid "An invite was send to your friends."
 msgstr "Es wurde eine Einladung an Deine Freunde versendet."
 
@@ -470,8 +474,30 @@ msgid "Old password"
 msgstr "Bisheriges Passwort"
 
 #: templates/profiles/password/password_change_form.html:48
+#: templates/profiles/password/password_reset_confirm.jinja:28
 msgid "Change my password"
 msgstr "Mein Passwort ändern"
+
+#: templates/profiles/password/password_reset_complete.jinja:12
+#: templates/registration/register_form.jinja:35
+msgid "Log in"
+msgstr "Bitte log Dich erneut ein"
+
+#: templates/profiles/password/password_reset_confirm.jinja:11
+msgid ""
+"Please enter your new password twice so we can verify you typed it in "
+"correctly."
+msgstr ""
+"Bitte gib Dein bisheriges Passwort ein und suche Dir ein neues Passwort aus. "
+"Zur Sicherheit gegen Vertipper, gib Dein neues Passwort ein zweites Mal ein."
+
+#: templates/profiles/password/password_reset_confirm.jinja:34
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a new password reset."
+msgstr ""
+"Der Link zum Zurücksetzen des Passworts war ungültig, weil er bereits "
+"genutzt wurde. Bitte fordere noch einmal ein neues Passwort an."
 
 #: templates/profiles/password/password_reset_done.html:7
 msgid "Password reset"
@@ -493,6 +519,37 @@ msgstr ""
 "Wenn Du keine Bestätigungsmail erhalten hast, überprüfe, ob es sich um die "
 "richtige E-Mail Adresse handelt und schaue auch in Deinem Spam-Ordner nach."
 
+#: templates/profiles/password/password_reset_email.jinja:2
+#: templates/profiles/password/password_reset_html_email.jinja:7
+#, python-format
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at %(site_name)s."
+msgstr ""
+"Du erhältst diese E-Mail, weil Du ein neues Passwort für %(site_name)s "
+"angefordert hast."
+
+#: templates/profiles/password/password_reset_email.jinja:4
+#: templates/profiles/password/password_reset_html_email.jinja:10
+msgid "Please go to the following page and choose a new password:"
+msgstr "Bitte gehe auf folgende Seite und wähle ein neues Passwort aus:"
+
+#: templates/profiles/password/password_reset_email.jinja:10
+msgid "Your username, in case you've forgotten:"
+msgstr "Dein Nutzername, falls Du ihn gerade nicht weißt:"
+
+#: templates/profiles/password/password_reset_email.jinja:12
+#, fuzzy
+#| msgid "Thank you for completing your profile."
+msgid "Thanks for using our site!"
+msgstr "Vervollständigung Deines Profils"
+
+#: templates/profiles/password/password_reset_email.jinja:14
+#: templates/profiles/password/password_reset_html_email.jinja:20
+#, python-format
+msgid "The %(site_name)s team"
+msgstr "Dein %(site_name)s Team"
+
 #: templates/profiles/password/password_reset_subject.txt:2
 #, python-format
 msgid "Password reset on %(site_name)s"
@@ -506,51 +563,17 @@ msgstr "Danke für Deinen Besuch auf trendsetter.eu"
 msgid "Log in again"
 msgstr "Bitte log Dich erneut ein"
 
-msgid "publish_date"
-msgstr "Veröffentlichungsdatum"
+#~ msgid "publish_date"
+#~ msgstr "Veröffentlichungsdatum"
 
-msgid "is_deleted"
-msgstr "wurde gelöscht"
+#~ msgid "is_deleted"
+#~ msgstr "wurde gelöscht"
 
-msgid "Log in"
-msgstr "Bitte log Dich erneut ein"
+#~ msgid "Your password has been set.  You may go ahead and log in now."
+#~ msgstr "Dein Passwort wurde geändert. Du kannst Dich nun wieder einloggen."
 
-msgid "Your password has been set.  You may go ahead and log in now."
-msgstr "Dein Passwort wurde geändert. Du kannst Dich nun wieder einloggen."
+#~ msgid "New password:"
+#~ msgstr "Neues Passwort"
 
-msgid ""
-"Please enter your new password twice so we can verify you typed it in "
-"correctly."
-msgstr ""
-"Bitte gib Dein bisheriges Passwort ein und suche Dir ein neues Passwort "
-"aus. Zur Sicherheit gegen Vertipper, gib Dein neues Passwort ein zweites "
-"Mal ein."
-
-msgid "New password:"
-msgstr "Neues Passwort"
-
-msgid ""
-"The password reset link was invalid, possibly because it has already been "
-"used.  Please request a new password reset."
-msgstr ""
-"Der Link zum Zurücksetzen des Passworts war ungültig, weil er bereits "
-"genutzt wurde. Bitte fordere noch einmal ein neues Passwort an."
-
-msgid ""
-"You're receiving this email because you requested a password reset for "
-"your user account at %(site_name)s."
-msgstr ""
-"Du erhältst diese E-Mail, weil Du ein neues Passwort für %(site_name)s "
-"angefordert hast."
-
-msgid "Please go to the following page and choose a new password:"
-msgstr "Bitte gehe auf folgende Seite und wähle ein neues Passwort aus:"
-
-msgid "Your username, in case you've forgotten:"
-msgstr "Dein Nutzername, falls Du ihn gerade nicht weißt:"
-
-msgid "The %(site_name)s team"
-msgstr "Dein %(site_name)s Team"
-
-msgid "teaser image"
-msgstr "Teaser Bild"
+#~ msgid "teaser image"
+#~ msgstr "Teaser Bild"

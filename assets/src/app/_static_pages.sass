@@ -2,10 +2,13 @@
   .step-1, .step-2, .step-3
     +inverse-text-fix
     +border-radius(4px)
-    width: 310px
-    height: 434px
+    height: 450px
     padding: 16px 4px 16px 64px
+    margin-bottom: 10px
     background: $primary
+    background-size: cover
+    background-repeat: no-repeat
+    background-position-y: 64px
     color: $inverse-text-color
     font-size: 14px
     line-height: 18px
@@ -23,15 +26,15 @@
       font-size: 20px
       font-weight: bold
   .step-1
-    background: $primary image-url('how/wiefunktionierts_bild1.jpg') no-repeat 0% 100%
+    background-image: image-url('how/wiefunktionierts_bild1.jpg')
     &::before
       content: '1'
   .step-2
-    background: $primary image-url('how/wiefunktionierts_bild2.jpg') no-repeat 0% 100%
+    background-image: image-url('how/wiefunktionierts_bild2.jpg')
     &::before
       content: '2'
   .step-3
-    background: $primary image-url('how/wiefunktionierts_bild3.jpg') no-repeat 0% 100%
+    background-image: image-url('how/wiefunktionierts_bild3.jpg')
     &::before
       content: '3'
   .cta

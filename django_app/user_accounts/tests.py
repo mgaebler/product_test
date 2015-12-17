@@ -74,8 +74,7 @@ class UserSurveysTest(TestCase):
         self.assertContains(response, self.field.label)
 
     def test_user_fills_in_survey_completely(self):
-        """Tests allocation of points after an user has filled in a survey
-        completely.
+        """Tests allocation of points after an user has filled in a survey completely.
         """
         self.client.login(username=self.user.email, password="secret")
 
