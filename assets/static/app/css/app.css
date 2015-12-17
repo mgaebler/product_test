@@ -9966,15 +9966,18 @@ body.s--users.p--trendpoints .reward-list .reward .reward-points span {
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
-  width: 310px;
-  height: 434px;
+  height: 450px;
   padding: 16px 4px 16px 64px;
+  margin-bottom: 10px;
   background: #fd7263;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: 64px;
   color: #fff;
   font-size: 14px;
   line-height: 18px;
 }
-/* line 12, ../../../src/app/_static_pages.sass */
+/* line 15, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .step-1::before, .s--static.p--how section[role=content] .step-2::before, .s--static.p--how section[role=content] .step-3::before {
   position: absolute;
   margin-left: -48px;
@@ -9989,45 +9992,45 @@ body.s--users.p--trendpoints .reward-list .reward .reward-points span {
   font-size: 20px;
   font-weight: bold;
 }
-/* line 25, ../../../src/app/_static_pages.sass */
+/* line 28, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .step-1 {
-  background: #fd7263 url('/static/../static/app/images/how/wiefunktionierts_bild1.jpg?1450145078') no-repeat 0% 100%;
+  background-image: url('/static/../static/app/images/how/wiefunktionierts_bild1.jpg?1450145078');
 }
-/* line 27, ../../../src/app/_static_pages.sass */
+/* line 30, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .step-1::before {
   content: "1";
 }
-/* line 29, ../../../src/app/_static_pages.sass */
+/* line 32, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .step-2 {
-  background: #fd7263 url('/static/../static/app/images/how/wiefunktionierts_bild2.jpg?1450145078') no-repeat 0% 100%;
+  background-image: url('/static/../static/app/images/how/wiefunktionierts_bild2.jpg?1450145078');
 }
-/* line 31, ../../../src/app/_static_pages.sass */
+/* line 34, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .step-2::before {
   content: "2";
 }
-/* line 33, ../../../src/app/_static_pages.sass */
+/* line 36, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .step-3 {
-  background: #fd7263 url('/static/../static/app/images/how/wiefunktionierts_bild3.jpg?1450145078') no-repeat 0% 100%;
+  background-image: url('/static/../static/app/images/how/wiefunktionierts_bild3.jpg?1450145078');
 }
-/* line 35, ../../../src/app/_static_pages.sass */
+/* line 38, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .step-3::before {
   content: "3";
 }
-/* line 37, ../../../src/app/_static_pages.sass */
+/* line 40, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .cta {
   margin-top: 22px;
 }
-/* line 39, ../../../src/app/_static_pages.sass */
+/* line 42, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .cta p {
   text-align: center;
 }
-/* line 41, ../../../src/app/_static_pages.sass */
+/* line 44, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .cta a {
   margin-left: 16px;
   font-size: 18px;
 }
 
-/* line 49, ../../../src/app/_static_pages.sass */
+/* line 52, ../../../src/app/_static_pages.sass */
 body.s--static.p--brands .brand-prinz a, body.s--static.p--brands .brand-fuersie a, body.s--static.p--brands .brand-petra a, body.s--static.p--brands .brand-vital a {
   font: 0/0 a;
   color: transparent;
@@ -10038,23 +10041,23 @@ body.s--static.p--brands .brand-prinz a, body.s--static.p--brands .brand-fuersie
   height: 110px;
   background: no-repeat 0 24px;
 }
-/* line 54, ../../../src/app/_static_pages.sass */
+/* line 57, ../../../src/app/_static_pages.sass */
 body.s--static.p--brands .brand-prinz a {
   background: no-repeat 0 27px;
   background-image: url('/static/../static/app/images/marken_prinz.png?1450145078');
   background-size: 190px;
 }
-/* line 58, ../../../src/app/_static_pages.sass */
+/* line 61, ../../../src/app/_static_pages.sass */
 body.s--static.p--brands .brand-fuersie a {
   background-image: url('/static/../static/app/images/marken_fuersie.png?1450145078');
   background-size: 190px;
 }
-/* line 61, ../../../src/app/_static_pages.sass */
+/* line 64, ../../../src/app/_static_pages.sass */
 body.s--static.p--brands .brand-petra a {
   background-image: url('/static/../static/app/images/marken_petra.png?1450145078');
   background-size: 190px;
 }
-/* line 64, ../../../src/app/_static_pages.sass */
+/* line 67, ../../../src/app/_static_pages.sass */
 body.s--static.p--brands .brand-vital a {
   background: no-repeat 0 14px;
   background-image: url('/static/../static/app/images/marken_vital.png?1450145078');
