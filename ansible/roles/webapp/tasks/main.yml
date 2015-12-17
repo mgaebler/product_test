@@ -83,7 +83,7 @@
   tags:
     - deploy
 
-# do collectstatic
+# compile translations
 - shell: "{{ virtualenv.path }}/bin/python {{ app.basedir }}/manage.py compilemessages --settings=django_app.settings.{{ app.environment }}"
   tags:
     - deploy
