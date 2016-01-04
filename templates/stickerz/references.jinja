@@ -3,11 +3,11 @@
   <a href="{{ sticker.target_url }}" target="_blank">
     <img
       width="100px"
-      height="75px"
       srcset="
-        {{ thumbnail(sticker.image, size=(100, 75)) }} 1x,
-        {{ thumbnail(sticker.image, size=(200, 150)) }} 2x
-        "
-      alt="{{ sticker.name }}"/>
+        {{ thumbnail(sticker.image, size=(100, 0), upscale=True) }} 1x,
+        {{ thumbnail(sticker.image, size=(200, 0), upscale=True) }} 2x
+      "
+      alt="{{ sticker.name }}"
+    />
   </a>
 {% endfor %}

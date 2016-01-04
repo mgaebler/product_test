@@ -4,6 +4,7 @@
         <div class="row">
             <div class="reference col-md-24">
                 <span>Referenzen</span>
+                {# @todo: provide safe content in stickers tag #}
                 {% autoescape off %}
                 {{ stickers(identifier='referenzen') }}
                 {% endautoescape %}
