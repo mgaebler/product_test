@@ -32,7 +32,7 @@ class ProductTestList(ListView):
         context["expired_product_test_list"] = context\
             .get("product_test_list")\
             .filter(ends_at__lt=context['timezone_now'])\
-            .order_by('-ends_at')
+            .order_by('ends_at')
 
         return context
 
