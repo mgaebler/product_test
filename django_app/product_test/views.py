@@ -15,8 +15,8 @@ class ProductTestList(ListView):
         queryset = super(ProductTestList, self).get_queryset()
         if not self.request.user.is_staff:
             queryset = queryset\
-            .filter(published_at__lt=timezone.now())\
-            .exclude(state='preview')
+                .filter(published_at__lt=timezone.now())\
+                .exclude(state='preview')
 
         return queryset.exclude(state='draft')
 
@@ -24,8 +24,16 @@ class ProductTestList(ListView):
         context = super(ProductTestList, self).get_context_data(**kwargs)
         context['timezone_now'] = timezone.now()
         context["raffles"] = Raffle.objects.started()
-        context["active_product_test_list"] = context.get("product_test_list").filter(ends_at__gte=context['timezone_now'])
-        context["expired_product_test_list"] = context.get("product_test_list").filter(ends_at__lt=context['timezone_now'])
+
+        context["active_product_test_list"] = context\
+            .get("product_test_list")\
+            .filter(ends_at__gte=context['timezone_now'])
+
+        context["expired_product_test_list"] = context\
+            .get("product_test_list")\
+            .filter(ends_at__lt=context['timezone_now'])\
+            .order_by('-ends_at')
+
         return context
 
 
