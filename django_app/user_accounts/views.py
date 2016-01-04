@@ -63,9 +63,9 @@ def login_view(request):
             else:
                 messages.add_message(request, messages.ERROR, _('This account is not active.'))
                 return redirect('user:login_form')
-        else:
-            messages.add_message(request, messages.ERROR, _('Wrong username or password.'))
-            return redirect('user:login_form')
+    else:
+        messages.add_message(request, messages.ERROR, _('Wrong username or password.'))
+        return redirect('user:login_form')
 
     # redirect the user where he comes from
     if referrer:
