@@ -44,7 +44,7 @@ class ProductTestDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super(ProductTestDetail, self).get_context_data(**kwargs)
         product_test = self.get_object()
-        if product_test.test_result and product_test.test_result.is_active == True:
+        if product_test.test_result and product_test.test_result.is_active is True:
             context['test_result'] = product_test.test_result
         return context
 
@@ -64,6 +64,7 @@ class ProductBrandListView(ListView):
 # test result view
 class ResultView(ProductTestDetail):
     template_name = 'product_test/test_result.jinja'
+
     def get_context_data(self, **kwargs):
         context = super(ResultView, self).get_context_data(**kwargs)
         context['test_result'] = self.get_object().test_result
