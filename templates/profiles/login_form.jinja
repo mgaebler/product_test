@@ -4,14 +4,20 @@
 
     {{ providers_media_js(request)|safe }}
 
-    <div class="inner container">
-        <div class="box login col-md-12 col-md-offset-6">
-            <h2>Anmelden</h2>
+    <div class="container">
+        <div class="row">
+            <div class="box login col-md-12 col-md-offset-6">
+                <h2>Anmelden</h2>
 
-            {% include 'profiles/snippets/login.jinja' %}
+                {% include 'profiles/snippets/login.jinja' %}
 
+                <p>
+                    <br>
+                    <a href="{{ url('user:password_reset') }}">Passwort vergessen?</a>
+                </p>
+
+            </div>
         </div>
-
     </div>
 
 {% endblock %}
