@@ -78,10 +78,9 @@
                   <a href="{{ url('raffles:detail', url=raffle.url) }}">
                     {% if raffle.logo %}
                       <img
-                        height="75"
                         srcset="
-                          {{ thumbnail(raffle.logo, size=(0, 75)) }} 1x,
-                          {{ thumbnail(raffle.logo, size=(0, 150)) }} 2x
+                          {{ thumbnail(raffle.logo, size=(200, 75), upscale=True) }} 1x,
+                          {{ thumbnail(raffle.logo, size=(400, 150), upscale=True) }} 2x
                         "
                       />
                     {% endif %}
