@@ -5,7 +5,13 @@
 {% block product_test_content %}
 <div id="Faq">
   <div class="forum-header">
-    <h4>FAQ</h4>
+    <h4>
+        {% if product_test.faq.name %}
+            {{ product_test.faq.name }}
+        {% else %}
+            FAQ
+        {% endif %}
+    </h4>
     <p>{{ product_test.faq.text|safe }}</p>
   </div>
   <ol>
