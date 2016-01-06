@@ -7,7 +7,7 @@
   <div class="forum-header">
     <h4>
         {% if product_test.faq.name %}
-            {{ product_test.faq.name }}
+            {{ product_test.faq.name|safe }}
         {% else %}
             FAQ
         {% endif %}
