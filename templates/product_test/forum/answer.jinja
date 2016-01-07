@@ -1,0 +1,15 @@
+<h3 style="padding: 0 20px">Antworten auf: {{ post.title }}</h3>
+<div style="padding: 20px">
+  <form class="add-answer" action="{{ url('product_test:forum:answer', slug=slug, post_id=post.pk) }}" method="POST">
+    {% csrf_token %}
+    {% autoescape off %}
+    {{ form|bootstrap }}
+    {% endautoescape %}
+    <input class="btn btn-default" type="submit" value="Antwort abschicken"/>
+  </form>
+</div>
+<script>
+  $(document).ready(function() {
+    add_wysiwyg_editor(".add-answer #id_body");
+  });
+</script>
