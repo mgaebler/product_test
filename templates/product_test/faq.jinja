@@ -14,6 +14,9 @@
     </h4>
     <p>{{ product_test.faq.text|safe }}</p>
   </div>
+  {% if product_test.faq.content %}
+    {{ product_test.faq.content|safe }}
+  {% else %}
   <ol>
     {% for entry in product_test.faq.faqentry_set.all() %}
 
@@ -26,5 +29,6 @@
     </li>
     {% endfor %}
   </ol>
+  {% endif %}
 </div>
 {% endblock %}

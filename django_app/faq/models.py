@@ -14,6 +14,7 @@ class FaqGroup(models.Model):
     )
     name = models.CharField(max_length=255)
     text = models.TextField(blank=True, null=True)
+    content = models.TextField(blank=True)
     state = models.CharField(max_length=24, choices=STATES, default=u'published',
         help_text=u"""
             Draft: The product test is not visible to everyone.
