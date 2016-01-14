@@ -27,4 +27,7 @@
                type="password">
     </div>
     <input class="btn btn-primary btn-lg btn-block" name="commit" type="submit" value="Log Dich ein">
+    {% if request.GET.next %}
+        <input type="hidden" name="next"  value="{{ request.GET.next }}" />
+    {% endif %}
 </form>

@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 import logging
 from datetime import datetime
 from hashlib import sha1
+import urllib
 
 from django.core.urlresolvers import reverse
 from django.core.mail import send_mail, send_mass_mail
@@ -47,6 +48,7 @@ def login_view(request):
     email = request.POST.get('user[email]', None)
     password = request.POST.get('user[password]', None)
     referrer = request.META.get('HTTP_REFERER', None)
+    next_ = request.POST.get("next")
 
     if email and password:
         user = authenticate(username=email.lower(), password=password)
@@ -55,7 +57,8 @@ def login_view(request):
                 login(request, user)
                 messages.add_message(request, messages.INFO, _('Login successful'))
                 logger.info("Successful login")
-
+                if next_:
+                    return redirect(next_)
                 # if the user profile is not complete redirect to the settings page and give a hint
                 if not user.profile_complete:
                     messages.add_message(request, messages.INFO, _('Please complete your profile.'))
@@ -65,10 +68,10 @@ def login_view(request):
                 return redirect('user:login_form')
         else:
             messages.add_message(request, messages.ERROR, _('Wrong username or password.'))
-            return redirect('user:login_form')
-    else:
-        messages.add_message(request, messages.ERROR, _('Wrong username or password.'))
-        return redirect('user:login_form')
+            url = reverse('user:login_form')
+            if next_:
+                url += "?next={}".format(urllib.quote_plus(next_))
+            return redirect(url)
 
     # redirect the user where he comes from
     if referrer:
