@@ -65,11 +65,16 @@
               <div>
                   {% if request.user.is_superuser or (request.user.id == post.creator.id) %}
                     <a class="edit-post-link" href="{{ url('product_test:forum:update', slug=product_test.slug, pk=post.pk) }}">Bearbeiten</a>
-                    <span class="edit-post-separator">|</span>
-                    <a class="answer-post-link" href="{{ url('product_test:forum:answer', slug=product_test.slug, post_id=post.pk) }}">Antworten</a>
-              </div>
+                  {% endif %}
 
-            {% endif %}
+                  {% if (request.user.is_superuser or (request.user.id == post.creator.id)) and request.user.is_authenticated() %}
+                    <span class="edit-post-separator"> | </span>
+                  {% endif %}
+
+                  {% if request.user.is_authenticated() %}
+                    <a class="answer-post-link" href="{{ url('product_test:forum:answer', slug=product_test.slug, post_id=post.pk) }}">Antworten</a>
+                  {% endif %}
+              </div>
             <span class="link-camo">
               <span class="date">{{ post.created|localtime|date }}</span>,
               <time>{{ post.created|localtime|time }}</time>
@@ -112,7 +117,6 @@
                   </div>
                 {% endif %}
               </div>
-
               <header>
                 {# title #}
                 <div class="forum-entry-title col-md-14">
@@ -136,7 +140,6 @@
               <div class="forum-entry-body col-md-21">
                 {{ answer.body|linebreaks()|urlize() }}
               </div>
-
             </section>
           </div>
         {% endfor %}

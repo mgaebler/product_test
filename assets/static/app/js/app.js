@@ -6,7 +6,6 @@ window.add_wysiwyg_editor = function(selector) {
     };
 
     var random = (new Date).getTime();
-
     var toolbar = '<div class="wysiwyg-toolbar btn-group" id="toolbar-' + random + '">';
     toolbar += '<a class="btn btn-default glyphicon glyphicon-bold" data-wysihtml5-command="bold"></a>';
     toolbar += '<a class="btn btn-default glyphicon glyphicon-italic" data-wysihtml5-command="italic"></a>';
