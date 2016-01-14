@@ -1,7 +1,7 @@
 {# todo: move styles to sass files #}
 <h3 style="padding: 0 20px">Beitrag bearbeiten</h3>
-<div style="padding: 20px">
-    <form action="{{ url('product_test:forum:update', slug=slug, pk=object.pk) }}" method="POST">
+<div style="padding: 20px" class="edit-post">
+    <form class="edit-post" action="{{ url('product_test:forum:update', slug=slug, pk=object.pk) }}" method="POST">
       {% csrf_token %}
       {% autoescape off %}
       {{ form|bootstrap }}
@@ -10,3 +10,8 @@
       <input class="update-post-button btn btn-default" type="submit" value="Beitrag speichern">
     </form>
 </div>
+<script>
+  $(document).ready(function() {
+    add_wysiwyg_editor(".edit-post #id_body");
+  });
+</script>

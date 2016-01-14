@@ -4,36 +4,11 @@
 {% block title %}{{ raffle.title }}{% endblock title %}
 {% block navbar_image %}{% endblock %}
 
-
 {% block seo_head %}
   {% for seodata in raffle.seo_data.all %}
     {% include 'senseo/meta_data.html' %}
   {% endfor %}
 {% endblock %}
-
-
-{% block javascript %}
-    <script>
-      (function($) {
-        "use strict";
-
-        $(document).ready(function(){
-            var toolbar = '<div id="toolbar">';
-            toolbar += '<a data-wysihtml5-command="bold">Fett</a>';
-            toolbar += ' | ';
-            toolbar += '<a data-wysihtml5-command="italic">Kursiv</a>';
-            toolbar += '</div>';
-            $("#id_body").before(toolbar);
-            var editor = new wysihtml5.Editor('id_body', {
-              toolbar: 'toolbar',
-              parserRules:  wysihtml5ParserRules
-            });
-        });
-        
-      })(window.jQuery);
-    </script>
-{% endblock javascript %}
-
 
 {% block content %}
 <div class="inner container">
@@ -75,3 +50,11 @@
   </div>
 </div>
 {% endblock content %}
+{% block javascript %}
+  <script>
+    $( document ).ready(function() {
+      "use strict"
+      add_wysiwyg_editor();
+    });
+  </script>
+{% endblock javascript %}

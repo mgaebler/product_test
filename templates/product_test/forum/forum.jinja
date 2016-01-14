@@ -37,7 +37,7 @@
               <strong>{{ topic.last_post().title }}</strong>  {{ topic.last_post().created|localtime|time }} - {{ topic.last_post().created|localtime|date }}
               </a>
               <p>
-              {{ topic.last_post().body|truncatewords(30) }}
+              {{ topic.last_post().body|truncatewords(30)|safe() }}
               </p>
             {% endif %}
           </td>
