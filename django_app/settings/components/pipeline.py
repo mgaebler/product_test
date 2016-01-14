@@ -24,7 +24,7 @@ PIPELINE_JS = {
             'wysihtml-0.4.17/dist/wysihtml5x.js',
             'wysihtml-0.4.17/dist/wysihtml5x-toolbar.js',
             'wysihtml-0.4.17/parser_rules/advanced_and_extended.js',
-            'app/app.js',
+            'app/js/app.js',
         ),
         'output_filename': 'js/common.js',
     }

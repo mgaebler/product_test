@@ -74,10 +74,12 @@
 
   </div>
 </div>
-<script>
-  $( document ).ready(function() {
-    "use strict"
-    add_wysiwyg_editor();
-  });
-</script>
 {% endblock content %}
+{% block javascript %}
+  <script>
+    $( document ).ready(function() {
+      "use strict"
+      add_wysiwyg_editor();
+    });
+  </script>
+{% endblock javascript %}

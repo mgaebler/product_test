@@ -173,12 +173,15 @@
     <div class="modal-content"></div>
   </div>
 </div>
-<script>
-  $( document ).ready(function() {
-    "use strict"
-    var hash = $(location).attr('hash');
-    $(hash).parents("div.answers").show();
-    add_wysiwyg_editor();
-  });
-</script>
 {% endblock %}
+
+{% block javascript %}
+  <script>
+    $( document ).ready(function() {
+      "use strict"
+      var hash = $(location).attr('hash');
+      $(hash).parents("div.answers").show();
+      add_wysiwyg_editor();
+    });
+  </script>
+{% endblock javascript %}
