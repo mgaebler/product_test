@@ -19,7 +19,7 @@
         <a class="btn" href="{{ url('user:register') }}" target="_blank">Noch nicht registriert?</a>
       </div>
       <div class="form-group">
-        <input type="hidden" name="came_from" value="{{ url('product_test:surveys:application', slug=product_test.slug) }}" />
+        <input type="hidden" name="next" value="{{ url('product_test:surveys:application', slug=product_test.slug) }}" />
         <a href="{{ url('user:password_reset') }}">Passwort vergessen?</a>
       </div>
     </form>

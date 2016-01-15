@@ -1,7 +1,7 @@
 from uuid import uuid4
 from django.http import Http404
 from django.shortcuts import redirect
-from product_test.models import Participation
+from django.core.urlresolvers import reverse
 from product_test.views import ProductTestDetail
 from . models import SurveyUser
 
@@ -27,7 +27,10 @@ class ApplicationView(ProductTestDetail):
         if request.user.is_authenticated():
             return super(ApplicationView, self).get(request, *args, **kwargs)
         else:
-            return redirect("product_test:surveys:login_form", slug=self.get_object().slug)
+            url = reverse("product_test:surveys:login_form", kwargs={"slug": self.get_object().slug})
+            if request.get_full_path():
+                url += "?next={}".format(request.get_full_path())
+            return redirect(url)
 
     def get_context_data(self, **kwargs):
         context = super(ApplicationView, self).get_context_data(**kwargs)
