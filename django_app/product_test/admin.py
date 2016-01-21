@@ -5,6 +5,7 @@ import logging
 from django.conf.urls import patterns, url
 from django.contrib import admin
 from django.contrib import messages
+from django.db import transaction
 from django.shortcuts import redirect
 from django.templatetags.static import static
 from .models import ProductTest, Brand, Participation, TestResult
@@ -86,64 +87,90 @@ class ProductTestAdmin(admin.ModelAdmin):
         """
         View to add trendpoints via upload a csv file.
         """
-        # TOOD: Use Django Form?
         try:
             product_test = ProductTest.objects.get(pk=product_test_id)
         except ProductTest.DoesNotExist:
             messages.add_message(request, messages.ERROR, "Produkttest existiert nicht mehr!")
             return redirect(request.META.get("HTTP_REFERER"))
 
+        if request.POST.get("reset"):
+            product_test.trendpoints_file.delete()
+            return redirect(request.META.get("HTTP_REFERER"))
+
         trendpoints_file = request.FILES.get("trendpoints_file")
         if not trendpoints_file:
             messages.add_message(request, messages.ERROR, "Datei ist erforderlich!")
 
+        product_test.trendpoints_file.delete()
+        product_test.trendpoints_file = request.FILES.get("trendpoints_file")
+        product_test.save()
+
+        return redirect(request.META.get("HTTP_REFERER"))
+
+    @transaction.atomic
+    def add_trendpoints(self, request, product_test_id):
+        """
+        View to add trendpoints via prior uploaded csv file.
+        """
+        try:
+            product_test = ProductTest.objects.get(pk=product_test_id)
+        except ProductTest.DoesNotExist:
+            messages.add_message(request, messages.ERROR, "Produkttest existiert nicht mehr!")
+            return redirect(request.META.get("HTTP_REFERER"))
+
         trendpoints = request.POST.get("trendpoints")
         if not trendpoints:
             messages.add_message(request, messages.ERROR, "Trendpoints sind erforderlich!")
-        try:
-            trendpoints = int(trendpoints)
-        except (ValueError, TypeError):
-            messages.add_message(request, messages.ERROR, "Trendpoints muss Zahl sein!")
-            trendpoints = 0
+        else:
+            try:
+                trendpoints = int(trendpoints)
+            except (ValueError, TypeError):
+                messages.add_message(request, messages.ERROR, "Trendpoints muss Zahl sein!")
+                trendpoints = 0
 
         reference = request.POST.get("reference")
         if not reference:
             messages.add_message(request, messages.ERROR, "Referenz ist erforderlich!")
+            return redirect(request.META.get("HTTP_REFERER"))
 
-        if not (trendpoints_file and trendpoints and reference):
+        if not product_test.completion_survey:
+            messages.add_message(request, messages.ERROR, "Produkttest hat keine Abschlussumfrage!")
+
+        survey = product_test.completion_survey
+        if not (product_test.trendpoints_file and trendpoints and reference and survey):
             return redirect(request.META.get("HTTP_REFERER"))
 
         created = False
         skipped = False
-        for row in csv.reader(trendpoints_file, delimiter=str(';'), quotechar=str('"')):
-            try:
-                survey = product_test.completion_survey
-                survey_user = SurveyUser.objects.get(
-                    survey=survey,
-                    uid=row[0],
-                )
-            except SurveyUser.DoesNotExist:
-                logger.info(u"User does not exist for survey '{}' and uid '{}'".format(survey.id, row[0]))
-            else:
-                sender = Account.objects.get(name="trendsetter")
-
+        with open(product_test.trendpoints_file.file.name, 'rU') as fh:
+            for row in csv.reader(fh):
                 try:
-                    receiver = Account.objects.get(customer__email=survey_user.user.email)
-                except Account.DoesNotExist:
-                    logger.info(u"User {} / {} does not have a bank account".format(survey.user.email, row[0]))
+                    survey_user = SurveyUser.objects.get(
+                        survey=survey,
+                        uid=row[0],
+                    )
+                except SurveyUser.DoesNotExist:
+                    logger.info(u"User does not exist for survey '{}' and uid '{}'".format(survey.id, row[0]))
                 else:
-                    if Transfer.objects.filter(sender=sender, receiver=receiver, reference=reference).exists():
-                        skipped = True
-                        logger.info(u"Reference {} for {} / {} already exists. Skipped.".format(reference, receiver.name, row[0]))
+                    sender = Account.objects.get(name="trendsetter")
+
+                    try:
+                        receiver = Account.objects.get(customer__email=survey_user.user.email)
+                    except Account.DoesNotExist:
+                        logger.info(u"User {} / {} does not have a bank account".format(survey.user.email, row[0]))
                     else:
-                        created = True
-                        create_transfer(
-                            sender_account=sender,
-                            receiver_account=receiver,
-                            amount=trendpoints,
-                            message=reference,
-                        )
-                        logger.info(u"Added {} TP to account {} / {} by upload".format(trendpoints, sender.name, row[0]))
+                        if Transfer.objects.filter(sender=sender, receiver=receiver, reference=reference).exists():
+                            skipped = True
+                            logger.info(u"Reference {} for {} / {} already exists. Skipped.".format(reference, receiver.name, row[0]))
+                        else:
+                            created = True
+                            create_transfer(
+                                sender_account=sender,
+                                receiver_account=receiver,
+                                amount=trendpoints,
+                                message=reference,
+                            )
+                            logger.info(u"Added {} TP to account {} / {} by upload".format(trendpoints, sender.name, row[0]))
         if skipped:
             messages.add_message(request, messages.INFO, "Doppelte Referenz gefunden. Trendpoints wurden nicht vergeben")
 
@@ -154,9 +181,42 @@ class ProductTestAdmin(admin.ModelAdmin):
 
         return redirect(request.META.get("HTTP_REFERER"))
 
-    def upload_particpations(self, request, product_test_id):
+    def do_particpations(self, request, product_test_id):
         """
-        View to add participation via upload a csv file.
+        """
+        if request.POST.get("upload_participants"):
+            return self.upload_participants(request, product_test_id)
+        elif request.POST.get("add_participants"):
+            return self.add_participants(request, product_test_id)
+        else:
+            return redirect(request.META.get("HTTP_REFERER"))
+
+    def upload_participants(self, request, product_test_id):
+        try:
+            product_test = ProductTest.objects.get(pk=product_test_id)
+        except ProductTest.DoesNotExist:
+            messages.add_message(request, messages.ERROR, "Produkttest existiert nicht mehr!")
+            return redirect(request.META.get("HTTP_REFERER"))
+
+        if request.POST.get("reset"):
+            product_test.participants_file.delete()
+            return redirect(request.META.get("HTTP_REFERER"))
+
+        participations = request.FILES.get("participants_file")
+        if not participations:
+            messages.add_message(request, messages.ERROR, "Datei ist erforderlich!")
+            return redirect(request.META.get("HTTP_REFERER"))
+
+        product_test.participants_file.delete()
+        product_test.participants_file = request.FILES.get("participants_file")
+        product_test.save()
+
+        return redirect(request.META.get("HTTP_REFERER"))
+
+    @transaction.atomic
+    def add_participants(self, request, product_test_id):
+        """
+        View to add participation via prior uploadeded file.
         """
         try:
             product_test = ProductTest.objects.get(pk=product_test_id)
@@ -164,27 +224,24 @@ class ProductTestAdmin(admin.ModelAdmin):
             messages.add_message(request, messages.ERROR, "Produkttest existiert nicht mehr!")
             return redirect(request.META.get("HTTP_REFERER"))
 
-        participations = request.FILES.get("participations")
-        if not participations:
-            messages.add_message(request, messages.ERROR, "Datei ist erforderlich!")
-            return redirect(request.META.get("HTTP_REFERER"))
-
         created = False
-        for row in csv.reader(participations, delimiter=str(';'), quotechar=str('"')):
-            try:
-                survey = product_test.application_survey
-                survey_user = SurveyUser.objects.get(
-                    survey=survey,
-                    uid=row[0],
-                )
-            except SurveyUser.DoesNotExist:
-                logger.info(u"User does not exist for survey '{}' and uid '{}'".format(survey.id, row[0]))
-            else:
-                created = True
-                Participation.objects.get_or_create(
-                    users=survey_user.user,
-                    product_test=product_test
-                )
+        with open(product_test.participants_file.file.name, 'rU') as fh:
+            for row in csv.reader(fh):
+                print row
+                try:
+                    survey = product_test.application_survey
+                    survey_user = SurveyUser.objects.get(
+                        survey=survey,
+                        uid=row[0],
+                    )
+                except SurveyUser.DoesNotExist:
+                    logger.info(u"User does not exist for survey '{}' and uid '{}'".format(survey.id, row[0]))
+                else:
+                    created = True
+                    Participation.objects.get_or_create(
+                        users=survey_user.user,
+                        product_test=product_test
+                    )
 
         if created:
             messages.add_message(request, messages.INFO, "Participations wurden hinzugefügt.")
@@ -199,12 +256,15 @@ class ProductTestAdmin(admin.ModelAdmin):
         """
         urls = super(ProductTestAdmin, self).get_urls()
         extra_urls = patterns("",
+            url("^(?P<product_test_id>\d+)/add-trendpoints/$",
+                self.admin_site.admin_view(self.add_trendpoints),
+                name="add_trendpoints"),
             url("^(?P<product_test_id>\d+)/upload-trendpoints/$",
                 self.admin_site.admin_view(self.upload_trendpoints),
                 name="upload_trendpoints"),
-            url("^(?P<product_test_id>\d+)/upload-particpations/$",
-                self.admin_site.admin_view(self.upload_particpations),
-                name="upload_particpations"),
+            url("^(?P<product_test_id>\d+)/do-particpations/$",
+                self.admin_site.admin_view(self.do_particpations),
+                name="do_particpations"),
         )
         return extra_urls + urls
 
@@ -219,3 +279,4 @@ class TestResultAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Brand)
+admin.site.register(SurveyUser)

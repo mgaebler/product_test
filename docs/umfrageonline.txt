@@ -1,0 +1,35 @@
+Bewerbung
+=========
+1) Admin legt Bewerbungsumfrage auf www.umfrageonline.com an
+2) Admin fügt Bewerbungsumfrage zu Produktest hinzu
+3) Testbewerber füllen Bewerbungsumfrage über www.trendsetter.eu aus (Jeder angemeldete Benutzer kann teilnehmen)
+4) System erzeugt für jeden, der Bewerbungsumfrage aussfüllt pro Produkttest und Umfrage eine UUID (s. SurveyUser)
+5) System übergibt UUID an www.umfrageonline.com
+
+Mit E-Mails anreichern
+======================
+1) Admin lädt Umfragedaten von www.umfrageonline.com herunter
+2) Admin reichert Umfragedaten mit E-Mails an (/admin/surveys/survey/1/)
+
+Auswahl
+=======
+1) Admin wählt Tester aus (via Excel). Format: eine UUID pro Zeile.
+2) Admin lädt Datei hoch (/admin/product_test/producttest/1/)
+3) Admin klickt auf "Teilnehmer hinzufügen"
+4) System erstellt Teilnehmer (Participation) und fügt diese dem Produkttest zu. (Nur Teilnehmer haben Zugriff)
+
+Abschluss
+=========
+
+1) Admin legt Abschlussumfrage auf www.umfrageonline.com an
+2) Admin fügt Abschlussumfrage zu Produktest hinzu
+3) Teilnehmer füllen Abschlussumfrage über www.trendsetter.eu aus (Nur Teilnehmer haben Zugriff)
+4) System erzeugt für jeden Benutzer, der Abschlussumfrage aussfüllt pro Produkttest und Umfrage eine UUID (s. SurveyUser)
+
+Punktevergabe
+=============
+1) Admin lädt Abschlussumfragedaten von www.umfrageonline.com herunter
+2) Admin wählt Benutzer aus, die Trendpoints bekommen (via Excel). Format: eine UUID pro Zeile.
+3) Admin lädt Datei hoch (/admin/product_test/producttest/1/)
+4) Admin trägt Punkte und Referenz ein und klickt auf "Trendpoints vergeben"
+5) System fügt für jede UUID Trendpoints hinzu

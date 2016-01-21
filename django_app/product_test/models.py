@@ -103,6 +103,9 @@ class ProductTest(models.Model):
     completion_survey_start = models.DateTimeField(null=True, blank=True)
     completion_survey_end = models.DateTimeField(null=True, blank=True)
 
+    participants_file = models.FileField(upload_to="product_tests", blank=True)
+    trendpoints_file = models.FileField(upload_to="product_tests", blank=True)
+
     def __unicode__(self):
         return self.title
 

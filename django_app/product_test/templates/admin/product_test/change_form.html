@@ -1,27 +1,127 @@
 {% extends "admin/change_form.html" %}
 {% load i18n admin_urls %}
 {% block object-tools-items %}
-<li class="trendsetter-upload-box" style="margin: 0 5px 10px 10px; padding: 10px 200px 10px 10px;">
-    <form action='{% url "admin:upload_particpations" object_id %}'
+<style type="text/css">
+  table.plain {
+    border: none;
+  }
+  table.plain tr td {
+    border: none;
+  }
+  li a.plain:active,
+  li a.plain:visited,
+  li a.plain:hover,
+  li a.plain {
+    border: none !important;
+    background: none;
+    display: inline;
+    color: black !important;
+    padding: 0;
+  }
+  div.with-padding {
+    padding: 2px 0 0 0;
+    font-size: 11px;
+  }
+  div.with-big-padding {
+    padding: 15px 0 0 0;
+  }
+  label {
+    font-size: 11px;
+  }
+  .trendsetter-upload-box {
+    height: 130px;
+    width: 400px;
+    margin: 0 10px 10px 10px;
+    padding: 10px 20px 20px 20px;
+  }
+  .trendsetter-upload-box h1 {
+    font-size: 15px;
+    padding: 0;
+  }
+</style>
+<li class="trendsetter-upload-box">
+    <h1>Teilnehmer Datei hochladen</h1>
+    <form action='{% url "admin:do_particpations" object_id %}'
           method="post"
           enctype="multipart/form-data">
         {% csrf_token %}
-        <input type="submit" value="Teilnehmer hochladen" />
-        <input type="file" name="participations" value="add participations" />
-    </form>
+        <p class="file-upload">
+          <span>
+            Ändern <input type="file" name="participants_file" value="add participants" />
+          </span>
+          <div class="with-padding">
+            Derzeit: <a class="plain" href="/media/{{ original.participants_file }}">{{ original.participants_file }}</a>
+          </div>
+          <span class="clearable-file-input">
+            <input id="trendpoints-reset" type="checkbox" name="reset" />
+            <label for="trendpoints-reset">Zurücksetzen</label>
+          </span>
+          <br />
+        </p>
+        <div class="with-big-padding">
+          <input type="submit" name="upload_participants" value="Teilnehmer hochladen" />
+        </div>
+  </form>
 </li>
-<li class="trendsetter-upload-box" style="margin: 0 10px 10px 5px; padding: 10px">
+<li class="trendsetter-upload-box">
+    <h1>Teilnehmer hinzufügen</h1>
+    <form action='{% url "admin:do_particpations" object_id %}'
+          method="post"
+          enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="with-padding">
+          Derzeit: <a class="plain" href="/media/{{ original.participants_file }}">{{ original.participants_file }}</a>
+        </div>
+
+        <div class="with-big-padding">
+          <input type="submit" name="add_participants" value="Teilnehmer hinzufügen" />
+        </div>
+  </form>
+</li>
+
+<li class="trendsetter-upload-box">
+    <h1>Trendpoints Datei hochladen</h1>
     <form action='{% url "admin:upload_trendpoints" object_id %}'
           method="post"
           enctype="multipart/form-data">
         {% csrf_token %}
-        <input type="submit" value="Trendpoints vergeben" />
-        <label for="reference">Referenz:</label> <input type="text" name="reference" />
-        <label for="trendpoints">Trendpoints:</label> <input type="text" name="trendpoints" />
-        <input type="file" name="trendpoints_file" value="add trendpoints" />
+        <p class="file-upload">
+          Ändern <input type="file" name="trendpoints_file" value="upload trendpoints" />
+          <br />
+          <div class="with-padding">
+            Derzeit: <a class="plain" href="/media/{{ original.trendpoints_file }}">{{ original.trendpoints_file }}</a>
+          </div>
+          <span>
+            <input id="reset" type="checkbox" name="reset" />
+            <label for="reset">Zurücksetzen</label>
+          </span>
+        </p>
+        <div class="with-big-padding">
+          <input type="submit" value="Datei hochladen" />
+        </div>
     </form>
 </li>
-<li>
+
+<li class="trendsetter-upload-box">
+    <h1>Trendpoints vergeben</h1>
+    <form action='{% url "admin:add_trendpoints" object_id %}'
+          method="post"
+          enctype="multipart/form-data">
+        {% csrf_token %}
+          <div class="with-padding">
+            Derzeit: <a class="plain" href="/media/{{ original.trendpoints_file }}">{{ original.trendpoints_file }}</a>
+          </div>
+        <p class="file-upload">
+          <label for="reference">Referenz:</label> <input type="text" name="reference" />
+          <label for="trendpoints">Trendpoints:</label> <input type="text" name="trendpoints" />
+        </p>
+        <div class="with-big-padding">
+          <input type="submit" name="add_trendpoints" value="Trendpoints vergeben" />
+        </div>
+    </form>
+</li>
+
+  <li>
     {% url opts|admin_urlname:'history' original.pk|admin_urlquote as history_url %}
     <a href="{% add_preserved_filters history_url %}" class="historylink">{% trans "history" %}</a>
 </li>
