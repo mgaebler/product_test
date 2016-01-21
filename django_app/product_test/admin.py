@@ -134,7 +134,7 @@ class ProductTestAdmin(admin.ModelAdmin):
             return redirect(request.META.get("HTTP_REFERER"))
 
         if not product_test.completion_survey:
-            messages.add_message(request, messages.ERROR, "Produkttest hat keine Abschlussumfrage!")
+            messages.add_message(request, messages.ERROR, "Produkttest hat keine zugeordnete Abschlussumfrage!")
 
         survey = product_test.completion_survey
         if not (product_test.trendpoints_file and trendpoints and reference and survey):
@@ -224,10 +224,13 @@ class ProductTestAdmin(admin.ModelAdmin):
             messages.add_message(request, messages.ERROR, "Produkttest existiert nicht mehr!")
             return redirect(request.META.get("HTTP_REFERER"))
 
+        if not product_test.application_survey:
+            messages.add_message(request, messages.ERROR, "Produkttest hat keine zugeordnete Bewerbungsumfrage!")
+            return redirect(request.META.get("HTTP_REFERER"))
+
         created = False
         with open(product_test.participants_file.file.name, 'rU') as fh:
             for row in csv.reader(fh):
-                print row
                 try:
                     survey = product_test.application_survey
                     survey_user = SurveyUser.objects.get(
