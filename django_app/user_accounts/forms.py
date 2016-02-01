@@ -21,7 +21,7 @@ def validate_terms_of_use(value):
 
 def validate_if_user_exists(value):
     if UserAccount.objects.filter(email=value).exists():
-        raise ValidationError(_(u'Ein Benutzer mit dieser Emailadresse existiert bereits. Passwort vergessen?'))
+        raise ValidationError(_(u'Ein Benutzer mit dieser Emailadresse existiert bereits.'))
 
 
 class MultiEmailField(forms.Field):
