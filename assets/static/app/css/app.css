@@ -8892,7 +8892,7 @@ body {
   font-family: "Oxygen", sans-serif;
   font-size: 14px;
   line-height: 22px;
-  background: white url('/static/../static/app/images/shared/background.jpg?1452769657') no-repeat 50% 0;
+  background: white url('/static/../static/app/images/shared/background.jpg?1452783602') no-repeat 50% 0;
   color: #3c3c3c;
 }
 
@@ -9106,7 +9106,7 @@ form small input[type="checkbox"] {
   text-shadow: none;
   background-color: transparent;
   border: 0;
-  background-image: url('/static/../static/app/images/overlay_close.png?1452769657');
+  background-image: url('/static/../static/app/images/overlay_close.png?1452783602');
   background-repeat: no-repeat;
   background-position: 50% 50%;
   width: 16px;
@@ -9832,7 +9832,7 @@ body.s--users.p--trendpoints .trendpoints {
 }
 /* line 26, ../../../src/app/_users.sass */
 body.s--users.p--trendpoints .trendpoints span {
-  background: url('/static/../static/app/images/trendpunkte_points_large.png?1452769657') no-repeat 0 60%;
+  background: url('/static/../static/app/images/trendpunkte_points_large.png?1452783602') no-repeat 0 60%;
   padding-left: 85px;
 }
 /* line 29, ../../../src/app/_users.sass */
@@ -9872,7 +9872,7 @@ body.s--users.p--trendpoints .goodies-list .goodie .goodie-img img::after {
   text-shadow: none;
   background-color: transparent;
   border: 0;
-  background-image: url('/static/../static/app/images/trendpunkte_loupe.png?1452769657');
+  background-image: url('/static/../static/app/images/trendpunkte_loupe.png?1452783602');
   background-repeat: no-repeat;
   background-position: 50% 50%;
   width: 70px;
@@ -9893,7 +9893,7 @@ body.s--users.p--trendpoints .goodies-list .goodie .goodie-cost {
 }
 /* line 62, ../../../src/app/_users.sass */
 body.s--users.p--trendpoints .goodies-list .goodie .goodie-cost span {
-  background: url('/static/../static/app/images/trendpunkte_points_small.png?1452769657') no-repeat 0 70%;
+  background: url('/static/../static/app/images/trendpunkte_points_small.png?1452783602') no-repeat 0 70%;
   padding-left: 20px;
 }
 /* line 65, ../../../src/app/_users.sass */
@@ -9950,7 +9950,7 @@ body.s--users.p--trendpoints .reward-list .reward .reward-points {
 }
 /* line 99, ../../../src/app/_users.sass */
 body.s--users.p--trendpoints .reward-list .reward .reward-points span {
-  background: url('/static/../static/app/images/trendpunkte_points_small.png?1452769657') no-repeat 0 70%;
+  background: url('/static/../static/app/images/trendpunkte_points_small.png?1452783602') no-repeat 0 70%;
   padding-left: 20px;
 }
 
@@ -9964,7 +9964,7 @@ body.s--users.p--trendpoints .reward-list .reward .reward-points span {
 }
 /* line 110, ../../../src/app/_users.sass */
 .reward-points span {
-  background: url('/static/../static/app/images/trendpunkte_points_small.png?1452769657') no-repeat 0 50%;
+  background: url('/static/../static/app/images/trendpunkte_points_small.png?1452783602') no-repeat 0 50%;
   padding-left: 20px;
 }
 
@@ -9981,7 +9981,7 @@ body.s--users.p--trendpoints .reward-list .reward .reward-points span {
   background: #fd7263;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position-y: 64px;
+  background-position: 0 64px;
   color: #fff;
   font-size: 14px;
   line-height: 18px;
@@ -10003,7 +10003,7 @@ body.s--users.p--trendpoints .reward-list .reward .reward-points span {
 }
 /* line 28, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .step-1 {
-  background-image: url('/static/../static/app/images/how/wiefunktionierts_bild1.jpg?1452769657');
+  background-image: url('/static/../static/app/images/how/wiefunktionierts_bild1.jpg?1452783602');
 }
 /* line 30, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .step-1::before {
@@ -10011,7 +10011,7 @@ body.s--users.p--trendpoints .reward-list .reward .reward-points span {
 }
 /* line 32, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .step-2 {
-  background-image: url('/static/../static/app/images/how/wiefunktionierts_bild2.jpg?1452769657');
+  background-image: url('/static/../static/app/images/how/wiefunktionierts_bild2.jpg?1452783602');
 }
 /* line 34, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .step-2::before {
@@ -10019,7 +10019,7 @@ body.s--users.p--trendpoints .reward-list .reward .reward-points span {
 }
 /* line 36, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .step-3 {
-  background-image: url('/static/../static/app/images/how/wiefunktionierts_bild3.jpg?1452769657');
+  background-image: url('/static/../static/app/images/how/wiefunktionierts_bild3.jpg?1452783602');
 }
 /* line 38, ../../../src/app/_static_pages.sass */
 .s--static.p--how section[role=content] .step-3::before {
@@ -10053,23 +10053,23 @@ body.s--static.p--brands .brand-prinz a, body.s--static.p--brands .brand-fuersie
 /* line 57, ../../../src/app/_static_pages.sass */
 body.s--static.p--brands .brand-prinz a {
   background: no-repeat 0 27px;
-  background-image: url('/static/../static/app/images/marken_prinz.png?1452769657');
+  background-image: url('/static/../static/app/images/marken_prinz.png?1452783602');
   background-size: 190px;
 }
 /* line 61, ../../../src/app/_static_pages.sass */
 body.s--static.p--brands .brand-fuersie a {
-  background-image: url('/static/../static/app/images/marken_fuersie.png?1452769657');
+  background-image: url('/static/../static/app/images/marken_fuersie.png?1452783602');
   background-size: 190px;
 }
 /* line 64, ../../../src/app/_static_pages.sass */
 body.s--static.p--brands .brand-petra a {
-  background-image: url('/static/../static/app/images/marken_petra.png?1452769657');
+  background-image: url('/static/../static/app/images/marken_petra.png?1452783602');
   background-size: 190px;
 }
 /* line 67, ../../../src/app/_static_pages.sass */
 body.s--static.p--brands .brand-vital a {
   background: no-repeat 0 14px;
-  background-image: url('/static/../static/app/images/marken_vital.png?1452769657');
+  background-image: url('/static/../static/app/images/marken_vital.png?1452783602');
 }
 
 /* line 45, ../../../src/app/app.sass */
@@ -10089,7 +10089,7 @@ body.s--static.p--brands .brand-vital a {
 
 /* line 58, ../../../src/app/app.sass */
 body {
-  background: white url('/static/../static/app/images/shared/background.jpg?1452769657') no-repeat 50% 0;
+  background: white url('/static/../static/app/images/shared/background.jpg?1452783602') no-repeat 50% 0;
 }
 
 /* line 62, ../../../src/app/app.sass */
