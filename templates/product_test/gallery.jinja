@@ -55,7 +55,11 @@
           />
 
           <small>
-            {{ image.owner.preferred_name }}
+            {% if image.owner.preferred_name %}
+              {{ image.owner.preferred_name }}
+            {% else %}
+              &nbsp;
+            {% endif %}
           </small>
           {% if user.is_superuser or user == image.owner %}
             <a class="delete-gallery-image" href="{{ url('product_test:gallery:delete_image', slug=product_test.slug, image_id=image.id) }}">X</a>
