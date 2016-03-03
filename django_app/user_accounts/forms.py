@@ -70,6 +70,28 @@ class PasswordSetForm(forms.Form):
     )
 
 
+class AdminPasswordSetForm(forms.Form):
+    password = forms.CharField(
+        label=_('New password'),
+        widget=forms.PasswordInput(render_value=False),
+        max_length=100
+    )
+    re_password = forms.CharField(
+        label=_('Password (again)'),
+        widget=forms.PasswordInput(render_value=False),
+        max_length=100
+    )
+
+    def clean(self):
+        password = self.cleaned_data.get("password")
+        re_password = self.cleaned_data.get("re_password")
+
+        if password and re_password and (password != re_password):
+            raise forms.ValidationError(_(u"Passwörter sind nicht gleich."))
+        else:
+            return self.cleaned_data
+
+
 class InviteFriendsForm(forms.Form):
     recipients = MultiEmailField(widget=forms.Textarea(attrs={'rows': 1, 'cols': 15}), help_text=_(u'Please provide the email addresses comma separated.'))
     subject = forms.CharField()

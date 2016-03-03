@@ -37,6 +37,7 @@ urlpatterns = patterns('',
 
     url(r'gewinnspiele', include('raffles.urls', namespace='raffles')),
     url(r'', include('social.apps.django_app.urls', namespace='social')),
+    url(r'^admin/user_accounts/useraccount/(?P<user_id>\d+)/password$', "user_accounts.views.set_password", name='admin_set_password'),
 
     url(r'', include('static_pages.urls')),
 

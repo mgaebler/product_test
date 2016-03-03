@@ -14,13 +14,17 @@ from django.contrib.auth.hashers import make_password
 from django.contrib.auth.forms import PasswordChangeForm, PasswordResetForm
 from django.contrib.auth.views import password_reset, password_reset_confirm
 from django.db.models import Q
+from django.http import Http404
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.shortcuts import render_to_response
 from django.template import Context
 from django.template.loader import get_template
 from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
 from django.views.generic import FormView, UpdateView, ListView, TemplateView, RedirectView
 from django.shortcuts import redirect, get_object_or_404
+from django.template import RequestContext
 from allauth.account.models import EmailAddress
 from braces.views import LoginRequiredMixin
 from forms_builder.forms.views import FormDetail
@@ -30,7 +34,6 @@ from forms_builder.forms.forms import FormForForm
 from simple_bank.models import create_transfer, Account, Transfer
 from .models import UserAccount
 from . import forms
-
 
 logger = logging.getLogger('user_account.view')
 
@@ -402,3 +405,28 @@ class IndexView(LoginRequiredMixin, RedirectView):
     # use this to redirect to a default user site entry point
     pattern_name = 'user:tests'
     permanent = True
+
+
+def set_password(request, user_id, template_name="admin/set_password.html"):
+    if not request.user.is_superuser:
+        raise Http404
+
+    try:
+        user_account = UserAccount.objects.get(pk=user_id)
+    except UserAccount.DoesNotExist:
+        raise Http404
+
+    if request.method == "POST":
+        form = forms.AdminPasswordSetForm(request.POST)
+        if form.is_valid():
+            user_account.set_password(request.POST.get("password"))
+            user_account.save()
+            messages.info(request, _("Passwort wurde gesetzt!"))
+            return HttpResponseRedirect("/admin/user_accounts/useraccount/%s/" % user_id)
+    else:
+        form = forms.AdminPasswordSetForm()
+
+    return render_to_response(template_name, RequestContext(request, {
+        "form": form,
+        "user_account": user_account,
+    }))
