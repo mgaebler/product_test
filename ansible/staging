@@ -1,8 +1,8 @@
 [webservers]
-trendsetterdjangostage.exor ansible_ssh_user=deploy
+product-testdjangostage.exor ansible_ssh_user=deploy
 
 [dbservers]
-trendsetterdjangostage.exor ansible_ssh_user=deploy
+product-testdjangostage.exor ansible_ssh_user=deploy
 
 [staging:children]
 webservers

@@ -28,18 +28,18 @@
   label {
     font-size: 11px;
   }
-  .trendsetter-upload-box {
+  .product-test-upload-box {
     height: 130px;
     width: 400px;
     margin: 0 10px 10px 10px;
     padding: 10px 20px 20px 20px;
   }
-  .trendsetter-upload-box h1 {
+  .product-test-upload-box h1 {
     font-size: 15px;
     padding: 0;
   }
 </style>
-<li class="trendsetter-upload-box">
+<li class="product-test-upload-box">
     <h1>Teilnehmer Datei hochladen</h1>
     <form action='{% url "admin:do_particpations" object_id %}'
           method="post"
@@ -63,7 +63,7 @@
         </div>
   </form>
 </li>
-<li class="trendsetter-upload-box">
+<li class="product-test-upload-box">
     <h1>Teilnehmer hinzufügen</h1>
     <form action='{% url "admin:do_particpations" object_id %}'
           method="post"
@@ -79,7 +79,7 @@
   </form>
 </li>
 
-<li class="trendsetter-upload-box">
+<li class="product-test-upload-box">
     <h1>Trendpoints Datei hochladen</h1>
     <form action='{% url "admin:upload_trendpoints" object_id %}'
           method="post"
@@ -102,7 +102,7 @@
     </form>
 </li>
 
-<li class="trendsetter-upload-box">
+<li class="product-test-upload-box">
     <h1>Trendpoints vergeben</h1>
     <form action='{% url "admin:add_trendpoints" object_id %}'
           method="post"

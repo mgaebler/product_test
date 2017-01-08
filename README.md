@@ -82,7 +82,7 @@ Folgende Punkte werden im Deployment abgehandelt.
 * Arbeitsverzeichnis nach Login ist /vagrant (.bashrc) 
 
 
-## Staging (http://staging.django.trendsetter.eu/)
+## Staging (http://staging.django.product-test.eu/)
 ``ansible-playbook ansible/staging.yml -i ansible/staging``
 
 Folgende Punkte werden im Deployment abgehandelt.
@@ -94,7 +94,7 @@ Folgende Punkte werden im Deployment abgehandelt.
 * Ausführen von collectstatic
 
 
-## Production (https://trendsetter.eu)
+## Production (https://product-test.eu)
 ``ansible-playbook ansible/production.yml -i ansible/production``
 
 Folgende Punkte werden im Deployment abgehandelt.

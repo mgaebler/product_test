@@ -4,14 +4,14 @@ user:
   home: /home/deploy
 
 project: &PROJECT
-  name: "Trendsetter"
-  id: "trendsetter_staging"
+  name: "product-test"
+  id: "product-test_staging"
 
 app:
   <<: *PROJECT
-  repo: git@bitbucket.org:intosite/trendsetter-django.git
+  repo: git@bitbucket.org:intosite/product-test-django.git
   version: staging
-  domain: "staging.django.trendsetter.eu"
+  domain: "staging.django.product-test.eu"
   basedir: "{{ user.home }}/{{ project.id }}"
   media_path: "{{ user.home }}/{{ project.id }}/.media"
   static_path: "{{ user.home }}/{{ project.id }}/.static"

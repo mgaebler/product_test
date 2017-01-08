@@ -217,7 +217,7 @@ class UserProfileChangeView(LoginRequiredMixin, UpdateView):
             user.save()
             # pay the user 5 points
             create_transfer(
-                sender_account=Account.objects.get(name='trendsetter'),
+                sender_account=Account.objects.get(name='product-test'),
                 receiver_account=user.bank_account.all().first(),
                 amount=5,
                 message=_('Thank you for completing your profile.')
@@ -226,7 +226,7 @@ class UserProfileChangeView(LoginRequiredMixin, UpdateView):
             if user.invited_by:
                 # if the user has an invited_by pay the invite 5 points
                 create_transfer(
-                    sender_account=Account.objects.get(name='trendsetter'),
+                    sender_account=Account.objects.get(name='product-test'),
                     receiver_account=user.invited_by.bank_account.all().first(),
                     amount=5,
                     message=_('Your invite was redeemed.')
@@ -285,9 +285,9 @@ class AccountCreateView(FormView):
         html_email_body = html_template.render(context)
 
         send_mail(
-            subject='Deine Registrierung bei Trendsetter',
+            subject='Deine Registrierung bei product-test',
             message=email_body,
-            from_email='registrierung@trendsetter.eu',
+            from_email='registrierung@product-test.eu',
             recipient_list=[recipient],
             html_message=html_email_body,
             fail_silently=False

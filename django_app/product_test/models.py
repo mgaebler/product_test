@@ -26,7 +26,7 @@ class Brand(models.Model):
     url = models.URLField()
     logo = models.ImageField(_(u"Logo overview"))
     logo_top = models.ImageField(blank=True, null=True, help_text=u"""
-        When this logo is given, the default trendsetter logo on top left of the
+        When this logo is given, the default product-test logo on top left of the
         page is exchanged with this one on all product test pages."""
     )
     created_at = models.DateTimeField(auto_now_add=True)

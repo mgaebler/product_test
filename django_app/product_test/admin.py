@@ -78,7 +78,7 @@ class ProductTestAdmin(admin.ModelAdmin):
 
         css = {
             'all': (
-                'admin/css/trendsetter.css',
+                'admin/css/product-test.css',
                 static('product_test/codemirror/lib/codemirror.css'),
             )
         }
@@ -152,7 +152,7 @@ class ProductTestAdmin(admin.ModelAdmin):
                 except SurveyUser.DoesNotExist:
                     logger.info(u"User does not exist for survey '{}' and uid '{}'".format(survey.id, row[0]))
                 else:
-                    sender = Account.objects.get(name="trendsetter")
+                    sender = Account.objects.get(name="product-test")
 
                     try:
                         receiver = Account.objects.get(customer__email=survey_user.user.email)

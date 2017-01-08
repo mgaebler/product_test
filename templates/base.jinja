@@ -6,9 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{% block title %}Trendsetter{% if debug %} - DEBUG{% endif %}{% endblock title %}</title>
+  <title>{% block title %}product-test{% if debug %} - DEBUG{% endif %}{% endblock title %}</title>
 
-  <link hreflang="de" rel="alternate" href="https://www.trendsetter.eu"/>
+  <link hreflang="de" rel="alternate" href="https://www.product-test.eu"/>
 
 
   <link href="{{ static('app/images/favicons/favicon.ico') }}" rel="shortcut icon" type="image/vnd.microsoft.icon"/>
@@ -45,21 +45,21 @@
 
   <link href="https://plus.google.com/104263993094810252271" rel="publisher">
 
-  <meta content="Trendsetter" itemprop="name">
+  <meta content="product-test" itemprop="name">
   <meta
-      content="Trendsetter, die neue Online Produkttest-Plattform ist da! Kostenlose Produkttests und Gewinnspiele! Sei dabei: www.trendsetter.eu"
+      content="product-test, die neue Online Produkttest-Plattform ist da! Kostenlose Produkttests und Gewinnspiele! Sei dabei: www.product-test.eu"
       itemprop="description">
-  <meta content="https://www.trendsetter.eu/assets/trendsetter_sm_share-829f2d6bfd4fb457984bb5c5e7f10bdf.png"
+  <meta content="https://www.product-test.eu/assets/product-test_sm_share-829f2d6bfd4fb457984bb5c5e7f10bdf.png"
         itemprop="image">
 
   {# Facebook #}
-  <meta content="Trendsetter" property="og:title">
+  <meta content="product-test" property="og:title">
   <meta content="website" property="og:type">
   <meta content="de_DE" property="og:locale">
-  <meta content="Trendsetter" property="og:site_name">
-{#  <meta content='https://www.trendsetter.eu/{{ static('app/images/favicons/trendsetter_sm_share.png') }}' property='og:image'>#}
+  <meta content="product-test" property="og:site_name">
+{#  <meta content='https://www.product-test.eu/{{ static('app/images/favicons/product-test_sm_share.png') }}' property='og:image'>#}
   <meta
-      content="Trendsetter, die neue Online Produkttest-Plattform ist da! Kostenlose Produkttests und Gewinnspiele! Sei dabei: www.trendsetter.eu"
+      content="product-test, die neue Online Produkttest-Plattform ist da! Kostenlose Produkttests und Gewinnspiele! Sei dabei: www.product-test.eu"
       property="og:description">
   <meta content="100007765833987,100000081178215" property="fb:admins">
   <meta content="449686848467025" property="fb:app_id">
@@ -105,12 +105,12 @@
 
 
             {% block top_navbar_brand %}
-            <a class="navbar-brand" href="{{ url('home') }}" alt="trendsetter">
+            <a class="navbar-brand" href="{{ url('home') }}" alt="product-test">
             <img
                 height="40" srcset="
                 {{ static("app/images/dashboard_logo_header.png") }} 1x,
                 {{ static("app/images/dashboard_logo_header@2x.png") }} 2x"
-                alt="trendsetter"/>
+                alt="product-test"/>
             </a>
             {% endblock %}
 
@@ -290,12 +290,12 @@
 {
   "@context": "http://schema.org",
   "@type": "Organization",
-  "url": "https://www.trendsetter.eu",
-  "logo": "https://www.trendsetter.eu{{ static('app/images/favicons/favicon-196x196.png') }}",
+  "url": "https://www.product-test.eu",
+  "logo": "https://www.product-test.eu{{ static('app/images/favicons/favicon-196x196.png') }}",
   "sameAs" : [
-    "https://www.facebook.com/trendsetter.eu",
-    "https://twitter.com/TRENDSETTER_eu",
-    "https://plus.google.com/+TrendsetterEu"
+    "https://www.facebook.com/product-test.eu",
+    "https://twitter.com/product-test_eu",
+    "https://plus.google.com/+product-testEu"
   ]
 }
 </script>

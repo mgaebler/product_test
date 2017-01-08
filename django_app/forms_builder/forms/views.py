@@ -90,10 +90,10 @@ class FormDetail(TemplateView):
 
             if instance is None:  # user hasn't completed form before.
                 try:
-                    sender = Account.objects.get(name="trendsetter")
+                    sender = Account.objects.get(name="product-test")
                 except Account.DoesNotExist:
                     sender = None
-                    logger.critical("Trendsetter bank account does not exist!")
+                    logger.critical("product-test bank account does not exist!")
 
                 try:
                     receiver = Account.objects.get(customer__email=request.user.email)
@@ -101,7 +101,7 @@ class FormDetail(TemplateView):
                     receiver = None
 
                     logger.info(
-                        "Couldn't add trendsetter points for {} for extended user profile '{}' because there is no bank account.".format(request.user.email, form.title)
+                        "Couldn't add product-test points for {} for extended user profile '{}' because there is no bank account.".format(request.user.email, form.title)
                     )
 
                 if sender and receiver:

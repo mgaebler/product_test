@@ -83,10 +83,10 @@ class Command(BaseCommand):
                 tp = int(user.get('trendpoints'))
                 # @todo: uebertrag auf das neue system
                 models.create_transfer(
-                    models.Account.objects.get(name='trendsetter'),
+                    models.Account.objects.get(name='product-test'),
                     u.bank_account.all().first(),
                     tp,
-                    'Übertragung Deiner bisher gesammelten Trendpoints in das neue Trendsetter-Kontosystem'
+                    'Übertragung Deiner bisher gesammelten Trendpoints in das neue product-test-Kontosystem'
                 )
 
             if user.get('country'):

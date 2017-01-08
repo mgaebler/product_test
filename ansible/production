@@ -1,5 +1,5 @@
 [webservers]
-trendsetter2.exor ansible_ssh_user=deploy
+product-test2.exor ansible_ssh_user=deploy
 
 [production:children]
 webservers

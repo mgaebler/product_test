@@ -20,7 +20,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     #v.gui = true
   end
 
-  config.vm.define "trendsetter" do |machine|
+  config.vm.define "product-test" do |machine|
     machine.vm.network :private_network, ip: "192.168.105.11"
   end
 

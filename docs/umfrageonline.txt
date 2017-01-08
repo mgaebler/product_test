@@ -2,7 +2,7 @@ Bewerbung
 =========
 1) Admin legt Bewerbungsumfrage auf www.umfrageonline.com an
 2) Admin fügt Bewerbungsumfrage zu Produktest hinzu
-3) Testbewerber füllen Bewerbungsumfrage über www.trendsetter.eu aus (Jeder angemeldete Benutzer kann teilnehmen)
+3) Testbewerber füllen Bewerbungsumfrage über www.product-test.eu aus (Jeder angemeldete Benutzer kann teilnehmen)
 4) System erzeugt für jeden, der Bewerbungsumfrage aussfüllt pro Produkttest und Umfrage eine UUID (s. SurveyUser)
 5) System übergibt UUID an www.umfrageonline.com
 
@@ -23,7 +23,7 @@ Abschluss
 
 1) Admin legt Abschlussumfrage auf www.umfrageonline.com an
 2) Admin fügt Abschlussumfrage zu Produktest hinzu
-3) Teilnehmer füllen Abschlussumfrage über www.trendsetter.eu aus (Nur Teilnehmer haben Zugriff)
+3) Teilnehmer füllen Abschlussumfrage über www.product-test.eu aus (Nur Teilnehmer haben Zugriff)
 4) System erzeugt für jeden Benutzer, der Abschlussumfrage aussfüllt pro Produkttest und Umfrage eine UUID (s. SurveyUser)
 
 Punktevergabe

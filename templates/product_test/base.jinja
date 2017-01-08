@@ -6,20 +6,20 @@
 
 
 {% block top_navbar_brand %}
-<a class="navbar-brand" href="{{ url('home') }}" alt="trendsetter">
+<a class="navbar-brand" href="{{ url('home') }}" alt="product-test">
     {% if product_test and product_test.brand and product_test.brand.logo_top %}
         <img
             height="40" srcset="
             {{ thumbnail(product_test.brand.logo_top, size=(0, 40)) }} 1x,
             {{ thumbnail(product_test.brand.logo_top, size=(0, 80)) }} 2x"
-            alt="trendsetter"
+            alt="product-test"
             />
     {% else %}
         <img
             height="40" srcset="
             {{ static("app/images/dashboard_logo_header.png") }} 1x,
             {{ static("app/images/dashboard_logo_header@2x.png") }} 2x"
-            alt="trendsetter"/>
+            alt="product-test"/>
     {% endif %}
 
 </a>

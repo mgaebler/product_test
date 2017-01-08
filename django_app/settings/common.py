@@ -76,7 +76,7 @@ TEMPLATE_DIRS = (
 )
 
 DEFAULT_JINJA2_TEMPLATE_EXTENSION = '.jinja'
-DEFAULT_FROM_EMAIL = 'info@trendsetter.eu'
+DEFAULT_FROM_EMAIL = 'info@product-test.eu'
 
 JINJA2_EXTENSIONS = (
     'pipeline.templatetags.ext.PipelineExtension',
@@ -212,11 +212,11 @@ LOGIN_URL = "/my/login-form"
 # CACHES = {
 # 'default': {
 # 'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-#         'LOCATION': '/tmp/trendsetter/django_cache',
+#         'LOCATION': '/tmp/product-test/django_cache',
 #     },
 #     'staticfiles': {
 #         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-#         'LOCATION': '/tmp/trendsetter/django_cache_staticfiles',
+#         'LOCATION': '/tmp/product-test/django_cache_staticfiles',
 #     },
 # }
 
@@ -310,7 +310,7 @@ NOSE_ARGS = [
 #
 # GRAPPELLI
 #
-GRAPPELLI_ADMIN_TITLE = 'Trendsetter Admin'
+GRAPPELLI_ADMIN_TITLE = 'product-test Admin'
 
 
 #

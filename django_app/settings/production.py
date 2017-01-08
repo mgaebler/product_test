@@ -17,13 +17,13 @@ DEBUG_TOOLBAR = False
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'mail00.exor'
-DEFAULT_FROM_EMAIL = 'info@trendsetter.eu'
+DEFAULT_FROM_EMAIL = 'info@product-test.eu'
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'trendsetter2',
-        'USER': 'trendsetter2',
+        'NAME': 'product-test2',
+        'USER': 'product-test2',
         'PASSWORD': 'miejohrohm1iechedeeY4be9P',
         'HOST': 'intodb.exor',
         'PORT': '',

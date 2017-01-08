@@ -60,8 +60,8 @@ def shop_buy_item_view(request, pk):
             send_mail(
                 u'Trendpoints eingelöst',
                 message,
-                'info@trendsetter.eu',
-                ['info@trendsetter.eu']
+                'info@product-test.eu',
+                ['info@product-test.eu']
             )
         else:
             messages.info(request, u'Du hast nicht genügend Trendpoints um diese Aktion durchzuführen.')

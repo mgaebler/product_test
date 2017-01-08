@@ -20,7 +20,7 @@ class SurveyAdmin(admin.ModelAdmin):
 
     class Media:
         css = {
-            'all': ('admin/css/trendsetter.css', )
+            'all': ('admin/css/product-test.css', )
         }
 
     def add_email_addresses(self, request, survey_id):

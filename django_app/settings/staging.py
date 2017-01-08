@@ -34,7 +34,7 @@ INSTALLED_APPS += (
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'mail00.exor'
-DEFAULT_FROM_EMAIL = 'staging@trendsetter.eu'
+DEFAULT_FROM_EMAIL = 'staging@product-test.eu'
 
 DATABASES = {
     'default': {
